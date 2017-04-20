@@ -5,6 +5,10 @@
 .toggle.toolbar-primary-buttons-software *{ // text has a background for some reason in the dark theme
 background: transparent;
 }
+@if $titlebar == 'dark' {
+  .toggle.toolbar-primary-buttons-software:checked{
+background: $lightest_bg_color;
+}}
 
 /************
  * Nautilus *

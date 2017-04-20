@@ -3599,6 +3599,10 @@ headerbar button.suggested-action:hover {
   background: transparent;
 }
 
+.toggle.toolbar-primary-buttons-software:checked {
+  background: white;
+}
+
 /************
  * Nautilus *
  ************/

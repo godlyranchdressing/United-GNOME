@@ -1,7 +1,7 @@
-$variant: 'dark'; // light or dark
-$panel: 'dark'; // light or dark
+$variant: 'light'; // light or dark
+$panel: 'true'; // light or dark
 $compact: 'false'; // true or false
-$transparency: 'true'; // true or false
+$transparency: 'false'; // true or false
 
 @import 'sass/variables';
 @import 'sass/drawing';
