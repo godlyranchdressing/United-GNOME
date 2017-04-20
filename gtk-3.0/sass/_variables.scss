@@ -1,0 +1,115 @@
+// Variables ----------
+$dark_fg_color: #606060; // This is the text color in the light variant
+$light_fg_color: #ffffff; // The text color in the dark variant
+$fg_color: if($variant == 'light', $dark_fg_color, $light_fg_color); // For shorthand's sake
+$extra_background_clip: if($variant == 'light', padding-box, border-box);
+// opacities
+$higher_opacity: 0.9;
+$middle_opacity: 0.6;
+$lower_opacity: 0.3;
+$secondary_opacity: 0.75;
+$tertiary_opacity: 0.6;
+$disabled_opacity: 0.4;
+// sizes
+$small_size: 20px;
+$medium_size: 32px;
+$large_size: 44px;
+$container_padding: 6px;
+$bar_size: 4px;
+$menuitem_size: 32px;
+// radiuses
+$material_radius: 8px;
+$circular_radius: 9999px;
+// durations
+$shorter_duration: 0.1s;
+$longer_duration: 0.2s;
+// timing functions
+$standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);
+$deceleration_curve: cubic-bezier(0.0, 0.0, 0.2, 1);
+$acceleration_curve: cubic-bezier(0.4, 0.0, 1, 1);
+$sharp_curve: cubic-bezier(0.4, 0.0, 0.6, 1);
+// transition shorthands
+$shorter_transition: all $shorter_duration $deceleration_curve;
+$longer_transition: all $longer_duration $deceleration_curve;
+$shadow_transition: box-shadow $shorter_duration $deceleration_curve;
+// shadows
+// based shadow values: https://material-design.storage.googleapis.com/images/layout-principles-dimensionality-shadows-08_large_mdpi.png ||| box-shadow 1px blur doesn't draw correctly, see --> https://bugzilla.gnome.org/show_bug.cgi?id=738484
+$shadow_1: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24); // regular shadow
+$shadow_2: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15); // lighter shadow
+$shadow_3: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); // heavier shadow
+// Colours ----------
+// When color definition differs for dark and light variant,
+// it gets @if ed depending on $variant
+@function gtkalpha($c, $a) {
+     @return unquote("alpha(#{$c}, #{$a})");
+}
+@function scale-alpha($c, $a) {
+     @return scale-color($c, $alpha: percentage(-1 + $a));
+}
+@function chroma($c) {
+     @return mix($c, $grey_800, 75%);
+}
+@import 'color-palette';
+
+// Foreground colors extended
+$secondary_fg_color: scale-alpha($fg_color, $secondary_opacity);
+$tertiary_fg_color: scale-alpha($fg_color, $tertiary_opacity);
+$inverse_fg_color: $light_fg_color;
+$secondary_inverse_fg_color: scale-alpha($inverse_fg_color, $secondary_opacity);
+$tertiary_inverse_fg_color: scale-alpha($inverse_fg_color, $tertiary_opacity);
+$titlebar_fg_color: if($titlebar == 'dark', $inverse_fg_color, $fg_color);
+$secondary_titlebar_fg_color: if($titlebar == 'dark', $secondary_inverse_fg_color, $secondary_fg_color);
+$tertiary_titlebar_fg_color: if($titlebar == 'dark', $tertiary_inverse_fg_color, $tertiary_fg_color);
+$disabled_fg_color: scale-alpha($fg_color, $disabled_opacity);
+$disabled_secondary_fg_color: scale-alpha($secondary_fg_color, $disabled_opacity);
+$disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
+$disabled_inverse_fg_color: scale-alpha($inverse_fg_color, $disabled_opacity);
+$disabled_secondary_inverse_fg_color: scale-alpha($secondary_inverse_fg_color, $disabled_opacity);
+$disabled_tertiary_inverse_fg_color: scale-alpha($tertiary_inverse_fg_color, $disabled_opacity);
+$disabled_titlebar_fg_color: if($titlebar == 'dark', $disabled_inverse_fg_color, $disabled_fg_color);
+$disabled_secondary_titlebar_fg_color: if($titlebar == 'dark', $disabled_secondary_inverse_fg_color, $disabled_secondary_fg_color);
+$disabled_tertiary_titlebar_fg_color: if($titlebar == 'dark', $disabled_tertiary_inverse_fg_color, $disabled_tertiary_fg_color);
+
+// Background colors
+$bg_color: if($variant == 'light', $ubuntu_white, lighten($ubuntu_black, 8)); //The more "main" bg view I guess? tweak tool uses it
+$base_color: if($variant == 'light', lighten($ubuntu_bg, 8), lighten($ubuntu_black, 10)); //This is "easier" if you just put a lighter variant of the above // i.e nautilus uses this as the folder view bg
+$alt_base_color: if($variant == 'light', darken($ubuntu_bg, 5), mix($base_color, $bg_color, 50%)); //a contrasting colour for focus for smaller elements: ie small configs at bottom of a sidebar and the active tab in web
+$lighter_bg_color: if($variant == 'light', $ubuntu_pane_bg, lighten($ubuntu_black, 12)); //Something like a dropdown box would have this bg color to distinguish it from the rest of the bg. Don't use the same shade! It's also the colour for a couple sidepanels
+$darker_bg_color: if($variant == 'light', $ubuntu_grey, lighten($ubuntu_black, 5)); // don't know
+$titlebar_bg_color: if($variant == 'light', if($titlebar == 'dark', $ubuntu_black, $ubuntu_white), $ubuntu_black);
+$lightest_bg_color:  if($variant == 'light', lighten($ubuntu_white, 5), lighten($ubuntu_black, 15));
+$alt_titlebar_bg_color: if($titlebar == 'dark', $ubuntu_black, $ubuntu_headerbar); // don't know
+$panel_bg_color: if($titlebar == 'dark', $ubuntu_black, $ubuntu_headerbar); // don't know
+$fill_color: gtkalpha(currentColor, $lower_opacity);
+$semi_fill_color: gtkalpha(currentColor, $lower_opacity / 2);
+$row_fill_color: gtkalpha(currentColor, 0.05);
+
+// Theme colours
+$primary_color: $ubuntu_orange;
+$alt_primary_color: $ubuntu_orange;
+$accent_color: lighten($ubuntu_purple, 10);
+$link_color: $purple;
+$visited_link_color: $dark_purple;
+
+// Info colours
+$warning_color: $orange;
+$error_color: $dark_orange;
+$success_color: $dark_green;
+$suggested_color: $accent_color; // Say you want to rename something: the rename button would be in this colour in order to finish renaming the file
+$destructive_color: $dark_red;
+$info_bg_color: $green;
+$question_bg_color: $blue;
+$warning_bg_color: lighten($orange, 5);
+$error_bg_color: darken($red, 5);
+
+// Aux colors
+$border_color: if($variant == 'light', scale-alpha($black, 0.1), scale-alpha($black, 0.2));
+$highlight_color: if($variant == 'light', scale-alpha($white, 0.4), scale-alpha($white, 0.1));
+$alt_highlight_color: scale-alpha($white, 0.2);
+$unity_highlight_color: if($titlebar == 'dark', scale-alpha($white, 0.1), scale-alpha($white, 0.2));
+$titlebar_highlight_color: if($titlebar == 'dark', scale-alpha($white, 0.15), $highlight_color);
+$titlebar_indicator_color: if($titlebar == 'dark', currentColor, $primary_color);
+
+// FIXME: @placeholder_text_color should really use $tertiary_fg_color, but
+// doesn't work translucent colors here. So we use an opaque color instead.
+$placeholder_text_color: mix($fg_color, $base_color, percentage($tertiary_opacity));

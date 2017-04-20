@@ -1,0 +1,159 @@
+//reset some focus stuff on hover
+
+#dashtodockContainer #dash .app-well-app:hover .overview-icon,
+#dashtodockContainer .right #dash .app-well-app:hover .overview-icon,
+#dashtodockContainer .bottom #dash .app-well-app:hover .overview-icon,
+#dashtodockContainer .top #dash .app-well-app:hover .overview-icon {
+  background-color: transparent; }
+
+/* Dash to Dock */
+
+#dashtodockContainer.left #dash,
+#dashtodockContainer.right #dash {
+  padding: 3px 0;
+}
+
+#dashtodockContainer.top #dash,
+#dashtodockContainer.bottom #dash {
+  padding: 0 3px;
+}
+
+#dashtodockContainer.extended #dash {
+  padding: 0;
+  border-radius: 0;
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget,
+#dashtodockContainer.right .dash-item-container > StWidget,
+#dashtodockContainer.extended.left .dash-item-container > StWidget,
+#dashtodockContainer.extended.right .dash-item-container > StWidget {
+  padding: 3px 6px;
+}
+
+#dashtodockContainer.extended.left .dash-item-container:first-child > StWidget,
+#dashtodockContainer.extended.right .dash-item-container:first-child > StWidget {
+  padding: 6px 6px 3px 6px;
+}
+
+#dashtodockContainer.extended.left .dash-item-container:last-child > StWidget,
+#dashtodockContainer.extended.right .dash-item-container:last-child > StWidget {
+  padding: 3px 6px 6px 6px;
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget,
+#dashtodockContainer.bottom .dash-item-container > StWidget,
+#dashtodockContainer.extended.top .dash-item-container > StWidget,
+#dashtodockContainer.extended.bottom .dash-item-container > StWidget {
+  padding: 6px 3px;
+}
+
+#dashtodockContainer.extended.top .dash-item-container:first-child > StWidget,
+#dashtodockContainer.extended.bottom .dash-item-container:first-child > StWidget {
+  padding: 6px 3px 6px 6px;
+}
+
+#dashtodockContainer.extended.top .dash-item-container:last-child > StWidget,
+#dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget {
+  padding: 6px 6px 6px 3px;
+}
+
+#dashtodockContainer .app-well-app-running-dot {
+  background-color: transparent;
+}
+
+#dashtodockContainer .dash-item-container > StWidget {
+  background-size: cover;
+  transition: all 2s ease;
+}
+
+#dashtodockContainer .dash-item-container>StWidget:hover{
+  $_dash_hover_bg_color: if($transparency == 'true', $alt_base_color, $inverse_bg_color);
+  $_dash_hover_bg_color: if($variant == 'light', transparentize($alt_primary_color, $secondary_opacity), $_dash_hover_bg_color);
+  background-color: $_dash_hover_bg_color;
+}
+
+//Hover over running dock items
+@each $g in left right top bottom{
+  @for $i from 1 through 4{
+    #dashtodockContainer.#{$g} .dash-item-container>StWidget.running#{$i}{
+      background-color: transparentize($alt_primary_color, $secondary_opacity);
+      &:hover, &.focused{
+        background-color: transparentize($alt_primary_color, $disabled_opacity);
+          box-shadow: inset 0px -2px 0px $alt_primary_color;
+        }
+      }
+    }
+  }
+
+/*ubuntu logo*/
+
+#dashtodockContainer  .show-apps .overview-icon {
+    background-color: transparent;}
+
+  #dashtodockContainer .show-apps:hover .overview-icon {
+    background-color: transparent;}
+
+
+
+  #dashtodockContainer .show-apps{
+    background-image: url("assets/launcher.svg") !important;
+    transition: all .5s linear; /*Would this work?*/
+    background-color: $launcher_background;
+    background-size: contain !important;
+    color: transparent;
+  }
+
+
+#dashtodockContainer .show-apps:hover, #dashtodockContainer .show-apps:checked{
+      background-image: url("assets/launcher.svg") !important;
+      background-size: contain;
+      background-color: if($transparency == 'true', $primary_color, darken($launcher_background, 5)) !important;
+      color: transparent;
+}
+
+  #dashtodockContainer .show-apps-icon{
+    color: transparent;
+  }
+
+  #dashtodockContainer .show-apps:hover .show-apps-icon,
+  #dashtodockContainer .show-apps:active .show-apps-icon,
+  #dashtodockContainer .show-apps:checked .show-apps-icon,
+  #dashtodockContainer .show-apps:focus .show-apps-icon {
+    color: transparent;
+    background-color: transparent;
+  }
+
+  #dashtodockContainer .show-apps:active .overview-icon,
+  #dashtodockContainer .show-apps:active .show-apps-icon,
+  #dashtodockContainer .show-apps:checked .overview-icon,
+  #dashtodockContainer .show-apps:checked .show-apps-icon {
+    background-color: transparent;}
+
+/* Simple Dock */
+
+#dash:desktop {
+  background-color: $alt_base_color;
+}
+
+
+/* GPaste */
+
+.popup-menu {
+  .search-entry {
+    color: $fg_color;
+    selection-background-color: transparentize($alt_primary_color, $middle_opacity);
+    selected-color: $inverse_fg_color;
+    @include entry(normal);
+
+    &:focus {
+      @include entry(focus);
+      color: $fg_color;
+    }
+
+    .search-entry-icon { color: $tertiary_fg_color; }
+
+    &:hover, &:focus {
+      .search-entry-icon { color: $fg_color; }
+    }
+  }
+}

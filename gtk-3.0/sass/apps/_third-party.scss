@@ -1,0 +1,132 @@
+/*********
+ * Nemo *
+ *********/
+
+ .nemo-window .primary-toolbar .text-button{
+background: $lightest_bg_color;
+}
+
+ .nemo-window .primary-toolbar button:checked{
+color: $primary_color;
+}
+
+.nemo-window .primary-toolbar image{
+padding: 0 4px 0 0;
+}
+
+/*********
+ * Tilix *
+ *********/
+overlay > revealer {
+  &.left > scrolledwindow.frame,
+  &.right > scrolledwindow.frame {
+    border-style: none;
+    box-shadow: $shadow_3;
+  }
+
+  &.left > scrolledwindow.frame { margin-right: 32px; }
+
+  &.right > scrolledwindow.frame { margin-left: 32px; }
+}
+
+.terminix-session-sidebar, // for backwards compatibility
+.tilix-session-sidebar { background-image: image($lighter_bg_color); }
+
+button.image-button.session-new-button { min-width: $medium_size - 4px; }
+
+
+/***********
+ * Eclipse *
+ ***********/
+window.background > box.vertical > scrolledwindow > widget toolbar {
+  padding: 2px;
+
+  separator,
+  button { margin: 2px; }
+
+  button { border-radius: 2px; }
+}
+
+
+/***********
+ * Firefox *
+ ***********/
+$firefox_border_color: scale-alpha($black, 0.2);
+
+window.background:not(.csd) {
+  > widget {
+    // for the bookmark toolbar's separators
+    > separator { color: $firefox_border_color; }
+
+    // avoid black border
+    > scrollbar { background-clip: border-box; }
+
+    // emphasize borders color
+    > scrollbar,
+    > frame > border { border-color: $firefox_border_color; }
+
+    > entry,
+    > button > button {
+      border: 1px solid $firefox_border_color;
+      border-radius: 2px + 1px;
+      box-shadow: none;
+    }
+
+    > entry {
+      min-height: 32px - 2px;
+
+      &:focus { border-color: $primary_color; }
+    }
+
+    > button > button {
+      padding: 4px 8px;
+      background-size: auto;
+      // color: $fg_color;
+
+      &:hover { background-image: image(gtkalpha(currentColor, 0.1 / 2)); }
+
+      &:active { background-image: image(gtkalpha(currentColor, 0.1)); }
+    }
+
+    // use 16px assets for hard-coded sizing
+    > checkbutton > check { @extend %small_check; }
+
+    > radiobutton > radio { @extend %small_radio; }
+  }
+
+  // remove ugly border around the menus
+  > window > menu,
+  > menu > menu { border: none; }
+}
+
+// Firefox now uses this for selected items
+text:selected { @extend %selected_items; }
+
+// for backwards compatibility
+window.background:not(.csd) {
+  > widget {
+    > menubar {
+      color: $secondary_titlebar_fg_color;
+
+      &:hover { color: $titlebar_fg_color; }
+
+      &:disabled { color: $disabled_secondary_titlebar_fg_color; }
+    }
+
+    > frame { color: $firefox_border_color; }
+
+    > checkbutton > check,
+    > radiobutton > radio {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  > window.background > menu > separator { color: $border_color; }
+}
+
+
+/***********
+ * Synapse *
+ ***********/
+box.vertical > widget > widget:selected { background-color: $primary_color; }
