@@ -1,60 +1,96 @@
 @mixin entry($type) {
-    transition: $shorter_transition;
-    color: $fg_color;
-    background-color: $lightest_bg_color;
-    border-color: $border_color;
-    @if $type == normal {}
-    @if $type == normal-light-bg {
-        background-color: $lightest_bg_color;
+  transition: $shorter_transition;
+  color: $fg_color;
+  background-color: $lightest_bg_color;
+  border-color: $border_color;
 
-        &:hover {
-            color: $primary_color;
-        }
+  @if $type == normal {
+    background-color: $lighter_bg_color;
+  }
+
+  @if $type == normal-light-bg {
+    background-color: $lightest_bg_color;
+
+    &:hover {
+      color: $primary_color;
     }
-    @if $type == focus {}
-    @if $type == disabled {}
-    @if $type == flat-normal {}
-    @if $type == flat-focus {}
-    @if $type == flat-disabled {}
+  }
+
+  @if $type == focus {}
+
+  @if $type == disabled {}
+
+  @if $type == flat-normal {}
+
+  @if $type == flat-focus {}
+
+  @if $type == flat-disabled {}
 }
+
 @mixin button($type) {
-    transition: $shorter_transition;
-    @if $type == normal {
-      color: $fg_color;
-    }
-    @if $type == hover {}
-    @if $type == active {}
-    @if $type == disabled {}
-    @if $type == checked {}
-    @if $type == checked-disabled {}
-    @if $type == flat-normal {
-        background-color: transparent;
-    }
-    @if $type == flat-hover {
-        background-color: $lightest_bg_color;
-        color: $primary_color;
-    }
-    @if $type == header-button-normal {
-        transition: $longer_transition;
-        background-color: $lightest_bg_color;
-    }
-    @if $type == header-button-hover {
-        color: $primary_color;
-        box-shadow: $checked_border $primary_color;
-    }
-    @if $type == header-button-checked {
-         @include button(header-button-hover);
-    }
-    @if $type == flat-active {}
-    @if $type == flat-disabled {}
-    @if $type == flat-checked {
-         @include button(flat-hover);
-    }
-    @if $type == flat-checked-disabled {}
+  transition: $shorter_transition;
+
+  @if $type == normal {}
+
+  @if $type == hover {
+    color: $primary_color;
+  }
+
+  @if $type == active {}
+
+  @if $type == disabled {}
+
+  @if $type == checked {}
+
+  @if $type == checked-disabled {}
+
+  @if $type == alt-normal {
+    background: $accent_color;
+  }
+
+  @if $type == alt-hover {
+    background-color: lighten($accent_color, 10);
+  }
+
+  @if $type == alt-active {}
+
+  @if $type == alt-disabled {}
+
+  @if $type == flat-normal {
+    background-color: transparent;
+  }
+
+  @if $type == flat-hover {
+    color: $primary_color;
+  }
+
+  @if $type == header-button-normal {
+    transition: $longer_transition;
+  }
+
+  @if $type == header-button-hover {
+    color: $primary_color;
+  }
+
+  @if $type == header-button-checked {
+    @include button(header-button-hover);
+  }
+
+  @if $type == flat-active {}
+
+  @if $type == flat-disabled {}
+
+  @if $type == flat-checked {
+    @include button(flat-hover);
+  }
+
+  @if $type == flat-checked-disabled {}
 }
+
 @mixin overshoot($position) {
-     @if ($position == left) or ($position == right){}
+  @if $position == left or $position == right {}
 }
+
 @mixin undershoot($position) {
-     @if ($position == left) or ($position == right){}
+  @if $position == left or $position == right {}
 }

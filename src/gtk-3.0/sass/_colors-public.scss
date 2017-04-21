@@ -80,11 +80,15 @@ widgets main borders color on backdrop windows */
 /*
 these are pretty self explicative */
 @define-color warning_color #{"" + $warning_color};
+
 @define-color error_color #{"" + $error_color};
+
 @define-color success_color #{"" + $success_color};
+
 // @define-color destructive_color #{"" + $destructive_color};
 
 /*
 FIXME this is really an API */
 @define-color content_view_bg #{"" + $base_color};
+
 @define-color placeholder_text_color #{"" + $placeholder_text_color};

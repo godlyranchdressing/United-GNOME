@@ -1,85 +1,111 @@
 // To account for changes made in drawing.scss (drawing.scss was striped of a lot of styling rules because those would have a habit of overriding any other rules)
 // I ideally would like these all in the common scss file
 
-.text-button, .image-button, .small-button, button:insensitive{ // get rid of emphasized backgrounds where they aren't needed
-  background:  transparent;
+.image-button,
+.small-button,
+.text-button,
+button:insensitive {
+  // get rid of emphasized backgrounds where they aren't needed
+  background: transparent;
 
-  &:hover{
-  background: $lightest_bg_color;
-}}
+  &:hover {
+    background: $lightest_bg_color;
+  }
+}
 
-.text-button{
-  &:not(.suggested-action){ // .suggested-action buttons have purple backgrounds: this gets around around purple buttons having styling that was meant for orange elements
+.text-button {
+  &:not(.suggested-action) {
+    // .suggested-action buttons have purple backgrounds: this gets around around purple buttons having styling that was meant for orange elements
     color: $fg_color;
 
-  &:not(checkbutton):hover, &:not(checkbutton):active {
-    color: $primary_color;
-    box-shadow: inset 0 -2px $primary_color;
-  }}
+    &:not(checkbutton):active,
+    &:not(checkbutton):hover {
+      color: $primary_color;
+      box-shadow: inset 0 -2px $primary_color;
+    }
+  }
 
-  &.suggested-action{
+  &.suggested-action {
     min-width: 60px;
 
-  &:hover, :active{
-    background-color: lighten($suggested_color, 5);
-    box-shadow: $shadow_2;
-  }}}
+    &:hover,
+    :active {
+      background-color: lighten($suggested_color, 5);
+      box-shadow: $shadow_2;
+    }
+  }
+}
 
-modelbutton, checkbutton, radiobutton { // flat buttons don't need shadows and shadow borders
-  background: transparent;
-  border: none;
-  &.flat:hover, &:hover{
+checkbutton,
+modelbutton,
+radiobutton {
+  &:hover,
+  @include button(flat-button-normal) &.flat:hover {
     color: $primary_color;
     box-shadow: none;
   }
 }
 
-button.combo, button.font, filechooserbutton{ // we want some buttons to be transparent but not *all*
+button.combo,
+button.font,
+filechooserbutton {
   background: $lightest_bg_color;
 }
 
-checkbutton.text-button, radiobutton.text-button, button:insensitive{ // these have a white background and border unless told not to
+button:insensitive,
+checkbutton.text-button,
+radiobutton.text-button {
+  // these have a white background and border unless told not to
   background: transparent;
   border: 0;
 
-  &:hover{
+  &:hover {
     box-shadow: none;
   }
 }
 
 // fancy animations | end game is to add transitions and animations back. the more material ones need to be taken out of common.scss. I'd like to eventually add "metro" animations for irony's sake
-button, tab, .toggle, .tweak {
-transition: all .2s linear;
+.toggle,
+.tweak,
+button,
+tab {
+  transition: all 0.2s linear;
 }
 
 // dark headerbar rules | don't do like me and spend half an hour using variables and wondering why the colour isn't the one it's supposed to be: remember the only person who knows what the right colours should be in a dark headerbar is us right now
-@if $titlebar == 'dark' or $variant == 'dark'{
-popover{
-  background-color: $lighter_bg_color;
-}
+@if $titlebar == "dark" or $variant == "dark" {
+  popover {
+    background-color: $lighter_bg_color;
+  }
 
-headerbar button, headerbar button:not(:checked), headerbar .text-button, headerbar .image-button{
-          color: #fff;
-          background: $ubuntu_black;
+  headerbar .image-button,
+  headerbar .text-button,
+  headerbar button,
+  headerbar button:not(:checked) {
+    color: #fff;
+    background: $ubuntu_black;
 
-          &:hover, &:checked{
-            background: lighten($ubuntu_black, 12);
-            color: $primary_color;
-          }
-}
+    &:checked,
+    &:hover {
+      background: lighten($ubuntu_black, 12);
+      color: $primary_color;
+    }
+  }
 
-          .path-bar .text-button{
-            background: #252525;
-            color: $light_fg_color;
-              &:checked{
-                background: #252525;
-              }
-          }
+  .path-bar .text-button {
+    background: #252525;
+    color: $light_fg_color;
 
-headerbar button.suggested-action{
+    &:checked {
+      background: #252525;
+    }
+  }
+
+  headerbar button.suggested-action {
     background: transparent;
-    &:hover{
+
+    &:hover {
       color: $light_fg_color;
     }
-}
+  }
 }
