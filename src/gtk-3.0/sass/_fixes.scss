@@ -47,10 +47,6 @@ checkbutton.text-button, radiobutton.text-button, button:insensitive{ // these h
   }
 }
 
-slider, switch{ // to make the switches take up a fair amount of width probably can be put into common.scss somewhere
-min-width: 26px;
-}
-
 // fancy animations | end game is to add transitions and animations back. the more material ones need to be taken out of common.scss. I'd like to eventually add "metro" animations for irony's sake
 button, tab, .toggle, .tweak {
 transition: all .2s linear;

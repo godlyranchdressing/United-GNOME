@@ -17,12 +17,14 @@ $large_size: 44px;
 $container_padding: 6px;
 $bar_size: 4px;
 $menuitem_size: 32px;
+// states
+$checked_border: inset 0 -2px 0px;
 // radiuses
 $material_radius: 8px;
 $circular_radius: 9999px;
 // durations
-$shorter_duration: 0.1s;
-$longer_duration: 0.2s;
+$shorter_duration: 0.25s;
+$longer_duration: 0.5s;
 // timing functions
 $standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);
 $deceleration_curve: cubic-bezier(0.0, 0.0, 0.2, 1);

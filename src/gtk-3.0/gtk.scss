@@ -6,6 +6,6 @@ $window_button_asset_suffix: if($variant == 'dark' or $titlebar == 'dark', '-dar
 @import 'sass/variables';
 @import 'sass/drawing';
 @import 'sass/common';
-@import 'sass/fixes';
+//@import 'sass/fixes';
 @import 'sass/apps';
 @import 'sass/colors-public';
