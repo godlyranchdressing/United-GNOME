@@ -1,0 +1,156 @@
+// Dash to dock sizing
+
+#dashtodockContainer.left #dash,
+#dashtodockContainer.right #dash {
+    padding: 4px 0;
+}
+
+#dashtodockContainer.bottom #dash,
+#dashtodockContainer.top #dash {
+    padding: 0 4px;
+}
+
+#dashtodockContainer.extended #dash {
+    padding: 0;
+    border-radius: 0;
+}
+
+#dashtodockContainer.extended.left .dash-item-container > StWidget,
+#dashtodockContainer.extended.right .dash-item-container > StWidget,
+#dashtodockContainer.left .dash-item-container > StWidget,
+#dashtodockContainer.right .dash-item-container > StWidget {
+    padding: 3px 6px;
+}
+
+#dashtodockContainer.extended.left .dash-item-container:first-child > StWidget,
+#dashtodockContainer.extended.right .dash-item-container:first-child > StWidget {
+    padding: 6px 6px 3px;
+}
+
+#dashtodockContainer.extended.left .dash-item-container:last-child > StWidget,
+#dashtodockContainer.extended.right .dash-item-container:last-child > StWidget {
+    padding: 3px 6px 6px;
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget,
+#dashtodockContainer.extended.bottom .dash-item-container > StWidget,
+#dashtodockContainer.extended.top .dash-item-container > StWidget,
+#dashtodockContainer.top .dash-item-container > StWidget {
+    padding: 6px 3px;
+}
+
+#dashtodockContainer.extended.bottom .dash-item-container:first-child > StWidget,
+#dashtodockContainer.extended.top .dash-item-container:first-child > StWidget {
+    padding: 6px 3px 6px 6px;
+}
+
+#dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget,
+#dashtodockContainer.extended.top .dash-item-container:last-child > StWidget {
+    padding: 6px 6px 6px 3px;
+}
+
+#dashtodockContainer .app-well-app-running-dot {
+    // to hide the default running indicator. This only applies to dashtodock
+    background-color: transparent;
+}
+// Custom hover, focused and hover indicators
+@each $g in left right top bottom {
+     @for $i from 1 through 4{
+        #dashtodockContainer.#{$g} .dash-item-container > StWidget.running#{$i} {
+            background-color: transparentize($alt_primary_color, $secondary_opacity);
+
+            &.focused,
+            &:hover {
+                background-color: transparentize($alt_primary_color, $disabled_opacity);
+                box-shadow: inset 0 -2px 0 $alt_primary_color;
+            }
+        }
+    }
+}
+
+#dashtodockContainer .dash-item-container > StWidget:hover {
+    $_dash_hover_bg_color: if($transparency == 'true', $alt_base_color, $inverse_bg_color);
+    $_dash_hover_bg_color: if($variant == 'light', transparentize($alt_primary_color, $secondary_opacity), $_dash_hover_bg_color);
+    background-color: $_dash_hover_bg_color;
+}
+// Ubuntu Launcher
+// To hide the default app drawer icon
+
+.show-apps {
+    &:active,
+    &:checked,
+    &:focus,
+    &:hover {
+        color: transparent;
+        background-color: transparent !important;
+
+        &:active *,
+        &:checked *,
+        &:focus *,
+        &:hover * {
+            color: transparent;
+            background-color: transparent !important;
+        }
+    }
+}
+
+.show-apps {
+    .overview-icon {
+        background-color: $launcher_background !important;
+        background-image: url("assets/launcher.svg") !important;
+        border-radius: $circular_radius;
+        color: transparent;
+        background-size: contain !important;
+    }
+
+    &:checked .overview-icon,
+    &:hover .overview-icon {
+        background-image: url("assets/launcher.svg") !important;
+        background-size: contain !important;
+        background-color: darken($launcher_background, 7.5) !important;
+        color: transparent;
+    }
+}
+
+#dashtodockContainer.extended {
+        & .overview-icon {
+            border-radius: 0;
+            background-color: transparent !important;
+        }
+
+        & .show-apps {
+            background-color: $launcher_background !important;
+
+            &:checked,
+            &:focus,
+            &:hover {
+                background-color: darken($launcher_background, 7.5) !important;
+            }
+        }
+    }
+
+/* GPaste */
+.popup-menu {
+    .search-entry {
+        color: $fg_color;
+        selection-background-color: transparentize($alt_primary_color, $middle_opacity);
+        selected-color: $inverse_fg_color;
+        @include entry(normal);
+
+        &:focus {
+            @include entry(focus);
+            color: $fg_color;
+        }
+
+        .search-entry-icon {
+            color: $tertiary_fg_color;
+        }
+
+        &:focus,
+        &:hover {
+            .search-entry-icon {
+                color: $fg_color;
+            }
+        }
+    }
+}

@@ -1561,14 +1561,6 @@ StScrollBar {
     }
   }
 
-  .show-apps:checked, .show-apps:hover{
-    background: $primary_color !important;
-  }
-
-  .show-apps:checked *, .show-apps:hover *{
-    background: transparent !important;
-  }
-
   .app-well-app-running-dot { //running apps indicator
     width: 30px; height: 2px;
     background-color: $primary_color;
