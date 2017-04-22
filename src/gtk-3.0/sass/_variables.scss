@@ -49,33 +49,27 @@ $sharp_curve: cubic-bezier(0.4, 0, 0.6, 1);
 
 // transition shorthands
 $shorter_transition: all $shorter_duration $deceleration_curve;
+$sharper_transition: all $shorter_duration $standard_curve;
 $longer_transition: all $longer_duration $deceleration_curve;
 $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
 
 // shadows
 // based shadow values: https://material-design.storage.googleapis.com/images/layout-principles-dimensionality-shadows-08_large_mdpi.png ||| box-shadow 1px blur doesn't draw correctly, see --> https://bugzilla.gnome.org/show_bug.cgi?id=738484
-$shadow_1: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+$shadow_1: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24); // regular shadow
+$shadow_2: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15); // lighter shadow
+$shadow_3: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); // heavier shadow
 
-// regular shadow
-$shadow_2: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+$shadow_value: rgba(0, 0, 0, 0.1); // for the following, you'll most likely use this with the outside shadow
 
-// lighter shadow
-$shadow_3: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
-
-// heavier shadow
-$border_shadow_left: inset 2 0px 0px;
-
-// insert a color at the end here. lets you use a border without adding height + width
+$border_shadow_left: inset 2 0px 0px; // insert a color at the end here. lets you use a border without adding height + width
 $border_shadow_right: inset -2 0px 0px;
-
-// insert a color at the end here. lets you use a border without adding height + width
 $border_shadow_top: inset 0 2px 0px;
-
-// insert a color at the end here. lets you use a border without adding height + width
 $border_shadow_bottom: inset 0 -2px 0px;
-
-// insert a color at the end here. lets you use a border without adding height + width
-$border_shadow_surround: inset 0 0px 0px 2px;
+$border_shadow_left_outside: -2 0px 0px; // insert a color at the end here. lets you use a border without adding height + width
+$border_shadow_right_outside: 2 0px 0px;
+$border_shadow_top_outside: 0 -2px 0px;
+$border_shadow_bottom_outside: 0 2px 0px;
+$border_shadow_surround_outside: 0 0px 0px 2px;
 
 // insert a color at the end here. lets you use a border without adding height + width
 // Colours ----------
@@ -133,6 +127,7 @@ $darker_bg_color: if($variant == "light", $ubuntu_grey, lighten($ubuntu_black, 5
 $titlebar_bg_color: if($variant == "light", if($titlebar == "dark", $ubuntu_black, $ubuntu_white), $ubuntu_black);
 $lightest_bg_color: if($variant == "light", lighten($ubuntu_white, 5), lighten($ubuntu_black, 15));
 $alt_titlebar_bg_color: if($titlebar == "dark", $ubuntu_black, $ubuntu_headerbar);
+$darker_pathbar_color: #252525;
 
 // don't know
 $panel_bg_color: if($titlebar == "dark", $ubuntu_black, $ubuntu_headerbar);
