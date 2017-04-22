@@ -285,7 +285,7 @@ entry {
     }
 
     &:disabled {
-      @include entry(disabled, $disabled_fg_color, $disabled_opacity);
+      @include entry(disabled, $disabled_fg_color, transparentize($darker_bg_color, $higher_opacity));
     }
 
     &.flat {
@@ -452,6 +452,7 @@ button {
     &.text-button {
       padding-left: 16px;
       padding-right: 16px;
+      border-radius: 0;
 
       @include button(text, $white, $accent_color);
     }
@@ -586,35 +587,6 @@ button {
   @at-root %osd_button, .osd & {}
 
   // Suggested and Destructive Action buttons
-  @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color) {
-    &.#{$b_type} {
-      background-color: $b_color;
-      color: $inverse_fg_color;
-
-      &:disabled {
-        @include button(disabled, b, c);
-      }
-
-      &:checked {
-        background-color: mix($inverse_fg_color, $b_color, percentage($lower_opacity));
-      }
-
-      &.flat {
-        background-color: transparent;
-        color: $b_color;
-
-        &:disabled {
-          @include button(flat-disabled, b, c);
-        }
-
-        &:checked {
-          background-color: $fill_color;
-        }
-      }
-
-      .osd & {}
-    }
-  }
 
   .stack-switcher > & {
     // to position the needs attention dot, padding is added to the button
@@ -733,6 +705,21 @@ box.linked button.image-button.radio {
     color: $primary_color;
     background-color: $lightest_bg_color;
   }
+}
+
+dialog :not(headerbar) button.text-button:not(.suggested-action):not(.default) {
+  color: $fg_color;
+
+  &:hover {
+    color: $primary_color;
+    background: $lightest_bg_color;
+    box-shadow: $border_shadow_bottom $primary_color;
+  }
+}
+
+toolbar.primary-toolbar toolitem box button.image-button.raised {
+  // stubborn
+  background: transparent;
 }
 
 box.horizontal.linked button {
@@ -1287,7 +1274,7 @@ headerbar {
   }
 
   background-color: $titlebar_bg_color;
-  color: if($titlebar == "dark", $light_fg_color, $titlebar_fg_color "");
+  color: if($titlebar == "dark", $light_fg_color, $titlebar_fg_color);
 
   &:disabled:not(button) > label {
     color: $disabled_titlebar_fg_color;
@@ -1314,7 +1301,7 @@ headerbar {
   .title {
     transition: $shorter_transition;
     padding: 0 12px;
-    color: if($titlebar == "dark", $light_fg_color, $fg_color "");
+    color: if($titlebar == "dark", $light_fg_color, $fg_color);
     font-weight: 400;
   }
 
@@ -1330,11 +1317,7 @@ headerbar {
     // stubborn
     background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
     color: if($titlebar == "dark", $light_fg_color, $fg_color);
-  }
-
-  stackswitcher .text-button {
-    background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
-    color: if($titlebar == "dark", $light_fg_color, $fg_color);
+    box-shadow: 0 0 0 0;
 
     &:checked, &:hover {
       color: $primary_color;
@@ -1344,13 +1327,13 @@ headerbar {
   }
 
   .text-button:not(.default) {
-    background-color: transparent;
+    background-color: $transparent;
     color: $fg_color;
 
     &:hover, &:checked, &:active {
       background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
       color: $primary_color;
-      box-shadow: $border_shadow_bottom $primary_color;
+      box-shadow: $border_shadow_surround_outside $border_color;
     }
   }
 
@@ -1359,6 +1342,7 @@ headerbar {
 
     &:hover, &:checked, &:active {
       background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
+      box-shadow: $border_shadow_surround_outside $border_color;
       color: $primary_color;
     }
   }
@@ -1919,6 +1903,26 @@ popover.background {
   // entry { @extend %entry.flat; }
   // button.combo { @extend %combo_flat; }
   // button:not(.suggested-action):not(.destructive-action) { @extend %button_basic.flat; }
+  grid stack box.linked button {
+    // stubborn
+    @include button(text, $fg_color, $lighter_bg_color);
+
+    &:hover {
+      background-color: $lighter_bg_color;
+    }
+  }
+
+  .text-button:not(.image-button) {
+    background: $suggested_color;
+    box-shadow: $border_shadow_surround_outside $border_color;
+    color: $white;
+
+    &:hover {
+      color: $white;
+      background-color: lighten($suggested_color, 10);
+    }
+  }
+
   &.menu button,
   button.model, modelbutton, modelbutton.flat {
     @extend %simple_flat_button;
@@ -2132,7 +2136,7 @@ notebook {
     }
 
     tab {
-      transition: $shorter_transition, background-size 0, background-image 0;
+      transition: $shorter_transition;
       min-height: $small_size;
       min-width: $small_size;
       padding: $container_padding 12px;
@@ -2301,7 +2305,7 @@ scrollbar {
 
   // slider
   slider {
-    transition: $shorter_transition, margin 0, border-width 0;
+    transition: $shorter_transition;
     min-width: 8px;
     min-height: 8px;
     border: 4px solid transparent;
@@ -2324,7 +2328,9 @@ scrollbar {
 
   &.fine-tune {
     slider {
-      transition: $shorter_transition, margin 0, border-width 0, min-width 0, min-height 0;
+      transition: $shorter_transition;
+
+      //margin 0, border-width 0, min-width 0, min-height 0;
       min-width: 4px;
       min-height: 4px;
     }
@@ -2628,7 +2634,10 @@ radio:not(:checked) {
   & {}
 
   &:active {
-    transition: $shorter_transition, background-size 0, background-image 0, -gtk-icon-transform 0;
+    transition: $shorter_transition;
+
+    //, background-size 0, background-image 0, -gtk-icon-transform 0;
+
   }
 
   menu menuitem & {
@@ -3215,7 +3224,9 @@ list {
 }
 
 // FIXME
-$row_transition: $shorter_transition, background-color 0, color 0;
+$row_transition: $shorter_transition;
+
+//, background-color 0, color 0;
 
 row {
   &.activatable {
@@ -3255,7 +3266,10 @@ row {
   margin: 8px;
 
   button {
-    @extend %button_basic.flat;
+    @include button(text, $fg_color, $transparent);
+
+    box-shadow: none;
+    border: none;
   }
 
   &.frame,
