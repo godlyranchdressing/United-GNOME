@@ -351,9 +351,10 @@ list.tweak-group-startup row.tweak-startup { // tweak tool issue
   box-shadow: none;
 }
 
-row.tweak-startup:hover { // related to the above, to give some indication of focus
+row.tweak-startup:hover, row.tweak-startup button:hover { // related to the above, to give some indication of focus
   color: $primary-color;
 }
+
 
 
 /***********

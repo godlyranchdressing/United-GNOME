@@ -1,60 +1,80 @@
-@mixin entry($type) {
+// still figuring out how to actually use this. i don't think it'll make sense specifying static types, maybe just make an anonymous type function kinda thing
+// or maybe use stuff like type == dark if type == dark then darken instead of lighten or something. maybe if type == shadow-focus then let the inset $primary_color thing showon hover and focus?
+
+@mixin entry($type, $_fg_color, $_bg_color) {
+  $_fg_color: if($_fg_color == null, $fg_color, $_fg_color);
+  $_bg_color: if($_bg_color == null, $bg_color, $_bg_color);
+
+  color: $_fg_color;
+  background-color: $_bg_color;
   transition: $shorter_transition;
-  color: $fg_color;
-  background-color: $lightest_bg_color;
   border-color: $border_color;
+
+  &:hover image {
+    color: $primary_color;
+  }
 
   @if $type == normal {
     background-color: $lighter_bg_color;
   }
 
-  @if $type == normal-light-bg {
-    background-color: $lightest_bg_color;
+  @if $type == focus {
+    &:not(spinbutton):focus {
+      box-shadow: inset 0 0px 0px 1px $primary_color;
 
+      image {
+        color: $primary_color;
+      }
+    }
+  }
+}
+
+@mixin button($type, $_fg_color, $_bg_color) {
+  $_fg_color: if($_fg_color == null, $fg_color, $_fg_color);
+  $_bg_color: if($_bg_color == null, $bg_color, $_bg_color);
+
+  color: $_fg_color;
+  background-color: $_bg_color;
+
+  @if $type == text {
+    &:hover {
+      background-color: lighten($_bg_color, 10);
+      @if $_bg_color == $transparent {
+        color: $primary_color;
+      }
+    }
+
+    &:disabled {
+      background: transparentize($darker_bg_color, $higher_opacity);
+      color: transparentize($fg_color, $disabled_opacity);
+    }
+  }
+
+  @if $type == text-field {
     &:hover {
       color: $primary_color;
     }
   }
 
-  @if $type == focus {}
+  @if $type == stackswitcher {
+    &.text-button {
+      background: purple;
+    }
 
-  @if $type == disabled {}
-
-  @if $type == flat-normal {}
-
-  @if $type == flat-focus {}
-
-  @if $type == flat-disabled {}
-}
-
-@mixin button($type) {
-  transition: $shorter_transition;
-
-  @if $type == normal {}
-
-  @if $type == hover {
-    color: $primary_color;
+    &.text-button:checked {
+      color: $primary_color;
+      box-shadow: $border_shadow_bottom $primary_color;
+    }
   }
 
-  @if $type == active {}
-
-  @if $type == disabled {}
-
-  @if $type == checked {}
-
-  @if $type == checked-disabled {}
-
   @if $type == alt-normal {
+    color: $white;
     background: $accent_color;
   }
 
   @if $type == alt-hover {
     background-color: lighten($accent_color, 10);
   }
-
-  @if $type == alt-active {}
-
-  @if $type == alt-disabled {}
 
   @if $type == flat-normal {
     background-color: transparent;
@@ -64,9 +84,6 @@
     color: $primary_color;
   }
 
-  @if $type == header-button-normal {
-    transition: $longer_transition;
-  }
 
   @if $type == header-button-hover {
     color: $primary_color;
@@ -76,15 +93,9 @@
     @include button(header-button-hover);
   }
 
-  @if $type == flat-active {}
-
-  @if $type == flat-disabled {}
-
   @if $type == flat-checked {
     @include button(flat-hover);
   }
-
-  @if $type == flat-checked-disabled {}
 }
 
 @mixin overshoot($position) {
