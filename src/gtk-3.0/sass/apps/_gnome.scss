@@ -346,17 +346,15 @@ frame.gedit-map-frame > border {
   background-image: image($base_color);
 }
 
-.tweak-startup,
-.tweak-startup:hover {
-  // background-color: lighter(shade(@theme_bg_color, 0.9));
-  background-image: image($base_color);
+list.tweak-group-startup row.tweak-startup { // tweak tool issue
+  background: $lightest_bg_color;
+  box-shadow: none;
 }
 
-.tweak-group-startup {
-  // background-color: @view_separators;
-  background-image: image($base_color);
-  border: 1px solid $border_color;
+row.tweak-startup:hover, row.tweak-startup button:hover { // related to the above, to give some indication of focus
+  color: $primary-color;
 }
+
 
 
 /***********

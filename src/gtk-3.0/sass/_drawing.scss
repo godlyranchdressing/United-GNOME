@@ -1,168 +1,104 @@
-// generic drawing of more complex things
+// still figuring out how to actually use this. i don't think it'll make sense specifying static types, maybe just make an anonymous type function kinda thing
+// or maybe use stuff like type == dark if type == dark then darken instead of lighten or something. maybe if type == shadow-focus then let the inset $primary_color thing showon hover and focus?
 
+@mixin entry($type, $_fg_color, $_bg_color) {
+  $_fg_color: if($_fg_color == null, $fg_color, $_fg_color);
+  $_bg_color: if($_bg_color == null, $bg_color, $_bg_color);
 
-// ripple effect animations
+  color: $_fg_color;
+  background-color: $_bg_color;
+  transition: $shorter_transition;
+  border-color: $border_color;
 
-@mixin entry($t, $fc: $alt_primary_color) {
-//
-// entry
-//
-// $t: entry type
-// $fc: focus color
-//
+  &:hover image {
+    color: $primary_color;
+  }
 
-  @if $t == normal {
-
-    border-image: none;
+  @if $type == normal {
     background-color: $lighter_bg_color;
-    color: if($fc == $alt_primary_color, $fg_color, $inverse_fg_color);
   }
 
-  @if $t == focus {
-    border-image: none;
-  }
+  @if $type == focus {
+    &:not(spinbutton):focus {
+      box-shadow: inset 0 0px 0px 1px $primary_color;
 
-  @if $t == disabled {
-    background-color: transparent;
-    color: $disabled_fg_color;
-  }
-
-  @if $t == flat-normal {
-    background-color: $lighter_bg_color;
-    color: $fg_color;
-  }
-
-  @if $t == flat-focus {
-  }
-
-  @if $t == flat-disabled {
-    background-color: transparent;
-    color: $disabled_fg_color;
+      image {
+        color: $primary_color;
+      }
+    }
   }
 }
 
+@mixin button($type, $_fg_color, $_bg_color) {
+  $_fg_color: if($_fg_color == null, $fg_color, $_fg_color);
+  $_bg_color: if($_bg_color == null, $bg_color, $_bg_color);
 
-@mixin button($t, $c: $lighter_bg_color) {
-//
-// button
-//
-// $t: button type
-// $c: base color
-//
+  color: $_fg_color;
+  background-color: $_bg_color;
 
-  @if $t == normal {
-    color: $fg_color;
+  @if $type == text {
+    &:hover {
+      background-color: lighten($_bg_color, 10);
+    }
+
+    &:disabled {
+      background: transparentize($darker_bg_color, $higher_opacity);
+      color: transparentize($fg_color, $disabled_opacity);
+    }
   }
 
-  @if $t == hover {
-    color: $fg_color;
+  @if $type == text-field {
+    &:hover {
+      color: $primary_color;
+    }
   }
 
-  @if $t == active {
-    color: $fg_color;
+  @if $type == stackswitcher {
+    &.text-button {
+      background: purple;
+    }
+
+    &.text-button:checked {
+      color: $primary_color;
+      box-shadow: $border_shadow_bottom $primary_color;
+    }
   }
 
-  @if $t == disabled {
+  @if $type == alt-normal {
+    color: $white;
+    background: $accent_color;
+  }
+
+  @if $type == alt-hover {
+    background-color: lighten($accent_color, 10);
+  }
+
+  @if $type == flat-normal {
     background-color: transparent;
-    color: if($c == $lighter_bg_color, $disabled_secondary_fg_color, $disabled_fg_color);
   }
 
-  @if $t == checked {
-    background-color: $alt_primary_color;
-    color: $inverse_fg_color;
+  @if $type == flat-hover {
+    color: $primary_color;
   }
 
-  @if $t == checked-disabled {
-    background-color: transparent;
-    color: scale-alpha($alt_primary_color, $disabled_opacity);
+
+  @if $type == header-button-hover {
+    color: $primary_color;
   }
 
-  @if $t == flat-normal {
-
+  @if $type == header-button-checked {
+    @include button(header-button-hover);
   }
 
-  @if $t == flat-hover {
-
-  }
-
-  @if $t == flat-active {
-
-  }
-
-  @if $t == flat-disabled {
-    background-color: transparent;
-    color: if($c == $lighter_bg_color,
-              gtkalpha(currentColor, $secondary_opacity * $disabled_opacity),
-              gtkalpha(currentColor, $disabled_opacity));
-  }
-
-  @if $t == flat-checked {
-    color: $alt_primary_color;
-  }
-
-  @if $t == flat-checked-disabled {
-    background-color: transparent;
-    color: gtkalpha(currentColor, $disabled_opacity);
+  @if $type == flat-checked {
+    @include button(flat-hover);
   }
 }
 
-
-@mixin overshoot($p) {
-//
-// overshoot
-//
-// $p: position
-//
-// possible $p values:
-// top, bottom, right, left
-//
-
-  $_position: center $p;
-
-  @if ($p == left) or ($p == right) {
-    $_position: $p center;
-  }
-
-  background-color: transparent; // reset some properties to be sure to not inherit them somehow
-  border: none;                  //
-  box-shadow: none;              //
+@mixin overshoot($position) {
+  @if $position == left or $position == right {}
 }
 
-
-@mixin undershoot($p) {
-//
-// undershoot
-//
-// $p: position
-//
-// possible $p values:
-// top, bottom, right, left
-//
-
-  $_undershoot_color_dark: scale-alpha($fg_color, $lower_opacity);
-  $_undershoot_color_light: scale-alpha($base_color, $lower_opacity);
-
-  $_gradient_dir: left;
-  $_dash_bg_size: 12px 1px;
-  $_gradient_repeat: repeat-x;
-  $_bg_pos: left $p;
-
-  @if ($p == left) or ($p == right) {
-    $_gradient_dir: top;
-    $_dash_bg_size: 1px 12px;
-    $_gradient_repeat: repeat-y;
-    $_bg_pos: $p top;
-  }
-
-  background-color: transparent; // shouldn't be needed, but better to be sure
-
-  background-image: linear-gradient(to $_gradient_dir, // this is the dashed line
-                                    $_undershoot_color_light 50%,
-                                    $_undershoot_color_dark 50%);
-
-  padding-#{$p}: 1px;
-  background-size: $_dash_bg_size;
-  background-repeat: $_gradient_repeat;
-  background-origin: content-box;
-  background-position: $_bg_pos;
+@mixin undershoot($position) {
+  @if $position == left or $position == right {}
 }

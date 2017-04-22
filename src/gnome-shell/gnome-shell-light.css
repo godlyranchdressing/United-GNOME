@@ -1008,7 +1008,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel:overview, #panel.unlock-screen, #panel.login-screen, #panel.lock-screen {
-  background-color: transparent;
+  background-color: #F4F4F4;
   background-color: #F4F4F4;
   box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
 }
@@ -1407,7 +1407,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: rgba(80, 80, 80, 0.6);
   font-size: 1em;
   /* HACK: the label should be baseline-aligned with a 1em label,
-                     fake this with some bottom padding */
+           fake this with some bottom padding */
   padding-bottom: 0;
 }
 
@@ -1840,44 +1840,26 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .app-view-controls {
   width: 320px;
-  padding-bottom: 32px;
+  margin-bottom: 50px;
+  padding: 0;
 }
 
 .app-view-control {
-  padding: 0 16px;
+  padding: 0 32px;
+  border-radius: 0px;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(17, 17, 17, 0.25);
 }
 
-.app-view-control:hover {
+.app-view-control:hover, .app-view-control:active, .app-view-control:checked {
   color: #FFFFFF;
-  background-color: rgba(80, 80, 80, 0.15) !important;
+  background-color: rgba(17, 17, 17, 0.25) !important;
+  box-shadow: inset 0 -2px 0px #E95420;
 }
 
-.app-view-control:active {
-  color: #FFFFFF;
-  background-color: rgba(80, 80, 80, 0.3) !important;
-}
-
-.app-view-control:checked {
-  color: #FFFFFF;
-}
-
-.app-view-control:first-child {
-  border-right-width: 0;
-  border-radius: 2px;
-}
-
-.app-view-control:first-child:checked {
-  border-radius: 0;
-}
-
-.app-view-control:last-child {
-  border-radius: 2px;
-}
-
-.app-view-control:last-child:checked {
-  border-radius: 0;
+.app-view-control:active, .app-view-control:checked {
+  background-color: rgba(17, 17, 17, 0.6) !important;
 }
 
 .search-provider-icon:focus, .search-provider-icon:selected, .search-provider-icon:hover,
