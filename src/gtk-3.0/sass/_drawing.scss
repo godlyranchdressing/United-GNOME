@@ -39,6 +39,9 @@
   @if $type == text {
     &:hover {
       background-color: lighten($_bg_color, 10);
+      @if $_bg_color == $transparent {
+        color: $primary_color;
+      }
     }
 
     &:disabled {
