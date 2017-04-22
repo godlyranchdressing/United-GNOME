@@ -45,3 +45,13 @@ Credits
 - The original creator of Arc: https://github.com/horst3180/arc-theme
 - The original concept by Jovan Petrovic: https://dribbble.com/shots/3429458-Ubuntu-Gnome-Concept
 - The included symbolic icons are based on [Material Design icons](https://github.com/google/material-design-icons) by Google.
+
+Preview
+-------
+## Preview
+![alt text](preview-1.jpg "Preview 1")
+![alt text](preview-2.jpg "Preview 2")
+![alt text](preview-3.jpg "Preview 3")
+![alt text](preview-4.jpg "Preview 4")
+![alt text](preview-5.jpg "Preview 5")
+
