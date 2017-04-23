@@ -1053,6 +1053,36 @@ StScrollBar {
     padding: 0 !important;
   }
 
+  .chat-meta-message * *{
+        @include font(body-1);
+        color: red;
+        -natural-hpadding: 8px;
+        -minimum-hpadding: 4px;
+        font-weight: lighter;
+
+  }
+
+  .applet-box {
+    // imterim global menu support | creds to neowiz73 from omgubuntu!
+    .applet-menu-content {
+      spacing: 0.75em;
+    }
+
+    * {
+      color: if($panel == "light" or $variant == "light", $dark_fg_color, $light_fg_color);
+
+      &:hover {
+        color: if($panel == "light" or $variant == "light", transparentize($dark_fg_color, $lower_opacity), transparentize($fg_color, $lower_opacity));
+      }
+
+      &:active, &:focus, &:checked {
+        background-color: rgba($bg_color, 0.01);
+        box-shadow: inset 0 -2px 0px $primary_color;
+        color: if($panel == "light" or $variant == "light", $primary_color, transparentize($fg_color, $lower_opacity));
+      }
+    }
+  }
+
   .panel-button {
     -natural-hpadding: 8px;
     -minimum-hpadding: 4px;

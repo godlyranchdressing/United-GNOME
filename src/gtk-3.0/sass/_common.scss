@@ -37,7 +37,11 @@ switch:focus slider {
  ***************/
 .background, treeview, paned, .gedit-view text {
   background-color: $bg_color;
-  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+
+  @if $variant == "light" and $titlebar == "light" {
+    box-shadow: $shadow_1;
+  }
+
   color: $fg_color;
 }
 
@@ -1270,7 +1274,7 @@ headerbar {
   padding: 0 $container_padding;
 
   @if $variant == "light" and $titlebar == "light" {
-    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: $shadow_1;
   }
 
   background-color: $titlebar_bg_color;
@@ -1285,16 +1289,6 @@ headerbar {
 
     &:disabled:not(button) > label {
       color: $disabled_secondary_titlebar_fg_color;
-    }
-  }
-
-  box.horizontal widget.linked.path-bar button {
-    // stubborn
-    background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
-    color: if($titlebar == "dark", $light_fg_color, $fg_color);
-
-    &:checked, &:hover {
-      color: $primary_color;
     }
   }
 
@@ -1313,6 +1307,36 @@ headerbar {
     @extend .dim-label;
   }
 
+  .text-button.default:not(.suggested-action) {
+    background-color: $transparent;
+    color: $fg_color;
+
+    &:hover, &:checked, &:active {}
+  }
+
+  .image-button:not(.text-button), button.popup, button.toggle, button.popup.toggle {
+    color: if($titlebar == "dark", $light_fg_color, $fg_color);
+
+    &:hover, &:checked, &:active {
+      background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
+      box-shadow: $border_shadow_surround_outside $border_color;
+      color: $primary_color;
+    }
+  }
+
+  button.text-button:not(.suggested-action):not(.toggle) {
+    background-color: $transparent;
+    color: $fg_color;
+  }
+
+  button.text-button:not(.suggested-action) {
+    &:active, &:hover, &:checked, &:focus {
+      background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
+      box-shadow: $border_shadow_surround_outside $border_color;
+      color: $primary_color;
+    }
+  }
+
   stackswitcher.stack-switcher .text-button {
     // stubborn
     background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
@@ -1326,24 +1350,16 @@ headerbar {
     }
   }
 
-  .text-button:not(.default) {
-    background-color: $transparent;
-    color: $fg_color;
-
-    &:hover, &:checked, &:active {
-      background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
-      color: $primary_color;
-      box-shadow: $border_shadow_surround_outside $border_color;
-    }
-  }
-
-  .image-button:not(.text-button), button.popup, button.toggle, button.popup.toggle {
+  box.horizontal widget.linked.path-bar button {
+    // stubborn
+    background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
     color: if($titlebar == "dark", $light_fg_color, $fg_color);
 
-    &:hover, &:checked, &:active {
-      background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
-      box-shadow: $border_shadow_surround_outside $border_color;
-      color: $primary_color;
+    &.text-button {
+      &:checked, &:hover {
+        color: $primary_color;
+        box-shadow: $border_shadow_bottom $primary_color;
+      }
     }
   }
 
@@ -1351,7 +1367,6 @@ headerbar {
     // FIXME: 0.00001s is workaround for transition bug of gtk+ 3.22
     // see https://bugzilla.gnome.org/show_bug.cgi?id=774064
     transition: background-color 0.00001s $shorter_duration;
-    animation: header_ripple_effect $shorter_duration $deceleration_curve;
     box-shadow: $shadow_1, inset 0 1px $alt_highlight_color;
     background-color: $primary_color;
     color: $inverse_fg_color;
@@ -1917,7 +1932,7 @@ popover.background {
     box-shadow: $border_shadow_surround_outside $border_color;
     color: $white;
 
-    &:hover {
+    &:hover, &:active, &:checked {
       color: $white;
       background-color: lighten($suggested_color, 10);
     }
@@ -1954,8 +1969,8 @@ popover.background {
   }
 
   separator {
-    margin: 10px 0;
-    background: $transparent;
+    margin: 4px 0;
+    background: transparent;
   }
 
   list separator {
@@ -2008,6 +2023,9 @@ notebook {
           &:hover, &:checked {
             border: 0;
             box-shadow: inset 0px 0px 0px $border_color, 1px 0px 0px $border_color, -1px 0px 0px $border_color, 0px -1px 0px $border_color;
+
+            // literally just guesses till it worked | need to fix this stuff out
+
           }
         }
       }
@@ -3243,7 +3261,6 @@ row {
     &.has-open-popup,
     &:active {
       transition: $row_transition, background-size 0, background-image 0;
-      animation: ripple_effect $shorter_duration $deceleration_curve forwards;
       box-shadow: inset 0 0 0 9999px $semi_fill_color;
       background-image: radial-gradient(circle farthest-corner at center, $semi_fill_color 10%, transparent 0%);
       background-size: 0 0;

@@ -70,6 +70,9 @@ window.background:not(.csd) {
       border: 1px solid $firefox_border_color;
       border-radius: 2px + 1px;
       box-shadow: none;
+      &:hover{
+        color: $fg_color;
+      }
     }
 
     > entry {

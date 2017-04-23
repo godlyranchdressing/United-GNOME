@@ -1039,6 +1039,33 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 0 !important;
 }
 
+#panel .chat-meta-message * * {
+  font-size: 10.5pt;
+  font-weight: 400;
+  color: red;
+  -natural-hpadding: 8px;
+  -minimum-hpadding: 4px;
+  font-weight: lighter;
+}
+
+#panel .applet-box .applet-menu-content {
+  spacing: 0.75em;
+}
+
+#panel .applet-box * {
+  color: #FFFFFF;
+}
+
+#panel .applet-box *:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#panel .applet-box *:active, #panel .applet-box *:focus, #panel .applet-box *:checked {
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: inset 0 -2px 0px #E95420;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 #panel .panel-button {
   -natural-hpadding: 8px;
   -minimum-hpadding: 4px;
