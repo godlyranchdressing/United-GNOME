@@ -9,9 +9,9 @@
   -GtkDialog-button-spacing: 4;
   -GtkDialog-action-area-border: 0;
   outline-style: solid;
-  outline-width: 2px;
+  outline-width: 1px;
   outline-color: transparent;
-  outline-offset: -4px;
+  outline-offset: 0px;
   -gtk-outline-radius: 2px;
   -gtk-secondary-caret-color: #E95420;
 }
@@ -572,7 +572,7 @@ treeview entry, treeview entry:focus, treeview entry.flat, treeview entry.flat:f
 /***********
  * Buttons *
  ***********/
-button, stackswitcher, check, radio {
+button, stackswitcher button, check, radio {
   transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
 }
 
@@ -587,6 +587,13 @@ button {
   min-width: 16px;
   padding: 6px 11px;
   border-radius: 0px;
+}
+
+
+button:not(.titlebutton):hover image,
+button:not(.titlebutton):active image,
+button:not(.titlebutton):checked image {
+  color: #E95420;
 }
 
 
@@ -605,6 +612,23 @@ button.text-button:hover {
 
 
 button.text-button:disabled {
+  background: rgba(174, 167, 159, 0.1);
+  color: rgba(96, 96, 96, 0.6);
+}
+
+
+button.text-button.default.suggested-action {
+  color: #FFFFFF;
+  background-color: #9d4194;
+}
+
+
+button.text-button.default.suggested-action:hover {
+  background-color: #ba57b0;
+}
+
+
+button.text-button.default.suggested-action:disabled {
   background: rgba(174, 167, 159, 0.1);
   color: rgba(96, 96, 96, 0.6);
 }
@@ -654,6 +678,23 @@ button.flat.flat.scale,
 button.radio.flat.scale,
 button.circular.flat.scale {
   border-radius: 9999px;
+}
+
+
+button.destructive-action {
+  color: #FFFFFF;
+  background-color: #c0392b;
+}
+
+
+button.destructive-action:hover {
+  background-color: #d65548;
+}
+
+
+button.destructive-action:disabled {
+  background: rgba(174, 167, 159, 0.1);
+  color: rgba(96, 96, 96, 0.6);
 }
 
 
@@ -836,20 +877,6 @@ spinbutton:not(.vertical) button, notebook > header tab button.flat, button.side
   -gtk-outline-radius: 9999px;
 }
 
-button.destructive-action {
-  color: #FFFFFF;
-  background-color: #c0392b;
-}
-
-button.destructive-action:hover {
-  background-color: #d65548;
-}
-
-button.destructive-action:disabled {
-  background: rgba(174, 167, 159, 0.1);
-  color: rgba(96, 96, 96, 0.6);
-}
-
 box.linked button.image-button.radio {
   border-radius: 9999px;
 }
@@ -857,6 +884,20 @@ box.linked button.image-button.radio {
 box.linked button.image-button.radio:hover, box.linked button.image-button.radio:checked {
   color: #E95420;
   background-color: white;
+}
+
+.inline-toolbar button.text-button {
+  color: #FFFFFF;
+  background-color: #9d4194;
+}
+
+.inline-toolbar button.text-button:hover {
+  background-color: #ba57b0;
+}
+
+.inline-toolbar button.text-button:disabled {
+  background: rgba(174, 167, 159, 0.1);
+  color: rgba(96, 96, 96, 0.6);
 }
 
 dialog :not(headerbar) button.text-button:not(.suggested-action):not(.default) {
@@ -987,11 +1028,19 @@ modelbutton.flat arrow.right {
 }
 
 /*******
-Stack Switcher
+StackSwitcher
 *******/
 stackswitcher button {
   color: #606060;
   background-color: white;
+  min-width: 100px;
+}
+
+stackswitcher button.circular,
+stackswitcher button.text-button.circular {
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
 }
 
 /*******
@@ -1379,7 +1428,8 @@ headerbar .subtitle {
   font-size: smaller;
 }
 
-.titlebar:not(headerbar):not(.path-bar) .text-button.default:not(.suggested-action),
+.titlebar:not(headerbar):not(.path-bar) button.text-button, .titlebar:not(headerbar):not(.path-bar) .text-button.default:not(.suggested-action),
+headerbar button.text-button,
 headerbar .text-button.default:not(.suggested-action) {
   background-color: transparent;
   color: #606060;
@@ -1427,16 +1477,15 @@ headerbar button.text-button:not(.suggested-action):focus {
   color: #E95420;
 }
 
-.titlebar:not(headerbar):not(.path-bar) stackswitcher.stack-switcher .text-button,
-headerbar stackswitcher.stack-switcher .text-button {
+.titlebar:not(headerbar):not(.path-bar) stackswitcher.horizontal.linked.stack-switcher button,
+headerbar stackswitcher.horizontal.linked.stack-switcher button {
   background: #252525;
   color: #ffffff;
-  box-shadow: 0 0 0 0;
 }
 
-.titlebar:not(headerbar):not(.path-bar) stackswitcher.stack-switcher .text-button:checked, .titlebar:not(headerbar):not(.path-bar) stackswitcher.stack-switcher .text-button:hover,
-headerbar stackswitcher.stack-switcher .text-button:checked,
-headerbar stackswitcher.stack-switcher .text-button:hover {
+.titlebar:not(headerbar):not(.path-bar) stackswitcher.horizontal.linked.stack-switcher button:checked, .titlebar:not(headerbar):not(.path-bar) stackswitcher.horizontal.linked.stack-switcher button:hover,
+headerbar stackswitcher.horizontal.linked.stack-switcher button:checked,
+headerbar stackswitcher.horizontal.linked.stack-switcher button:hover {
   color: #E95420;
   background: #252525;
   box-shadow: inset 0 -2px 0px #E95420;
@@ -1966,15 +2015,32 @@ popover.background grid stack box.linked button:hover {
   background-color: #E1E1E1;
 }
 
-popover.background .text-button:not(.image-button) {
+popover.background .text-button:not(.image-button):not(checkbutton):not(radiobutton) {
   background: #9d4194;
   box-shadow: 0 0px 0px 1px rgba(0, 0, 0, 0.1);
   color: #FFFFFF;
 }
 
-popover.background .text-button:not(.image-button):hover, popover.background .text-button:not(.image-button):active, popover.background .text-button:not(.image-button):checked {
+popover.background .text-button:not(.image-button):not(checkbutton):not(radiobutton):hover, popover.background .text-button:not(.image-button):not(checkbutton):not(radiobutton):active, popover.background .text-button:not(.image-button):not(checkbutton):not(radiobutton):checked {
   color: #FFFFFF;
   background-color: #ba57b0;
+}
+
+popover.background button.image-button.model {
+  color: #606060;
+  background-color: white;
+}
+
+popover.background button.image-button.model:hover, popover.background button.image-button.model:focus {
+  background-color: #e7e7e7;
+}
+
+popover.background button.image-button.model:checked {
+  background-color: #E95420;
+}
+
+popover.background button.image-button.model:checked * {
+  color: #FFFFFF;
 }
 
 popover.background.menu button,
@@ -1986,7 +2052,7 @@ popover.background button.model, popover.background modelbutton, popover.backgro
 
 popover.background.menu button:hover,
 popover.background button.model:hover, popover.background modelbutton:hover, popover.background modelbutton.flat:hover {
-  background: rgba(174, 167, 159, 0.1);
+  background-color: #e7e7e7;
 }
 
 popover.background button.default {
@@ -2019,10 +2085,6 @@ popover.background separator {
 
 popover.background list separator {
   margin: 0;
-}
-
-popover.background scale slider {
-  -gtk-icon-source: -gtk-scaled(url("assets/scale-horz-marks-after-slider.png"), url("assets/scale-horz-marks-after-slider@2.png"));
 }
 
 /*************
@@ -2371,7 +2433,15 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical button {
 }
 
 scrollbar.overlay-indicator.dragging, scrollbar.overlay-indicator.hovering {
-  background-color: rgba(252, 252, 252, 0.9);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+scrollbar.overlay-indicator.hovering slider {
+  background-color: rgba(233, 84, 32, 0.4);
+}
+
+scrollbar.overlay-indicator.dragging slider {
+  background-color: rgba(233, 84, 32, 0.6);
 }
 
 scrollbar.horizontal slider {
@@ -2628,6 +2698,11 @@ treeview.view radio {
   color: rgba(96, 96, 96, 0.75);
 }
 
+treeview.view check:selected,
+treeview.view radio:selected {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 treeview.view check:active, treeview.view check:hover,
 treeview.view radio:active,
 treeview.view radio:hover {
@@ -2713,7 +2788,7 @@ scale Scale trough:disabled {
 }
 
 scale highlight {
-  background-color: #eb6637;
+  background-color: #f29b7d;
 }
 
 scale highlight:disabled {
@@ -2748,7 +2823,7 @@ scale slider:hover {
 }
 
 scale slider:active {
-  background-size: calc(100% - 0px);
+  background-size: calc(100% - 4px);
 }
 
 scale.fine-tune slider {
@@ -3268,6 +3343,16 @@ messagedialog.csd .dialog-action-area button:last-child {
   border-bottom-right-radius: 2px;
 }
 
+dialog buttonbox.horizontal button.text-button {
+  color: #606060;
+  background-color: white;
+}
+
+dialog buttonbox.horizontal button.text-button:hover, dialog buttonbox.horizontal button.text-button:active {
+  box-shadow: inset 0 -2px 0px #E95420;
+  color: #E95420;
+}
+
 .dialog-vbox {
   background-color: #111111;
 }
@@ -3277,8 +3362,32 @@ filechooser .dialog-action-box {
 }
 
 filechooser #pathbarbox {
+  background-color: #E1E1E1;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #F4F4F4;
+}
+
+filechooser #pathbarbox .path-bar button {
+  background-color: white;
+  border: none;
+  border-radius: 0;
+}
+
+filechooser #pathbarbox .path-bar button.toggle {
+  border: none;
+}
+
+filechooser #pathbarbox .path-bar button.toggle image {
+  padding: 0 6px;
+}
+
+filechooser #pathbarbox .path-bar button.toggle:hover {
+  box-shadow: inset 0 -2px 0px #E95420;
+  color: #E95420;
+}
+
+filechooser #pathbarbox .path-bar button:hover, filechooser #pathbarbox .path-bar button:checked {
+  box-shadow: inset 0 -2px 0px #E95420;
+  color: #E95420;
 }
 
 filechooserbutton:drop(active) {
@@ -3819,28 +3928,39 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
   caret-color: #9d4194;
 }
 
-stackswitcher button.text-button {
-  min-width: 100px;
-  background: white;
-}
-
-stackswitcher * {
+button.text-button {
   border-radius: 0;
 }
 
-stackswitcher button.circular,
-stackswitcher button.text-button.circular {
-  min-width: 32px;
-  min-height: 32px;
-  padding: 0;
+check:checked:selected, check:not(:checked):selected {
+  color: #FFFFFF;
+}
+
+dialog widget button:hover {
+  box-shadow: 0 0px 0px 1px rgba(233, 84, 32, 0.6);
+}
+
+headerbar.titlebar button.suggested-action.text-button:hover {
+  color: #FFFFFF;
 }
 
 button:disabled, .image-button:disabled, entry:disabled, box.linked:disabled, spinbutton:disabled, scale:disabled contents {
-  background: rgba(174, 167, 159, 0.1);
+  background-color: #e7e7e7;
 }
 
 button:disabled > *, .image-button:disabled > *, entry:disabled > *, box.linked:disabled > *, spinbutton:disabled > *, scale:disabled contents > * {
   color: rgba(96, 96, 96, 0.6);
+}
+
+button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button) {
+  box-shadow: 0 0px 0px 1px rgba(0, 0, 0, 0.1);
+  color: #606060;
+}
+
+button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button):hover, button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button):active, button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button):checked {
+  background-color: white;
+  box-shadow: 0 0px 0px 1px #E95420;
+  color: #E95420;
 }
 
 .sidebar,
@@ -3853,12 +3973,20 @@ placessidebar {
 /************
  * Software *
  ************/
-.toggle.toolbar-primary-buttons-software * {
-  background: transparent;
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
+  background: #202020;
+  box-shadow: none;
+  border-radius: 0px;
+  color: #606060;
 }
 
-.toggle.toolbar-primary-buttons-software:checked {
-  background: white;
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:hover, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software.text-button:checked, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software.text-button:hover {
+  color: #E95420;
+  box-shadow: inset 0 -2px 0px #E95420;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked label, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:hover label, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software.text-button:checked label, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software.text-button:hover label {
+  color: #E95420;
 }
 
 /************

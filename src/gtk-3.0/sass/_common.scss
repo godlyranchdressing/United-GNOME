@@ -19,9 +19,9 @@
   // to the adwaita engine: using real CSS properties is faster,
   // and we don't use any outlines for now.
   outline-style: solid;
-  outline-width: 2px;
+  outline-width: 1px;
   outline-color: transparent;
-  outline-offset: -4px;
+  outline-offset: 0px;
   -gtk-outline-radius: 2px;
   -gtk-secondary-caret-color: $primary_color;
 }
@@ -39,7 +39,7 @@ switch:focus slider {
   background-color: $bg_color;
 
   @if $variant == "light" and $titlebar == "light" {
-    box-shadow: $shadow_1;
+    box-shadow: $background_inset_shadow;
   }
 
   color: $fg_color;
@@ -434,7 +434,7 @@ treeview entry {
  * Buttons *
  ***********/
 
-button, stackswitcher, check, radio {
+button, stackswitcher button, check, radio {
   transition: $shorter_transition;
 }
 
@@ -452,6 +452,15 @@ button {
     padding: (($medium_size - 20px) / 2) (($medium_size - 10px) / 2);
     border-radius: 0px;
 
+    &:not(.titlebutton) {
+      &:hover, &:active, &:checked {
+        image {
+          // catchall for sneaky image buttons that don't react on hover || there are a couple .popups (or maybe it's all of them) that aren't tagged with a .image-button so they won't change color on a focus change
+          color: $primary_color;
+        }
+      }
+    }
+
     // alt
     &.text-button {
       padding-left: 16px;
@@ -459,6 +468,10 @@ button {
       border-radius: 0;
 
       @include button(text, $white, $accent_color);
+
+      &.default.suggested-action {
+        @include button(text, $white, $accent_color);
+      }
     }
 
     &.image-button {
@@ -500,6 +513,10 @@ button {
           &:checked:disabled {}
         }
       }
+    }
+
+    &.destructive-action {
+      @include button(text, $white, $destructive_color);
     }
 
     &.default {
@@ -697,10 +714,6 @@ button {
   }
 }
 
-button.destructive-action {
-  @include button(text, $white, $destructive_color);
-}
-
 box.linked button.image-button.radio {
   // stubborn
   border-radius: $circular_radius;
@@ -709,6 +722,10 @@ box.linked button.image-button.radio {
     color: $primary_color;
     background-color: $lightest_bg_color;
   }
+}
+
+.inline-toolbar button.text-button {
+  @include button(text, $white, $accent_color);
 }
 
 dialog :not(headerbar) button.text-button:not(.suggested-action):not(.default) {
@@ -858,12 +875,21 @@ modelbutton.flat arrow {
 }
 
 /*******
-Stack Switcher
+StackSwitcher
 *******/
 
 stackswitcher {
   button {
     @include button(stack-switcher, $fg_color, $lightest_bg_color);
+
+    min-width: 100px;
+  }
+
+  button.circular,
+  button.text-button.circular {
+    min-width: $medium_size;
+    min-height: $medium_size;
+    padding: 0;
   }
 }
 
@@ -1274,7 +1300,7 @@ headerbar {
   padding: 0 $container_padding;
 
   @if $variant == "light" and $titlebar == "light" {
-    box-shadow: $shadow_1;
+    box-shadow: $headerbar_shadow;
   }
 
   background-color: $titlebar_bg_color;
@@ -1307,7 +1333,7 @@ headerbar {
     @extend .dim-label;
   }
 
-  .text-button.default:not(.suggested-action) {
+  button.text-button, .text-button.default:not(.suggested-action) {
     background-color: $transparent;
     color: $fg_color;
 
@@ -1337,11 +1363,10 @@ headerbar {
     }
   }
 
-  stackswitcher.stack-switcher .text-button {
-    // stubborn
+  stackswitcher.horizontal.linked.stack-switcher button {
+    //stubborn
     background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
     color: if($titlebar == "dark", $light_fg_color, $fg_color);
-    box-shadow: 0 0 0 0;
 
     &:checked, &:hover {
       color: $primary_color;
@@ -1927,7 +1952,7 @@ popover.background {
     }
   }
 
-  .text-button:not(.image-button) {
+  .text-button:not(.image-button):not(checkbutton):not(radiobutton) {
     background: $suggested_color;
     box-shadow: $border_shadow_surround_outside $border_color;
     color: $white;
@@ -1935,6 +1960,23 @@ popover.background {
     &:hover, &:active, &:checked {
       color: $white;
       background-color: lighten($suggested_color, 10);
+    }
+  }
+
+  button.image-button.model {
+    color: $fg_color;
+    background-color: $lightest_bg_color;
+
+    &:hover, &:focus {
+      background-color: darken($bg_color, 5%);
+    }
+
+    &:checked {
+      background-color: $primary_color;
+
+      & * {
+        color: $white;
+      }
     }
   }
 
@@ -1947,7 +1989,7 @@ popover.background {
     padding: 0 8px;
 
     &:hover {
-      background: transparentize($darker_bg_color, $higher_opacity);
+      background-color: darken($bg_color, 5%);
     }
 
     &:checked {
@@ -1978,7 +2020,8 @@ popover.background {
   }
 
   scale slider {
-    -gtk-icon-source: -gtk-scaled(url("assets/scale-horz-marks-after-slider.png"), url("assets/scale-horz-marks-after-slider@2.png"));
+    //    -gtk-icon-source: -gtk-scaled(url("assets/scale-horz-marks-after-slider.png"), url("assets/scale-horz-marks-after-slider@2.png")); this causes it to be used in totem for some reason literally what
+
   }
 }
 
@@ -2412,7 +2455,15 @@ scrollbar {
 
     &.dragging,
     &.hovering {
-      background-color: scale-alpha($base_color, $higher_opacity);
+      background-color: $border_color;
+    }
+
+    &.hovering slider {
+      background-color: transparentize($primary_color, $middle_opacity);
+    }
+
+    &.dragging slider {
+      background-color: transparentize($primary_color, $disabled_opacity);
     }
   }
 
@@ -2675,12 +2726,17 @@ treeview.view radio {
     }
 
     &:selected {
+      color: $white;
       box-shadow: inset 0 0 0 9999px gtkalpha($inverse_fg_color, 0.05);
     }
   }
 
   & {
     color: $secondary_fg_color;
+
+    &:selected {
+      color: $secondary_inverse_fg_color;
+    }
 
     &:active,
     &:hover {
@@ -2716,7 +2772,7 @@ treeview.view radio {
 
     &:checked,
     &:indeterminate {
-      color: $primary_color;
+      color: $white;
     }
 
     &:checked:disabled,
@@ -2776,7 +2832,7 @@ scale {
 
   // the colored part of the backing bit
   highlight {
-    background-color: lighten($primary_color, 5);
+    background-color: lighten($primary_color, 20);
 
     &:disabled {
       background-color: transparent;
@@ -2816,7 +2872,7 @@ scale {
     }
 
     &:active {
-      background-size: calc(100% - 0px);
+      background-size: calc(100% - 4px);
     }
   }
 
@@ -3430,6 +3486,16 @@ messagedialog {
   }
 }
 
+dialog buttonbox.horizontal button.text-button {
+  color: $fg_color;
+  background-color: $lightest_bg_color;
+
+  &:hover, &:active {
+    box-shadow: $border_shadow_bottom $primary_color;
+    color: $primary_color;
+  }
+}
+
 .dialog-vbox {
   background-color: $titlebar_bg_color;
 }
@@ -3440,8 +3506,32 @@ filechooser {
   }
 
   #pathbarbox {
+    background-color: $lighter_bg_color;
     border-bottom: 1px solid $border_color;
-    background-color: $bg_color;
+
+    .path-bar button {
+      background-color: $lightest_bg_color;
+      border: none;
+      border-radius: 0;
+
+      &.toggle {
+        border: none;
+
+        image {
+          padding: 0 6px;
+        }
+
+        &:hover {
+          box-shadow: $border_shadow_bottom $primary_color;
+          color: $primary_color;
+        }
+      }
+
+      &:hover, &:checked {
+        box-shadow: $border_shadow_bottom $primary_color;
+        color: $primary_color;
+      }
+    }
   }
 }
 
@@ -4101,30 +4191,49 @@ cursor-handle {
   caret-color: $accent_color;
 }
 
-stackswitcher button.text-button {
-  min-width: 100px;
-  background: $lightest_bg_color;
-}
+// Stubborns, catchalls and other fixes until they can be transitioned in without messing up something (unless the order in which they appear is important)
 
-stackswitcher * {
+button.text-button {
+  // no textbutton must have a border radius
   border-radius: 0;
 }
 
-// FIXME aggregate with buttons
+box.vertical scrolledwindow.frame treeview.view {
+  check:checked:selected, check:not(:checked):selected {
+    // to fix checkbox issue but it isn't working
+    color: $white;
+  }
+}
 
-stackswitcher button.circular,
-stackswitcher button.text-button.circular {
-  // FIXME aggregate with buttons
-  min-width: $medium_size;
-  min-height: $medium_size;
-  padding: 0;
+dialog widget button:hover {
+  box-shadow: $border_shadow_surround_outside transparentize($primary_color, $disabled_opacity);
+
+  // hovering over an icon in nautilus' properties doesn't show any visual feedback | only a nautilus problem so far but it doesn't fall under nautilus' scope so we have to settle to sticking it under dialogs only to avoid any hiccups
+}
+
+headerbar.titlebar button.suggested-action.text-button:hover {
+  //fg color remains yet again
+  color: $white;
 }
 
 button:disabled, .image-button:disabled, entry:disabled, box.linked:disabled, spinbutton:disabled, scale:disabled contents {
   // lazy catchall for disabled states
-  background: transparentize($darker_bg_color, $higher_opacity);
+  background-color: darken($bg_color, 5%);
 
   & > * {
     color: transparentize($fg_color, $disabled_opacity);
+  }
+}
+
+// if you're some weirdass button not included in this list then look like this || def not ideal -> should do a for loop to populate
+
+button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button) {
+  box-shadow: $border_shadow_surround_outside $border_color;
+  color: $fg_color;
+
+  &:hover, &:active, &:checked {
+    background-color: $lightest_bg_color;
+    box-shadow: $border_shadow_surround_outside $primary_color;
+    color: $primary_color;
   }
 }

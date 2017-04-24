@@ -1049,17 +1049,16 @@ StScrollBar {
   #panelActivities.panel-button {
     -natural-hpadding: 0px !important;
     min-width: 72px !important;
-    text-align: center;
     padding: 0 !important;
+    text-align: center;
   }
 
-  .chat-meta-message * *{
-        @include font(body-1);
-        color: red;
-        -natural-hpadding: 8px;
-        -minimum-hpadding: 4px;
-        font-weight: lighter;
+  .chat-meta-message * * {
+    @include font(body-1);
 
+    -natural-hpadding: 8px;
+    -minimum-hpadding: 4px;
+    font-weight: regular;
   }
 
   .applet-box {
@@ -1086,7 +1085,7 @@ StScrollBar {
   .panel-button {
     -natural-hpadding: 8px;
     -minimum-hpadding: 4px;
-    font-weight: lighter;
+    font-weight: 500;
     color: if($panel == "light" or $variant == "light", $dark_fg_color, $light_fg_color);
     transition-duration: $longer_duration;
 
@@ -1198,6 +1197,7 @@ StScrollBar {
 .world-clocks-button,
 .weather-button,
 .events-section-title {
+  color: $fg_color;
   min-height: $menuitem_size - 4px * 2;
   padding: 4px 8px;
   border-radius: 2px;
@@ -1219,6 +1219,8 @@ StScrollBar {
 .world-clocks-button,
 .weather-button,
 .events-section-title {
+  color: $fg_color;
+
   &:hover, &:focus {
     color: $fg_color;
     background-color: $semi_fill_color;
@@ -1795,6 +1797,7 @@ StScrollBar {
   border-radius: 0;
   background-color: $ubuntu_white;
   color: $ubuntu_fg;
+  border: none;
   selection-background-color: $primary_color;
   selected-color: $ubuntu_white;
 
@@ -1815,8 +1818,10 @@ StScrollBar {
   }
 
   &:hover, &:focus {
+    box-shadow: $border_shadow_surround_outside $ubuntu_lighter_orange;
+
     .search-entry-icon {
-      color: darken($ubuntu_fg, 10);
+      color: $primary_color;
     }
   }
 }

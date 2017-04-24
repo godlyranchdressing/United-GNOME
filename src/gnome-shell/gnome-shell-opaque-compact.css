@@ -1035,17 +1035,16 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 #panel #panelActivities.panel-button {
   -natural-hpadding: 0px !important;
   min-width: 72px !important;
-  text-align: center;
   padding: 0 !important;
+  text-align: center;
 }
 
 #panel .chat-meta-message * * {
   font-size: 9.75pt;
   font-weight: 400;
-  color: red;
   -natural-hpadding: 8px;
   -minimum-hpadding: 4px;
-  font-weight: lighter;
+  font-weight: regular;
 }
 
 #panel .applet-box .applet-menu-content {
@@ -1069,7 +1068,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 #panel .panel-button {
   -natural-hpadding: 8px;
   -minimum-hpadding: 4px;
-  font-weight: lighter;
+  font-weight: 500;
   color: #FFFFFF;
   transition-duration: 0.1s;
 }
@@ -1177,6 +1176,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .world-clocks-button,
 .weather-button,
 .events-section-title {
+  color: #FFFFFF;
   min-height: 22px;
   padding: 4px 8px;
   border-radius: 2px;
@@ -1192,6 +1192,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message-list-section-list:rtl {
   padding-right: 0;
+}
+
+.datemenu-today-button,
+.world-clocks-button,
+.weather-button,
+.events-section-title {
+  color: #FFFFFF;
 }
 
 .datemenu-today-button:hover, .datemenu-today-button:focus,
@@ -1731,6 +1738,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 0;
   background-color: #F4F4F4;
   color: #505050;
+  border: none;
   selection-background-color: #E95420;
   selected-color: #F4F4F4;
   background-color: #F4F4F4;
@@ -1752,8 +1760,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #505050;
 }
 
+.search-entry:hover, .search-entry:focus {
+  box-shadow: 0 0px 0px 1px #E65724;
+}
+
 .search-entry:hover .search-entry-icon, .search-entry:focus .search-entry-icon {
-  color: #373737;
+  color: #E95420;
 }
 
 #searchResultsBin {
