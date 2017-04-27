@@ -37,7 +37,7 @@ Roadmap
 
 License
 -------
-This is distributed under the terms of the GNU General Public License, version 2 or later. See the [`COPYING`](COPYING) file for details.
+This is distributed under the terms of the GNU General Public License, version 3 or later. See the [`LICENSE.md`](LICENSE.md) file for details.
 
 Credits
 -------
