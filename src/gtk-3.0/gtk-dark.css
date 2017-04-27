@@ -2690,6 +2690,7 @@ treeview.view radio:hover:disabled {
 
 treeview.view check:hover:selected,
 treeview.view radio:hover:selected {
+  color: #FFFFFF;
   box-shadow: inset 0 0 0 9999px alpha(#ffffff, 0.05);
 }
 
@@ -2745,7 +2746,7 @@ treeview.view radio:selected:disabled {
 treeview.view check:selected:checked, treeview.view check:selected:indeterminate,
 treeview.view radio:selected:checked,
 treeview.view radio:selected:indeterminate {
-  color: #E95420;
+  color: #FFFFFF;
 }
 
 treeview.view check:selected:checked:disabled, treeview.view check:selected:indeterminate:disabled,
@@ -3932,7 +3933,7 @@ button.text-button {
   border-radius: 0;
 }
 
-check:checked:selected, check:not(:checked):selected {
+box.vertical scrolledwindow.frame treeview.view check:checked:selected, box.vertical scrolledwindow.frame treeview.view check:not(:checked):selected {
   color: #FFFFFF;
 }
 

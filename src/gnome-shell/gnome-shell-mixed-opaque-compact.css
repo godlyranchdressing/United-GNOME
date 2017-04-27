@@ -150,7 +150,6 @@ StEntry {
   border-radius: 0;
   border-width: 0;
   color: #505050;
-  background: red;
   selection-background-color: #E95420;
   selected-color: #F4F4F4;
   font-size: 11.25pt;
@@ -853,15 +852,15 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .osd-window .level {
-  height: 0.6em;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.3);
+  height: 0.3em;
+  border-radius: 0px;
+  background-color: #E95420;
   color: #FFFFFF;
 }
 
 .osd-window .level-bar {
-  background-color: #E95420;
-  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.12);
+  border-radius: 0px;
 }
 
 /* Pad OSD */
@@ -2986,201 +2985,384 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 6px;
 }
 
-#dashtodockContainer.left #dash,
-#dashtodockContainer.right #dash {
-  padding: 4px 0;
-}
-
-#dashtodockContainer.bottom #dash,
-#dashtodockContainer.top #dash {
-  padding: 0 4px;
-}
-
-#dashtodockContainer.extended #dash {
+#dashtodockContainer #dash {
   padding: 0;
   border-radius: 0;
 }
 
-#dashtodockContainer.extended.left .dash-item-container > StWidget,
-#dashtodockContainer.extended.right .dash-item-container > StWidget,
-#dashtodockContainer.left .dash-item-container > StWidget,
-#dashtodockContainer.right .dash-item-container > StWidget {
-  padding: 3px 6px;
-}
-
-#dashtodockContainer.extended.left .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:first-child > StWidget {
-  padding: 6px 6px 3px;
-}
-
-#dashtodockContainer.extended.left .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:last-child > StWidget {
-  padding: 3px 6px 6px;
-}
-
-#dashtodockContainer.bottom .dash-item-container > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container > StWidget,
-#dashtodockContainer.extended.top .dash-item-container > StWidget,
-#dashtodockContainer.top .dash-item-container > StWidget {
-  padding: 6px 3px;
-}
-
-#dashtodockContainer.extended.bottom .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.top .dash-item-container:first-child > StWidget {
-  padding: 6px 3px 6px 6px;
-}
-
-#dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.top .dash-item-container:last-child > StWidget {
-  padding: 6px 6px 6px 3px;
-}
-
-#dashtodockContainer .app-well-app-running-dot {
+#dash .app-well-app {
+  color: transparent;
   background-color: transparent;
+}
+
+#dash .app-well-app:hover, #dash .app-well-app:focus, #dash .app-well-app:active {
+  background-color: transparent;
+}
+
+#dash .app-well-app:hover *, #dash .app-well-app:focus *, #dash .app-well-app:active * {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#dashtodockContainer #dash .app-well-app-running-dot {
+  background-color: transparent;
+  color: transparent;
+}
+
+#dash StWidget {
+  transition-duration: 250ms;
 }
 
 #dashtodockContainer.left .dash-item-container > StWidget.running1 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running1.focused, #dashtodockContainer.left .dash-item-container > StWidget.running1:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.left .dash-item-container > StWidget.running1:active, #dashtodockContainer.left .dash-item-container > StWidget.running1.focused {
+  box-shadow: inset 4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget.running1:hover {
+  box-shadow: inset 4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget:hover, #dashtodockContainer.left .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.left .dash-item-container > StWidget.running2 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running2.focused, #dashtodockContainer.left .dash-item-container > StWidget.running2:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.left .dash-item-container > StWidget.running2:active, #dashtodockContainer.left .dash-item-container > StWidget.running2.focused {
+  box-shadow: inset 4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget.running2:hover {
+  box-shadow: inset 4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget:hover, #dashtodockContainer.left .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.left .dash-item-container > StWidget.running3 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running3.focused, #dashtodockContainer.left .dash-item-container > StWidget.running3:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.left .dash-item-container > StWidget.running3:active, #dashtodockContainer.left .dash-item-container > StWidget.running3.focused {
+  box-shadow: inset 4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget.running3:hover {
+  box-shadow: inset 4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget:hover, #dashtodockContainer.left .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.left .dash-item-container > StWidget.running4 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running4.focused, #dashtodockContainer.left .dash-item-container > StWidget.running4:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.left .dash-item-container > StWidget.running4:active, #dashtodockContainer.left .dash-item-container > StWidget.running4.focused {
+  box-shadow: inset 4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget.running4:hover {
+  box-shadow: inset 4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.left .dash-item-container > StWidget:hover, #dashtodockContainer.left .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.right .dash-item-container > StWidget.running1 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running1.focused, #dashtodockContainer.right .dash-item-container > StWidget.running1:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.right .dash-item-container > StWidget.running1:active, #dashtodockContainer.right .dash-item-container > StWidget.running1.focused {
+  box-shadow: inset -4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget.running1:hover {
+  box-shadow: inset -4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget:hover, #dashtodockContainer.right .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.right .dash-item-container > StWidget.running2 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running2.focused, #dashtodockContainer.right .dash-item-container > StWidget.running2:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.right .dash-item-container > StWidget.running2:active, #dashtodockContainer.right .dash-item-container > StWidget.running2.focused {
+  box-shadow: inset -4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget.running2:hover {
+  box-shadow: inset -4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget:hover, #dashtodockContainer.right .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.right .dash-item-container > StWidget.running3 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running3.focused, #dashtodockContainer.right .dash-item-container > StWidget.running3:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.right .dash-item-container > StWidget.running3:active, #dashtodockContainer.right .dash-item-container > StWidget.running3.focused {
+  box-shadow: inset -4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget.running3:hover {
+  box-shadow: inset -4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget:hover, #dashtodockContainer.right .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.right .dash-item-container > StWidget.running4 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running4.focused, #dashtodockContainer.right .dash-item-container > StWidget.running4:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.right .dash-item-container > StWidget.running4:active, #dashtodockContainer.right .dash-item-container > StWidget.running4.focused {
+  box-shadow: inset -4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget.running4:hover {
+  box-shadow: inset -4px 0 #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.right .dash-item-container > StWidget:hover, #dashtodockContainer.right .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.top .dash-item-container > StWidget.running1 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running1.focused, #dashtodockContainer.top .dash-item-container > StWidget.running1:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.top .dash-item-container > StWidget.running1:active, #dashtodockContainer.top .dash-item-container > StWidget.running1.focused {
+  box-shadow: inset 0px 4px #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget.running1:hover {
+  box-shadow: inset 0px 4px #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget:hover, #dashtodockContainer.top .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.top .dash-item-container > StWidget.running2 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running2.focused, #dashtodockContainer.top .dash-item-container > StWidget.running2:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.top .dash-item-container > StWidget.running2:active, #dashtodockContainer.top .dash-item-container > StWidget.running2.focused {
+  box-shadow: inset 0px 4px #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget.running2:hover {
+  box-shadow: inset 0px 4px #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget:hover, #dashtodockContainer.top .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.top .dash-item-container > StWidget.running3 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running3.focused, #dashtodockContainer.top .dash-item-container > StWidget.running3:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.top .dash-item-container > StWidget.running3:active, #dashtodockContainer.top .dash-item-container > StWidget.running3.focused {
+  box-shadow: inset 0px 4px #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget.running3:hover {
+  box-shadow: inset 0px 4px #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget:hover, #dashtodockContainer.top .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.top .dash-item-container > StWidget.running4 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running4.focused, #dashtodockContainer.top .dash-item-container > StWidget.running4:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.top .dash-item-container > StWidget.running4:active, #dashtodockContainer.top .dash-item-container > StWidget.running4.focused {
+  box-shadow: inset 0px 4px #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget.running4:hover {
+  box-shadow: inset 0px 4px #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.top .dash-item-container > StWidget:hover, #dashtodockContainer.top .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.bottom .dash-item-container > StWidget.running1 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running1.focused, #dashtodockContainer.bottom .dash-item-container > StWidget.running1:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.bottom .dash-item-container > StWidget.running1:active, #dashtodockContainer.bottom .dash-item-container > StWidget.running1.focused {
+  box-shadow: inset 0px -4px #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running1:hover {
+  box-shadow: inset 0px -4px #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget:hover, #dashtodockContainer.bottom .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.bottom .dash-item-container > StWidget.running2 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running2.focused, #dashtodockContainer.bottom .dash-item-container > StWidget.running2:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.bottom .dash-item-container > StWidget.running2:active, #dashtodockContainer.bottom .dash-item-container > StWidget.running2.focused {
+  box-shadow: inset 0px -4px #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running2:hover {
+  box-shadow: inset 0px -4px #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget:hover, #dashtodockContainer.bottom .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.bottom .dash-item-container > StWidget.running3 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running3.focused, #dashtodockContainer.bottom .dash-item-container > StWidget.running3:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.bottom .dash-item-container > StWidget.running3:active, #dashtodockContainer.bottom .dash-item-container > StWidget.running3.focused {
+  box-shadow: inset 0px -4px #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running3:hover {
+  box-shadow: inset 0px -4px #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget:hover, #dashtodockContainer.bottom .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer.bottom .dash-item-container > StWidget.running4 {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running4.focused, #dashtodockContainer.bottom .dash-item-container > StWidget.running4:hover {
-  background-color: rgba(233, 84, 32, 0.6);
-  box-shadow: inset 0 -2px 0 #E95420;
+#dashtodockContainer.bottom .dash-item-container > StWidget.running4:active, #dashtodockContainer.bottom .dash-item-container > StWidget.running4.focused {
+  box-shadow: inset 0px -4px #E95420;
+  background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget.running4:hover {
+  box-shadow: inset 0px -4px #E95420;
+  background-color: rgba(233, 84, 32, 0.5);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#dashtodockContainer.bottom .dash-item-container > StWidget:hover, #dashtodockContainer.bottom .dash-item-container > StWidget:active {
+  background-color: rgba(233, 84, 32, 0.25);
 }
 
 #dashtodockContainer .dash-item-container > StWidget:hover {

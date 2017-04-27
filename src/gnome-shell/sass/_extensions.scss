@@ -1,69 +1,89 @@
-// Dash to dock sizing
-
-#dashtodockContainer.left #dash,
-#dashtodockContainer.right #dash {
-  padding: 4px 0;
-}
-
-#dashtodockContainer.bottom #dash,
-#dashtodockContainer.top #dash {
-  padding: 0 4px;
-}
-
-#dashtodockContainer.extended #dash {
+#dashtodockContainer #dash {
+  // Removing padding
   padding: 0;
   border-radius: 0;
 }
 
-#dashtodockContainer.extended.left .dash-item-container > StWidget,
-#dashtodockContainer.extended.right .dash-item-container > StWidget,
-#dashtodockContainer.left .dash-item-container > StWidget,
-#dashtodockContainer.right .dash-item-container > StWidget {
-  padding: 3px 6px;
+#dash {
+  // get rid of default hover effects
+  .app-well-app {
+    color: transparent;
+    background-color: transparent;
+
+    &:hover, &:focus, &:active {
+      background-color: transparent;
+
+      * {
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+  }
 }
 
-#dashtodockContainer.extended.left .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:first-child > StWidget {
-  padding: 6px 6px 3px;
+#dashtodockContainer #dash {
+  // get rid of the indicator dot
+  .app-well-app-running-dot {
+    background-color: transparent;
+    color: transparent;
+  }
 }
 
-#dashtodockContainer.extended.left .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:last-child > StWidget {
-  padding: 3px 6px 6px;
+#dash StWidget {
+  // Fancy effects
+  transition-duration: 250ms;
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container > StWidget,
-#dashtodockContainer.extended.top .dash-item-container > StWidget,
-#dashtodockContainer.top .dash-item-container > StWidget {
-  padding: 6px 3px;
-}
-
-#dashtodockContainer.extended.bottom .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.top .dash-item-container:first-child > StWidget {
-  padding: 6px 3px 6px 6px;
-}
-
-#dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.top .dash-item-container:last-child > StWidget {
-  padding: 6px 6px 6px 3px;
-}
-
-#dashtodockContainer .app-well-app-running-dot {
-  // to hide the default running indicator. This only applies to dashtodock
-  background-color: transparent;
-}
-
-// Custom hover, focused and hover indicators
 @each $g in left right top bottom {
+  // Fancify the dash
   @for $i from 1 through 4 {
-    #dashtodockContainer.#{$g} .dash-item-container > StWidget.running#{$i} {
-      background-color: transparentize($alt_primary_color, $secondary_opacity);
+    $_indicator_height: 4;
+    $_shadow: inset 0 -#{$_indicator_height}px 0;
+    $_shadow_focused: null;
 
-      &.focused,
-      &:hover {
-        background-color: transparentize($alt_primary_color, $disabled_opacity);
-        box-shadow: inset 0 -2px 0 $alt_primary_color;
+    @if $g == "left" {
+      $_shadow: inset #{$_indicator_height}px 0;
+    }
+
+    @if $g == "right" {
+      $_shadow: inset -#{$_indicator_height}px 0;
+    }
+
+    @if $g == "bottom" {
+      $_shadow: inset 0px -#{$_indicator_height}px;
+    }
+
+    @if $g == "top" {
+      $_shadow: inset 0px #{$_indicator_height}px;
+    }
+
+    #dashtodockContainer.#{$g} {
+      .dash-item-container {
+        // running items
+        > StWidget.running#{$i} {
+          background-color: transparentize($primary_color, 0.75);
+
+          &:active, &.focused {
+            // the active and focused item (no shit)
+            box-shadow: $_shadow $primary_color;
+            background-color: transparentize($primary_color, 0.75);
+          }
+
+          &:hover {
+            // hover over a running item
+            box-shadow: $_shadow $primary_color;
+            background-color: transparentize($primary_color, 0.5);
+          }
+        }
+
+        > StWidget {
+          background-color: rgba(0, 0, 0, 0.01);
+
+          &:hover, &:active {
+            // hovering over an unopened item
+            background-color: transparentize($primary_color, 0.75);
+          }
+        }
       }
     }
   }

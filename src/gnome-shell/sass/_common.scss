@@ -113,7 +113,6 @@ StEntry {
   border-radius: 0;
   border-width: 0;
   color: $ubuntu_fg;
-  background: red;
   selection-background-color: $primary_color;
   selected-color: $ubuntu_white;
 
@@ -844,15 +843,15 @@ StScrollBar {
   }
 
   .level {
-    height: 0.6em;
-    border-radius: 4px;
-    background-color: $fill_color;
+    height: 0.3em;
+    border-radius: 0px;
+    background-color: $primary_color;
     color: $fg_color;
   }
 
   .level-bar {
-    background-color: $primary_color;
-    border-radius: 2px;
+    color: $disabled_fill_color;
+    border-radius: 0px;
   }
 }
 
