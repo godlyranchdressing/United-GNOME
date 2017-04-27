@@ -2025,6 +2025,22 @@ popover.background {
   }
 }
 
+popover.background.menu {
+  // inheriting problems we want all popover buttons to be flat
+  button {
+    &.model.text-button, &.image-button.model {
+      background: $lightest_bg_color;
+      color: $fg_color;
+      box-shadow: none;
+      border: none;
+    }
+
+    &.model.text-button{
+      border: 1px solid $border_color;
+    }
+  }
+}
+
 /*************
  * Notebooks *
  *************/

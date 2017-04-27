@@ -2089,6 +2089,17 @@ popover.background list separator {
   margin: 0;
 }
 
+popover.background.menu button.model.text-button, popover.background.menu button.image-button.model {
+  background: white;
+  color: #606060;
+  box-shadow: none;
+  border: none;
+}
+
+popover.background.menu button.model.text-button {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 /*************
  * Notebooks *
  *************/
@@ -4301,6 +4312,15 @@ layouttabbar {
 
 layouttabbar > box > button {
   margin: 4px 0;
+}
+
+window.workbench stack button {
+  color: #606060;
+}
+
+window.workbench stack button:hover, window.workbench stack button:checked {
+  box-shadow: none;
+  color: #E95420;
 }
 
 layouttab {

@@ -184,14 +184,14 @@ StScrollBar {
   }
 
   StButton#vhandle, StButton#hhandle {
-    background-color: $tertiary_inverse_fg_color;
+    background-color: $tertiary_fg_color;
 
     &:hover {
-      background-color: $secondary_inverse_fg_color;
+      background-color: $secondary_fg_color;
     }
 
     &:active {
-      background-color: $inverse_fg_color;
+      background-color: $fg_color;
     }
   }
 }
@@ -523,7 +523,7 @@ StScrollBar {
 
 .prompt-dialog {
   //this is the width of the entire modal popup
-  width: 500px;
+  width: 650px;
   border: none;
 }
 
@@ -547,8 +547,8 @@ StScrollBar {
 }
 
 .prompt-dialog-password-box {
-  spacing: 1em;
-  padding-bottom: 1em;
+  spacing: .5em;
+  padding-bottom: .5em;
 }
 
 .prompt-dialog-error-label {
@@ -733,16 +733,16 @@ StScrollBar {
       font-weight: bold;
 
       &.selected {
-        color: $inverse_fg_color;
+        color: $fg_color;
         background-color: $semi_fill_color;
       }
 
       &:active {
-        color: $inverse_fg_color !important;
+        color: $fg_color !important;
       }
 
       &:insensitive {
-        color: $disabled_inverse_fg_color;
+        color: $disabled_fg_color;
       }
     }
 
@@ -803,7 +803,7 @@ StScrollBar {
   margin: 5px 8px 8px;
   background-color: $base_color;
   border-radius: 2px;
-  box-shadow: $shadow_2;
+  box-shadow: none;
 }
 
 .popup-separator-menu-item {
@@ -903,7 +903,7 @@ StScrollBar {
 .switcher-list .item-box:selected {
   background-color: $alt_base_color;
   border: 1px solid $alt_primary_color;
-  color: $inverse_fg_color;
+  color: $fg_color;
 }
 
 .switcher-list .thumbnail-box {
@@ -961,7 +961,7 @@ StScrollBar {
 .ws-switcher-active-up, .ws-switcher-active-down {
   height: 48px;
   background-color: $primary_color;
-  color: $inverse_fg_color;
+  color: $fg_color;
   background-size: 32px;
   border-radius: 2px;
 }
@@ -1005,7 +1005,7 @@ StScrollBar {
   background-color: $panel_bg_color;
 
   @if $panel == "light" {
-    box-shadow: $shadow_1;
+    box-shadow: none;
   }
 
   font-size: 9.5pt;
@@ -1019,7 +1019,7 @@ StScrollBar {
 
     @if $panel == "light" or $variant == "light" {
       background-color: $panel_bg_color;
-      box-shadow: $shadow_1;
+      box-shadow: none;
     }
   }
 
@@ -1035,7 +1035,7 @@ StScrollBar {
     -panel-corner-border-color: transparent;
 
     &:active, &:overview, &:focus {
-      -panel-corner-border-color: $inverse_fg_color;
+      -panel-corner-border-color: $fg_color;
     }
 
     &.lock-screen, &.login-screen, &.unlock-screen {
@@ -1047,39 +1047,13 @@ StScrollBar {
 
   #panelActivities.panel-button {
     -natural-hpadding: 0px !important;
+    -minimum-hpadding: 0px !important;
     min-width: 72px !important;
     padding: 0 !important;
     text-align: center;
   }
 
-  .chat-meta-message * * {
-    @include font(body-1);
-
-    -natural-hpadding: 8px;
-    -minimum-hpadding: 4px;
-    font-weight: regular;
-  }
-
-  .applet-box {
-    // imterim global menu support | creds to neowiz73 from omgubuntu!
-    .applet-menu-content {
-      spacing: 0.75em;
-    }
-
-    * {
-      color: if($panel == "light" or $variant == "light", $dark_fg_color, $light_fg_color);
-
-      &:hover {
-        color: if($panel == "light" or $variant == "light", transparentize($dark_fg_color, $lower_opacity), transparentize($fg_color, $lower_opacity));
-      }
-
-      &:active, &:focus, &:checked {
-        background-color: rgba($bg_color, 0.01);
-        box-shadow: inset 0 -2px 0px $primary_color;
-        color: if($panel == "light" or $variant == "light", $primary_color, transparentize($fg_color, $lower_opacity));
-      }
-    }
-  }
+  @include global_menu_padding;
 
   .panel-button {
     -natural-hpadding: 8px;
@@ -1122,25 +1096,15 @@ StScrollBar {
     .unlock-screen &,
     .login-screen &,
     .lock-screen & {
-      color: $secondary_inverse_fg_color;
+      color: $secondary_fg_color;
 
       &:focus, &:hover, &:active {
-        color: $inverse_fg_color;
+        color: $fg_color;
       }
     }
   }
 
-  //Uniform indicator spacing.
-
-  #panelRight .panel-button {
-    -natural-hpadding: 4px;
-    -minimum-hpadding: 4px;
-  }
-
-  .panel-status-indicators-box,
-  .panel-status-menu-box {
-    spacing: 8px;
-  }
+  @include uniform_panel_spacing;
 
   // spacing between power icon and (optional) percentage label
   .power-status.panel-status-indicators-box {
@@ -1231,6 +1195,10 @@ StScrollBar {
   }
 }
 
+.weather-button{
+  color: $secondary_fg_color;
+}
+
 .datemenu-today-button .day-label {}
 
 .datemenu-today-button .date-label {
@@ -1240,7 +1208,7 @@ StScrollBar {
 .world-clocks-header,
 .weather-header,
 .events-section-title {
-  color: $secondary_fg_color;
+  color: $fg_color;
   font-weight: bold;
 }
 
@@ -1573,7 +1541,7 @@ StScrollBar {
 #appMenu {
   spinner-image: url("process-working.svg");
   spacing: 4px;
-  padding: 0 12px 0 11px;
+  padding: 0 12px;
 
   .label-shadow {
     color: transparent;
@@ -1718,7 +1686,7 @@ StScrollBar {
 
 .nm-dialog-item:selected {
   background-color: $primary_color;
-  color: $inverse_fg_color;
+  color: $fg_color;
 }
 
 .nm-dialog-icons {
@@ -1800,10 +1768,10 @@ StScrollBar {
   selection-background-color: $primary_color;
   selected-color: $ubuntu_white;
 
-  @include entry(normal, $fc: $inverse_fill_color);
+  @include entry(normal, $_focus_color: $inverse_fill_color);
 
   &:focus {
-    @include entry(focus, $fc: $inverse_fg_color);
+    @include entry(focus, $_focus_color: $primary_color);
 
     padding: 0 8px;
     border-width: 0;
@@ -1817,8 +1785,6 @@ StScrollBar {
   }
 
   &:hover, &:focus {
-    box-shadow: $border_shadow_surround_outside $ubuntu_lighter_orange;
-
     .search-entry-icon {
       color: $primary_color;
     }
@@ -1893,18 +1859,13 @@ StScrollBar {
 
 #dash {
   font-size: 1em;
-  color: $inverse_fg_color;
-
-  $_dash_color: if($transparency == "true", transparentize($ubuntu_black, $middle_opacity), $ubuntu_dark_grey);
-
-  background: if($variant == "light" or $panel == "light", $ubuntu_dark_grey, $_dash_color);
-
-  // the dash should not be white
-  background: $_dash_color;
-  padding: 3px 0;
+  color: $fg_color;
+  padding: 0;
   border: none;
   border-left: 0px;
   border-radius: 0px 2px 2px 0px;
+
+  @include dash_bg;
 
   &:rtl {
     border-radius: 2px 0 0 2px;
@@ -1930,12 +1891,14 @@ StScrollBar {
   //osd tooltip
   // min-height: 32px - 6px * 2;
   border-radius: 2px;
-  padding: 7px 8px;
+  padding: 8px;
   color: $fg_color;
   background-color: $base_color;
   text-align: center;
   -x-offset: 8px;
 }
+
+@include fancy_dock;
 
 /* App Vault/Grid */
 .icon-grid {
@@ -1992,7 +1955,6 @@ StScrollBar {
 
 .app-well-app,
 .app-well-app.app-folder,
-.show-apps,
 .grid-search-result {
   & .overview-icon {
     @extend %icon_tile;
@@ -2031,19 +1993,7 @@ StScrollBar {
   text-align: center;
 }
 
-#dash .app-well-app:hover .overview-icon,
-.right #dash .app-well-app:hover .overview-icon,
-.bottom #dash .app-well-app:hover .overview-icon,
-.top #dash .app-well-app:hover .overview-icon {
-  background-color: transparent;
-}
-
-#dash .app-well-app:hover,
-.right #dash .app-well-app:hover,
-.bottom #dash .app-well-app:hover,
-.top #dash .app-well-app:hover {
-  background-color: $inverse_bg_color;
-}
+@include ubuntu_launcher;
 
 // Collections
 .app-folder-popup {
@@ -2072,22 +2022,22 @@ StScrollBar {
     height: 12px;
     border-radius: 12px;
     background-image: none;
-    background-color: scale-alpha($inverse_fg_color, $lower_opacity);
+    background-color: scale-alpha($fg_color, $lower_opacity);
   }
 
   &:hover .page-indicator-icon {
     background-image: none;
-    background-color: scale-alpha($inverse_fg_color, $middle_opacity);
+    background-color: scale-alpha($fg_color, $middle_opacity);
   }
 
   &:active .page-indicator-icon {
     background-image: none;
-    background-color: scale-alpha($inverse_fg_color, $higher_opacity);
+    background-color: scale-alpha($fg_color, $higher_opacity);
   }
 
   &:checked .page-indicator-icon {
     background-image: none;
-    background-color: $inverse_fg_color;
+    background-color: $fg_color;
     transition-duration: 0s;
   }
 
@@ -2140,7 +2090,7 @@ StScrollBar {
 }
 
 %overview-panel {
-  color: $inverse_fg_color;
+  color: $fg_color;
   background-color: $inverse_bg_color;
   border: none;
 }
@@ -2232,8 +2182,8 @@ StScrollBar {
   -shell-counter-overlap-x: 3px;
   -shell-counter-overlap-y: 3px;
   background-color: $primary_color;
-  color: $inverse_fg_color;
-  border: 2px solid $inverse_fg_color;
+  color: $fg_color;
+  border: 2px solid $fg_color;
   border-radius: 0.9em;
 
   // should be 0.8 but whatever; wish I could do 50%;
@@ -2354,7 +2304,7 @@ $legacy_icon_size: 24px;
 
 .legacy-tray {
   background-color: $alt_base_color;
-  color: $inverse_fg_color;
+  color: $fg_color;
   border: none;
   border-bottom-width: 0;
 
@@ -2455,7 +2405,7 @@ $legacy_icon_size: 24px;
   &:grayed {
     //FIXME
     background-color: $alt_bg_color;
-    color: $inverse_fg_color;
+    color: $fg_color;
     border-color: $alt_bg_color;
   }
 }
@@ -2487,7 +2437,7 @@ $legacy_icon_size: 24px;
   color: $tertiary_fg_color;
 
   .candidate-box:selected & {
-    color: $tertiary_inverse_fg_color;
+    color: $tertiary_fg_color;
   }
 }
 
@@ -2511,7 +2461,7 @@ $legacy_icon_size: 24px;
 
   &:selected {
     background-color: $primary_color;
-    color: $inverse_fg_color;
+    color: $fg_color;
   }
 }
 
@@ -2551,12 +2501,12 @@ $legacy_icon_size: 24px;
 .framed-user-icon {
   background-size: contain;
   border: none;
-  color: $inverse_fg_color;
+  color: $fg_color;
   border-radius: 2px;
 
   &:hover {
-    border-color: $inverse_fg_color;
-    color: $inverse_fg_color;
+    border-color: $fg_color;
+    color: $fg_color;
   }
 }
 
@@ -2575,18 +2525,18 @@ $legacy_icon_size: 24px;
   StEntry {
     color: $ubuntu_fg;
     selection-background-color: $inverse_fill_color;
-    selected-color: $inverse_fg_color;
+    selected-color: $fg_color;
 
-    @include entry(normal, $fc: $inverse_fill_color);
+    @include entry(normal, $_focus_color: $inverse_fill_color);
 
     &:focus {
-      @include entry(focus, $fc: $inverse_fg_color);
+      @include entry(focus, $_focus_color: $fg_color);
     }
 
     &:insensitive {
-      @include entry(insensitive, $fc: $disabled_inverse_fill_color);
+      @include entry(insensitive, $_focus_color: $disabled_inverse_fill_color);
 
-      color: $disabled_inverse_fg_color;
+      color: $disabled_fg_color;
     }
   }
 
@@ -2597,33 +2547,33 @@ $legacy_icon_size: 24px;
   .modal-dialog-button {
     padding: 0 16px;
 
-    @include button(flat-normal, $tc: $inverse_fg_color);
+    @include button(flat-normal, $_fg_color: $fg_color);
 
     &:hover, &:focus {
-      @include button(flat-hover, $tc: $inverse_fg_color);
+      @include button(flat-hover, $_fg_color: $fg_color);
     }
 
     &:active {
-      @include button(flat-active, $tc: $inverse_fg_color);
+      @include button(flat-active, $_fg_color: $fg_color);
     }
 
     &:insensitive {
-      @include button(flat-insensitive, $tc: $inverse_fg_color);
+      @include button(flat-insensitive, $_fg_color: $fg_color);
     }
 
     &:default {
-      @include button(normal, $c: $suggested_color, $tc: $inverse_fg_color);
+      @include button(normal, $_bg_color: $suggested_color, $_fg_color: $fg_color);
 
       &:hover, &:focus {
-        @include button(hover, $c: $suggested_color, $tc: $inverse_fg_color);
+        @include button(hover, $_bg_color: $suggested_color, $_fg_color: $fg_color);
       }
 
       &:active {
-        @include button(active, $c: $suggested_color, $tc: $inverse_fg_color);
+        @include button(active, $_bg_color: $suggested_color, $_fg_color: $fg_color);
       }
 
       &:insensitive {
-        @include button(insensitive, $c: $disabled_inverse_fill_color, $tc: $disabled_inverse_fg_color);
+        @include button(insensitive, $_bg_color: $disabled_inverse_fill_color, $_fg_color: $disabled_fg_color);
       }
     }
   }
@@ -2634,7 +2584,7 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog-banner {
-  color: $secondary_inverse_fg_color;
+  color: $secondary_fg_color;
 }
 
 .login-dialog-button-box {
@@ -2658,7 +2608,7 @@ $legacy_icon_size: 24px;
 
     .login-dialog-not-listed-button:focus &,
     .login-dialog-not-listed-button:hover & {
-      color: $inverse_fg_color;
+      color: $fg_color;
     }
   }
 }
@@ -2666,11 +2616,11 @@ $legacy_icon_size: 24px;
 .login-dialog-not-listed-label {
   font-size: 1em;
   font-weight: bold;
-  color: $secondary_inverse_fg_color;
+  color: $secondary_fg_color;
   padding-top: 1em;
 
   &:hover {
-    color: $inverse_fg_color;
+    color: $fg_color;
   }
 
   &:focus {
@@ -2689,28 +2639,28 @@ $legacy_icon_size: 24px;
 
   &:expanded .login-dialog-user-list-item:focus {
     background-color: $semi_inverse_fill_color;
-    color: $inverse_fg_color;
+    color: $fg_color;
   }
 
   &:expanded .login-dialog-user-list-item:hover {
     background-color: $semi_inverse_fill_color;
-    color: $inverse_fg_color;
+    color: $fg_color;
   }
 
   &:expanded .login-dialog-user-list-item:active {
     background-color: $inverse_fill_color;
-    color: $inverse_fg_color;
+    color: $fg_color;
   }
 
   &:expanded .login-dialog-user-list-item:logged-in {
-    border-right: 2px solid $inverse_fg_color;
+    border-right: 2px solid $fg_color;
   }
 }
 
 .login-dialog-user-list-item {
   border-radius: 2px;
   padding: 4px 4px 0;
-  color: $secondary_inverse_fg_color;
+  color: $secondary_fg_color;
 
   &:ltr {
     padding-right: 1em;
@@ -2722,28 +2672,28 @@ $legacy_icon_size: 24px;
 
   &:hover {
     background-color: $semi_inverse_fill_color;
-    color: $inverse_fg_color;
+    color: $fg_color;
   }
 
   &:active {
     background-color: $inverse_fill_color;
-    color: $inverse_fg_color;
+    color: $fg_color;
   }
 
   .login-dialog-timed-login-indicator {
     height: 2px;
     margin: 2px 0 0 0;
-    background-color: $inverse_fg_color;
+    background-color: $fg_color;
   }
 
   &:focus .login-dialog-timed-login-indicator {
-    background-color: $inverse_fg_color;
+    background-color: $fg_color;
   }
 }
 
 .login-dialog-username,
 .user-widget-label {
-  color: $inverse_fg_color;
+  color: $fg_color;
 
   @include font(title);
 
@@ -2769,7 +2719,7 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog-prompt-label {
-  color: $tertiary_inverse_fg_color;
+  color: $tertiary_fg_color;
   font-size: 1em;
   padding-top: 1em;
 }
@@ -2779,14 +2729,14 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog-session-list-button {
-  color: $secondary_inverse_fg_color;
+  color: $secondary_fg_color;
 
   &:hover, &:focus {
-    color: $inverse_fg_color;
+    color: $fg_color;
   }
 
   &:active {
-    color: $inverse_fg_color;
+    color: $fg_color;
   }
 }
 
@@ -2801,12 +2751,12 @@ $legacy_icon_size: 24px;
   width: 80px;
   height: 48px;
   -arrow-thickness: 12px;
-  -arrow-shadow: $shadow_1;
+  -arrow-shadow: none;
 }
 
 .screen-shield-clock {
   color: white;
-  text-shadow: $shadow_1;
+  text-shadow: none;
   font-weight: normal;
   text-align: center;
   padding-bottom: 1.5em;
@@ -2815,7 +2765,7 @@ $legacy_icon_size: 24px;
 .screen-shield-clock-time {
   @include font(display-4);
 
-  text-shadow: $shadow_1;
+  text-shadow: none;
 }
 
 .screen-shield-clock-date {
@@ -2838,7 +2788,7 @@ $legacy_icon_size: 24px;
     padding: 8px;
     border: none;
     background-color: $alt_bg_color;
-    color: $inverse_fg_color;
+    color: $fg_color;
     border-radius: 2px;
   }
 
@@ -2858,7 +2808,7 @@ $legacy_icon_size: 24px;
 .screen-shield-notification-count-text {
   min-height: $small_size - 2px;
   padding: 2px 0px 0px 16px;
-  color: $secondary_inverse_fg_color;
+  color: $secondary_fg_color;
 }
 
 #panel.lock-screen {
@@ -2938,7 +2888,7 @@ $legacy_icon_size: 24px;
 .lg-dialog {
   StEntry {
     selection-background-color: $primary_color;
-    selected-color: $inverse_fg_color;
+    selected-color: $fg_color;
   }
 
   .shell-link {

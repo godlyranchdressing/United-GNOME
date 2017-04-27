@@ -456,6 +456,15 @@ layouttabbar {
   }
 }
 
+window.workbench stack button {
+  color: $fg_color;
+
+  &:hover, &:checked {
+    box-shadow: none;
+    color: $primary_color;
+  }
+}
+
 layouttab {
   margin: 0 8px;
 
