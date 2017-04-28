@@ -2,6 +2,7 @@ $variant: 'light'; // light or dark
 $panel: 'light'; // light or dark
 $compact: 'false'; // true or false
 $transparency: 'false'; // true or false
+$distro: 'ubuntu'; // ubuntu and fedora
 
 @import 'sass/variables';
 @import 'sass/drawing';

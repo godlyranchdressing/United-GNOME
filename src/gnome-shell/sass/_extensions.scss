@@ -76,7 +76,7 @@
             background-color: rgba(0, 0, 0, 0.01);
 
             $_dash_hover_bg_color: if($transparency == "true", $alt_base_color, $inverse_bg_color);
-            $_dash_hover_bg_color: if($variant == "light", transparentize($alt_primary_color, $secondary_opacity), $_dash_hover_bg_color);
+            $_dash_hover_bg_color: if($variant == "light", transparentize($primary_color, $secondary_opacity), $_dash_hover_bg_color);
 
             background-color: $_dash_hover_bg_color;
 
@@ -102,7 +102,7 @@
   .show-apps {
     .overview-icon {
       background-color: $launcher_background !important;
-      background-image: url("assets/launcher.svg") !important;
+      background-image: url("assets/#{$distro}_launcher.svg") !important;
       border-radius: $circular_radius;
       background-size: contain !important;
     }
@@ -116,7 +116,7 @@
 
     &:checked, &:hover, &:active {
       .overview-icon {
-        background-image: url("assets/launcher.svg") !important;
+        background-image: url("assets/#{$distro}_launcher.svg") !important;
         background-size: contain !important;
         background-color: darken($launcher_background, 7.5) !important;
 
@@ -196,7 +196,7 @@
 .popup-menu {
   .search-entry {
     color: $fg_color;
-    selection-background-color: transparentize($alt_primary_color, $middle_opacity);
+    selection-background-color: transparentize($primary_color, $middle_opacity);
     selected-color: $fg_color;
 
     @include entry(normal);

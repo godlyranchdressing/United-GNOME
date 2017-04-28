@@ -16,7 +16,9 @@ $lowest_opacity: 0.25;
 $secondary_opacity: 0.75;
 $tertiary_opacity: 0.6;
 $disabled_opacity: 0.4;
-$quarternary_opacity: $disabled_opacity; // simply so people wouldn't get the wrong idea
+$quarternary_opacity: $disabled_opacity;
+
+// simply so people wouldn't get the wrong idea
 
 // sizes
 $small_size: if($compact == "false", 24px, 20px);
@@ -116,12 +118,10 @@ $semi_inverse_fill_color: scale-alpha($the_inverse_fill_color, $lower_opacity / 
 $disabled_inverse_fill_color: scale-alpha($the_inverse_fill_color, $disabled_opacity);
 
 // Theme colours
-$primary_color: $ubuntu_orange;
-$alt_primary_color: $ubuntu_orange;
-$accent_color: lighten($ubuntu_purple, 10);
-$link_color: lighten($ubuntu_purple, 10);
-$visited_link_color: darken($ubuntu_purple, 10);
-$launcher_background: if($transparency == "true", transparentize($alt_primary_color, 0.1), $primary_color);
+@import "distros";
+$link_color: lighten($accent_color, 10);
+$visited_link_color: darken($accent_color, 10);
+$launcher_background: if($transparency == "true", transparentize($primary_color, 0.1), $primary_color);
 
 // Info colours
 $warning_color: $orange;

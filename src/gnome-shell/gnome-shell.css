@@ -259,9 +259,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   height: 2px;
   color: transparent;
   -slider-height: 2px;
-  -slider-background-color: #E95420;
+  -slider-background-color: rgba(255, 255, 255, 0.75);
   -slider-border-color: transparent;
-  -slider-active-background-color: rgba(255, 255, 255, 0.75);
+  -slider-active-background-color: #E95420;
   -slider-active-border-color: transparent;
   -slider-border-width: 0;
   -slider-handle-radius: 8px;
@@ -339,17 +339,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 /* links */
 .shell-link {
   border-radius: 2px;
-  color: #9d4194;
+  color: #ba57b0;
 }
 
 .shell-link:hover {
-  color: #9d4194;
-  background-color: rgba(157, 65, 148, 0.15);
+  color: #ba57b0;
+  background-color: rgba(186, 87, 176, 0.15);
 }
 
 .shell-link:active {
-  color: #9d4194;
-  background-color: rgba(157, 65, 148, 0.3);
+  color: #ba57b0;
+  background-color: rgba(186, 87, 176, 0.3);
 }
 
 /* Modal Dialogs */
@@ -878,12 +878,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .osd-window .level {
   height: 0.3em;
   border-radius: 0px;
-  background-color: #E95420;
+  background-color: rgba(255, 255, 255, 0.75);
   color: #FFFFFF;
 }
 
 .osd-window .level-bar {
   color: rgba(255, 255, 255, 0.12);
+  background-color: #E95420;
   border-radius: 0px;
 }
 
@@ -2429,7 +2430,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .show-apps .overview-icon {
   background-color: rgba(233, 84, 32, 0.9) !important;
-  background-image: url("assets/launcher.svg") !important;
+  background-image: url("assets/ubuntu_launcher.svg") !important;
   border-radius: 9999px;
   background-size: contain !important;
 }
@@ -2441,7 +2442,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .show-apps:checked .overview-icon, .show-apps:hover .overview-icon, .show-apps:active .overview-icon {
-  background-image: url("assets/launcher.svg") !important;
+  background-image: url("assets/ubuntu_launcher.svg") !important;
   background-size: contain !important;
   background-color: rgba(206, 68, 20, 0.9) !important;
 }
@@ -2556,7 +2557,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* NOTIFICATIONS & MESSAGE TRAY */
 .url-highlighter {
-  link-color: #9d4194;
+  link-color: #ba57b0;
 }
 
 .notification-banner {
@@ -3369,11 +3370,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .lg-dialog .shell-link {
-  color: #9d4194;
+  color: #ba57b0;
 }
 
 .lg-dialog .shell-link:hover {
-  color: #9d4194;
+  color: #ba57b0;
 }
 
 .lg-completions-text {

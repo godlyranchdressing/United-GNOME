@@ -202,13 +202,13 @@ StScrollBar {
   height: 2px;
   color: transparent;
   -slider-height: 2px;
-  -slider-background-color: if($variant == "light", $secondary_fg_color, $primary_color);
+  -slider-background-color: $secondary_fg_color;
 
   //background of the trough
   -slider-border-color: transparent;
 
   //trough border color
-  -slider-active-background-color: if($variant == "light", $primary_color, $secondary_fg_color);
+  -slider-active-background-color: $primary_color;
 
   //active trough fill
   -slider-active-border-color: transparent;
@@ -845,12 +845,13 @@ StScrollBar {
   .level {
     height: 0.3em;
     border-radius: 0px;
-    background-color: $primary_color;
+    background-color: $secondary_fg_color;
     color: $fg_color;
   }
 
   .level-bar {
     color: $disabled_fill_color;
+    background-color: $primary_color;
     border-radius: 0px;
   }
 }
@@ -902,7 +903,7 @@ StScrollBar {
 
 .switcher-list .item-box:selected {
   background-color: $alt_base_color;
-  border: 1px solid $alt_primary_color;
+  border: 1px solid $primary_color;
   color: $fg_color;
 }
 
@@ -983,8 +984,8 @@ StScrollBar {
 
 /* Tiled window previews */
 .tile-preview {
-  background-color: scale-alpha($alt_primary_color, $lower_opacity);
-  border: 1px solid $alt_primary_color;
+  background-color: scale-alpha($primary_color, $lower_opacity);
+  border: 1px solid $primary_color;
 }
 
 .tile-preview-left.on-primary {
@@ -1286,7 +1287,7 @@ StScrollBar {
   // &:active { background-color: $fill_color; }
   &:active, &:selected {
     color: $white_fg_color;
-    background-color: $alt_primary_color !important;
+    background-color: $primary_color !important;
     border-color: transparent;
 
     //avoid jumparound due to today
@@ -1338,7 +1339,7 @@ StScrollBar {
 }
 
 .calendar-day-with-events {
-  color: $alt_primary_color;
+  color: $primary_color;
   font-weight: normal;
   text-decoration: underline;
   background-image: none;
@@ -2075,7 +2076,7 @@ StScrollBar {
 }
 
 .workspace-thumbnail-indicator {
-  border: 0 solid $alt_primary_color;
+  border: 0 solid $primary_color;
   border-left-width: 2px;
   padding: 6px;
   border-radius: 0;
