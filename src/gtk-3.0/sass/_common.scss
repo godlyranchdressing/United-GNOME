@@ -114,8 +114,8 @@ iconview {
 
 .rubberband,
 rubberband {
-  border: 1px solid $alt_primary_color;
-  background-color: scale-alpha($alt_primary_color, $lower_opacity);
+  border: 1px solid $primary_color;
+  background-color: scale-alpha($primary_color, $lower_opacity);
 }
 
 flowbox {
@@ -2587,7 +2587,7 @@ radio {
 
   &:checked,
   &:indeterminate {
-    color: $alt_primary_color;
+    color: $primary_color;
 
     &:disabled {
       color: scale-alpha($primary_color, $disabled_opacity);

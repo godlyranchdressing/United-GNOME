@@ -139,11 +139,9 @@ $semi_fill_color: gtkalpha(currentColor, $lower_opacity / 2);
 $row_fill_color: gtkalpha(currentColor, 0.05);
 
 // Theme colours
-$primary_color: $ubuntu_orange;
-$alt_primary_color: $ubuntu_orange;
-$accent_color: lighten($ubuntu_purple, 10);
-$link_color: $purple;
-$visited_link_color: $dark_purple;
+@import "distros";
+$link_color: lighten($accent_color, 5);
+$visited_link_color: darken($accent_color, 5);
 
 // Info colours
 $warning_color: $orange;

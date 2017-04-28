@@ -22,7 +22,7 @@ PanelToplevel.background {
 PanelToplevel > widget > button {
   padding: 0 4px;
   border-radius: 0;
-
+  
   @extend %simple_flat_button;
 }
 
@@ -65,7 +65,7 @@ MatePanelAppletFrameDBus {
 // WnckPager
 PanelApplet.wnck-applet .wnck-pager {
   background-color: transparent;
-  color: $alt_primary_color;
+  color: $primary_color;
 
   &:hover { background-color: $semi_fill_color; }
 
