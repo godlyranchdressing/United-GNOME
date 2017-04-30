@@ -223,27 +223,11 @@ entry:hover image {
   color: #E95420;
 }
 
-spinbutton:focus:not(.vertical),
-entry:focus {
-  color: #ffffff;
-  background-color: #373737;
-  transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-spinbutton:focus:hover:not(.vertical) image,
-entry:focus:hover image {
-  color: #E95420;
-}
-
-spinbutton:focus:not(spinbutton):focus:not(.vertical),
-entry:focus:not(spinbutton):focus {
-  box-shadow: inset 0 0px 0px 1px #E95420;
-}
-
-spinbutton:focus:not(spinbutton):focus:not(.vertical) image,
-entry:focus:not(spinbutton):focus image {
-  color: #E95420;
+spinbutton:hover:not(.vertical), spinbutton:focus:not(.vertical), spinbutton:active:not(.vertical),
+entry:hover,
+entry:focus,
+entry:active {
+  box-shadow: inset 0 -2px 0px #E95420;
 }
 
 spinbutton:disabled:not(.vertical),
@@ -634,6 +618,74 @@ button.text-button.default.suggested-action:disabled {
 }
 
 
+button.text-button.toggle,
+button.text-button.popup {
+  background-size: 100% 200%;
+  background-position: 0% 0%;
+  background-image: linear-gradient(to bottom, #373737 50%, #E95420 50%);
+  color: #ffffff;
+}
+
+
+button.text-button.toggle label,
+button.text-button.toggle image,
+button.text-button.toggle arrow,
+button.text-button.popup label,
+button.text-button.popup image,
+button.text-button.popup arrow {
+  transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+button.text-button.toggle:hover,
+button.text-button.popup:hover {
+  background-size: 100% 200%;
+  background-position: 0% 0%;
+  background-image: linear-gradient(to bottom, #373737 50%, #E95420 50%);
+  box-shadow: inset 0 -2px 0px #E95420;
+}
+
+
+button.text-button.toggle:hover label,
+button.text-button.toggle:hover image,
+button.text-button.toggle:hover arrow,
+button.text-button.popup:hover label,
+button.text-button.popup:hover image,
+button.text-button.popup:hover arrow {
+  color: #E95420;
+}
+
+
+button.text-button.toggle:active,
+button.text-button.toggle:checked,
+button.text-button.popup:active,
+button.text-button.popup:checked {
+  background-size: 100% 200%;
+  background-position: 0% 100%;
+}
+
+
+button.text-button.toggle:active *,
+button.text-button.toggle:checked *,
+button.text-button.popup:active *,
+button.text-button.popup:checked * {
+  color: white;
+}
+
+
+button.text-button.toggle:checked:hover *,
+button.text-button.popup:checked:hover * {
+  color: white;
+}
+
+
+button.text-button.toggle:disabled:checked,
+button.text-button.popup:disabled:checked {
+  background-color: rgba(233, 84, 32, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
 button.image-button {
   min-width: 24px;
   padding: 6px;
@@ -653,6 +705,7 @@ button.flat.flat,
 button.radio.flat,
 button.circular.flat {
   background-color: transparent;
+  box-shadow: none;
   border-radius: 9999px;
   color: #ffffff;
 }
@@ -666,7 +719,6 @@ button.flat.flat:hover,
 button.radio.flat:hover,
 button.circular.flat:hover {
   color: #E95420;
-  background-color: #373737;
 }
 
 .scale.menuitem.button.flat,
@@ -681,20 +733,9 @@ button.circular.flat.scale {
 }
 
 
-button.destructive-action {
-  color: #FFFFFF;
-  background-color: #c0392b;
-}
-
-
-button.destructive-action:hover {
-  background-color: #d65548;
-}
-
-
-button.destructive-action:disabled {
-  background: rgba(30, 30, 30, 0.1);
-  color: rgba(255, 255, 255, 0.6);
+button.destructive-action label,
+button.destructive-action image {
+  color: #c0392b;
 }
 
 
@@ -828,6 +869,12 @@ button.text-button {
 }
 
 .stack-switcher >
+button.text-button:hover, .stack-switcher >
+button.text-button:checked {
+  color: #E95420;
+}
+
+.stack-switcher >
 button.image-button {
   padding-left: 2px;
   padding-right: 2px;
@@ -941,29 +988,34 @@ button.needs-attention > label:dir(rtl), stacksidebar row.needs-attention > labe
   background-position: left 3px;
 }
 
-.linked:not(.vertical) > combobox:not(:only-child) > box > button.combo, .linked:not(.vertical) > spinbutton:not(:only-child):not(.vertical), .linked:not(.vertical) > entry:not(:only-child), :not(stackswitcher).linked > button:not(:only-child) {
+toolbar.inline-toolbar toolbutton > button.flat.text-button.image-button {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.linked:not(.vertical) > combobox:not(:only-child) > box > button.combo, .linked:not(.vertical) > spinbutton:not(:only-child):not(.vertical), .linked:not(.vertical) > entry:not(:only-child), .linked > button:not(:only-child) {
   border-radius: 0;
   -gtk-outline-radius: 2px;
 }
 
-.linked:not(.vertical) > combobox:not(:only-child):first-child > box > button.combo, .linked:not(.vertical) > spinbutton:not(:only-child):first-child:not(.vertical), .linked:not(.vertical) > entry:not(:only-child):first-child, :not(stackswitcher).linked > button:not(:only-child):first-child, combobox.linked button:not(:only-child):nth-child(2):dir(rtl) {
+.linked:not(.vertical) > combobox:not(:only-child):first-child > box > button.combo, .linked:not(.vertical) > spinbutton:not(:only-child):first-child:not(.vertical), .linked:not(.vertical) > entry:not(:only-child):first-child, .linked > button:not(:only-child):first-child, combobox.linked button:not(:only-child):nth-child(2):dir(rtl) {
   border-radius: 2px 0 0 2px;
 }
 
-.linked:not(.vertical) > combobox:not(:only-child):last-child > box > button.combo, .linked:not(.vertical) > spinbutton:not(:only-child):last-child:not(.vertical), .linked:not(.vertical) > entry:not(:only-child):last-child, :not(stackswitcher).linked > button:not(:only-child):last-child, combobox.linked button:not(:only-child):nth-child(2):dir(ltr) {
+.linked:not(.vertical) > combobox:not(:only-child):last-child > box > button.combo, .linked:not(.vertical) > spinbutton:not(:only-child):last-child:not(.vertical), .linked:not(.vertical) > entry:not(:only-child):last-child, .linked > button:not(:only-child):last-child, combobox.linked button:not(:only-child):nth-child(2):dir(ltr) {
   border-radius: 0 2px 2px 0;
 }
 
-.linked.vertical > combobox:not(:only-child) > box > button.combo, .linked.vertical > spinbutton:not(:only-child):not(.vertical), .linked.vertical > entry:not(:only-child), :not(stackswitcher).linked.vertical > button:not(:only-child) {
+.linked.vertical > combobox:not(:only-child) > box > button.combo, .linked.vertical > spinbutton:not(:only-child):not(.vertical), .linked.vertical > entry:not(:only-child), .linked.vertical > button:not(:only-child) {
   border-radius: 0;
   -gtk-outline-radius: 2px;
 }
 
-.linked.vertical > combobox:not(:only-child):first-child > box > button.combo, .linked.vertical > spinbutton:not(:only-child):first-child:not(.vertical), .linked.vertical > entry:not(:only-child):first-child, :not(stackswitcher).linked.vertical > button:not(:only-child):first-child {
+.linked.vertical > combobox:not(:only-child):first-child > box > button.combo, .linked.vertical > spinbutton:not(:only-child):first-child:not(.vertical), .linked.vertical > entry:not(:only-child):first-child, .linked.vertical > button:not(:only-child):first-child {
   border-radius: 2px 2px 0 0;
 }
 
-.linked.vertical > combobox:not(:only-child):last-child > box > button.combo, .linked.vertical > spinbutton:not(:only-child):last-child:not(.vertical), .linked.vertical > entry:not(:only-child):last-child, :not(stackswitcher).linked.vertical > button:not(:only-child):last-child {
+.linked.vertical > combobox:not(:only-child):last-child > box > button.combo, .linked.vertical > spinbutton:not(:only-child):last-child:not(.vertical), .linked.vertical > entry:not(:only-child):last-child, .linked.vertical > button:not(:only-child):last-child {
   border-radius: 0 0 2px 2px;
 }
 
@@ -1122,14 +1174,14 @@ headerbar switch:checked:disabled,
 button:visited, *:link:hover, button:hover:link,
 button:hover:visited, *:link:active, button:active:link,
 button:active:visited {
-  color: #9b59b6;
+  color: #af48a5;
 }
 
 *:link:visited,
 button:visited, *:link:visited:hover,
 button:visited:hover, *:link:visited:active,
 button:visited:active {
-  color: #8e44ad;
+  color: #8b3983;
 }
 
 infobar.error *:link, infobar.error button:link, infobar.error
@@ -1428,25 +1480,25 @@ headerbar .subtitle {
   font-size: smaller;
 }
 
-.titlebar:not(headerbar):not(.path-bar) button.text-button, .titlebar:not(headerbar):not(.path-bar) .text-button.default:not(.suggested-action),
+.titlebar:not(headerbar):not(.path-bar) button.text-button, .titlebar:not(headerbar):not(.path-bar) button.text-button.default:not(.suggested-action),
 headerbar button.text-button,
-headerbar .text-button.default:not(.suggested-action) {
+headerbar button.text-button.default:not(.suggested-action) {
   background-color: transparent;
   color: #ffffff;
 }
 
-.titlebar:not(headerbar):not(.path-bar) .image-button:not(.text-button), .titlebar:not(headerbar):not(.path-bar) button.popup, .titlebar:not(headerbar):not(.path-bar) button.toggle, .titlebar:not(headerbar):not(.path-bar) button.popup.toggle,
-headerbar .image-button:not(.text-button),
+.titlebar:not(headerbar):not(.path-bar) button.image-button:not(.text-button), .titlebar:not(headerbar):not(.path-bar) button.popup, .titlebar:not(headerbar):not(.path-bar) button.toggle, .titlebar:not(headerbar):not(.path-bar) button.popup.toggle,
+headerbar button.image-button:not(.text-button),
 headerbar button.popup,
 headerbar button.toggle,
 headerbar button.popup.toggle {
   color: #ffffff;
 }
 
-.titlebar:not(headerbar):not(.path-bar) .image-button:not(.text-button):hover, .titlebar:not(headerbar):not(.path-bar) .image-button:not(.text-button):checked, .titlebar:not(headerbar):not(.path-bar) .image-button:not(.text-button):active, .titlebar:not(headerbar):not(.path-bar) button.popup:hover, .titlebar:not(headerbar):not(.path-bar) button.popup:checked, .titlebar:not(headerbar):not(.path-bar) button.popup:active, .titlebar:not(headerbar):not(.path-bar) button.toggle:hover, .titlebar:not(headerbar):not(.path-bar) button.toggle:checked, .titlebar:not(headerbar):not(.path-bar) button.toggle:active, .titlebar:not(headerbar):not(.path-bar) button.popup.toggle:hover, .titlebar:not(headerbar):not(.path-bar) button.popup.toggle:checked, .titlebar:not(headerbar):not(.path-bar) button.popup.toggle:active,
-headerbar .image-button:not(.text-button):hover,
-headerbar .image-button:not(.text-button):checked,
-headerbar .image-button:not(.text-button):active,
+.titlebar:not(headerbar):not(.path-bar) button.image-button:not(.text-button):hover, .titlebar:not(headerbar):not(.path-bar) button.image-button:not(.text-button):checked, .titlebar:not(headerbar):not(.path-bar) button.image-button:not(.text-button):active, .titlebar:not(headerbar):not(.path-bar) button.popup:hover, .titlebar:not(headerbar):not(.path-bar) button.popup:checked, .titlebar:not(headerbar):not(.path-bar) button.popup:active, .titlebar:not(headerbar):not(.path-bar) button.toggle:hover, .titlebar:not(headerbar):not(.path-bar) button.toggle:checked, .titlebar:not(headerbar):not(.path-bar) button.toggle:active, .titlebar:not(headerbar):not(.path-bar) button.popup.toggle:hover, .titlebar:not(headerbar):not(.path-bar) button.popup.toggle:checked, .titlebar:not(headerbar):not(.path-bar) button.popup.toggle:active,
+headerbar button.image-button:not(.text-button):hover,
+headerbar button.image-button:not(.text-button):checked,
+headerbar button.image-button:not(.text-button):active,
 headerbar button.popup:hover,
 headerbar button.popup:checked,
 headerbar button.popup:active,
@@ -1456,15 +1508,31 @@ headerbar button.toggle:active,
 headerbar button.popup.toggle:hover,
 headerbar button.popup.toggle:checked,
 headerbar button.popup.toggle:active {
-  background: #252525;
-  box-shadow: 0 0px 0px 1px rgba(0, 0, 0, 0.2);
   color: #E95420;
+  background-color: transparent;
 }
 
-.titlebar:not(headerbar):not(.path-bar) button.text-button:not(.suggested-action):not(.toggle),
-headerbar button.text-button:not(.suggested-action):not(.toggle) {
-  background-color: transparent;
+.titlebar:not(headerbar):not(.path-bar) button.text-button:not(.toggle),
+headerbar button.text-button:not(.toggle) {
+  background-color: #373737;
   color: #ffffff;
+}
+
+.titlebar:not(headerbar):not(.path-bar) button.text-button:not(.toggle):hover,
+headerbar button.text-button:not(.toggle):hover {
+  box-shadow: 0 2px 0px #E95420;
+}
+
+.titlebar:not(headerbar):not(.path-bar) button.text-button.suggested-action,
+headerbar button.text-button.suggested-action {
+  background-color: #9d4194;
+  color: white;
+}
+
+.titlebar:not(headerbar):not(.path-bar) button.text-button.suggested-action:hover,
+headerbar button.text-button.suggested-action:hover {
+  background-color: lightene(#9d4194, 5%);
+  color: white;
 }
 
 .titlebar:not(headerbar):not(.path-bar) button.text-button:not(.suggested-action):active, .titlebar:not(headerbar):not(.path-bar) button.text-button:not(.suggested-action):hover, .titlebar:not(headerbar):not(.path-bar) button.text-button:not(.suggested-action):checked, .titlebar:not(headerbar):not(.path-bar) button.text-button:not(.suggested-action):focus,
@@ -1472,15 +1540,26 @@ headerbar button.text-button:not(.suggested-action):active,
 headerbar button.text-button:not(.suggested-action):hover,
 headerbar button.text-button:not(.suggested-action):checked,
 headerbar button.text-button:not(.suggested-action):focus {
-  background: #252525;
-  box-shadow: 0 0px 0px 1px rgba(0, 0, 0, 0.2);
   color: #E95420;
+}
+
+.titlebar:not(headerbar):not(.path-bar) button.text-button.title.toggle,
+headerbar button.text-button.title.toggle {
+  border-radius: 0;
+}
+
+.titlebar:not(headerbar):not(.path-bar) button:hover, .titlebar:not(headerbar):not(.path-bar) button:checked,
+headerbar button:hover,
+headerbar button:checked {
+  color: white;
+  background-color: #E95420;
 }
 
 .titlebar:not(headerbar):not(.path-bar) stackswitcher.horizontal.linked.stack-switcher button,
 headerbar stackswitcher.horizontal.linked.stack-switcher button {
   background: #252525;
   color: #ffffff;
+  border-radius: 0;
 }
 
 .titlebar:not(headerbar):not(.path-bar) stackswitcher.horizontal.linked.stack-switcher button:checked, .titlebar:not(headerbar):not(.path-bar) stackswitcher.horizontal.linked.stack-switcher button:hover,
@@ -1500,6 +1579,20 @@ headerbar box.horizontal widget.linked.path-bar button {
 .titlebar:not(headerbar):not(.path-bar) box.horizontal widget.linked.path-bar button.text-button:checked, .titlebar:not(headerbar):not(.path-bar) box.horizontal widget.linked.path-bar button.text-button:hover,
 headerbar box.horizontal widget.linked.path-bar button.text-button:checked,
 headerbar box.horizontal widget.linked.path-bar button.text-button:hover {
+  box-shadow: inset 0 -2px 0px #E95420;
+}
+
+.titlebar:not(headerbar):not(.path-bar) box.horizontal widget.linked.path-bar button.text-button:checked label, .titlebar:not(headerbar):not(.path-bar) box.horizontal widget.linked.path-bar button.text-button:checked image, .titlebar:not(headerbar):not(.path-bar) box.horizontal widget.linked.path-bar button.text-button:hover label, .titlebar:not(headerbar):not(.path-bar) box.horizontal widget.linked.path-bar button.text-button:hover image,
+headerbar box.horizontal widget.linked.path-bar button.text-button:checked label,
+headerbar box.horizontal widget.linked.path-bar button.text-button:checked image,
+headerbar box.horizontal widget.linked.path-bar button.text-button:hover label,
+headerbar box.horizontal widget.linked.path-bar button.text-button:hover image {
+  color: #E95420;
+}
+
+.titlebar:not(headerbar):not(.path-bar) box.horizontal widget.linked.path-bar button.text-button.toggle:checked, .titlebar:not(headerbar):not(.path-bar) box.horizontal widget.linked.path-bar button.text-button.toggle:hover,
+headerbar box.horizontal widget.linked.path-bar button.text-button.toggle:checked,
+headerbar box.horizontal widget.linked.path-bar button.text-button.toggle:hover {
   color: #E95420;
   box-shadow: inset 0 -2px 0px #E95420;
 }
@@ -2017,7 +2110,6 @@ popover.background grid stack box.linked button:hover {
 
 popover.background .text-button:not(.image-button):not(checkbutton):not(radiobutton) {
   background: #9d4194;
-  box-shadow: 0 0px 0px 1px rgba(0, 0, 0, 0.2);
   color: #FFFFFF;
 }
 
@@ -3392,7 +3484,7 @@ filechooser #pathbarbox .path-bar button.toggle image {
   padding: 0 6px;
 }
 
-filechooser #pathbarbox .path-bar button.toggle:hover {
+filechooser #pathbarbox .path-bar button.toggle:hover, filechooser #pathbarbox .path-bar button.toggle:checked {
   box-shadow: inset 0 -2px 0px #E95420;
   color: #E95420;
 }
@@ -3965,14 +4057,29 @@ button:disabled > *, .image-button:disabled > *, entry:disabled > *, box.linked:
 }
 
 button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button) {
-  box-shadow: 0 0px 0px 1px rgba(0, 0, 0, 0.2);
   color: #ffffff;
 }
 
 button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button):hover, button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button):active, button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button):checked {
   background-color: #373737;
-  box-shadow: 0 0px 0px 1px #E95420;
   color: #E95420;
+}
+
+toolbar.inline-toolbar button {
+  box-shadow: none;
+}
+
+/************
+ * Calculator *
+ ************/
+.math-buttons button {
+  background-color: #303030;
+  color: #ffffff;
+}
+
+.math-buttons button:hover, .math-buttons button:checked, .math-buttons button:active {
+  background-color: #E95420;
+  color: white;
 }
 
 /************

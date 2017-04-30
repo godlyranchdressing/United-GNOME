@@ -39,6 +39,7 @@
   @if $type == text {
     &:hover {
       background-color: lighten($_bg_color, 10);
+
       @if $_bg_color == $transparent {
         color: $primary_color;
       }
@@ -84,7 +85,6 @@
     color: $primary_color;
   }
 
-
   @if $type == header-button-hover {
     color: $primary_color;
   }
@@ -104,4 +104,43 @@
 
 @mixin undershoot($position) {
   @if $position == left or $position == right {}
+}
+
+@mixin button_animation($type) {
+  @if $type == swipe-up-toggle {
+    &:hover {
+      background-size: 100% 200%;
+      background-position: 0% 0%;
+      background-image: linear-gradient(to bottom, $lightest_bg_color 50%, $primary_color 50%);
+      box-shadow: $border_shadow_bottom $primary_color;
+
+      label, image, arrow {
+        color: $primary_color;
+      }
+    }
+
+    &:active, &:checked {
+      background-size: 100% 200%;
+      background-position: 0% 100%;
+
+      * {
+        color: white;
+      }
+    }
+
+    &:checked {
+      &:hover {
+        * {
+          color: white;
+        }
+      }
+    }
+
+    &:disabled {
+      &:checked {
+        background-color: transparentize($primary_color, $higher_opacity);
+        color: transparentize($fg_color, $disabled_opacity);
+      }
+    }
+  }
 }

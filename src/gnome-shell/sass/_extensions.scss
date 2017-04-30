@@ -72,17 +72,16 @@
 
           > StWidget {
             // unopened or regular items look like this (in most cases there should be no styling)
-
             background-color: rgba(0, 0, 0, 0.01);
-
-            $_dash_hover_bg_color: if($transparency == "true", $alt_base_color, $inverse_bg_color);
-            $_dash_hover_bg_color: if($variant == "light", transparentize($primary_color, $secondary_opacity), $_dash_hover_bg_color);
-
-            background-color: $_dash_hover_bg_color;
 
             &:hover, &:active {
               // hovering over an unopened item looks like this (should mirror the running item look from above imo)
               background-color: transparentize($primary_color, 0.75);
+
+              $_dash_hover_bg_color: if($transparency == "true", $alt_base_color, $inverse_bg_color);
+              $_dash_hover_bg_color: if($variant == "light", transparentize($primary_color, $secondary_opacity), $_dash_hover_bg_color);
+
+              background-color: $_dash_hover_bg_color;
             }
           }
         }
@@ -127,7 +126,7 @@
     }
   }
 
-  #dashtodockContainer.extended {
+  #dashtodockContainer {
     & .overview-icon {
       border-radius: 0;
       background-color: transparent !important;
@@ -157,7 +156,7 @@
       // no padding just looks weird so we're going to use the remaining spacing to make the menu items themselves look nicer
 
       padding: 0 4px;
-      color: if($panel == "light" or $variant == "light", $dark_fg_color, $light_fg_color);
+      color: $panel_fg_color;
 
       &:hover {
         // hover effect consistent with regular panel buttons
@@ -168,7 +167,7 @@
         // same as above
         background-color: rgba($bg_color, 0.01);
         box-shadow: inset 0 -2px 0px $primary_color;
-        color: if($panel == "light" or $variant == "light", $primary_color, transparentize($fg_color, $lower_opacity));
+        color: $panel_fg_color;
       }
     }
   }

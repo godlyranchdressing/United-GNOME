@@ -97,30 +97,18 @@
   }
 }
 
-@mixin entry($type, $_focus_color: $primary_color) {
-  //
-  // entry
-  //
-  // $t: entry type
-  // $_focus_color: focus color
-  //
+@mixin entry($_focus_color: $primary_color) {
+  background-color: $ubuntu_white;
+  transition: $shorter_transition;
+  box-shadow: none;
+  border-color: transparent;
 
-  @if $type == normal {
-    background-color: $ubuntu_white;
-    box-shadow: none;
+  &:hover, &:focus, &:active {
     border-color: transparent;
+    box-shadow: $border_shadow_bottom_inside $_focus_color;
   }
 
-  @if $type == focus {
-    border-color: transparent;
-    box-shadow: $border_shadow_surround_outside $_focus_color;
-  }
-
-  @if $type == hover {
-    box-shadow: $border_shadow_surround_outside $_focus_color;
-  }
-
-  @if $type == insensitive {
+  &:disabled {
     color: $disabled_fg_color;
     border-color: transparent;
     box-shadow: none;
@@ -135,82 +123,82 @@
     box-shadow: none;
     text-shadow: none;
     icon-shadow: none;
+
+    &:focus {
+      color: $_fg_color;
+      text-shadow: none;
+      icon-shadow: none;
+      box-shadow: none;
+    }
+
+    &:hover {
+      color: $_fg_color;
+      background-color: transparentize($semi_fill_color, $middle_opacity);
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
+
+    &:active {
+      color: $_fg_color;
+      background-color: mix($_fg_color, $_bg_color, percentage($lower_opacity));
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
+
+    &:insensitive {
+      color: if($_fg_color == $fg_color, $disabled_secondary_fg_color, $_fg_color);
+      background-color: if($_bg_color == $base_color, $disabled_fill_color, $_bg_color);
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
   }
 
-  @if $type == focus {
-    color: $_fg_color;
-    text-shadow: none;
-    icon-shadow: none;
-    box-shadow: none;
-  }
-
-  @if $type == hover {
-    color: $_fg_color;
-    background-color: $_bg_color;
-    border-color: transparent;
-    box-shadow: none;
-    text-shadow: none;
-    icon-shadow: none;
-  }
-
-  @if $type == active {
-    color: $_fg_color;
-    background-color: mix($_fg_color, $_bg_color, percentage($lower_opacity));
-    border-color: transparent;
-    box-shadow: none;
-    text-shadow: none;
-    icon-shadow: none;
-  }
-
-  @if $type == insensitive {
-    color: if($_fg_color == $fg_color, $disabled_secondary_fg_color, $_fg_color);
-    background-color: if($_bg_color == $base_color, $disabled_fill_color, $_bg_color);
-    border-color: transparent;
-    box-shadow: none;
-    text-shadow: none;
-    icon-shadow: none;
-  }
-
-  @if $type == flat-normal {
+  @if $type == flat {
     color: if($variant == "light", $dark_fg_color, $light_fg_color);
     background-color: transparent;
     border-color: transparent;
     box-shadow: none;
     text-shadow: none;
     icon-shadow: none;
-  }
 
-  @if $type == flat-focus {
-    color: if($variant == "light", $dark_fg_color, $light_fg_color);
-    text-shadow: none;
-    icon-shadow: none;
-    box-shadow: none;
-  }
+    &:focus {
+      color: if($variant == "light", $dark_fg_color, $light_fg_color);
+      text-shadow: none;
+      icon-shadow: none;
+      box-shadow: none;
+    }
 
-  @if $type == flat-hover {
-    color: if($variant == "light", $dark_fg_color, $light_fg_color);
-    background-color: if($_fg_color != $fg_color, $semi_fill_color, $semi_inverse_fill_color);
-    border-color: transparent;
-    box-shadow: none;
-    text-shadow: none;
-    icon-shadow: none;
-  }
+    &:hover {
+      color: if($variant == "light", $dark_fg_color, $light_fg_color);
+      background-color: transparentize($semi_fill_color, $middle_opacity);
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
 
-  @if $type == flat-active {
-    color: if($variant == "light", $dark_fg_color, $light_fg_color);
-    background-color: if($_fg_color != $fg_color, $fill_color, $inverse_fill_color);
-    border-color: transparent;
-    box-shadow: none;
-    text-shadow: none;
-    icon-shadow: none;
-  }
+    &:active {
+      color: if($variant == "light", $dark_fg_color, $light_fg_color);
+      background-color: if($_fg_color != $fg_color, $fill_color, $inverse_fill_color);
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
 
-  @if $type == flat-insensitive {
-    color: if($variant == "light", $dark_fg_color, $light_fg_color);
-    background-color: transparent;
-    border-color: transparent;
-    box-shadow: none;
-    text-shadow: none;
-    icon-shadow: none;
+    &:insensitive {
+      color: if($variant == "light", $dark_fg_color, $light_fg_color);
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
   }
 }

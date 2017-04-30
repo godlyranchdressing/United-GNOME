@@ -284,8 +284,8 @@ entry {
 
     @include entry(normal, $fg_color, $lightest_bg_color);
 
-    &:focus {
-      @include entry(focus, $fg_color, $lightest_bg_color);
+    &:hover, &:focus, &:active {
+      box-shadow: $border_shadow_bottom $primary_color;
     }
 
     &:disabled {
@@ -472,6 +472,19 @@ button {
       &.default.suggested-action {
         @include button(text, $white, $accent_color);
       }
+
+      &.toggle, &.popup {
+        background-size: 100% 200%;
+        background-position: 0% 0%;
+        background-image: linear-gradient(to bottom, $lightest_bg_color 50%, $primary_color 50%);
+        color: $fg_color;
+
+        label, image, arrow {
+          transition: $shorter_transition;
+        }
+
+        @include button_animation(swipe-up-toggle);
+      }
     }
 
     &.image-button {
@@ -492,12 +505,12 @@ button {
       @at-root %flat_button, &.flat {
         @at-root %simple_flat_button, & {
           background-color: transparent;
+          box-shadow: none;
           border-radius: $circular_radius;
           color: $fg_color;
 
           &:hover {
             color: $primary_color;
-            background-color: $lightest_bg_color;
           }
 
           &.scale {
@@ -516,7 +529,9 @@ button {
     }
 
     &.destructive-action {
-      @include button(text, $white, $destructive_color);
+      label, image {
+        color: $destructive_color;
+      }
     }
 
     &.default {
@@ -647,6 +662,10 @@ button {
       // compensate text-button paddings
       padding-left: 16px - 6px;
       padding-right: 16px - 6px;
+
+      &:hover, &:checked {
+        color: $primary_color;
+      }
     }
 
     &.image-button {
@@ -703,6 +722,20 @@ button {
     &:hover {
       @include button(flat-hover, $primary_color, $lightest_bg_color);
     }
+  }
+
+  .linked > &,
+  .linked > &:hover,
+  .linked > &:active,
+  .linked > &:checked {
+    @extend %linked;
+  }
+
+  .linked.vertical > &,
+  .linked.vertical > &:hover,
+  .linked.vertical > &:active,
+  .linked.vertical > &:checked {
+    @extend %linked_vertical;
   }
 
   @at-root %small_button {
@@ -771,9 +804,9 @@ entry {
 // all the following is for the +|- buttons on inline toolbars, that way
 // should really be deprecated...
 
-.inline-toolbar toolbutton > button {
-  // redefining the button look is
-  // needed since those are flat...
+toolbar.inline-toolbar toolbutton > button.flat.text-button.image-button {
+  background-color: transparent;
+  color: $fg_color;
 }
 
 // More inline toolbar buttons
@@ -1333,33 +1366,53 @@ headerbar {
     @extend .dim-label;
   }
 
-  button.text-button, .text-button.default:not(.suggested-action) {
-    background-color: $transparent;
-    color: $fg_color;
-
-    &:hover, &:checked, &:active {}
-  }
-
-  .image-button:not(.text-button), button.popup, button.toggle, button.popup.toggle {
-    color: if($titlebar == "dark", $light_fg_color, $fg_color);
-
-    &:hover, &:checked, &:active {
-      background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
-      box-shadow: $border_shadow_surround_outside $border_color;
-      color: $primary_color;
+  button {
+    &.text-button, &.text-button.default:not(.suggested-action) {
+      background-color: $transparent;
+      color: $fg_color;
     }
-  }
 
-  button.text-button:not(.suggested-action):not(.toggle) {
-    background-color: $transparent;
-    color: $fg_color;
-  }
+    &.image-button:not(.text-button), &.popup, &.toggle, &.popup.toggle {
+      color: if($titlebar == "dark", $light_fg_color, $fg_color);
 
-  button.text-button:not(.suggested-action) {
-    &:active, &:hover, &:checked, &:focus {
-      background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
-      box-shadow: $border_shadow_surround_outside $border_color;
-      color: $primary_color;
+      &:hover, &:checked, &:active {
+        color: $primary_color;
+        background-color: transparent;
+      }
+    }
+
+    &.text-button:not(.toggle):not(.suggested-action) {
+      background-color: $lightest_bg_color;
+      color: $fg_color;
+
+      &:hover {
+        box-shadow: $border_shadow_bottom_outside $primary_color;
+      }
+    }
+
+    &.text-button.suggested-action {
+      background-color: $suggested_color;
+      color: white;
+
+      &:hover {
+        background-color: lightene($suggested_color, 5%);
+        color: white;
+      }
+    }
+
+    &.text-button:not(.suggested-action) {
+      &:active, &:hover, &:checked, &:focus {
+        color: $primary_color;
+      }
+    }
+
+    &.text-button.title.toggle {
+      border-radius: 0;
+    }
+
+    &:hover, &:checked {
+      color: white;
+      background-color: $primary_color;
     }
   }
 
@@ -1367,6 +1420,7 @@ headerbar {
     //stubborn
     background: if($titlebar == "dark", $darker_pathbar_color, $lightest_bg_color);
     color: if($titlebar == "dark", $light_fg_color, $fg_color);
+    border-radius: 0;
 
     &:checked, &:hover {
       color: $primary_color;
@@ -1381,6 +1435,17 @@ headerbar {
     color: if($titlebar == "dark", $light_fg_color, $fg_color);
 
     &.text-button {
+      &:checked, &:hover {
+
+        box-shadow: $border_shadow_bottom $primary_color;
+
+        label, image{
+          color: $primary_color;
+        }
+      }
+    }
+
+    &.text-button.toggle {
       &:checked, &:hover {
         color: $primary_color;
         box-shadow: $border_shadow_bottom $primary_color;
@@ -1561,6 +1626,7 @@ headerbar {
 
   :not(headerbar):not(.path-bar) & {
     border-radius: 0;
+
 
     &:checked {
       &,
@@ -1954,7 +2020,6 @@ popover.background {
 
   .text-button:not(.image-button):not(checkbutton):not(radiobutton) {
     background: $suggested_color;
-    box-shadow: $border_shadow_surround_outside $border_color;
     color: $white;
 
     &:hover, &:active, &:checked {
@@ -2035,7 +2100,7 @@ popover.background.menu {
       border: none;
     }
 
-    &.model.text-button{
+    &.model.text-button {
       border: 1px solid $border_color;
     }
   }
@@ -3527,6 +3592,7 @@ filechooser {
 
     .path-bar button {
       background-color: $lightest_bg_color;
+
       border: none;
       border-radius: 0;
 
@@ -3537,7 +3603,7 @@ filechooser {
           padding: 0 6px;
         }
 
-        &:hover {
+        &:hover, &:checked {
           box-shadow: $border_shadow_bottom $primary_color;
           color: $primary_color;
         }
@@ -4244,12 +4310,16 @@ button:disabled, .image-button:disabled, entry:disabled, box.linked:disabled, sp
 // if you're some weirdass button not included in this list then look like this || def not ideal -> should do a for loop to populate
 
 button:not(.text-button):not(.image-button):not(.check):not(.radio):not(.destructive-action):not(.suggested-action):not(.default):not(.lock):not(.popup):not(.link):not(.file):not(.font):not(.toggle):not(.titlebutton):not(.flat):not(.small-button):not(.down):not(.up):not(.close):not(.maximize):not(.minimize):not(.slider-button) {
-  box-shadow: $border_shadow_surround_outside $border_color;
   color: $fg_color;
 
   &:hover, &:active, &:checked {
     background-color: $lightest_bg_color;
-    box-shadow: $border_shadow_surround_outside $primary_color;
     color: $primary_color;
+  }
+}
+
+toolbar.inline-toolbar {
+  button {
+    box-shadow: none;
   }
 }

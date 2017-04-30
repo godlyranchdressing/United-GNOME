@@ -1,4 +1,18 @@
 /************
+ * Calculator *
+ ************/
+
+.math-buttons button {
+  background-color: $lighter_bg_color;
+  color: $fg_color;
+
+  &:hover, &:checked, &:active {
+    background-color: $primary_color;
+    color: white;
+  }
+}
+
+/************
  * Software *
  ************/
 
