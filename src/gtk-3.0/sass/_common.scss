@@ -1436,10 +1436,9 @@ headerbar {
 
     &.text-button {
       &:checked, &:hover {
-
         box-shadow: $border_shadow_bottom $primary_color;
 
-        label, image{
+        label, image {
           color: $primary_color;
         }
       }
@@ -1626,7 +1625,6 @@ headerbar {
 
   :not(headerbar):not(.path-bar) & {
     border-radius: 0;
-
 
     &:checked {
       &,
@@ -3567,6 +3565,16 @@ messagedialog {
   }
 }
 
+messagedialog {
+  color: $fg_color;
+  background-color: $lightest_bg_color;
+  
+  &:hover, &:active {
+    box-shadow: $border_shadow_bottom $primary_color;
+    color: $primary_color;
+  }
+}
+
 dialog buttonbox.horizontal button.text-button {
   color: $fg_color;
   background-color: $lightest_bg_color;
@@ -3592,7 +3600,6 @@ filechooser {
 
     .path-bar button {
       background-color: $lightest_bg_color;
-
       border: none;
       border-radius: 0;
 
@@ -4189,6 +4196,8 @@ headerbar,
       @each $l, $m in ("", ""), (":backdrop", "-backdrop"), (":hover", "-hover"), (":active", "-active") {
         &.#{$k}#{$l} {
           background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}#{$window_button_asset_suffix}.png"), url("assets/titlebutton-#{$k}#{$m}#{$window_button_asset_suffix}@2.png"));
+          color: transparent;
+          background-color: transparent;
         }
       }
     }

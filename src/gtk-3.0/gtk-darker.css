@@ -1512,14 +1512,14 @@ headerbar button.popup.toggle:active {
   background-color: transparent;
 }
 
-.titlebar:not(headerbar):not(.path-bar) button.text-button:not(.toggle),
-headerbar button.text-button:not(.toggle) {
+.titlebar:not(headerbar):not(.path-bar) button.text-button:not(.toggle):not(.suggested-action),
+headerbar button.text-button:not(.toggle):not(.suggested-action) {
   background-color: white;
   color: #606060;
 }
 
-.titlebar:not(headerbar):not(.path-bar) button.text-button:not(.toggle):hover,
-headerbar button.text-button:not(.toggle):hover {
+.titlebar:not(headerbar):not(.path-bar) button.text-button:not(.toggle):not(.suggested-action):hover,
+headerbar button.text-button:not(.toggle):not(.suggested-action):hover {
   box-shadow: 0 2px 0px #E95420;
 }
 
@@ -3447,6 +3447,16 @@ messagedialog.csd .dialog-action-area button:last-child {
   border-bottom-right-radius: 2px;
 }
 
+messagedialog {
+  color: #606060;
+  background-color: white;
+}
+
+messagedialog:hover, messagedialog:active {
+  box-shadow: inset 0 -2px 0px #E95420;
+  color: #E95420;
+}
+
 dialog buttonbox.horizontal button.text-button {
   color: #606060;
   background-color: white;
@@ -3897,61 +3907,85 @@ headerbar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximi
 headerbar button.titlebutton.close,
 .titlebar button.titlebutton.close {
   background-image: -gtk-scaled(url("assets/titlebutton-close-dark.png"), url("assets/titlebutton-close-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.close:backdrop,
 .titlebar button.titlebutton.close:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-close-backdrop-dark.png"), url("assets/titlebutton-close-backdrop-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.close:hover,
 .titlebar button.titlebutton.close:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-close-hover-dark.png"), url("assets/titlebutton-close-hover-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.close:active,
 .titlebar button.titlebutton.close:active {
   background-image: -gtk-scaled(url("assets/titlebutton-close-active-dark.png"), url("assets/titlebutton-close-active-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.maximize,
 .titlebar button.titlebutton.maximize {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-dark.png"), url("assets/titlebutton-maximize-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.maximize:backdrop,
 .titlebar button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-backdrop-dark.png"), url("assets/titlebutton-maximize-backdrop-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.maximize:hover,
 .titlebar button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover-dark.png"), url("assets/titlebutton-maximize-hover-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.maximize:active,
 .titlebar button.titlebutton.maximize:active {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-active-dark.png"), url("assets/titlebutton-maximize-active-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-dark.png"), url("assets/titlebutton-minimize-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.minimize:backdrop,
 .titlebar button.titlebutton.minimize:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-backdrop-dark.png"), url("assets/titlebutton-minimize-backdrop-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.minimize:hover,
 .titlebar button.titlebutton.minimize:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover-dark.png"), url("assets/titlebutton-minimize-hover-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 headerbar button.titlebutton.minimize:active,
 .titlebar button.titlebutton.minimize:active {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-active-dark.png"), url("assets/titlebutton-minimize-active-dark@2.png"));
+  color: transparent;
+  background-color: transparent;
 }
 
 .view:selected,
