@@ -40,28 +40,28 @@ headerbar {
       }
     }
 
+    &:not(.text-button) {
+      &.popup.toggle {
+        background-image: none;
+        background-color: transparent;
+        box-shadow: none;
 
-
-    &.popup.toggle{
-      background-image: none;
-      background-color: transparent;
-      box-shadow: none;
-
-      &:hover, &:active, &:checked{
-        background-image: $lighter_bg_color;
-        color: $primary_color;
-      }
-    }
-
-    &.image-button {
-      box-shadow: none;
-
-      @if $headerbar == "dark" {
-        color: $light_fg_color;
+        &:hover, &:active, &:checked {
+          background-image: $lighter_bg_color;
+          color: $primary_color;
+        }
       }
 
-      &:hover, &:active, &:checked {
-        color: $primary_color;
+      &.image-button {
+        box-shadow: none;
+
+        @if $headerbar == "dark" {
+          color: $light_fg_color;
+        }
+
+        &:hover, &:active, &:checked {
+          color: $primary_color;
+        }
       }
     }
   }

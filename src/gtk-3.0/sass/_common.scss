@@ -52,6 +52,7 @@ $backdrop_transition: $button_transition;
  ***************/
 .background, paned, .gedit-view text {
   background-color: $bg_color;
+  box-shadow: $background_inset_shadow;
   color: $fg_color;
 }
 
@@ -2011,7 +2012,7 @@ popover.background {
   transition: $button_transition;
   background-color: $lighter_bg_color;
   box-shadow: $shadow_1;
-  padding: 2px;
+  padding: 0px;
 
   .csd &, & {
     border: 1px solid $border_color;
@@ -2044,7 +2045,7 @@ popover.background {
   }
 
   separator {
-    margin: 3px;
+    margin: 0px;
   }
 
   list separator {
@@ -2072,7 +2073,7 @@ popover.background {
 }
 
 popover.menu {
-  padding: 5px;
+  padding: 2px;
 }
 
 /*************
@@ -3046,13 +3047,13 @@ printdialog {
 /**********
  * Frames *
  **********/
-frame,
-.frame {
-  box-shadow: none;
+.frame,
+frame > border {
   margin: 0;
   padding: 0;
-  border-radius: 0;
   border: 1px solid $border_color;
+  border-radius: 0;
+  box-shadow: none;
 
   &.flat {
     border-style: none;
