@@ -1,0 +1,13 @@
+$variant: 'light'; // light or dark
+$headerbar: "dark"; // Light or dark
+$distro: "ubuntu"; // ubuntu and fedora
+$asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
+$window_button_suffix: if($variant == "dark" or $headerbar == "dark", "-dark", "");
+
+@import "sass/variables";
+@import "sass/colors";
+@import "sass/drawing";
+@import "sass/common";
+@import "sass/colors-public";
+@import "sass/bumps";
+@import "sass/apps";

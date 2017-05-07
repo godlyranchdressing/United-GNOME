@@ -14,7 +14,7 @@
     &:hover, &:focus, &:active {
       background-color: transparent;
 
-      * {
+      StWidget, StBin.overview-icon {
         background-color: transparent;
         box-shadow: none;
       }
@@ -58,7 +58,7 @@
             background-color: transparentize($primary_color, 0.75);
 
             &:active, &.focused {
-              // running and focused items look like this
+              // running and focused items (the currenlty focused window) look like this
               box-shadow: $_shadow $primary_color;
               background-color: transparentize($primary_color, 0.5);
             }
@@ -127,18 +127,24 @@
   }
 
   #dashtodockContainer {
-    & .overview-icon {
-      border-radius: 0;
-      background-color: transparent !important;
-    }
-
-    & .show-apps {
+    .show-apps {
+      border-radius: $circular_radius;
       background-color: $launcher_background !important;
+
+      .overview-icon {
+        background-color: transparent !important;
+      }
 
       &:checked,
       &:focus,
       &:hover {
         background-color: darken($launcher_background, 7.5) !important;
+      }
+    }
+
+    &.extended {
+      .show-apps {
+        border-radius: 0px;
       }
     }
   }
@@ -177,13 +183,13 @@
   // Makes spacing between indicators and the aggregate menu uniform
 
   #panelRight .panel-button {
-    -natural-hpadding: 4px;
-    -minimum-hpadding: 4px;
+    -natural-hpadding: 2px;
+    -minimum-hpadding: 2px;
   }
 
   .panel-status-indicators-box,
   .panel-status-menu-box {
-    spacing: 8px;
+    spacing: 4px;
   }
 
   #panelLeft, #panelCenter {

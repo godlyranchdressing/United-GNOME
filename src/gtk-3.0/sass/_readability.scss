@@ -1,9 +1,0 @@
-@if $variant == "light" {
-  .sidebar,
-  .text-button,
-  .tweak-categories,
-  placessidebar {
-    // makes the sidebar and text buttons more readable
-    color: darken($fg_color, 10);
-  }
-}

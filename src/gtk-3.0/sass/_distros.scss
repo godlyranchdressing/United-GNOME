@@ -2,17 +2,12 @@
 $primary_color: null;
 $accent_color: null;
 
-@if $distro == "ubuntu" {
-  $primary_color: $ubuntu_orange;
-  $accent_color: lighten($ubuntu_purple, 10);
-}
-
 @if $distro == "fedora" {
   $primary_color: #294172;
   $accent_color: #3C6EB4;
 }
 
-else {
+@else {
   $primary_color: $ubuntu_orange;
   $accent_color: lighten($ubuntu_purple, 10);
 }

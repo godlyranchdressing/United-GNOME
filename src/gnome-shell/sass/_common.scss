@@ -50,7 +50,7 @@ stage {
   min-height: 40px;
   padding: 0 16px;
   border-top: 1px solid $border_color !important;
-  border-right-width: 0;
+  border-right-width: 1px;
 
   @include font(button);
   @include button(flat);
@@ -297,7 +297,7 @@ StScrollBar {
   .run-dialog-label {
     font-size: 1em;
     font-weight: normal;
-    color: $tertiary_fg_color;
+    color: $secondary_fg_color;
     padding-bottom: .4em;
   }
 }
@@ -664,7 +664,7 @@ StScrollBar {
   //defined globally in the TOP BAR
   .popup-sub-menu {
     background-color: $alt_base_color;
-    box-shadow: inset 0px -1px if($variant == 'light', transparentize($fg_color, .5), $border_color);
+    box-shadow: inset 0px -1px if($variant == "light", transparentize($fg_color, 0.5), $border_color);
   }
 
   .popup-menu-content {
@@ -687,12 +687,11 @@ StScrollBar {
 
     &:checked {
       color: $fg_color;
-      border-top: 1px solid if($variant == 'light', transparentize($fg_color, .5), $border_color);
-      border-bottom: 1px solid if($variant == 'light', transparentize($fg_color, .5), $border_color);
+      border-top: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
+      border-bottom: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
       box-shadow: none;
       background-color: $semi_fill_color;
       font-weight: bold;
-
 
       &.selected {
         color: $fg_color;
@@ -875,7 +874,7 @@ StScrollBar {
 
 .switcher-list .item-box:selected {
   background-color: $alt_base_color;
-  border: 1px solid $primary_color;
+  border: 2px solid $primary_color;
   color: $fg_color;
 }
 
@@ -982,8 +981,9 @@ StScrollBar {
 #panel {
   background-color: $panel_bg_color;
 
-  @if $panel == "light" {
-    box-shadow: none;
+  @if $panel == "light" or $variant == "light" {
+    background-color: $panel_bg_color;
+    box-shadow: $popover_shadow;
   }
 
   font-size: 9.5pt;
@@ -994,11 +994,6 @@ StScrollBar {
   &.login-screen,
   &.lock-screen {
     background-color: $panel_bg_color;
-
-    @if $panel == "light" or $variant == "light" {
-      background-color: $panel_bg_color;
-      box-shadow: none;
-    }
   }
 
   #panelLeft, #panelCenter {
@@ -1091,6 +1086,11 @@ StScrollBar {
 
   .screencast-indicator {
     color: $warning_color;
+  }
+
+  .popup-menu-arrow {
+    width: 0px;
+    height: 0px;
   }
 }
 
@@ -1512,7 +1512,7 @@ StScrollBar {
 }
 
 #appMenu {
-  spinner-image: url("process-working.svg");
+  spinner-image: url("assets/process-working.svg");
   spacing: 4px;
   padding: 0 12px;
 
@@ -1715,7 +1715,7 @@ StScrollBar {
   -shell-caption-spacing: 12px;
 
   &:hover {
-    background-color: if($variant == 'light', transparentize(black, $disabled_opacity), $semi_fill_color);
+    background-color: if($variant == "light", transparentize(black, $disabled_opacity), $semi_fill_color);
     color: $white_fg_color;
   }
 }
@@ -1730,6 +1730,7 @@ StScrollBar {
   border: none;
   selection-background-color: $primary_color;
   selected-color: $ubuntu_white;
+  box-shadow: $shadow_bottom_inside transparent;
 
   @include entry($primary_color);
 
@@ -1745,7 +1746,7 @@ StScrollBar {
     color: $ubuntu_fg;
   }
 
-  &:hover, &:focus {
+  &:focus {
     .search-entry-icon {
       color: $primary_color;
     }

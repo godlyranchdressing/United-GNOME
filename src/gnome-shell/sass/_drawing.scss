@@ -100,12 +100,18 @@
 @mixin entry($_focus_color: $primary_color) {
   background-color: $ubuntu_white;
   transition: $shorter_transition;
-  box-shadow: none;
+  box-shadow: $shadow_bottom_inside transparent;
   border-color: transparent;
 
-  &:hover, &:focus, &:active {
+  &:hover{
+    box-shadow: $shadow_bottom_inside $_focus_color;
+    transition: $shorter_transition;
+  }
+
+  &:focus, &:active {
     border-color: transparent;
-    box-shadow: $border_shadow_bottom_inside $_focus_color;
+    box-shadow: $shadow_bottom_inside $_focus_color;
+    transition: $shorter_transition;
   }
 
   &:disabled {

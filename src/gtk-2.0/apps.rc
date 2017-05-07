@@ -1,99 +1,157 @@
-# vim:set ft=gtkrc ts=2 sw=2 sts=2 ai et:
 #
-# This file, unlike hacks.rc, contains legitimate cases we need to handle, e.g.
-# custom widgets, programs giving us a chance to alter their UI to fit more with
-# the theme or stuff that is supposed to look different, like panels.
+# Thunar
+#
+style "thunar-handle" { GtkPaned::handle-size = 2 }
 
-# TODO: This could really look nicer
-style "gimp_spin_scale" {
+style "dark-sidebar" {
+  GtkTreeView::odd_row_color = @base_color
+  GtkTreeView::even_row_color = @base_color
 
-  # Spin background
-  bg[NORMAL] = @base_color
+
+  base[NORMAL] = @base_color
+  base[INSENSITIVE] = @base_color
+
+  text[NORMAL] = @fg_color
+  text[ACTIVE] = @selected_fg_color
+  text[SELECTED] = @selected_fg_color
+}
+
+style "thunar-frame" {
+  xthickness = 0
+  ythickness = 0
+}
+
+widget_class "*ThunarWindow*.<GtkScrolledWindow>"       style "thunar-frame"
+widget_class "*ThunarShortcutsView*"                    style "dark-sidebar"
+widget_class "*ThunarTreeView*"                         style "dark-sidebar"
+widget_class "*ThunarWindow*.<GtkHPaned>"               style "thunar-handle"
+
+#
+# Workaround for colored entries
+#
+style "entry_border" {
+
+  xthickness = 7
+  ythickness = 5
 
   engine "pixmap" {
 
     image {
-      function        = BOX
-      state           = NORMAL
-      detail          = "spinbutton_up"
-      overlay_file    = "assets/pan-up-alt.png"
-      overlay_stretch = FALSE
+      function = SHADOW
+      state = NORMAL
+      detail = "entry"
+      file = "assets/entry-border-bg.png"
+      border = {6, 6, 6, 6}
+      stretch = TRUE
     }
 
     image {
-      function        = BOX
-      state           = PRELIGHT
-      detail          = "spinbutton_up"
-      overlay_file    = "assets/pan-up.png"
-      overlay_stretch = FALSE
+      function = SHADOW
+      state = ACTIVE
+      detail = "entry"
+      file = "assets/entry-border-active-bg.png"
+      border = {6, 6, 6, 6}
+      stretch = TRUE
     }
 
     image {
-      function        = BOX
-      state           = ACTIVE
-      detail          = "spinbutton_up"
-      overlay_file    = "assets/pan-up.png"
-      overlay_stretch = FALSE
+      function = FLAT_BOX
+      state    = ACTIVE
+      detail   = "entry_bg"
+      file     = "assets/null.png"
     }
 
     image {
-      function        = BOX
-      state           = INSENSITIVE
-      detail          = "spinbutton_up"
-      overlay_file    = "assets/pan-up-alt-insensitive.png"
-      overlay_stretch = FALSE
+      function = FLAT_BOX
+      state    = INSENSITIVE
+      detail   = "entry_bg"
+      file     = "assets/null.png"
     }
 
     image {
-      function        = BOX
-      state           = NORMAL
-      detail          = "spinbutton_down"
-      overlay_file    = "assets/pan-down-alt.png"
-      overlay_stretch = FALSE
+      function = FLAT_BOX
+      detail   = "entry_bg"
+      file     = "assets/null.png"
     }
-
-    image {
-      function        = BOX
-      state           = PRELIGHT
-      detail          = "spinbutton_down"
-      overlay_file    = "assets/pan-down.png"
-      overlay_stretch = FALSE
-    }
-
-    image {
-      function        = BOX
-      state           = ACTIVE
-      detail          = "spinbutton_down"
-      overlay_file    = "assets/pan-down.png"
-      overlay_stretch = FALSE
-    }
-
-    image {
-      function        = BOX
-      state           = INSENSITIVE
-      detail          = "spinbutton_down"
-      overlay_file    = "assets/pan-down-alt-insensitive.png"
-      overlay_stretch = FALSE
-    }
-
   }
-
 }
 
-style "chrome_gtk_frame" {
+style "combobox_entry_border" = "combobox_entry" {
 
-  ChromeGtkFrame::frame-color                    = @titlebar_bg_color
-  ChromeGtkFrame::inactive-frame-color           = @titlebar_bg_color
+  engine "pixmap" {
 
-  ChromeGtkFrame::incognito-frame-color          = @titlebar_bg_color
-  ChromeGtkFrame::incognito-inactive-frame-color = @titlebar_bg_color
+    image {
+      function = SHADOW
+      detail = "entry"
+      state = NORMAL
+      shadow = IN
+      file = "assets/combo-entry-border.png"
+      border = { 4, 4, 12, 12 }
+      stretch = TRUE
+      direction = LTR
+    }
 
-  ChromeGtkFrame::frame-gradient-size = 0
+    image {
+      function = SHADOW
+      detail = "entry"
+      state = ACTIVE
+      file = "assets/combo-entry-border-focus.png"
+      border = { 4, 4, 12, 12 }
+      stretch = TRUE
+      direction = LTR
+    }
 
+    image {
+      function = SHADOW
+      detail = "entry"
+      state = NORMAL
+      shadow = IN
+      file = "assets/combo-entry-border-rtl.png"
+      border = { 4, 4, 12, 12 }
+      stretch = TRUE
+      direction = RTL
+    }
+
+    image {
+      function = SHADOW
+      detail = "entry"
+      state = ACTIVE
+      file = "assets/combo-entry-border-focus-rtl.png"
+      border = { 4, 4, 12, 12 }
+      stretch = TRUE
+      direction = RTL
+    }
+
+    image {
+      function = FLAT_BOX
+      state    = INSENSITIVE
+      detail   = "entry_bg"
+      file     = "assets/null.png"
+    }
+
+    image {
+      function = FLAT_BOX
+      detail   = "entry_bg"
+      file     = "assets/null.png"
+    }
+  }
 }
 
-# Disable spin button assets for GimpSpinScale
-class "GimpSpinScale" style "gimp_spin_scale"
 
-# Chromium lets us define some colours and settings for better integration
-class "ChromeGtkFrame" style "chrome_gtk_frame"
+# Mousepad search entry
+widget_class "*MousepadSearchBar*.<GtkEntry>"         style "entry_border"
+
+# Mousepad find and replace
+widget_class "*MousepadReplaceDialog*.<GtkEntry>"     style "entry_border"
+
+# Thunar bulk rename
+widget_class "*ThunarRenamerDialog*.<GtkEntry>"         style "entry_border"
+
+# Hexchat input box
+class "SexySpellEntry"                                style:highest "entry_border"
+
+# Geany search entries
+widget "*GeanyToolbar.*geany-search-entry-no-match*"  style "entry_border"
+widget "*GeanyToolbar.*GtkEntry*"                     style "entry_border"
+
+widget "GeanyDialogSearch.*GtkComboBoxEntry*.*geany-search-entry-no-match*"  style "combobox_entry_border"

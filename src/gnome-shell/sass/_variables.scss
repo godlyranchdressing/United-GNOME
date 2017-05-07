@@ -21,12 +21,12 @@ $quarternary_opacity: $disabled_opacity;
 // simply so people wouldn't get the wrong idea
 
 // sizes
-$small_size: if($compact == "false", 24px, 20px);
-$medium_size: if($compact == "false", 36px, 32px);
-$large_size: if($compact == "false", 48px, 44px);
+$small_size: 20px;
+$medium_size: 32px;
+$large_size: 44px;
 $container_padding: 6px;
 $bar_size: 4px;
-$menuitem_size: if($compact == "false", 35px, 30px);
+$menuitem_size: 30px;
 
 // radiuses
 $standard_radius: 8px;
@@ -50,14 +50,14 @@ $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
 
 // Shadow borders
 // insert a color at the end here. lets you use a border without adding height + width
-$border_shadow_left_inside: inset 2 0px 0px;
-$border_shadow_right_inside: inset -2 0px 0px;
-$border_shadow_top_inside: inset 0 2px 0px;
-$border_shadow_bottom_inside: inset 0 -2px 0px;
-$border_shadow_left_outside_inside: -2 0px 0px;
+$shadow_left_inside: inset 2 0px 0px;
+$shadow_right_inside: inset -2 0px 0px;
+$shadow_top_inside: inset 0 2px 0px;
+$shadow_bottom_inside: inset 0 -2px 0px;
+$shadow_left_outside_inside: -2 0px 0px;
 
-$border_shadow_right_outside: 2 0px 0px;
-$border_shadow_top_outside: 0 -2px 0px;
-$border_shadow_bottom_outside: 0 2px 0px;
-$border_shadow_surround_outside: 0 0px 0px 1px;
+$shadow_right_outside: 2 0px 0px;
+$shadow_top_outside: 0 -2px 0px;
+$shadow_bottom_outside: 0 2px 0px;
+$shadow_surround: 0 0px 0px 1px;
 $popover_shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); // for menus in light variant
