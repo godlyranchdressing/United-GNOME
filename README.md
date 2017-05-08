@@ -50,8 +50,7 @@ Preview
 -------
 ## Preview
 ![alt text](preview-1.jpg "Preview 1")
-![alt text](preview-2-f.jpg "Preview 2")
+![alt text](preview-2.jpg "Preview 2")
 ![alt text](preview-3.jpg "Preview 3")
 ![alt text](preview-4.jpg "Preview 4")
-![alt text](preview-5.jpg "Preview 5")
 

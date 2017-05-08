@@ -37,14 +37,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1102"
-     inkscape:window-height="871"
+     inkscape:window-height="735"
      id="namedview10"
      showgrid="false"
-     inkscape:zoom="6.5555556"
-     inkscape:cx="18"
-     inkscape:cy="18"
+     inkscape:zoom="9.2709556"
+     inkscape:cx="12.673823"
+     inkscape:cy="12.272964"
      inkscape:window-x="72"
-     inkscape:window-y="35"
+     inkscape:window-y="432"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg8" />
   <circle
@@ -61,8 +61,14 @@
      fill="#FFFFFF"
      opacity="0"
      id="circle4" />
-  <path
-     d="M 23,14.41 21.59,13 18,16.59 14.41,13 13,14.41 16.59,18 13,21.59 14.41,23 18,19.41 21.59,23 23,21.59 19.41,18 Z"
-     fill="#FFFFFF"
-     id="path6" />
+  <g
+     transform="matrix(2.2540704,0,0,2.2540704,-320.54126,0.3745537)"
+     id="layer1"
+     inkscape:label="Layer 1">
+    <path
+       id="path4170"
+       d="m 147.39021,4.2702488 2.80087,2.8008629 2.80086,-2.8008629 0.74827,0.7482734 -2.80086,2.8008635 2.80086,2.8008643 -0.74827,0.748273 -2.80086,-2.8008643 -2.80087,2.8008643 -0.74827,-0.748273 2.80086,-2.8008643 -2.80086,-2.8008635 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:16.93333244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       inkscape:connector-curvature="0" />
+  </g>
 </svg>

@@ -24,19 +24,16 @@ headerbar {
       }
 
       &:hover {
-        background-color: $lighter_bg_color;
+        background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
         color: $primary_color;
         border-color: $border_color;
+
+
       }
 
       &:active, &:checked {
         background-color: $primary_color;
         color: white;
-
-        @if $headerbar == "dark" {
-          color: $light_fg_color;
-          background-color: lighten($ubuntu_black, 7%);
-        }
       }
     }
 
@@ -47,8 +44,10 @@ headerbar {
         box-shadow: none;
 
         &:hover, &:active, &:checked {
-          background-image: $lighter_bg_color;
+          background-image: none;
           color: $primary_color;
+
+
         }
       }
 
@@ -61,23 +60,27 @@ headerbar {
 
         &:hover, &:active, &:checked {
           color: $primary_color;
+
+
         }
       }
     }
   }
-
+  
   stackswitcher.horizontal.linked.stack-switcher {
     // make the stackswitcher look the way we want it to look
     button {
       min-width: 100px;
       border: none;
-      background-color: if($headerbar == "dark", lighten($ubuntu_black, 7%), $lighter_bg_color);
+      background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
 
       &:hover, &:active, &:checked {
         border: none;
-        background-color: if($headerbar == "dark", lighten($ubuntu_black, 7%), $lighter_bg_color);
+        background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
         box-shadow: $shadow_bottom $primary_color;
         color: $primary_color;
+
+
       }
     }
   }
@@ -85,7 +88,7 @@ headerbar {
   .path-bar button.slider-button {
     // give the appearance of the pathbar being one big box
     &, &:disabled {
-      background-color: if($headerbar == "dark", lighten($ubuntu_black, 7%), $lighter_bg_color);
+      background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
     }
   }
 }
@@ -95,11 +98,13 @@ headerbar {
     color: $light_fg_color;
   }
 
-  background-color: if($headerbar == "dark", lighten($ubuntu_black, 7%), $lighter_bg_color);
+  background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
 
   &:hover, &:active, &:checked {
     background-image: none;
-    background-color: if($headerbar == "dark", lighten($ubuntu_black, 7%), $lighter_bg_color);
+    background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
+
+
   }
 }
 

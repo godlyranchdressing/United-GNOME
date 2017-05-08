@@ -40,32 +40,35 @@ stage {
   min-height: $medium_size;
   padding: 0 16px;
   border-width: 0;
-  border-radius: 2px;
+  border-radius: 0px;
 
   @include font(button);
   @include button(flat);
+
+  &:hover {
+    background-color: $semi_fill_color;
+  }
+
+  &:active {
+    background-color: $fill_color;
+  }
 }
 
 .modal-dialog-linked-button {
   min-height: 40px;
   padding: 0 16px;
   border-top: 1px solid $border_color !important;
-  border-right-width: 1px;
 
   @include font(button);
   @include button(flat);
 
   &:first-child {
     border-radius: 0px;
+    border-right: 1px solid $border_color;
+    border-left: 0px solid $border_color;
   }
 
   &:last-child {
-    border-left: 1px solid $border_color;
-    border-right-width: 0px;
-    border-radius: 0px;
-  }
-
-  &:first-child:last-child {
     border-right-width: 0px;
     border-radius: 0px;
   }
@@ -213,14 +216,6 @@ StScrollBar {
   &:focus:checked StBin {
     background-image: url("assets/checkbox.svg");
   }
-
-  &:hover:checked StBin {
-    background-color: scale-alpha($accent_color, $lower_opacity / 2);
-  }
-
-  &:active:checked StBin {
-    background-color: scale-alpha($accent_color, $lower_opacity);
-  }
 }
 
 /* Switches */
@@ -271,10 +266,10 @@ StScrollBar {
 }
 
 .modal-dialog {
-  border-radius: 2px;
+  border-radius: 0px;
   color: $fg_color;
-  background-color: $base_color;
-  border: none;
+  background-color: if($transparency == "true", transparentize($the_base_color, 0.25), $the_base_color);
+  border: 1px solid  if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 
   .modal-dialog-content-box {
     padding: 24px;
@@ -312,7 +307,7 @@ StScrollBar {
 /* End Session Dialog */
 .end-session-dialog {
   spacing: 42px;
-  border: none;
+  border: 1px solid  if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 }
 
 .end-session-dialog-list {
@@ -479,8 +474,8 @@ StScrollBar {
 
 .prompt-dialog {
   //this is the width of the entire modal popup
-  width: 650px;
-  border: none;
+  width: 500px;
+  border: 1px solid  if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 }
 
 .prompt-dialog-main-layout {
@@ -515,6 +510,7 @@ StScrollBar {
 
 .prompt-dialog-info-label {
   font-size: 1em;
+  color: $fg_color;
   padding-bottom: 8px;
 }
 
@@ -664,7 +660,8 @@ StScrollBar {
   //defined globally in the TOP BAR
   .popup-sub-menu {
     background-color: $alt_base_color;
-    box-shadow: inset 0px -1px if($variant == "light", transparentize($fg_color, 0.5), $border_color);
+    box-shadow: none;
+    border-bottom: 0px;
   }
 
   .popup-menu-content {
@@ -689,7 +686,6 @@ StScrollBar {
       color: $fg_color;
       border-top: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
       border-bottom: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
-      box-shadow: none;
       background-color: $semi_fill_color;
       font-weight: bold;
 
@@ -707,13 +703,13 @@ StScrollBar {
       }
     }
 
-    &.selected, :hover {
+    &.selected {
       background-color: $inverse_bg_color;
       color: $fg_color;
       transition-duration: 0s;
     }
 
-    &:active {
+    &:active, &:hover {
       background-color: $fill_color;
       color: $fg_color;
       transition-duration: $longer_duration;
@@ -740,10 +736,12 @@ StScrollBar {
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
   &.panel-menu {
     -boxpointer-gap: 4px;
+    border: 1px solid $border_color;
     margin-bottom: 1.75em;
 
     @if $variant == "light" {
       background-color: $base_color;
+      border-width: 0px;
       box-shadow: $popover_shadow;
     }
   }
@@ -994,6 +992,13 @@ StScrollBar {
   &.login-screen,
   &.lock-screen {
     background-color: $panel_bg_color;
+
+    &:overview {
+      #panelActivities.panel-button {
+        color: $primary_color;
+        box-shadow: none;
+      }
+    }
   }
 
   #panelLeft, #panelCenter {
@@ -1018,19 +1023,11 @@ StScrollBar {
     }
   }
 
-  #panelActivities.panel-button {
-    -natural-hpadding: 0px !important;
-    -minimum-hpadding: 0px !important;
-    min-width: 72px !important;
-    padding: 0 !important;
-    text-align: center;
-  }
-
   @include global_menu_padding;
 
   .panel-button {
-    -natural-hpadding: 8px;
-    -minimum-hpadding: 4px;
+    -natural-hpadding: 10px;
+    -minimum-hpadding: 5px;
     font-weight: 500;
     color: $panel_fg_color;
     transition-duration: $longer_duration;
@@ -1341,18 +1338,19 @@ StScrollBar {
 }
 
 .message-list-clear-button.button {
-  background-color: transparent;
+  background-color: lighten($base_color, 7.5%);
+  border: 1px solid $border_color;
 
   @if $variant == "light" {
     color: $ubuntu_fg;
   }
 
   &:hover, &:focus {
-    background-color: $semi_fill_color;
+    background-color: $semi_fill_color !important;
   }
 
   &:active {
-    background-color: $fill_color;
+    background-color: $fill_color !important;
   }
 
   margin: 8px 8px 0;
@@ -1842,6 +1840,19 @@ StScrollBar {
   .empty-dash-drop-target {
     width: 24px;
     height: 24px;
+  }
+
+  .show-apps {
+    .overview-icon {
+      background-color: $launcher_background !important;
+      border-radius: $circular_radius;
+    }
+
+    &:hover, &:focus, &:checked {
+      .overview-icon {
+        background-color: darken($launcher_background, 7.5) !important;
+      }
+    }
   }
 }
 

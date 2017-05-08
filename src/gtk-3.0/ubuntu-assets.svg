@@ -14,7 +14,7 @@
    viewBox="0 0 200 300"
    version="1.1"
    id="svg435"
-   sodipodi:docname="assets.svg"
+   sodipodi:docname="ubuntu-assets.svg"
    inkscape:version="0.92.1 r15371">
   <defs
      id="defs846">
@@ -1283,13 +1283,13 @@
   <sodipodi:namedview
      showgrid="true"
      id="namedview4"
-     inkscape:zoom="8.0000002"
-     inkscape:cx="-157.57405"
-     inkscape:cy="8.874639"
-     inkscape:window-width="1920"
-     inkscape:window-height="1133"
-     inkscape:window-x="1366"
-     inkscape:window-y="35"
+     inkscape:zoom="4.0000001"
+     inkscape:cx="-154.80228"
+     inkscape:cy="-46.061608"
+     inkscape:window-width="1848"
+     inkscape:window-height="1137"
+     inkscape:window-x="1438"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg435"
      fit-margin-top="0"
@@ -4324,7 +4324,7 @@
   <g
      transform="matrix(1.375,0,0,1.375,8.125,9.6023888)"
      style="display:inline;opacity:1"
-     id="checkbox-dark-hover"
+     id="checkbox-hover-dark"
      inkscape:label="#g22047">
     <g
        inkscape:label="#g21853"
@@ -4604,7 +4604,7 @@
   <g
      transform="matrix(1.3750001,0,0,1.3750001,-1.8775425,9.602381)"
      style="display:inline;opacity:1"
-     id="radio-dark-hover"
+     id="radio-hover-dark"
      inkscape:label="#g10975">
     <g
        id="g10964-4-5-4">

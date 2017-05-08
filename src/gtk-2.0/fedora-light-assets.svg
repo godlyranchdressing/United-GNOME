@@ -16,7 +16,7 @@
    id="svg9892"
    version="1.1"
    inkscape:version="0.92.1 r15371"
-   sodipodi:docname="fedora-assets.svg">
+   sodipodi:docname="fedora-light-assets.svg">
   <defs
      id="defs9894">
     <linearGradient
@@ -302,7 +302,7 @@
        id="selected_bg_color"
        osb:paint="solid">
       <stop
-         style="stop-color:#294172;stop-opacity:1;"
+         style="stop-color:#3C6EB4;stop-opacity:1;"
          offset="0"
          id="stop5012" />
     </linearGradient>
@@ -1053,24 +1053,6 @@
        gradientTransform="matrix(0.92156796,0,0,1.0017043,-0.21567982,0.45613648)" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#selected_bg_color"
-       id="linearGradient1917"
-       x1="100"
-       y1="-267.63782"
-       x2="124"
-       y2="-267.63782"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#selected_bg_color"
-       id="linearGradient1923"
-       x1="100"
-       y1="-267.63782"
-       x2="124"
-       y2="-267.63782"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#border_color-3"
        id="linearGradient1935"
        x1="-3"
@@ -1423,18 +1405,9 @@
        id="linearGradient6762"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
-       inkscape:collect="always"
-       xlink:href="#accent_color-5"
-       id="linearGradient10289"
-       x1="100"
-       y1="-267.63782"
-       x2="124"
-       y2="-267.63782"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
        id="color-accent">
       <stop
-         stop-color="#294172"
+         stop-color="#3C6EB4"
          id="stop37" />
     </linearGradient>
     <linearGradient
@@ -1451,7 +1424,7 @@
        id="selected_bg_color-5"
        osb:paint="solid">
       <stop
-         style="stop-color:#294172;stop-opacity:1;"
+         style="stop-color:#3C6EB4;stop-opacity:1;"
          offset="0"
          id="stop5012-6" />
     </linearGradient>
@@ -1607,6 +1580,16 @@
        x2="232"
        y2="284"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#selected_bg_color"
+       id="linearGradient5526"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0,0.99999951)"
+       x1="32.172295"
+       y1="-257.13782"
+       x2="55.827705"
+       y2="-257.13782" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1615,16 +1598,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.9999998"
-     inkscape:cx="166.88463"
-     inkscape:cy="374.31399"
+     inkscape:zoom="5.656854"
+     inkscape:cx="32.858201"
+     inkscape:cy="79.507546"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      showborder="false"
      inkscape:window-width="1848"
      inkscape:window-height="1137"
-     inkscape:window-x="1438"
+     inkscape:window-x="72"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:snap-nodes="true"
@@ -1771,23 +1754,6 @@
          width="23"
          id="rect7903-7-2"
          style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:#e2e7ef;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    </g>
-    <g
-       id="button-active"
-       inkscape:label="#g9380"
-       style="fill:url(#linearGradient1917);fill-opacity:1;stroke:url(#linearGradient1923)">
-      <rect
-         ry="0"
-         rx="0"
-         inkscape:transform-center-y="-0.42353254"
-         inkscape:transform-center-x="-4.6588025"
-         y="256.13782"
-         x="100.5"
-         height="23"
-         width="23"
-         id="rect7903-7-22"
-         style="display:inline;opacity:1;fill:url(#linearGradient1917);fill-opacity:1;stroke:url(#linearGradient1923);stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         transform="scale(1,-1)" />
     </g>
     <g
        style="display:inline"
@@ -3125,7 +3091,7 @@
          height="6"
          width="24"
          id="rect5799-8-92-1-1"
-         style="opacity:0.7;fill:#294172;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         style="opacity:0.7;fill:#3C6EB4;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
        style="display:inline"
@@ -4813,26 +4779,8 @@
          style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient5823-2);fill-opacity:1.0;stroke:none;stroke-width:2.08838987;marker:none;enable-background:accumulate"
          ry="2" />
     </g>
-    <g
-       transform="translate(31,-2.6171875e-6)"
-       id="button-active-suggested"
-       inkscape:label="#g9380"
-       style="display:inline;fill:#793272;fill-opacity:1;stroke:url(#linearGradient10289);stroke-opacity:1">
-      <rect
-         ry="0"
-         rx="0"
-         inkscape:transform-center-y="-0.42353254"
-         inkscape:transform-center-x="-4.6588025"
-         y="256.13782"
-         x="100.5"
-         height="23"
-         width="23"
-         id="rect7903-7-22-7"
-         style="display:inline;opacity:1;fill:#3c6eb4;fill-opacity:1;stroke:url(#linearGradient10289);stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         transform="scale(1,-1)" />
-    </g>
     <circle
-       style="display:inline;opacity:1;fill:#294172;fill-opacity:1;stroke:#294172;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="display:inline;opacity:1;fill:#3C6EB4;fill-opacity:1;stroke:#3C6EB4;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="slider"
        cx="227.00018"
        cy="-20.137821"
@@ -5201,54 +5149,54 @@
     <g
        id="arrow-down-prelight"
        transform="translate(13.999942,37.42468)"
-       style="fill:#294172;fill-opacity:1">
+       style="fill:#ffffff;fill-opacity:1">
       <g
          transform="translate(-341.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="status"
          id="layer9-18" />
       <g
          transform="translate(-341.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="devices"
          id="layer10-9" />
       <g
          transform="translate(-341.0002,-807.00001)"
          inkscape:label="apps"
          id="layer11-6"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-341.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="places"
          id="layer13-43" />
       <g
          transform="translate(-341.0002,-807.00001)"
          inkscape:label="mimetypes"
          id="layer14-3"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-341.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emblems"
          id="layer15-3-4" />
       <g
          transform="translate(-341.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emotes"
          id="g71291-8-8" />
       <g
          transform="translate(-341.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="categories"
          id="g4953-60" />
       <g
          transform="translate(-341.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="actions"
          id="layer12-4">
         <path
-           style="fill:#294172;fill-opacity:1;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
            sodipodi:nodetypes="cccc"
            id="path6424-8"
            d="m 354.0002,812.93751 -5,5 -5,-5 z"
@@ -5429,54 +5377,54 @@
     <g
        id="arrow-left-prelight"
        transform="translate(14.43755,47.862069)"
-       style="fill:#294172;fill-opacity:1">
+       style="fill:#ffffff;fill-opacity:1">
       <g
          transform="translate(-281.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="status"
          id="layer9-1-2" />
       <g
          transform="translate(-281.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="devices"
          id="layer10-7-5" />
       <g
          transform="translate(-281.0002,-807)"
          inkscape:label="apps"
          id="layer11-5-4"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-281.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="places"
          id="layer13-9-0" />
       <g
          transform="translate(-281.0002,-807)"
          inkscape:label="mimetypes"
          id="layer14-6-5"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-281.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emblems"
          id="layer15-2-9" />
       <g
          transform="translate(-281.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emotes"
          id="g71291-1-4" />
       <g
          transform="translate(-281.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="categories"
          id="g4953-7-6" />
       <g
          transform="translate(-281.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="actions"
          id="layer12-8-9">
         <path
-           style="fill:#294172;fill-opacity:1;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
            sodipodi:nodetypes="cccc"
            id="path6400-2"
            d="m 291.0627,820 -5,-5 5,-5 z"
@@ -5543,54 +5491,54 @@
     <g
        id="arrow-right-prelight"
        transform="translate(14.062625,58.862091)"
-       style="fill:#294172;fill-opacity:1">
+       style="fill:#ffffff;fill-opacity:1">
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="status"
          id="layer9-3-8" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="devices"
          id="layer10-0-9" />
       <g
          transform="translate(-301.0002,-807)"
          inkscape:label="apps"
          id="layer11-4-7"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="places"
          id="layer13-4-7" />
       <g
          transform="translate(-301.0002,-807)"
          inkscape:label="mimetypes"
          id="layer14-4-6"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emblems"
          id="layer15-4-4" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emotes"
          id="g71291-7-3" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="categories"
          id="g4953-6-0" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="actions"
          id="layer12-3-3">
         <path
-           style="fill:#294172;fill-opacity:1;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
            sodipodi:nodetypes="cccc"
            id="path6412-0"
            d="m 306.9377,820 5,-5 -5,-5 z"
@@ -5771,54 +5719,54 @@
     <g
        id="arrow-up-prelight"
        transform="translate(14.500125,68.799634)"
-       style="fill:#294172;fill-opacity:1">
+       style="fill:#ffffff;fill-opacity:1">
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="status"
          id="layer9-5-4" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="devices"
          id="layer10-74-7" />
       <g
          transform="translate(-321.0002,-807.00001)"
          inkscape:label="apps"
          id="layer11-1-7"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="places"
          id="layer13-8-5" />
       <g
          transform="translate(-321.0002,-807.00001)"
          inkscape:label="mimetypes"
          id="layer14-5-4"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emblems"
          id="layer15-9-8" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emotes"
          id="g71291-75-1" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="categories"
          id="g4953-3-2" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="actions"
          id="layer12-88-8">
         <path
-           style="fill:#294172;fill-opacity:1;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
            sodipodi:nodetypes="cccc"
            id="path6418-9"
            d="m 334.0002,817.06251 -5,-5 -5,5 z"
@@ -5942,54 +5890,54 @@
     <g
        id="arrow-up-small-prelight"
        transform="matrix(0.6,0,0,0.6,52.7,51.324569)"
-       style="display:inline;fill:#294172;fill-opacity:1">
+       style="display:inline;fill:#ffffff;fill-opacity:1">
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="status"
          id="layer9-5-4-5" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="devices"
          id="layer10-74-7-4" />
       <g
          transform="translate(-321.0002,-807.00001)"
          inkscape:label="apps"
          id="layer11-1-7-4"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="places"
          id="layer13-8-5-9" />
       <g
          transform="translate(-321.0002,-807.00001)"
          inkscape:label="mimetypes"
          id="layer14-5-4-9"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emblems"
          id="layer15-9-8-3" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emotes"
          id="g71291-75-1-6" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="categories"
          id="g4953-3-2-0" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="actions"
          id="layer12-88-8-5">
         <path
-           style="fill:#294172;fill-opacity:1;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
            sodipodi:nodetypes="cccc"
            id="path6418-9-0"
            d="m 334.0002,817.06251 -5,-5 -5,5 z"
@@ -6113,54 +6061,54 @@
     <g
        id="arrow-down-small-prelight"
        transform="matrix(0.6,0,0,-0.6,52.7,50.39968)"
-       style="display:inline;fill:#294172;fill-opacity:1">
+       style="display:inline;fill:#ffffff;fill-opacity:1">
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="status"
          id="layer9-5-4-5-2" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="devices"
          id="layer10-74-7-4-8" />
       <g
          transform="translate(-321.0002,-807.00001)"
          inkscape:label="apps"
          id="layer11-1-7-4-8"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="places"
          id="layer13-8-5-9-8" />
       <g
          transform="translate(-321.0002,-807.00001)"
          inkscape:label="mimetypes"
          id="layer14-5-4-9-6"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emblems"
          id="layer15-9-8-3-8" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emotes"
          id="g71291-75-1-6-3" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="categories"
          id="g4953-3-2-0-8" />
       <g
          transform="translate(-321.0002,-807.00001)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="actions"
          id="layer12-88-8-5-3">
         <path
-           style="fill:#294172;fill-opacity:1;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
            sodipodi:nodetypes="cccc"
            id="path6418-9-0-3"
            d="m 334.0002,817.06251 -5,-5 -5,5 z"
@@ -6227,54 +6175,54 @@
     <g
        id="menu-arrow-prelight"
        transform="matrix(0.8,0,0,0.8,50.75,60.462091)"
-       style="display:inline;fill:#294172;fill-opacity:1">
+       style="display:inline;fill:#ffffff;fill-opacity:1">
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="status"
          id="layer9-3-8-3" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="devices"
          id="layer10-0-9-3" />
       <g
          transform="translate(-301.0002,-807)"
          inkscape:label="apps"
          id="layer11-4-7-3"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="places"
          id="layer13-4-7-7" />
       <g
          transform="translate(-301.0002,-807)"
          inkscape:label="mimetypes"
          id="layer14-4-6-3"
-         style="fill:#294172;fill-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emblems"
          id="layer15-4-4-2" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="emotes"
          id="g71291-7-3-6" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="categories"
          id="g4953-6-0-5" />
       <g
          transform="translate(-301.0002,-807)"
-         style="display:inline;fill:#294172;fill-opacity:1"
+         style="display:inline;fill:#ffffff;fill-opacity:1"
          inkscape:label="actions"
          id="layer12-3-3-2">
         <path
-           style="fill:#294172;fill-opacity:1;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
            sodipodi:nodetypes="cccc"
            id="path6412-0-6"
            d="m 306.9377,820 5,-5 -5,-5 z"
@@ -6325,6 +6273,73 @@
          id="rect7903-7-13-3"
          style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.08333325;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          ry="0" />
+    </g>
+    <g
+       style="display:inline"
+       id="button-hover-2"
+       inkscape:label="#g9350"
+       transform="translate(68,0.99999738)">
+      <rect
+         y="-281.63782"
+         x="31"
+         height="26"
+         width="26"
+         id="rect9321-0-3"
+         style="display:inline;opacity:0.13300003;fill:none;fill-opacity:1;stroke:none;stroke-width:1.040833;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         id="g5659-7"
+         transform="translate(0,-1)">
+        <rect
+           style="display:inline;opacity:1;fill:#3c6eb4;fill-opacity:1;stroke:#3c6eb4;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect7903-7-3-75-5"
+           width="23"
+           height="23"
+           x="32.5"
+           y="-279.13782"
+           inkscape:transform-center-x="-4.6588025"
+           inkscape:transform-center-y="0.42353254"
+           rx="0"
+           ry="0" />
+        <rect
+           style="display:inline;opacity:1;fill:url(#linearGradient5526);fill-opacity:1;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect7903-7-3-92"
+           width="22"
+           height="1.8276951"
+           x="33"
+           y="-257.46552"
+           inkscape:transform-center-x="-4.79156"
+           inkscape:transform-center-y="0.048896818"
+           rx="0"
+           ry="0" />
+      </g>
+    </g>
+    <g
+       style="display:inline"
+       id="button-active-suggested"
+       inkscape:label="#g9350"
+       transform="translate(101,0.99999738)">
+      <rect
+         y="-281.63782"
+         x="31"
+         height="26"
+         width="26"
+         id="rect9321-0-1"
+         style="display:inline;opacity:0.13300003;fill:none;fill-opacity:1;stroke:none;stroke-width:1.040833;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         id="g5659-9"
+         transform="translate(0,-1)">
+        <rect
+           style="display:inline;opacity:1;fill:#e59728;fill-opacity:1;stroke:#e59728;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect7903-7-3-75-4"
+           width="23"
+           height="23"
+           x="32.5"
+           y="-279.13782"
+           inkscape:transform-center-x="-4.6588025"
+           inkscape:transform-center-y="0.42353254"
+           rx="0"
+           ry="0" />
+      </g>
     </g>
   </g>
 </svg>

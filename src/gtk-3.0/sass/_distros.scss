@@ -3,8 +3,8 @@ $primary_color: null;
 $accent_color: null;
 
 @if $distro == "fedora" {
-  $primary_color: #294172;
-  $accent_color: #3C6EB4;
+  $primary_color: #3C6EB4;
+  $accent_color: #E59728;
 }
 
 @else {

@@ -4,7 +4,7 @@ $accent_color: null;
 
 @if $distro == "fedora" {
   $primary_color: #3C6EB4;
-  $accent_color: #294172;
+  $accent_color: #E59728;
 }
 @else {
   $primary_color: $ubuntu_orange;
@@ -14,6 +14,6 @@ $accent_color: null;
 
 $launcher_background: if($transparency == "true", transparentize($primary_color, 0.1), $primary_color);
 
-@if $distro == "fedora" { // for cases where the primary color might not be ideal for the launcher
-  $launcher_background: $accent_color; // -> in fedora's case the "real" primary color is too dark so the "real" primary color is being used for the accent color while a lighter shade is being used for the primary color -> to make the launcher icon accurate we use the accent color
+@if $distro == "fedora" {
+  $launcher_background: #294172;
 }

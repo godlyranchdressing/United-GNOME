@@ -1,5 +1,6 @@
 .gitignore
-United-Latest/
+United-Latest-Ubuntu/
+United-Latest-Fedora/
 parse-and-copy.sh
 backup/
 sources/

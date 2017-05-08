@@ -51,11 +51,12 @@ switch-insensitive-inverse
 switch-active-inverse
 switch-active-insensitive-inverse
 checkbox-dark
-checkbox-dark-hover
+checkbox-hover-dark
 checkbox-checked-dark
 checkbox-mixed-dark
 radio-dark
 radio-hover
+radio-hover-dark
 radio-checked-dark
 radio-mixed-dark
 checkbox-insensitive-dark

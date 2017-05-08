@@ -3,6 +3,9 @@ $panel-corner-radius: 0;
 
 // font families
 $font-family: Ubuntu, Cantarell, Sans-Serif;
+@if $distro == "fedora" {
+  $font-family: Cantarell, Ubuntu, Sans-Serif;
+}
 
 // font sizes
 $root-font-size: if($compact == "false", 14px, 13px);

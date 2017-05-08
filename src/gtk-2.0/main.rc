@@ -679,15 +679,15 @@ style "scrollbar" {
 }
 
 style "menu" {
-
+  
   xthickness = 0
   ythickness = 0
 
   GtkMenuItem::arrow-scaling = 0.4
 
-  bg[NORMAL] = @menu_bg
-  bg[INSENSITIVE] = @menu_bg
-  bg[PRELIGHT] = @menu_bg
+  bg[NORMAL] = @base_color
+  bg[INSENSITIVE] = @base_color
+  bg[PRELIGHT] = @base_color
 
   engine "pixmap" { # For menus that use horizontal lines rather than gtkseparator
 
@@ -721,20 +721,13 @@ style "menu_item"
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
   fg[NORMAL] = @fg_color
   text[NORMAL] = @fg_color
+  bg[PRELIGHT] = @selected_bg_color
   fg[SELECTED] = @selected_fg_color
-  fg[PRELIGHT] = @selected_bg_color
+  fg[PRELIGHT] = @selected_fg_color
   text[PRELIGHT] = @selected_fg_color
 
 
   engine "pixmap" {
-
-    image {
-      function = BOX
-      state = PRELIGHT
-      file = "assets/button-active.png"
-      border = { 1, 0, 1, 0 }
-      stretch = TRUE
-    }
 
     # Fix invisible scale trough on selected menuitems
 
@@ -2411,7 +2404,7 @@ style "menubar" {
   fg[NORMAL] = @fg_color
   fg[PRELIGHT] = @selected_bg_color
   fg[ACTIVE] = @selected_bg_color
-  fg[SELECTED] = @selected_fg_color
+  fg[SELECTED] = @selected_bg_color
   fg[INSENSITIVE] = @insensitive_fg_color
 
   xthickness = 0

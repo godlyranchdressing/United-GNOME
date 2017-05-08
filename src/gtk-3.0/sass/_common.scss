@@ -1510,7 +1510,7 @@ headerbar {
 
   &.selection-mode {
     // hilight color
-
+    box-shadow: $headerbar_shadow, inset 0 1px $alt_highlight_color;
     color: $highlighted_fg_color;
     border-color: $highlight_color;
 
@@ -1523,7 +1523,7 @@ headerbar {
         border-color: transparentize($primary_color, 1);
         background-color: transparentize($primary_color, 1);
         background-image: none;
-        box-shadow: none;
+        box-shadow: $shadow_1, inset 0 1px $alt_highlight_color;
         padding-left: 10px;
         padding-right: 10px;
 
@@ -1559,6 +1559,7 @@ headerbar {
   &.default-decoration {
     min-height: $small_size;
     padding: $container_padding;
+    box-shadow: inset 0 1px $headerbar_highlight_color;
 
     //box-shadow: inset 0 1px $headerbar_shadow;
 
@@ -1625,8 +1626,8 @@ headerbar {
  * Pathbars *
  ************/
 .path-bar button {
-  background-color: if($headerbar == "dark", lighten($ubuntu_black, 7%), $lighter_bg_color);
-
+  background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);;
+  
   @if $headerbar == "dark" {
     color: $light_fg_color;
   }
@@ -1870,7 +1871,8 @@ menubar,
   -GtkWidget-window-dragging: true;
   background-color: $headerbar_bg;
   padding: 0px;
-  box-shadow: inset 0 -1px $border_color;
+
+  //box-shadow: $headerbar_shadow, inset 0 1px $headerbar_highlight_color;
 
   @if $headerbar == "dark" {
     color: $light_fg_color;

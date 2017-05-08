@@ -210,7 +210,7 @@ entry image.right {
 spinbutton:not(.vertical) undershoot.left,
 entry undershoot.left {
   background-color: transparent;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-image: image(rgba(0, 0, 0, 0.2));
   padding-left: 1px;
   background-size: 1px 10px;
   background-repeat: repeat-y;
@@ -223,7 +223,7 @@ entry undershoot.left {
 spinbutton:not(.vertical) undershoot.right,
 entry undershoot.right {
   background-color: transparent;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-image: image(rgba(0, 0, 0, 0.2));
   padding-right: 1px;
   background-size: 1px 10px;
   background-repeat: repeat-y;
@@ -1613,6 +1613,7 @@ headerbar .subtitle {
 
 .selection-mode.titlebar:not(headerbar):not(.path-bar),
 headerbar.selection-mode {
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px rgba(255, 255, 255, 0.2);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.4);
 }
@@ -1622,7 +1623,7 @@ headerbar.selection-mode .selection-menu {
   border-color: rgba(233, 84, 32, 0);
   background-color: rgba(233, 84, 32, 0);
   background-image: none;
-  box-shadow: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.2);
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -1658,6 +1659,7 @@ headerbar .titlebar separator {
 headerbar.default-decoration {
   min-height: 20px;
   padding: 6px;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.4);
 }
 
 .fullscreen .default-decoration.titlebar:not(headerbar):not(.path-bar),
@@ -1912,7 +1914,6 @@ menubar,
   -GtkWidget-window-dragging: true;
   background-color: #F4F4F4;
   padding: 0px;
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.1);
 }
 
 menubar > menuitem,
@@ -3244,7 +3245,7 @@ scrolledwindow viewport.frame {
 }
 
 scrolledwindow overshoot.top {
-  background-image: radial-gradient(farthest-side at top, rgba(0, 0, 0, 0.1) 85%, transparent), radial-gradient(farthest-side at top, rgba(96, 96, 96, 0.07), rgba(96, 96, 96, 0));
+  background-image: radial-gradient(farthest-side at top, rgba(0, 0, 0, 0.1) 85%, transparent), radial-gradient(farthest-side at top, rgba(96, 96, 96, 0.05), rgba(96, 96, 96, 0));
   background-size: 100% 3%, 100% 50%;
   background-repeat: no-repeat;
   background-position: top;
@@ -3254,7 +3255,7 @@ scrolledwindow overshoot.top {
 }
 
 scrolledwindow overshoot.bottom {
-  background-image: radial-gradient(farthest-side at bottom, rgba(0, 0, 0, 0.1) 85%, transparent), radial-gradient(farthest-side at bottom, rgba(96, 96, 96, 0.07), rgba(96, 96, 96, 0));
+  background-image: radial-gradient(farthest-side at bottom, rgba(0, 0, 0, 0.1) 85%, transparent), radial-gradient(farthest-side at bottom, rgba(96, 96, 96, 0.05), rgba(96, 96, 96, 0));
   background-size: 100% 3%, 100% 50%;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -3264,7 +3265,7 @@ scrolledwindow overshoot.bottom {
 }
 
 scrolledwindow overshoot.left {
-  background-image: radial-gradient(farthest-side at left, rgba(0, 0, 0, 0.1) 85%, transparent), radial-gradient(farthest-side at left, rgba(96, 96, 96, 0.07), rgba(96, 96, 96, 0));
+  background-image: radial-gradient(farthest-side at left, rgba(0, 0, 0, 0.1) 85%, transparent), radial-gradient(farthest-side at left, rgba(96, 96, 96, 0.05), rgba(96, 96, 96, 0));
   background-size: 3% 100%, 50% 100%;
   background-repeat: no-repeat;
   background-position: left;
@@ -3274,7 +3275,7 @@ scrolledwindow overshoot.left {
 }
 
 scrolledwindow overshoot.right {
-  background-image: radial-gradient(farthest-side at right, rgba(0, 0, 0, 0.1) 85%, transparent), radial-gradient(farthest-side at right, rgba(96, 96, 96, 0.07), rgba(96, 96, 96, 0));
+  background-image: radial-gradient(farthest-side at right, rgba(0, 0, 0, 0.1) 85%, transparent), radial-gradient(farthest-side at right, rgba(96, 96, 96, 0.05), rgba(96, 96, 96, 0));
   background-size: 3% 100%, 50% 100%;
   background-repeat: no-repeat;
   background-position: right;
@@ -3285,7 +3286,7 @@ scrolledwindow overshoot.right {
 
 scrolledwindow undershoot.top {
   background-color: transparent;
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-image: image(rgba(0, 0, 0, 0.2));
   padding-top: 1px;
   background-size: 10px 1px;
   background-repeat: repeat-x;
@@ -3297,7 +3298,7 @@ scrolledwindow undershoot.top {
 
 scrolledwindow undershoot.bottom {
   background-color: transparent;
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-image: image(rgba(0, 0, 0, 0.2));
   padding-bottom: 1px;
   background-size: 10px 1px;
   background-repeat: repeat-x;
@@ -3309,7 +3310,7 @@ scrolledwindow undershoot.bottom {
 
 scrolledwindow undershoot.left {
   background-color: transparent;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-image: image(rgba(0, 0, 0, 0.2));
   padding-left: 1px;
   background-size: 1px 10px;
   background-repeat: repeat-y;
@@ -3321,7 +3322,7 @@ scrolledwindow undershoot.left {
 
 scrolledwindow undershoot.right {
   background-color: transparent;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-image: image(rgba(0, 0, 0, 0.2));
   padding-right: 1px;
   background-size: 1px 10px;
   background-repeat: repeat-y;
@@ -4263,7 +4264,7 @@ headerbar button:not(.text-button).popup.toggle {
 }
 
 headerbar button:not(.text-button).popup.toggle:hover, headerbar button:not(.text-button).popup.toggle:active, headerbar button:not(.text-button).popup.toggle:checked {
-  background-image: white;
+  background-image: none;
   color: #E95420;
 }
 

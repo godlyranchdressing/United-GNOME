@@ -6,8 +6,8 @@
     transition-duration: 250ms;
   }
 
-  .app-well-app {
-    // get rid of default hover effects
+  #dashtodockContainer .app-well-app {
+    // get rid of default hover effects for dash to dock
     color: transparent;
     background-color: transparent;
 
@@ -77,11 +77,6 @@
             &:hover, &:active {
               // hovering over an unopened item looks like this (should mirror the running item look from above imo)
               background-color: transparentize($primary_color, 0.75);
-
-              $_dash_hover_bg_color: if($transparency == "true", $alt_base_color, $inverse_bg_color);
-              $_dash_hover_bg_color: if($variant == "light", transparentize($primary_color, $secondary_opacity), $_dash_hover_bg_color);
-
-              background-color: $_dash_hover_bg_color;
             }
           }
         }
@@ -100,26 +95,29 @@
 @mixin ubuntu_launcher {
   .show-apps {
     .overview-icon {
-      background-color: $launcher_background !important;
+      // common styling
       background-image: url("assets/#{$distro}_launcher.svg") !important;
-      border-radius: $circular_radius;
       background-size: contain !important;
     }
 
     StWidget {
-      // no border to get rid of a width problem otherwise
+      // no border to get rid of a width problem otherwise and default hover effects
       border: none;
       color: transparent;
       box-shadow: none;
     }
 
     &:checked, &:hover, &:active {
+      // get rid of default hover effect
+      background-color: transparent !important;
+
       .overview-icon {
+        // give it the launcher image
         background-image: url("assets/#{$distro}_launcher.svg") !important;
         background-size: contain !important;
-        background-color: darken($launcher_background, 7.5) !important;
 
         StWidget {
+          // hide the default icon by making it transparent
           color: transparent;
         }
       }
@@ -127,24 +125,40 @@
   }
 
   #dashtodockContainer {
+    // the non-panel mode dock
     .show-apps {
-      border-radius: $circular_radius;
-      background-color: $launcher_background !important;
-
       .overview-icon {
-        background-color: transparent !important;
+        // circular icon for non-extended/panel d2d
+        border-radius: $circular_radius;
+        background-color: $launcher_background !important;
       }
 
-      &:checked,
-      &:focus,
-      &:hover {
-        background-color: darken($launcher_background, 7.5) !important;
+      &:checked, &:hover, &:active {
+        .overview-icon {
+          background-color: darken($launcher_background, 7.5) !important;
+        }
       }
     }
 
     &.extended {
+      // extended / panel mode
       .show-apps {
-        border-radius: 0px;
+        // made the entirety of the .show-apps container the launcher color since we don't want a radius
+        background-color: $launcher_background !important;
+
+        .overview-icon {
+          background-color: transparent !important;
+
+          &:hover, &:checked, &:focus {
+            background-color: transparent;
+          }
+        }
+
+        &:checked,
+        &:focus,
+        &:hover {
+          background-color: darken($launcher_background, 7.5) !important;
+        }
       }
     }
   }

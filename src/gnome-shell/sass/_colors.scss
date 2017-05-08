@@ -34,7 +34,7 @@ $disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
 $the_base_color: if($variant == "light", $ubuntu_white, $ubuntu_black);
 $base_color: if($transparency == "true", transparentize($the_base_color, $quarternary_opacity), $the_base_color);
 $alt_base_color: if($transparency == "true", transparentize($the_base_color, $quarternary_opacity), lighten($the_base_color, 15));
-$alt_base_color: if($variant == "light", transparentize($ubuntu_black, $higher_opacity), $alt_base_color);
+$alt_base_color: if($variant == "light", darken($base_color, 5%), $alt_base_color);
 
 $the_bg_color: if($variant == "light", $white, $black);
 $bg_color: if($transparency == "true", scale-alpha($black, $quarternary_opacity), $black);
@@ -43,8 +43,8 @@ $inverse_bg_color: if($variant == "light", $alt_base_color, scale-alpha($fg_colo
 $panel_bg_color: if($transparency == "true", transparentize($the_base_color, $quarternary_opacity), $the_base_color);
 $panel_bg_color: if($panel == "light" or $variant == "light", $ubuntu_white, $panel_bg_color);
 
-$fill_color: scale-alpha($fg_color, $lowest_opacity);
 $semi_fill_color: $alt_base_color;
+$fill_color: if($variant == "light", darken($the_base_color, 10%), scale-alpha($fg_color, $lowest_opacity));
 $disabled_fill_color: scale-alpha($disabled_fg_color, $lower_opacity);
 
 $the_inverse_fill_color: if($variant == "light", $dark_fg_color, $light_fg_color);
@@ -70,6 +70,6 @@ $warning_bg_color: lighten($orange, 5);
 $error_bg_color: darken($red, 5);
 
 // Border and highlight colours
-$border_color: transparentize($ubuntu_white, $secondary_opacity);
+$border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($ubuntu_white, 0.1));
 $highlight_color: if($variant == "light", scale-alpha($white, 0.4), scale-alpha($white, 0.1));
 $alt_highlight_color: scale-alpha($white, 0.2);

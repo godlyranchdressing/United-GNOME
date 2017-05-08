@@ -34,7 +34,7 @@ $darker_bg_color: if($variant == "light", darken($ubuntu_white, 30%), lighten($u
 $light_headerbar_bg: $ubuntu_white;
 $dark_headerbar_bg: darken($ubuntu_black, 8%);
 $headerbar_bg: if($variant == "light", if($headerbar == "dark", $dark_headerbar_bg, $light_headerbar_bg), $dark_headerbar_bg);
-$darker_pathbar_color: lighten($ubuntu_black, 7%);
+$darker_headerbar_color: lighten($ubuntu_black, 7%);
 
 // hover states
 $hover_bg: if($variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95));
@@ -63,7 +63,7 @@ $warning_bg_color: lighten($orange, 5);
 $error_bg_color: darken($red, 5);
 
 // Aux colors
-$border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($black, 0.2));
+$border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($ubuntu_white, 0.1));
 $selected_border_color: $fg_color;
 $highlight_color: if($variant == "light", scale-alpha($white, 0.4), scale-alpha($white, 0.1));
 $alt_highlight_color: scale-alpha($white, 0.2);
