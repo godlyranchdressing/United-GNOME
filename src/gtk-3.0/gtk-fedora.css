@@ -1578,7 +1578,7 @@ headerbar {
   color: #606060;
   min-height: 45px;
   padding: 0 6px;
-  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.021), 0 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .titlebar:disabled:not(button):not(headerbar):not(.path-bar) > label,
@@ -1613,7 +1613,7 @@ headerbar .subtitle {
 
 .selection-mode.titlebar:not(headerbar):not(.path-bar),
 headerbar.selection-mode {
-  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.021), 0 2px 2px rgba(0, 0, 0, 0.3), inset 0 1px rgba(255, 255, 255, 0.2);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.4);
 }
@@ -2265,9 +2265,9 @@ notebook > header > tabs > arrow {
 
 notebook > header tab {
   transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
-  min-height: 20px;
-  min-width: 20px;
-  padding: 6px 12px;
+  min-height: 16px;
+  min-width: 48px;
+  padding: 4px;
   outline-offset: -6px;
   border-width: 0;
   border-color: transparent;
@@ -2276,8 +2276,8 @@ notebook > header tab {
 }
 
 notebook > header tab button {
-  min-height: 16px;
-  padding: 8px 6px;
+  min-height: 0px;
+  padding: 4px 6px;
 }
 
 notebook > header tab:hover {
@@ -4300,6 +4300,10 @@ headerbar .path-bar button.slider-button, headerbar .path-bar button.slider-butt
 .path-bar button.text-button:hover, .path-bar button.text-button:active, .path-bar button.text-button:checked {
   background-image: none;
   background-color: white;
+}
+
+.nautilus-window notebook header tabs tab {
+  min-height: 32px;
 }
 
 button .text-button.toggle:checked:disabled {

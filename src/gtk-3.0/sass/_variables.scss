@@ -49,7 +49,7 @@ $shadow_1: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24); // regu
 $shadow_2: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15); // lighter shadow
 $shadow_3: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.20); // heavier shadow
 $background_inset_shadow: inset 0 2px 2px rgba(0, 0, 0, .16), 0 2px 2px rgba(0, 0, 0, .16);
-$headerbar_shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+$headerbar_shadow: inset 0 -1px 0 rgba(0, 0, 0, .021), 0 2px 2px rgba(0, 0, 0, .3);
 $shadow_value: rgba(0, 0, 0, 0.1); // for the following, you'll most likely use this with the outside shadow
 
 $shadow_bottom: inset 2 0px 0px; // insert a color at the end here. lets you use a border without adding height + width

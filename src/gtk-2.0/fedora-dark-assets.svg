@@ -1573,9 +1573,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.656854"
-     inkscape:cx="-21.822312"
-     inkscape:cy="48.876688"
+     inkscape:zoom="2.828427"
+     inkscape:cx="-95.610725"
+     inkscape:cy="300.03156"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -6204,7 +6204,7 @@
     </g>
     <g
        style="display:inline"
-       id="button-hover-2"
+       id="button-active"
        inkscape:label="#g9350"
        transform="translate(68,1)">
       <rect

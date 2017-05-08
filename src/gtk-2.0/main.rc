@@ -679,7 +679,7 @@ style "scrollbar" {
 }
 
 style "menu" {
-  
+
   xthickness = 0
   ythickness = 0
 
@@ -1789,6 +1789,7 @@ style "link_label" {
 }
 
 style "link_button" {
+  # doesn't seem to be working
   engine "pixmap" {
     image {
       function = BOX
@@ -1810,6 +1811,7 @@ style "checkbutton_label" {
 
 style "tool_button" {
   text[ACTIVE]      = @selected_bg_color
+  fg[ACTIVE] = @selected_fg_color
 
   GtkButton::inner-border = {1, 1, 0, 0}
 

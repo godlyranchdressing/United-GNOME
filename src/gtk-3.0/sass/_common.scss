@@ -1627,7 +1627,7 @@ headerbar {
  ************/
 .path-bar button {
   background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);;
-  
+
   @if $headerbar == "dark" {
     color: $light_fg_color;
   }
@@ -2252,9 +2252,9 @@ notebook {
 
     tab {
       transition: $shorter_transition;
-      min-height: $small_size;
-      min-width: $small_size;
-      padding: 6px 12px;
+      min-height: 16px;
+      min-width: 48px;
+      padding: 4px;
       outline-offset: -6px;
       border-width: 0;
 
@@ -2266,8 +2266,8 @@ notebook {
       font-weight: 500;
 
       button {
-        min-height: 16px;
-        padding: 8px 6px;
+        min-height: 0px;
+        padding: 4px 6px;
       }
 
       &:hover {

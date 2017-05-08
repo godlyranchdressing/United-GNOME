@@ -27,8 +27,6 @@ headerbar {
         background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
         color: $primary_color;
         border-color: $border_color;
-
-
       }
 
       &:active, &:checked {
@@ -46,8 +44,6 @@ headerbar {
         &:hover, &:active, &:checked {
           background-image: none;
           color: $primary_color;
-
-
         }
       }
 
@@ -60,13 +56,11 @@ headerbar {
 
         &:hover, &:active, &:checked {
           color: $primary_color;
-
-
         }
       }
     }
   }
-  
+
   stackswitcher.horizontal.linked.stack-switcher {
     // make the stackswitcher look the way we want it to look
     button {
@@ -79,8 +73,6 @@ headerbar {
         background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
         box-shadow: $shadow_bottom $primary_color;
         color: $primary_color;
-
-
       }
     }
   }
@@ -103,9 +95,11 @@ headerbar {
   &:hover, &:active, &:checked {
     background-image: none;
     background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
-
-
   }
+}
+
+.nautilus-window notebook header tabs tab {
+  min-height: 32px;
 }
 
 button {
