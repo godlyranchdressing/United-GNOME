@@ -21,6 +21,11 @@
     }
   }
 
+  .dashtopanelMainPanel .show-apps .overview-icon {
+    background-color: $primary_color;
+    border-radius: $circular_radius;
+  }
+
   @each $g in left right top bottom {
     @for $i from 1 through 4 {
       $_indicator_height: 5;

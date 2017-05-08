@@ -2015,6 +2015,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   box-shadow: none;
 }
 
+.dashtopanelMainPanel .show-apps .overview-icon {
+  background-color: #3C6EB4;
+  border-radius: 9999px;
+}
+
 #dashtodockContainer.left .dash-item-container .app-well-app-running-dot {
   background-color: transparent;
 }
