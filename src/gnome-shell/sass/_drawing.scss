@@ -1,0 +1,210 @@
+// generic drawing of more complex things
+
+// provide font size in pt, with px fallback
+@function pt($size: $root-font-size) {
+  @return $size * 0.75 / 1px + pt;
+}
+
+// provide icon size in em, with px fallback
+@function em($size: 16px) {
+  @return $size / $root-font-size + em;
+}
+
+// Typography
+// based on:
+// https://material.io/guidelines/style/typography.html#typography-styles
+
+@mixin font($size) {
+  @if $size == display-4 {
+    // font-family: $large-font-family;
+    font-size: 112px;
+    font-weight: 300;
+
+    // line-height: 1;
+  }
+
+  @if $size == display-3 {
+    // font-family: $large-font-family;
+    font-size: 56px;
+    font-weight: 400;
+
+    // line-height: 1;
+  }
+
+  @if $size == display-2 {
+    // font-family: $large-font-family;
+    font-size: 45px;
+    font-weight: 400;
+
+    // line-height: 48px;
+  }
+
+  @if $size == display-1 {
+    // font-family: $large-font-family;
+    font-size: 34px;
+    font-weight: 400;
+
+    // line-height: 40px;
+  }
+
+  @if $size == headline {
+    font-size: pt(24px);
+    font-weight: 400;
+
+    // line-height: 32px;
+  }
+
+  @if $size == title {
+    font-size: pt(20px);
+    font-weight: 500;
+
+    // line-height: 1;
+  }
+
+  @if $size == subheading {
+    font-size: pt($subheading-size);
+    font-weight: 400;
+
+    // line-height: 24px;
+  }
+
+  @if $size == body-2 {
+    font-size: pt($root-font-size);
+    font-weight: 500;
+
+    // line-height: 24px;
+  }
+
+  @if $size == body-1 {
+    font-size: pt($root-font-size);
+    font-weight: 400;
+
+    // line-height: 20px;
+  }
+
+  @if $size == caption {
+    font-size: pt(12px);
+    font-weight: 400;
+
+    // line-height: 1;
+  }
+
+  @if $size == button {
+    font-size: pt($root-font-size);
+    font-weight: 500;
+
+    // line-height: 20px;
+  }
+}
+
+@mixin entry($_focus_color: $primary_color) {
+  background-color: $ubuntu_white;
+  transition: $shorter_transition;
+  box-shadow: $shadow_bottom_inside transparent;
+  border-color: transparent;
+
+  &:hover{
+    box-shadow: $shadow_bottom_inside $_focus_color;
+    transition: $shorter_transition;
+  }
+
+  &:focus, &:active {
+    border-color: transparent;
+    box-shadow: $shadow_bottom_inside $_focus_color;
+    transition: $shorter_transition;
+  }
+
+  &:disabled {
+    color: $disabled_fg_color;
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+
+@mixin button($type, $_bg_color: $base_color, $_fg_color: $fg_color) {
+  @if $type == normal {
+    color: if($_fg_color == $fg_color, $secondary_fg_color, $_fg_color);
+    background-color: $_bg_color;
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+
+    &:focus {
+      color: $_fg_color;
+      text-shadow: none;
+      icon-shadow: none;
+      box-shadow: none;
+    }
+
+    &:hover {
+      color: $_fg_color;
+      background-color: transparentize($semi_fill_color, $middle_opacity);
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
+
+    &:active {
+      color: $_fg_color;
+      background-color: mix($_fg_color, $_bg_color, percentage($lower_opacity));
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
+
+    &:insensitive {
+      color: if($_fg_color == $fg_color, $disabled_secondary_fg_color, $_fg_color);
+      background-color: if($_bg_color == $base_color, $disabled_fill_color, $_bg_color);
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
+  }
+
+  @if $type == flat {
+    color: if($variant == "light", $dark_fg_color, $light_fg_color);
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+
+    &:focus {
+      color: if($variant == "light", $dark_fg_color, $light_fg_color);
+      text-shadow: none;
+      icon-shadow: none;
+      box-shadow: none;
+    }
+
+    &:hover {
+      color: if($variant == "light", $dark_fg_color, $light_fg_color);
+      background-color: transparentize($semi_fill_color, $middle_opacity);
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
+
+    &:active {
+      color: if($variant == "light", $dark_fg_color, $light_fg_color);
+      background-color: if($_fg_color != $fg_color, $fill_color, $inverse_fill_color);
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
+
+    &:insensitive {
+      color: if($variant == "light", $dark_fg_color, $light_fg_color);
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+    }
+  }
+}

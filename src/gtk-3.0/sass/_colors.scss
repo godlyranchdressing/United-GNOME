@@ -1,0 +1,86 @@
+@import "color-palette";
+
+@function gtkalpha($c, $a) {
+  @return unquote("alpha(#{$c}, #{$a})");
+}
+
+@function scale-alpha($c, $a) {
+  @return scale-color($c, $alpha: percentage(-1 + $a));
+}
+
+// primary foreground colors
+$dark_fg_color: #606060;
+$light_fg_color: #ffffff;
+$fg_color: if($variant == "light", $dark_fg_color, $light_fg_color);
+$inverse_fg_color: if($variant == "light", $light_fg_color, $dark_fg_color);
+$highlighted_fg_color: $light_fg_color;
+
+// secondary foreground colors
+$secondary_fg_color: scale-alpha($fg_color, $secondary_opacity);
+$secondary_inverse_fg_color: scale-alpha(if($variant == "light", $light_fg_color, $dark_fg_color), $secondary_opacity);
+$tertiary_fg_color: scale-alpha($fg_color, $tertiary_opacity);
+$headerbar_fg_color: if($headerbar == "dark", $highlighted_fg_color, $fg_color);
+$secondary_headerbar_fg_color: if($headerbar == "dark", $secondary_inverse_fg_color, $secondary_fg_color);
+
+// background colors
+$bg_color: if($variant == "light", $ubuntu_white, $ubuntu_black); // bg color
+$base_color: if($variant == "light", lighten($ubuntu_white, 2.5%), lighten($ubuntu_black, 2.5%)); // sidebar color
+$alt_base_color: if($variant == "light", darken($ubuntu_white, 2.5%), mix($base_color, $bg_color, 50%));
+$alt_bg_color: if($variant == "light", $ubuntu_pane_bg, lighten($ubuntu_black, 7.5%)); // previously lighter
+$lighter_bg_color: if($variant == "light", lighten($ubuntu_white, 5%), lighten($ubuntu_black, 7%));
+$darker_bg_color: if($variant == "light", darken($ubuntu_white, 30%), lighten($ubuntu_black, 5%));
+
+// headerbar background colors
+$light_headerbar_bg: $ubuntu_white;
+$dark_headerbar_bg: darken($ubuntu_black, 8%);
+$headerbar_bg: if($variant == "light", if($headerbar == "dark", $dark_headerbar_bg, $light_headerbar_bg), $dark_headerbar_bg);
+$darker_headerbar_color: lighten($ubuntu_black, 7%);
+
+// hover states
+$hover_bg: if($variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95));
+
+$fill_color: gtkalpha(currentColor, $lower_opacity);
+$semi_fill_color: gtkalpha(currentColor, $lower_opacity / 2);
+$row_fill_color: gtkalpha(currentColor, 0.05);
+
+// Theme colours
+@import "distros";
+
+$link_color: lighten($accent_color, 5);
+$visited_link_color: darken($accent_color, 5);
+
+// Info colours
+$warning_color: $orange;
+$error_color: $dark_orange;
+$success_color: $dark_green;
+$suggested_color: $accent_color;
+
+// Say you want to rename something: the rename button would be in this colour in order to finish renaming the file
+$destructive_color: $dark_red;
+$info_bg_color: $green;
+$question_bg_color: $blue;
+$warning_bg_color: lighten($orange, 5);
+$error_bg_color: darken($red, 5);
+
+// Aux colors
+$border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($ubuntu_white, 0.1));
+$selected_border_color: $fg_color;
+$highlight_color: if($variant == "light", scale-alpha($white, 0.4), scale-alpha($white, 0.1));
+$alt_highlight_color: scale-alpha($white, 0.2);
+$unity_highlight_color: if($headerbar == "dark", scale-alpha($white, 0.1), scale-alpha($white, 0.2));
+$headerbar_highlight_color: if($headerbar == "dark", scale-alpha($white, 0.15), $highlight_color);
+$headerbar_indicator_color: if($headerbar == "dark", currentColor, $primary_color);
+
+// FIXME: @placeholder_text_color should really use $tertiary_fg_color, but
+// doesn't work translucent colors here. So we use an opaque color instead.
+$placeholder_text_color: mix($fg_color, $base_color, percentage($tertiary_opacity));
+
+// disabled and backdrop states
+$disabled_bg_color: transparentize(if($variant == "light", $alt_bg_color, darken($alt_bg_color, 5%)), $disabled_opacity);
+$disabled_base_color: transparentize(if($variant == "light", $alt_base_color, darken($alt_base_color, 5%)), $disabled_opacity);
+$disabled_fg_color: scale-alpha($fg_color, $disabled_opacity);
+$disabled_secondary_fg_color: scale-alpha($secondary_fg_color, $disabled_opacity);
+$backdrop_fg_color: $disabled_fg_color;
+$backdrop_bg_color: $disabled_bg_color;
+$backdrop_base_color: $disabled_base_color;
+$backdrop_border_color: $disabled_base_color;

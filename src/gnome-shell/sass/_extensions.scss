@@ -1,0 +1,240 @@
+@mixin fancy_dock {
+  //Fancify the dash
+
+  #dash StWidget {
+    // for shadow transition (grow and fade in) effects
+    transition-duration: 250ms;
+  }
+
+  #dashtodockContainer .app-well-app {
+    // get rid of default hover effects for dash to dock
+    color: transparent;
+    background-color: transparent;
+
+    &:hover, &:focus, &:active {
+      background-color: transparent;
+
+      StWidget, StBin.overview-icon {
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+  }
+
+  @each $g in left right top bottom {
+    @for $i from 1 through 4 {
+      $_indicator_height: 5;
+      $_shadow: null;
+
+      @if $g == "left" {
+        // if the dock is pinned to the left ☜(ﾟ∀ﾟ☜)
+        $_shadow: inset #{$_indicator_height}px 0;
+      }
+
+      @if $g == "right" {
+        // to the right (☞ﾟ∀ﾟ)☞
+        $_shadow: inset -#{$_indicator_height}px 0;
+      }
+
+      @if $g == "bottom" {
+        // now down ☟(˚▽˚)☟
+        $_shadow: inset 0px -#{$_indicator_height}px;
+      }
+
+      @if $g == "top" {
+        // and up ☝(˚▽˚)☝
+        $_shadow: inset 0px #{$_indicator_height}px;
+      }
+
+      #dashtodockContainer.#{$g} {
+        .dash-item-container {
+          .app-well-app-running-dot {
+            // get rid of the running dot
+            background-color: transparent;
+          }
+
+          > StWidget.running#{$i} {
+            // running items look like this
+            background-color: transparentize($primary_color, 0.75);
+
+            &:active, &.focused {
+              // running and focused items (the currenlty focused window) look like this
+              box-shadow: $_shadow $primary_color;
+              background-color: transparentize($primary_color, 0.5);
+            }
+
+            &:hover {
+              // hovering over a running item looks like this
+              box-shadow: $_shadow $primary_color;
+              background-color: transparentize($primary_color, 0.5);
+            }
+          }
+
+          > StWidget {
+            // unopened or regular items look like this (in most cases there should be no styling)
+            background-color: rgba(0, 0, 0, 0.01);
+
+            &:hover, &:active {
+              // hovering over an unopened item looks like this (should mirror the running item look from above imo)
+              background-color: transparentize($primary_color, 0.75);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin dash_bg {
+  // the dash should never be white
+  $_dash_color: if($transparency == "true", transparentize($ubuntu_black, $middle_opacity), $ubuntu_dark_grey);
+
+  background: if($variant == "light" or $panel == "light", $ubuntu_dark_grey, $_dash_color);
+}
+
+@mixin ubuntu_launcher {
+  .show-apps {
+    .overview-icon {
+      // common styling
+      background-image: url("assets/#{$distro}_launcher.svg") !important;
+      background-size: contain !important;
+    }
+
+    StWidget {
+      // no border to get rid of a width problem otherwise and default hover effects
+      border: none;
+      color: transparent;
+      box-shadow: none;
+    }
+
+    &:checked, &:hover, &:active {
+      // get rid of default hover effect
+      background-color: transparent !important;
+
+      .overview-icon {
+        // give it the launcher image
+        background-image: url("assets/#{$distro}_launcher.svg") !important;
+        background-size: contain !important;
+
+        StWidget {
+          // hide the default icon by making it transparent
+          color: transparent;
+        }
+      }
+    }
+  }
+
+  #dashtodockContainer {
+    // the non-panel mode dock
+    .show-apps {
+      .overview-icon {
+        // circular icon for non-extended/panel d2d
+        border-radius: $circular_radius;
+        background-color: $launcher_background !important;
+      }
+
+      &:checked, &:hover, &:active {
+        .overview-icon {
+          background-color: darken($launcher_background, 7.5) !important;
+        }
+      }
+    }
+
+    &.extended {
+      // extended / panel mode
+      .show-apps {
+        // made the entirety of the .show-apps container the launcher color since we don't want a radius
+        background-color: $launcher_background !important;
+
+        .overview-icon {
+          background-color: transparent !important;
+
+          &:hover, &:checked, &:focus {
+            background-color: transparent;
+          }
+        }
+
+        &:checked,
+        &:focus,
+        &:hover {
+          background-color: darken($launcher_background, 7.5) !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin global_menu_padding {
+  .applet-box {
+    // imterim global menu support | creds to neowiz73 from omgubuntu! > honestly didn't think his suggestion would work
+    .applet-menu-content {
+      // they're popup-menu-items and the spacing should be consistent in this theme the spacing is 12px, we're dividing that by half
+      spacing: 4px;
+    }
+
+    .popup-menu-item {
+      // no padding just looks weird so we're going to use the remaining spacing to make the menu items themselves look nicer
+
+      padding: 0 4px;
+      color: $panel_fg_color;
+
+      &:hover {
+        // hover effect consistent with regular panel buttons
+        color: if($panel == "light" or $variant == "light", transparentize($dark_fg_color, $lower_opacity), transparentize($fg_color, $lower_opacity));
+      }
+
+      &:active, &:focus, &:checked {
+        // same as above
+        background-color: rgba($bg_color, 0.01);
+        box-shadow: inset 0 -2px 0px $primary_color;
+        color: $panel_fg_color;
+      }
+    }
+  }
+}
+
+@mixin uniform_panel_spacing {
+  // Makes spacing between indicators and the aggregate menu uniform
+
+  #panelRight .panel-button {
+    -natural-hpadding: 2px;
+    -minimum-hpadding: 2px;
+  }
+
+  .panel-status-indicators-box,
+  .panel-status-menu-box {
+    spacing: 4px;
+  }
+
+  #panelLeft, #panelCenter {
+    spacing: 4px;
+  }
+}
+
+/* GPaste */
+.popup-menu {
+  .search-entry {
+    color: $fg_color;
+    selection-background-color: transparentize($primary_color, $middle_opacity);
+    selected-color: $fg_color;
+
+    @include entry(normal);
+
+    &:focus {
+      @include entry(focus);
+
+      color: $fg_color;
+    }
+
+    .search-entry-icon {
+      color: $tertiary_fg_color;
+    }
+
+    &:focus,
+    &:hover {
+      .search-entry-icon {
+        color: $fg_color;
+      }
+    }
+  }
+}

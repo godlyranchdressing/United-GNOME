@@ -1,0 +1,66 @@
+$extra_background_clip: if($variant == "light", padding-box, border-box);
+$panel-corner-radius: 0;
+
+// font families
+$font-family: Ubuntu, Cantarell, Sans-Serif;
+@if $distro == "fedora" {
+  $font-family: Cantarell, Ubuntu, Sans-Serif;
+}
+
+// font sizes
+$root-font-size: if($compact == "false", 14px, 13px);
+$subheading-size: if($compact == "false", 16px, 15px);
+
+// opacities
+$higher_opacity: 0.9;
+$middle_opacity: 0.5;
+$lower_opacity: 0.3;
+$lowest_opacity: 0.25;
+$secondary_opacity: 0.75;
+$tertiary_opacity: 0.6;
+$disabled_opacity: 0.4;
+$quarternary_opacity: $disabled_opacity;
+
+// simply so people wouldn't get the wrong idea
+
+// sizes
+$small_size: 20px;
+$medium_size: 32px;
+$large_size: 44px;
+$container_padding: 6px;
+$bar_size: 4px;
+$menuitem_size: 30px;
+
+// radiuses
+$standard_radius: 8px;
+$circular_radius: 9999px;
+
+// durations
+$shorter_duration: 0.1s / 2;
+$longer_duration: 0.2s / 2;
+$ripple_duration: 0.4s / 2;
+
+// timing functions
+$standard_curve: cubic-bezier(0.4, 0, 0.2, 1);
+$deceleration_curve: cubic-bezier(0, 0, 0.2, 1);
+$acceleration_curve: cubic-bezier(0.4, 0, 1, 1);
+$sharp_curve: cubic-bezier(0.4, 0, 0.6, 1);
+
+// transition shorthands
+$shorter_transition: all $shorter_duration $deceleration_curve;
+$longer_transition: all $longer_duration $deceleration_curve;
+$shadow_transition: box-shadow $shorter_duration $deceleration_curve;
+
+// Shadow borders
+// insert a color at the end here. lets you use a border without adding height + width
+$shadow_left_inside: inset 2 0px 0px;
+$shadow_right_inside: inset -2 0px 0px;
+$shadow_top_inside: inset 0 2px 0px;
+$shadow_bottom_inside: inset 0 -2px 0px;
+$shadow_left_outside_inside: -2 0px 0px;
+
+$shadow_right_outside: 2 0px 0px;
+$shadow_top_outside: 0 -2px 0px;
+$shadow_bottom_outside: 0 2px 0px;
+$shadow_surround: 0 0px 0px 1px;
+$popover_shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); // for menus in light variant

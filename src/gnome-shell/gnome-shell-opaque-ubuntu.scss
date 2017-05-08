@@ -1,0 +1,12 @@
+$variant: "dark"; // light or dark
+$panel: "dark"; // light or dark
+$compact: "false"; // true or false
+$transparency: "dark"; // true or false
+@if $transparency == "true" and $variant == "light" {$transparency: "false"}
+$distro: "ubuntu"; // ubuntu and fedora
+
+@import "sass/variables";
+@import "sass/colors";
+@import "sass/drawing";
+@import "sass/extensions";
+@import "sass/common";
