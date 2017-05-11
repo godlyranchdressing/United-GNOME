@@ -1,0 +1,6 @@
+arch
+fedora
+manjaro
+opensuse
+solus
+ubuntu

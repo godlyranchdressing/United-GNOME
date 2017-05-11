@@ -1,0 +1,146 @@
+headerbar {
+  button {
+    // make the styling on headerbar buttons more discreet
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    background-image: none;
+
+    @if $headerbar == "dark" {
+      color: $light_fg_color;
+    }
+
+    &:hover, &:active, &:checked {
+      color: $primary_color;
+      border-color: transparent;
+      background-image: none;
+      background-color: transparent;
+    }
+
+    &.text-button {
+      // same as the above
+      border: 1px solid transparent;
+
+      @if $headerbar == "dark" {
+        color: $light_fg_color;
+      }
+
+      &:hover {
+        background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
+        color: $primary_color;
+        border: 1px solid $border_color;
+      }
+
+      &:active, &:checked {
+        background-color: $primary_color;
+        color: white;
+      }
+    }
+
+    &:not(.text-button) {
+      &.popup.toggle {
+        background-image: none;
+        background-color: transparent;
+        box-shadow: none;
+
+        &:hover, &:active, &:checked {
+          background-image: none;
+          color: $primary_color;
+        }
+      }
+
+      &.image-button {
+        box-shadow: none;
+
+        @if $headerbar == "dark" {
+          color: $light_fg_color;
+        }
+
+        &:hover, &:active, &:checked {
+          color: $primary_color;
+        }
+      }
+    }
+  }
+
+  stackswitcher.horizontal.linked.stack-switcher {
+    // make the stackswitcher look the way we want it to look
+    button {
+      min-width: 115px;
+      border: 0px;
+
+      @include toggle_button($primary_color, true);
+    }
+  }
+
+  .path-bar button.slider-button {
+    // give the appearance of the pathbar being one big box
+    &, &:disabled {
+      background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
+    }
+  }
+}
+
+.path-bar button.text-button {
+@include toggle_button($primary_color, true);
+}
+
+.nautilus-window notebook header tabs tab {
+  min-height: 32px;
+}
+
+button {
+  // get rid of the orange background when the toggle is checked but disabled
+  .text-button.toggle {
+    &:checked:disabled {
+      background-image: image($disabled_bg_color);
+      color: $disabled_fg_color;
+      border-color: transparentize($primary_color, $disabled_opacity);
+    }
+  }
+
+  .image-button:not(.text-button) {
+    // get rid of headerbar image buttons having a background even when disabled
+    &:disabled {
+      background-image: none;
+      background-color: transparent;
+    }
+  }
+}
+
+scale:disabled contents {
+  // disabled state for scale
+  background-color: darken($bg_color, 5%);
+}
+
+messagedialog {
+  // Flat dialog boxes
+
+  &.csd {
+    border-radius: 0;
+    box-shadow: none;
+
+    &.background :last-child {
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+
+  button {
+    min-height: 30px;
+  }
+}
+
+box.linked :last-child:hover {
+  // make the last button in every linked entry have no special hover effects (we're operating on good faith with this one and assuming they aren't important (they usually aren't))
+  box-shadow: none;
+}
+
+popover.menu{
+  button{
+    &:hover{
+      box-shadow: none;
+      border-color: transparent;
+    }
+  }
+}

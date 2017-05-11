@@ -1,0 +1,376 @@
+// entries
+@mixin entry($t, $fc: $primary_color, $edge: none) {
+  // $t: entry type
+  // $fc: focus color
+  // $edge: set to none to not draw the bottom edge or specify a color to not use the default one
+  // possible $t values:
+  // normal, focus, insensitive, backdrop, backdrop-insensitive, osd, osd-focus, osd-backdrop;
+  $_primary_color: $primary_color;
+
+  $_blank_edge: if($edge == none, none, 0 1px transparentize($edge, 1));
+  $_entry_edge: if($edge == none, none, _widget_edge($edge));
+
+  @if $t == normal {
+    color: $fg_color;
+    border-color: $border_color;
+    background-color: $lighter_bg_color;
+  }
+
+  @if $t == focus {
+    border-color: $border_color;
+    box-shadow: $shadow_bottom $fc;
+
+    image {
+      color: $_primary_color;
+    }
+  }
+
+  @if $t == insensitive {
+    color: $disabled_fg_color;
+    border-color: $backdrop_border_color;
+    background-color: $disabled_bg_color;
+    box-shadow: $_entry_edge;
+  }
+
+  @if $t == osd {
+    color: $fg_color;
+    border-color: $border_color;
+    background-color: transparentize(opacify($border_color, 1), 0.5);
+    background-clip: padding-box;
+    box-shadow: none;
+
+    &:hover, &:active {
+      border: 1px solid transparentize(white, 0.9);
+      color: $primary_color;
+    }
+  }
+
+  @if $t == osd-focus {
+    color: $fg_color;
+    border-color: $_primary_color;
+    background-color: transparentize(opacify($border_color, 1), 0.5);
+    background-clip: padding-box;
+  }
+
+  @if $t == osd-insensitive {
+    color: $disabled_fg_color;
+    border-color: $border_color;
+    background-color: $disabled_bg_color;
+    background-clip: padding-box;
+    box-shadow: none;
+  }
+}
+
+// buttons
+
+@function _border_color($_bg, $darker: false) {
+  @if $darker == true {
+    @return darken($_bg, 30%);
+  }
+  @else {
+    @return darken($_bg, 20%);
+  }
+}
+
+@mixin colored_button($_bg) {
+  background-color: $_bg;
+  border-color: $_bg;
+
+  label, image {
+    color: white;
+  }
+
+  &:hover, &:checked, &:active {
+    background-color: lighten($_bg, 5%);
+    border-color: $_bg;
+    box-shadow: $shadow_1;
+  }
+
+  &:disabled, &:disabled:checked {
+    background-color: $disabled_bg_color;
+    border-color: $disabled_bg_color;
+
+    label {
+      color: $disabled_fg_color;
+    }
+  }
+}
+
+@mixin toggle_button($_bg, $in_headerbar: false) {
+  $_button_bg: null;
+
+  @if $in_headerbar == true and $headerbar == "dark" {
+    $_button_bg: $darker_headerbar_color;
+  }
+
+  @else{
+    $_button_bg: $lighter_bg_color;
+  }
+
+  background-size: 100% 200%;
+  background-position: 0% 0%;
+  background-image: linear-gradient(to bottom, $_button_bg 50%, $_bg 50%);
+
+  &:hover {
+    box-shadow: $shadow_bottom $_bg;
+  }
+
+  &:active, &:checked {
+    background-image: linear-gradient(to bottom, $_button_bg 50%, $_bg 50%);
+    background-size: 100% 200%;
+    background-position: 0% 100%;
+
+    &:disabled {
+      background-image: image($disabled_bg_color);
+
+      image, label {
+        color: $disabled_fg_color;
+      }
+    }
+
+    label, image {
+      color: white;
+    }
+  }
+}
+
+@mixin normal_button($_bg: $lighter_bg_color, $_fg: $fg_color) {
+  $_primary_color: $primary_color;
+
+  color: $_fg;
+  background-color: $_bg;
+  border: 1px solid $border_color;
+  outline-color: transparentize($_fg, 0.7);
+
+  &:hover {
+    color: $_primary_color;
+    outline-color: transparentize($_fg, 0.7);
+    border: 1px solid $border_color;
+    box-shadow: $shadow_bottom $_primary_color;
+  }
+
+  &:active, &:checked {
+    color: white;
+    border-color: $_primary_color;
+    background-color: $_primary_color;
+  }
+}
+
+@mixin button($t, $_bg: $bg_color, $_fg: $fg_color, $edge: none) {
+  @if $t == normal-alt {
+    //
+    // normal button alternative look
+    //
+    color: $_fg;
+    outline-color: transparentize($_fg, 0.7);
+    border-color: $border_color;
+
+    @if $variant == "light" {
+      background-image: linear-gradient(to bottom, lighten($_bg, 5%) 20%, $_bg 90%);
+    }
+    @else {
+      background-image: linear-gradient(to bottom, darken($_bg, 3%) 20%, darken($_bg, 6%) 90%);
+    }
+  }
+  @else if $t == hover-alt {
+    //
+    // hovered button alternative look
+    //
+    color: $_fg;
+    outline-color: transparentize($_fg, 0.7);
+    border-color: $border_color;
+    background-color: $lighter_bg_color;
+  }
+  @else if $t == active {
+    //
+    // pushed button
+    //
+    color: $_fg;
+    outline-color: transparentize($_fg, 0.7);
+    border-color: if($_bg != $bg_color, _border_color($_bg), $border_color);
+    background-color: $hover_bg;
+  }
+  @else if $t == insensitive {
+    //
+    // insensitive button
+    //
+    $_bg: if($_bg != $bg_color, mix($_bg, $base_color, 85%), $disabled_bg_color);
+
+    label, & {
+      color: if($_fg != $fg_color, mix($_fg, $_bg, 50%), $disabled_fg_color);
+    }
+
+    border-color: $backdrop_border_color;
+    background-color: $disabled_bg_color;
+
+    // white with 0 alpha to avoid an ugly transition, since no color means
+    // black with 0 alpha
+  }
+  @else if $t == insensitive-active {
+    //
+    // insensitive pushed button
+    //
+    $_bg: if($variant == "light", darken(mix($_bg, $base_color, 85%), 8%), darken(mix($_bg, $base_color, 85%), 6%));
+    $_bc: if($_bg != $bg_color, _border_color($_bg), $border_color);
+
+    label, & {
+      color: if($_bg != $bg_color, mix($_fg, $_bg, 60%), $disabled_fg_color);
+    }
+
+    border-color: $_bc;
+    background-color: $disabled_bg_color;
+
+    // white with 0 alpha to avoid an ugly transition, since no color means
+    // black with 0 alpha
+  }
+  @else if $t == osd {
+    //
+    // normal osd button
+    //
+    $_bg: if($_bg != $bg_color, transparentize($_bg, 0.5), $bg_color);
+
+    color: $fg_color;
+    border-color: $border_color;
+    background-color: $lighter_bg_color;
+    background-clip: padding-box;
+    box-shadow: inset 0 1px transparentize(white, 0.9);
+    outline-color: transparentize($fg_color, 0.7);
+  }
+  @else if $t == osd-hover {
+    //
+    // active osd button
+    //
+    $_bg: if($_bg != $bg_color, transparentize($_bg, 0.3), lighten($bg_color, 12%));
+
+    color: white;
+    border-color: $border_color;
+    background-color: $hover_bg;
+    background-clip: padding-box;
+    box-shadow: inset 0 1px transparentize(white, 0.9);
+    outline-color: transparentize($fg_color, 0.7);
+  }
+  @else if $t == osd-active {
+    //
+    // active osd button
+    //
+    $_bg: if($_bg != $bg_color, $_bg, $border_color);
+
+    color: white;
+    border-color: $border_color;
+    background-color: $hover_bg;
+    background-clip: padding-box;
+    box-shadow: none;
+    outline-color: transparentize($fg_color, 0.7);
+  }
+  @else if $t == osd-insensitive {
+    //
+    // insensitive osd button
+    //
+    color: $disabled_fg_color;
+    border-color: $border_color;
+    background-color: $disabled_bg_color;
+    background-clip: padding-box;
+    box-shadow: none;
+  }
+  @else if $t == undecorated {
+    border-color: transparent;
+    background-image: none;
+    background-color: transparent;
+
+    &:hover, &:active, &:checked{
+      label, image{
+        color: $primary_color;
+      }
+      background-image: none;
+    }
+  }
+}
+
+@mixin overshoot($p, $t: normal, $_bg: $primary_color) {
+  // $p: position
+  // $t: type
+  // $_bg: base color
+  // possible $p values:
+  // top, bottom, right, left
+  // possible $t values:
+  // normal, backdrop
+
+  $_small_gradient_length: 3%;
+  $_big_gradient_length: 50%;
+
+  $_small_gradient_size: 100% $_small_gradient_length;
+  $_big_gradient_size: 100% $_big_gradient_length;
+
+  @if $p == right or $p == left {
+    $_small_gradient_size: $_small_gradient_length 100%;
+    $_big_gradient_size: $_big_gradient_length 100%;
+  }
+
+  $_small_gradient_color: $_bg;
+  $_big_gradient_color: transparentize($_bg, 0.95);
+
+  @if $_bg == $fg_color {
+    $_small_gradient_color: darken($border_color, 10%);
+    $_big_gradient_color: transparentize($fg_color, 0.95);
+  }
+
+  $_small_gradient: radial-gradient(farthest-side at $p, $_small_gradient_color 85%, transparentize($_small_gradient_color, 1));
+
+  $_big_gradient: radial-gradient(farthest-side at $p, $_big_gradient_color, transparentize($_big_gradient_color, 1));
+
+  @if $t == normal {
+    background-image: $_small_gradient, $_big_gradient;
+    background-size: $_small_gradient_size, $_big_gradient_size;
+  }
+
+  background-repeat: no-repeat;
+  background-position: $p;
+  background-color: transparent;
+
+  // reset some properties to be sure to not inherit them somehow
+  border: none;
+
+  //
+  box-shadow: none;
+
+  //
+}
+
+@mixin undershoot($p) {
+  //
+  // undershoot
+  //
+  // $p: position
+  //
+  // possible $p values:
+  // top, bottom, right, left
+  //
+
+  $_undershoot_color_dark: transparentize($primary_color, 0.8);
+  $_undershoot_color_light: transparentize($primary_color, 0.8);
+
+  $_gradient_dir: left;
+  $_dash_bg_size: 10px 1px;
+  $_gradient_repeat: repeat-x;
+  $_bg_pos: center $p;
+
+  background-color: transparent;
+
+  // shouldn't be needed, but better to be sure;
+
+  @if $p == left or $p == right {
+    $_gradient_dir: top;
+    $_dash_bg_size: 1px 10px;
+    $_gradient_repeat: repeat-y;
+    $_bg_pos: $p center;
+  }
+
+  background-image: image($_undershoot_color_dark);
+  padding-#{$p}: 1px;
+  background-size: $_dash_bg_size;
+  background-repeat: $_gradient_repeat;
+  background-origin: content-box;
+  background-position: $_bg_pos;
+  border: none;
+  box-shadow: none;
+}

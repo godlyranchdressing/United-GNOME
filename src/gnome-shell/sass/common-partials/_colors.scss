@@ -1,0 +1,78 @@
+// Colours ----------
+
+// When color definition differs for dark and light variant,
+// it gets @if ed depending on $variant
+
+@function scale-alpha($c, $a) {
+  @return scale-color($c, $alpha: percentage(-1 + $a));
+}
+
+@function chroma($c) {
+  @return mix($c, $grey_800, 75%);
+}
+
+@import "color-palette";
+
+// Foreground colors
+$light_fg_color: $white;
+$dark_fg_color: $ubuntu_fg;
+$fg_color: if($variant == "light", $dark_fg_color, $light_fg_color);// for shorthand's sake
+$panel_fg_color: if($panel == "light" or $variant == "light", $dark_fg_color, $fg_color); // if light variant then use this for the panel
+$secondary_fg_color: scale-alpha($fg_color, $secondary_opacity);
+$tertiary_fg_color: scale-alpha($fg_color, $tertiary_opacity);
+
+// This section is for things that always need to be in a light text color i.e: search results in the overview
+$white_fg_color: $light_fg_color;
+$secondary_white_fg_color: scale-alpha($white_fg_color, $secondary_opacity);
+$tertiary_white_fg_color: scale-alpha($white_fg_color, $tertiary_opacity);
+
+$disabled_fg_color: scale-alpha($fg_color, $disabled_opacity);
+$disabled_secondary_fg_color: scale-alpha($secondary_fg_color, $disabled_opacity);
+$disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
+
+@import "distros";
+
+// Background colors
+$the_base_color: if($variant == "light", $ubuntu_white, $ubuntu_black);
+$base_color: if($transparency == "true", transparentize($the_base_color, $quarternary_opacity), $the_base_color);
+$alt_base_color: if($transparency == "true", transparentize($the_base_color, $quarternary_opacity), lighten($the_base_color, 15));
+$alt_base_color: if($variant == "light", darken($base_color, 5%), $alt_base_color);
+
+$the_bg_color: if($variant == "light", $white, $black);
+$bg_color: if($transparency == "true", scale-alpha($black, $quarternary_opacity), $black);
+$lighter_bg_color: if($variant == "light", lighten($ubuntu_white, 5%), lighten($ubuntu_black, 7%));
+$alt_bg_color: if($transparency == "true", transparentize($the_base_color, $lower_opacity), lighten($the_base_color, 15));
+$inverse_bg_color: if($variant == "light", $alt_base_color, scale-alpha($fg_color, 0.1));
+$panel_bg_color: if($transparency == "true", transparentize($the_base_color, $quarternary_opacity), $the_base_color);
+$panel_bg_color: if($panel == "light" or $variant == "light", $ubuntu_white, $panel_bg_color);
+
+$semi_fill_color: transparentize($fg_color, .8);
+$fill_color: transparentize($fg_color, .9);
+$disabled_fill_color: scale-alpha($disabled_fg_color, $disabled_opacity);
+
+$inverse_semi_fill_color: transparentize(if($variant == "light", $light_fg_color, $dark_fg_color), .8);
+$inverse_fill_color: transparentize(if($variant == "light", $light_fg_color, $dark_fg_color), .9);
+$disabled_inverse_fill_color: scale-alpha(if($variant == "light", $light_fg_color, $dark_fg_color), $disabled_opacity);
+
+$disabled_bg_color: transparentize(if($variant == "light", $alt_bg_color, darken($alt_bg_color, 5%)), $disabled_opacity);
+$disabled_fg_color: scale-alpha($fg_color, $disabled_opacity);
+
+// Theme colours
+$link_color: lighten($accent_color, 10);
+$visited_link_color: darken($accent_color, 10);
+
+// Info colours
+$warning_color: $orange;
+$error_color: $dark_orange;
+$success_color: $dark_green;
+$suggested_color: $accent_color;
+$destructive_color: $dark_red;
+$info_bg_color: $green;
+$question_bg_color: $blue;
+$warning_bg_color: lighten($orange, 5);
+$error_bg_color: darken($red, 5);
+
+// Border and highlight colours
+$border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($ubuntu_white, 0.1));
+$highlight_color: if($variant == "light", scale-alpha($white, 0.4), scale-alpha($white, 0.1));
+$alt_highlight_color: scale-alpha($white, 0.2);

@@ -1,0 +1,18 @@
+$variant: "dark"; // light or dark
+$panel: "dark"; // light or dark
+$compact: "false"; // true or false
+$transparency: "true"; // true or false
+@if $transparency == "true" and $variant == "light" {$transparency: "false"}
+$distro: "ubuntu"; // arch, fedora, manjaro, opensuse and ubuntu
+$logo: $distro;
+$agnostic: true; // true or false
+@if $agnostic {
+  // yeah i know this is a bit convoluted but I just want a quick true/false answer
+  $logo: none;
+}
+
+@import "../common-partials/variables";
+@import "../common-partials/colors";
+@import "../common-partials/drawing";
+@import "../common-partials/extensions";
+@import "../common-partials/common";
