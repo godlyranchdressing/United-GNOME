@@ -1,7 +1,5 @@
 .gitignore
-United-Latest-Ubuntu/
-United-Latest-Fedora/
-parse-and-copy.sh
 backup/
+Releases/
 sources/
 additional-assets/

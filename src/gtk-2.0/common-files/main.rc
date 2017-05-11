@@ -9,7 +9,7 @@ style "default" {
   GtkMenuBar::window-dragging = 1
   GtkToolbar::window-dragging = 1
   GtkToolbar::internal-padding = 4
-  GtkToolButton::icon-spacing = 4
+  GtkToolButton::icon-spacing = 42
 
   GtkWidget::tooltip-radius = 2
   GtkWidget::tooltip-alpha = 235
@@ -325,7 +325,7 @@ style "default" {
     image {
       function = ARROW
       state = PRELIGHT
-      overlay_file = "assets/arrow-down-prelight.png"
+      overlay_file = "assets/arrow-down-colored.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = DOWN
@@ -439,7 +439,7 @@ style "default" {
     image {
       function = TAB
       state = PRELIGHT
-      overlay_file = "assets/arrow-down-prelight.png"
+      overlay_file = "assets/arrow-down-colored.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
     }
@@ -1344,7 +1344,7 @@ style "spinbutton" {
       file = "assets/up-background.png"
       border = { 1, 4, 5, 0 }
       stretch = TRUE
-      overlay_file = "assets/arrow-up-small-prelight.png"
+      overlay_file = "assets/arrow-up-small-colored.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1365,10 +1365,10 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_up"
-      file = "assets/up-background.png"
+      file = "assets/up-background-active.png"
       border = { 1, 4, 5, 0 }
       stretch = TRUE
-      overlay_file = "assets/arrow-up-small-prelight.png"
+      overlay_file = "assets/arrow-up-small-colored.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1444,7 +1444,7 @@ style "spinbutton" {
       file = "assets/down-background.png"
       border = { 1, 4, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-prelight.png"
+      overlay_file = "assets/arrow-down-small-colored.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1465,10 +1465,10 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_down"
-      file = "assets/down-background.png"
+      file = "assets/down-background-active.png"
       border = { 1, 4, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-prelight.png"
+      overlay_file = "assets/arrow-down-small-colored.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1813,7 +1813,7 @@ style "tool_button" {
   text[ACTIVE]      = @selected_bg_color
   fg[ACTIVE] = @selected_fg_color
 
-  GtkButton::inner-border = {1, 1, 0, 0}
+  GtkButton::inner-border = {0, 0, 0, 0}
 
   # For the sake of sanity style buttons this way
   engine "pixmap" {
@@ -2356,6 +2356,7 @@ style "xfwm-tabwin-button" {
 # Chromium
 style "chrome_menu_item" {
 
+  fg[SELECTED] = @selected_bg_color
   bg[SELECTED] = @selected_bg_color
 
 }
@@ -2387,7 +2388,11 @@ style "menubar_item" {
   xthickness = 2
   ythickness = 4
 
+  bg[NORMAL] = @fg_color
+  fg[NORMAL] = @fg_color
   fg[PRELIGHT] = @selected_bg_color
+  fg[ACTIVE] = @selected_bg_color
+  fg[SELECTED] = @selected_bg_color
 
   engine "pixmap" {
 
@@ -2396,6 +2401,7 @@ style "menubar_item" {
       state = PRELIGHT
       file = "assets/highlight.png"
       border = { 0, 0, 0, 4 }
+      stretch = FALSE
     }
   }
 }
@@ -2412,14 +2418,13 @@ style "menubar" {
   xthickness = 0
   ythickness = 0
 
-
 }
 
 style "menubar-borderless" {
 
   bg[NORMAL] = @menu_bg
   fg[NORMAL] = @fg_color
-  fg[SELECTED] = @fg_color
+  fg[SELECTED] = @selected_bg_color
   fg[INSENSITIVE] = @insensitive_fg_color
 
   xthickness = 0

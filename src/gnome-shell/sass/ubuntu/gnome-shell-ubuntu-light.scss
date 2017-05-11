@@ -3,13 +3,7 @@ $panel: "dark"; // light or dark
 $compact: "false"; // true or false
 $transparency: "false"; // true or false
 @if $transparency == "true" and $variant == "light" {$transparency: "false"}
-$distro: "ubuntu"; // arch, fedora, manjaro, opensuse and ubuntu
-$logo: $distro;
-$agnostic: false; // true or false
-@if $agnostic {
-  // yeah i know this is a bit convoluted but I just want a quick true/false answer
-  $logo: none;
-}
+$distro: "ubuntu"; // arch, fedora, manjaro, opensuse, solus and ubuntu
 
 @import "../common-partials/variables";
 @import "../common-partials/colors";

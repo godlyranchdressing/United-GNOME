@@ -72,7 +72,6 @@
             // running items look like this
             background-color: transparentize($primary_color, 0.75);
 
-            
             &:active, &.focused {
               // running and focused items (the currenlty focused window) look like this
               box-shadow: $_shadow $primary_color;
@@ -112,7 +111,7 @@
   .show-apps {
     .overview-icon {
       // common styling
-      background-image: url("assets/#{$logo}-launcher.svg") !important;
+      background-image: url("assets/#{$distro}-launcher.svg") !important;
       background-size: contain !important;
     }
 
@@ -129,26 +128,13 @@
 
       .overview-icon {
         // give it the launcher image
-        background-image: url("assets/#{$logo}-launcher.svg") !important;
+        background-image: url("assets/#{$distro}-launcher.svg") !important;
         background-size: contain !important;
 
         StWidget {
           // hide the default icon by making it transparent
           color: transparent;
         }
-      }
-    }
-  }
-
-  @if $agnostic == true {
-    .show-apps .overview-icon
-    StWidget {
-      color: white;
-    }
-
-    &:hover, &:active, &:checked {
-      StWidget {
-        color: white !important;
       }
     }
   }
@@ -239,7 +225,6 @@
     }
 
     .panel-status-indicators-box {
-
       .system-status-icon {
         padding: 0 10px 0 0px;
       }

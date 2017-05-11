@@ -2,7 +2,7 @@
   <defs>
     <g id="g">
       <circle cx="8" cy="8" r="8" fill="none"/>
-      <path d="M 8 1 A 7 7 0 0 0 1 8 A 7 7 0 0 0 8 15 A 7 7 0 0 0 15 8 L 12 8 A 4 4 0 0 1 8 12 A 4 4 0 0 1 4 8 A 4 4 0 0 1 8 4 L 8 1 z" fill="#FFFFFF" opacity="0.75"/>
+      <path d="M 8 1 A 7 7 0 0 0 1 8 A 7 7 0 0 0 8 15 A 7 7 0 0 0 15 8 L 12 8 A 4 4 0 0 1 8 12 A 4 4 0 0 1 4 8 A 4 4 0 0 1 8 4 L 8 1 z" fill="#e95420" opacity="0.75"/>
     </g>
   </defs>
   <use xlink:href="#g" transform="translate(0)rotate(0,8,8)"/>

@@ -9,7 +9,7 @@ style "default" {
   GtkMenuBar::window-dragging = 1
   GtkToolbar::window-dragging = 1
   GtkToolbar::internal-padding = 4
-  GtkToolButton::icon-spacing = 4
+  GtkToolButton::icon-spacing = 42
 
   GtkWidget::tooltip-radius = 2
   GtkWidget::tooltip-alpha = 235
@@ -325,7 +325,7 @@ style "default" {
     image {
       function = ARROW
       state = PRELIGHT
-      overlay_file = "assets/arrow-down-prelight.png"
+      overlay_file = "assets/arrow-down-colored.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = DOWN
@@ -439,7 +439,7 @@ style "default" {
     image {
       function = TAB
       state = PRELIGHT
-      overlay_file = "assets/arrow-down-prelight.png"
+      overlay_file = "assets/arrow-down-colored.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
     }
@@ -721,20 +721,13 @@ style "menu_item"
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
   fg[NORMAL] = @fg_color
   text[NORMAL] = @fg_color
+  bg[PRELIGHT] = @selected_bg_color
   fg[SELECTED] = @selected_fg_color
   fg[PRELIGHT] = @selected_fg_color
   text[PRELIGHT] = @selected_fg_color
 
 
   engine "pixmap" {
-
-    image {
-      function = BOX
-      state = PRELIGHT
-      file = "assets/button-active.png"
-      border = { 1, 0, 1, 0 }
-      stretch = TRUE
-    }
 
     # Fix invisible scale trough on selected menuitems
 
@@ -929,8 +922,8 @@ style "menu_item"
 
 style "button" {
 
-  xthickness = 4
-  ythickness = 4
+  xthickness = 5
+  ythickness = 5
 
   engine "pixmap" {
 
@@ -978,8 +971,8 @@ style "checkbutton" {
 
 style "entry" {
 
-  xthickness = 6
-  ythickness = 4
+  xthickness = 5
+  ythickness = 5
 
   engine "pixmap" {
 
@@ -1351,7 +1344,7 @@ style "spinbutton" {
       file = "assets/up-background.png"
       border = { 1, 4, 5, 0 }
       stretch = TRUE
-      overlay_file = "assets/arrow-up-small-prelight.png"
+      overlay_file = "assets/arrow-up-small-colored.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1372,10 +1365,10 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_up"
-      file = "assets/up-background.png"
+      file = "assets/up-background-active.png"
       border = { 1, 4, 5, 0 }
       stretch = TRUE
-      overlay_file = "assets/arrow-up-small-prelight.png"
+      overlay_file = "assets/arrow-up-small-colored.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1451,7 +1444,7 @@ style "spinbutton" {
       file = "assets/down-background.png"
       border = { 1, 4, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-prelight.png"
+      overlay_file = "assets/arrow-down-small-colored.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1472,10 +1465,10 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_down"
-      file = "assets/down-background.png"
+      file = "assets/down-background-active.png"
       border = { 1, 4, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-prelight.png"
+      overlay_file = "assets/arrow-down-small-colored.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1796,6 +1789,7 @@ style "link_label" {
 }
 
 style "link_button" {
+  # doesn't seem to be working
   engine "pixmap" {
     image {
       function = BOX
@@ -1817,8 +1811,9 @@ style "checkbutton_label" {
 
 style "tool_button" {
   text[ACTIVE]      = @selected_bg_color
+  fg[ACTIVE] = @selected_fg_color
 
-  GtkButton::inner-border = {1, 1, 0, 0}
+  GtkButton::inner-border = {0, 0, 0, 0}
 
   # For the sake of sanity style buttons this way
   engine "pixmap" {
@@ -2392,7 +2387,11 @@ style "menubar_item" {
   xthickness = 2
   ythickness = 4
 
+  bg[NORMAL] = @dark_menu_bg
+  fg[NORMAL] = @dark_menu_fg
   fg[PRELIGHT] = @selected_bg_color
+  fg[ACTIVE] = @selected_bg_color
+  fg[SELECTED] = @selected_bg_color
 
   engine "pixmap" {
 
@@ -2410,7 +2409,7 @@ style "menubar" {
   bg[NORMAL] = @dark_menu_bg
   fg[NORMAL] = @dark_menu_fg
   text[NORMAL] = @dark_menu_fg
-  fg[PRELIGHT] = @selected_bg_color
+  fg[PRELIGHT] = @selected_fg_color
   fg[ACTIVE] = @selected_bg_color
   fg[SELECTED] = @selected_bg_color
   fg[INSENSITIVE] = @insensitive_fg_color
@@ -2424,7 +2423,7 @@ style "menubar" {
 style "menubar-borderless" {
 
   bg[NORMAL] = @menu_bg
-  fg[NORMAL] = @fg_color
+  fg[NORMAL] = @dark_menu_fg
   fg[SELECTED] = @fg_color
   fg[INSENSITIVE] = @insensitive_fg_color
 
@@ -2437,7 +2436,8 @@ style "menubar-borderless" {
 
 # Text Style Menubar
 style "menubar-text" {
-  fg[NORMAL] = @dark_menu_fg
+fg[NORMAL] = @dark_menu_fg
+
   engine "murrine" {
     text_shade = 0.0
     textstyle = 0

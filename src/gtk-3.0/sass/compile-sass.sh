@@ -1,7 +1,7 @@
 #! /bin/bash
 
 DISTROS="distros.txt"
-COMPILED_FOLDER="./compiled-css"
+COMPILED_FOLDER="compiled-css"
 
 for distro in `cat $DISTROS`
 do

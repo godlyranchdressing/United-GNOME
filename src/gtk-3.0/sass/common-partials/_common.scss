@@ -474,10 +474,6 @@ button {
     &.text-button {
       padding: 6px 16px;
 
-      &:hover {
-        border: 1px solid $border_color;
-      }
-
       &.file, &.font, &.lock {
         padding: 6px 8px;
       }
@@ -489,10 +485,20 @@ button {
       &.destructive-action {
         @include colored_button($destructive_color);
       }
-    }
 
-    &.default {
-      @include colored_button($primary_color);
+      &.default {
+        @include colored_button($lighter_bg_color);
+
+        label, image, arrow {
+          color: $primary_color;
+        }
+
+        box-shadow: $shadow_bottom $primary_color;
+
+        &:hover, &:active, &:checked {
+          @include colored_button($primary_color);
+        }
+      }
     }
 
     &.toggle {
@@ -500,21 +506,35 @@ button {
     }
 
     &.image-button:not(.text-button) {
+      padding: 4px;
       background-color: transparent;
       box-shadow: none;
       border: none;
 
       &:hover {
-        color: $primary_color;
+        image {
+          color: $primary_color;
+        }
+
         box-shadow: none;
       }
 
+      &:active {
+        background-color: $hover_bg;
+      }
+
       &:active, &:checked {
-        color: $primary_color;
+        image {
+          color: $primary_color;
+        }
       }
 
       &:disabled {
         background-color: transparent;
+
+        image {
+          color: $disabled_fg_color;
+        }
       }
 
       &.popup, &.toggle {
@@ -1108,15 +1128,21 @@ spinbutton {
       box-shadow: none;
 
       &.up, &.down {
-        margin: 2px;
+        margin-bottom: 2px;
+        margin-top: 0px;
+        margin-right: -1px;
       }
 
       &:dir(rtl) {
         border-style: none solid none none;
       }
 
-      &:hover {
-        color: $fg_color;
+      &:hover, &:active {
+        color: $primary_color;
+      }
+
+      &:active {
+        color: lighten($primary_color, 5%);
         background-color: $hover_bg;
       }
 
@@ -1346,10 +1372,28 @@ combobox {
   background-color: $bg_color;
 }
 
-toolitem button {
-  box-shadow: none;
-  min-height: 25px;
-  min-width: 25px;
+toolitem {
+  button {
+    box-shadow: none;
+    background-color: transparent;
+    min-height: 25px;
+    min-width: 25px;
+  }
+
+  box.linked {
+    button {
+      &:hover {
+        background-color: transparent;
+        border-color: transparent;
+
+        &:active, &:checked {
+          image, label, arrow {
+            color: $primary_color;
+          }
+        }
+      }
+    }
+  }
 }
 
 toolbar {
@@ -1366,7 +1410,7 @@ toolbar {
 
     &:hover {
       -gtk-icon-effect: highlight;
-      border: 1px solid $border_color;
+      border: 1px solid $primary_color;
       background-color: $lighter_bg_color;
       box-shadow: none;
     }
@@ -1391,7 +1435,7 @@ toolbar {
       &:active, &:checked {
         border-color: transparent;
 
-        label, image {
+        label, image, arrow {
           color: $primary_color;
         }
       }
@@ -1908,9 +1952,9 @@ menu, menu#PagePopup,
   // axes borders in a composited env
 
   menuitem {
-    min-height: 35px;
-    min-width: 40px;
-    padding: 0px 8px;
+    min-height: 30px;
+    min-width: 30px;
+    padding: 2px;
     text-shadow: none;
 
     &:hover {
@@ -2088,7 +2132,15 @@ notebook {
     background-clip: border-box;
 
     tabs tab:not(:checked) {
-      color: $disabled_fg_color;
+      label {
+        color: $disabled_fg_color;
+      }
+
+      &:hover {
+        label {
+          color: $fg_color;
+        }
+      }
     }
 
     tab button {
@@ -2251,7 +2303,7 @@ notebook {
       transition: $shorter_transition;
       min-height: 18px;
       min-width: 48px;
-      padding: 4px;
+      padding: 4px 6px;
       outline-offset: -6px;
       border-width: 0;
       color: $secondary_fg_color;
@@ -2588,6 +2640,13 @@ switch {
     .#{$w}#{$s},
     #{$w}#{$s},
     treeview.#{$w}#{$s} {
+      @if $s == ":hover" or $s == ":checked" {
+        transition: $button_transition;
+      }
+      @else {
+        transition: none;
+      }
+
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"), url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
     }
 
@@ -2606,7 +2665,8 @@ switch {
     treeview.#{$w}#{$s}:selected,
     row:selected #{$w}#{$s},
     infobar #{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}-inverse.png"), url("assets/#{$a}-inverse@2.png"));
+      transition: none;
+      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-inverse.png"), url("assets/#{$a}#{$as}-inverse@2.png"));
     }
   }
 }
@@ -2639,7 +2699,6 @@ checkbutton, radiobutton {
 
 check,
 radio {
-  transition: $button_transition;
   min-width: 22px;
   min-height: 22px;
   margin: 2px 4px;
@@ -3603,14 +3662,14 @@ infobar {
         }
       }
 
-      label, image {
+      label, image, arrow {
         color: $fg_color;
       }
 
       &:active {
         background-color: $hover_bg;
 
-        label, image {
+        label, image, arrow {
           color: white;
         }
       }

@@ -74,23 +74,23 @@
 
 @mixin colored_button($_bg) {
   background-color: $_bg;
-  border-color: $_bg;
 
-  label, image {
+  label, image, arrow {
     color: white;
   }
 
   &:hover, &:checked, &:active {
     background-color: lighten($_bg, 5%);
-    border-color: $_bg;
+    border-width: 1px;
+    border-color: lighten($_bg, 5%);
     box-shadow: $shadow_1;
   }
 
   &:disabled, &:disabled:checked {
     background-color: $disabled_bg_color;
-    border-color: $disabled_bg_color;
+    border-color: transparent;
 
-    label {
+    label, image, arrow {
       color: $disabled_fg_color;
     }
   }
@@ -102,8 +102,7 @@
   @if $in_headerbar == true and $headerbar == "dark" {
     $_button_bg: $darker_headerbar_color;
   }
-
-  @else{
+  @else {
     $_button_bg: $lighter_bg_color;
   }
 
@@ -122,13 +121,14 @@
 
     &:disabled {
       background-image: image($disabled_bg_color);
+      border-color: $border_color;
 
-      image, label {
+      image, label, arrow {
         color: $disabled_fg_color;
       }
     }
 
-    label, image {
+    label, image, arrow {
       color: white;
     }
   }
@@ -137,22 +137,36 @@
 @mixin normal_button($_bg: $lighter_bg_color, $_fg: $fg_color) {
   $_primary_color: $primary_color;
 
-  color: $_fg;
+  image, label, arrow {
+    color: $_fg;
+  }
+
   background-color: $_bg;
   border: 1px solid $border_color;
   outline-color: transparentize($_fg, 0.7);
 
   &:hover {
-    color: $_primary_color;
+    image, label, arrow {
+      color: $_primary_color;
+    }
+
     outline-color: transparentize($_fg, 0.7);
-    border: 1px solid $border_color;
     box-shadow: $shadow_bottom $_primary_color;
   }
 
   &:active, &:checked {
-    color: white;
+    image, label, arrow {
+      color: white;
+    }
+
     border-color: $_primary_color;
     background-color: $_primary_color;
+  }
+
+  &:disabled {
+    label, image {
+      color: $disabled_fg_color;
+    }
   }
 }
 
@@ -277,10 +291,11 @@
     background-image: none;
     background-color: transparent;
 
-    &:hover, &:active, &:checked{
-      label, image{
+    &:hover, &:active, &:checked {
+      label, image, arrow {
         color: $primary_color;
       }
+
       background-image: none;
     }
   }

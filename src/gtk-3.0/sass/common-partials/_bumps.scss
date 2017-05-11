@@ -1,13 +1,17 @@
 headerbar {
   button {
     // make the styling on headerbar buttons more discreet
+    margin: 5px 0;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     box-shadow: none;
-    background-image: none;
+
 
     @if $headerbar == "dark" {
-      color: $light_fg_color;
+      image, label {
+        color: $light_fg_color;
+      }
     }
 
     &:hover, &:active, &:checked {
@@ -22,7 +26,9 @@ headerbar {
       border: 1px solid transparent;
 
       @if $headerbar == "dark" {
-        color: $light_fg_color;
+        image, label {
+          color: $light_fg_color;
+        }
       }
 
       &:hover {
@@ -34,6 +40,11 @@ headerbar {
       &:active, &:checked {
         background-color: $primary_color;
         color: white;
+      }
+
+      &.default {
+        background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
+        border-color: $border_color;
       }
     }
 
@@ -82,7 +93,7 @@ headerbar {
 }
 
 .path-bar button.text-button {
-@include toggle_button($primary_color, true);
+  @include toggle_button($primary_color, true);
 }
 
 .nautilus-window notebook header tabs tab {
@@ -115,30 +126,45 @@ scale:disabled contents {
 
 messagedialog {
   // Flat dialog boxes
+  border-radius: 0px;
+  border-width: 0px 1px 1px 1px;
 
-  &.csd {
-    border-radius: 0;
-    box-shadow: none;
+  &.background.csd, box.dialog-vbox.horizontal, buttonbox.dialog-action-area.horizontal.linked, box.horizontal.titlebar {
+    border-radius: 0px;
+    border-style: solid;
+    border-color: if($variant != "dark", #E6E6E6, #2D2D2D);
+  }
 
-    &.background :last-child {
-      border-radius: 0;
+  .titlebar {
+    border-width: 1px 1px 0 1px;
+  }
+
+  &.background.csd {
+    &, box.horizontal:last-child, decoration {
       box-shadow: none;
+    }
+
+    buttonbox.linked {
+      border-width: 0 1px 1px 1px;
     }
   }
 
   button {
-    min-height: 30px;
+    // doesn't seem to inherit default button padding
+    min-height: 36px;
+  }
+
+  &.background.csd box.horizontal.titlebar {
+    // get rid of the dialog box's forehead
+    min-height: 24px;
+    background-image: image($bg_color);
+    padding: 0px;
   }
 }
 
-box.linked :last-child:hover {
-  // make the last button in every linked entry have no special hover effects (we're operating on good faith with this one and assuming they aren't important (they usually aren't))
-  box-shadow: none;
-}
-
-popover.menu{
-  button{
-    &:hover{
+popover.menu {
+  button {
+    &:hover {
       box-shadow: none;
       border-color: transparent;
     }
