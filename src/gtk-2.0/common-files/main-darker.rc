@@ -1365,7 +1365,7 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_up"
-      file = "assets/up-background-active.png"
+      file = "assets/spin-background-disable.png"
       border = { 1, 4, 5, 0 }
       stretch = TRUE
       overlay_file = "assets/arrow-up-small-colored.png"
@@ -1465,7 +1465,7 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_down"
-      file = "assets/down-background-active.png"
+      file = "assets/spin-background-disable.png"
       border = { 1, 4, 1, 4 }
       stretch = TRUE
       overlay_file = "assets/arrow-down-small-colored.png"

@@ -38,60 +38,78 @@
     @for $i from 1 through 4 {
       $_indicator_height: 5;
       $_shadow: null;
+      $_dock_border: null;
 
       @if $g == "left" {
         // if the dock is pinned to the left ☜(ﾟ∀ﾟ☜)
         //$_shadow: inset #{$_indicator_height}px 0;
         $_shadow: inset 0px -#{$_indicator_height}px;
+        $_dock_border: inset -1px 0 $border_color;
       }
 
       @if $g == "right" {
         // to the right (☞ﾟ∀ﾟ)☞
         //$_shadow: inset -#{$_indicator_height}px 0;
         $_shadow: inset 0px -#{$_indicator_height}px;
+        $_dock_border: inset 1px 0 $border_color;
       }
 
       @if $g == "bottom" {
         // now down ☟(˚▽˚)☟
         $_shadow: inset 0px -#{$_indicator_height}px;
+        $_dock_border: inset 0px 1 $border_color;
       }
 
       @if $g == "top" {
         // and up ☝(˚▽˚)☝
         $_shadow: inset 0px #{$_indicator_height}px;
+        $_dock_border: inset 0px -1 $border_color;
       }
 
-      #dashtodockContainer.#{$g} {
-        .dash-item-container {
-          .app-well-app-running-dot {
-            // get rid of the running dot
-            background-color: transparent;
+      #dashtodockContainer {
+        #dash {
+          border-left: 0px;
+          border-right: 0px;
+          border-top: 1px solid $border_color;
+          border-bottom: 1px solid $border_color;
+        }
+
+        &.#{$g} {
+          #dash {
+            box-shadow: $_dock_border;
           }
 
-          > StWidget.running#{$i} {
-            // running items look like this
-            background-color: transparentize($primary_color, 0.75);
-
-            &:active, &.focused {
-              // running and focused items (the currenlty focused window) look like this
-              box-shadow: $_shadow $primary_color;
-              background-color: transparentize($primary_color, 0.5);
+          .dash-item-container {
+            .app-well-app-running-dot {
+              // get rid of the running dot
+              background-color: transparent;
             }
 
-            &:hover {
-              // hovering over a running item looks like this
-              box-shadow: $_shadow $primary_color;
-              background-color: transparentize($primary_color, 0.5);
-            }
-          }
-
-          > StWidget {
-            // unopened or regular items look like this (in most cases there should be no styling)
-            background-color: rgba(0, 0, 0, 0.01);
-
-            &:hover, &:active {
-              // hovering over an unopened item looks like this (should mirror the running item look from above imo)
+            > StWidget.running#{$i} {
+              // running items look like this
               background-color: transparentize($primary_color, 0.75);
+
+              &:active, &.focused {
+                // running and focused items (the currenlty focused window) look like this
+                box-shadow: $_shadow $primary_color;
+                background-color: transparentize($primary_color, 0.5);
+              }
+
+              &:hover {
+                // hovering over a running item looks like this
+                box-shadow: $_shadow $primary_color;
+                background-color: transparentize($primary_color, 0.5);
+              }
+            }
+
+            > StWidget {
+              // unopened or regular items look like this (in most cases there should be no styling)
+              background-color: rgba(0, 0, 0, 0.01);
+
+              &:hover, &:active {
+                // hovering over an unopened item looks like this (should mirror the running item look from above imo)
+                background-color: transparentize($primary_color, 0.75);
+              }
             }
           }
         }
@@ -111,7 +129,7 @@
   .show-apps {
     .overview-icon {
       // common styling
-      background-image: url("assets/#{$distro}-launcher.svg") !important;
+      background-image: url("assets/#{if($distro == "ubuntu-alt", "ubuntu", $distro)}-launcher.svg") !important;
       background-size: contain !important;
     }
 
@@ -128,7 +146,7 @@
 
       .overview-icon {
         // give it the launcher image
-        background-image: url("assets/#{$distro}-launcher.svg") !important;
+        background-image: url("assets/#{if($distro == "ubuntu-alt", "ubuntu", $distro)}-launcher.svg") !important;
         background-size: contain !important;
 
         StWidget {

@@ -21,7 +21,7 @@ window.nautilus-window {
 
   header tabs tab {
     // necessary v-padding for regular tabs seems to be too much for nautilus
-    padding: 0px 6px;
+    padding: 0px 8px;
   }
 
   notebook {
@@ -30,7 +30,7 @@ window.nautilus-window {
         tabs tab.reorderable-page {
           &:checked, &:hover {
             // for the tab color to be the same color as the view in nautilus when active -> hardcoded for now
-            background-color: if($variant == "light", #FAFAFA, #171717);
+            background-color: $lighter_bg_color;
           }
         }
       }
@@ -80,7 +80,17 @@ headerbar.titlebar button.title {
 }
 
 // Rhythmbox
+#AltToolbarSideBar {
+  box-shadow: none;
+}
 
 toolbar toolitem button.image-button.raised {
   border: none;
+}
+
+// Software
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
+  @include toggle_button($primary_color, true);
+  border-width: 0px;
 }

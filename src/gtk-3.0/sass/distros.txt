@@ -4,3 +4,4 @@ manjaro
 opensuse
 solus
 ubuntu
+ubuntu-alt

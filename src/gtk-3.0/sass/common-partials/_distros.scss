@@ -7,7 +7,12 @@ $accent_color: null;
   $accent_color: lighten($ubuntu_purple, 10);
 }
 
-@if $distro == "arch" {
+@else if $distro == "ubuntu-alt" {
+  $primary_color: $ubuntu_maroon;
+  $accent_color: $ubuntu_orange;
+}
+
+@else if $distro == "arch" {
   $primary_color: #1793D1;
   $accent_color: #4D4D4D;
 }

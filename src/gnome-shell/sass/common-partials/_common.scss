@@ -738,12 +738,11 @@ StScrollBar {
 
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
   &.panel-menu {
-    -boxpointer-gap: 4px;
+    -boxpointer-gap: 1px;
     border: 1px solid $border_color;
     margin-bottom: 1.75em;
 
     @if $variant == "light" {
-      background-color: $base_color;
       border-width: 0px;
       box-shadow: $popover_shadow;
     }
@@ -767,9 +766,9 @@ StScrollBar {
   -arrow-box-shadow: none;
 
   //dreaming. bug #689995
-  margin: 5px 8px 8px;
+  margin: 0px 8px 8px;
   background-color: $base_color;
-  border-radius: 2px;
+  border-radius: 1px;
   box-shadow: none;
 }
 
@@ -778,7 +777,7 @@ StScrollBar {
   height: 1px;
 
   //not really the whole box
-  margin: 8px (64px - 24px);
+  margin: 0px (64px - 24px);
   background-color: transparent;
   border-color: $border_color;
   border-bottom-width: 1px;
@@ -787,7 +786,7 @@ StScrollBar {
 
 // Background menu
 .background-menu {
-  -boxpointer-gap: 4px;
+  -boxpointer-gap: 1px;
   -arrow-rise: 0;
 }
 
@@ -851,11 +850,6 @@ StScrollBar {
 .resize-popup,
 .switcher-list {
   @extend %osd-panel;
-
-  @if $variant == "light" {
-    background-color: $base_color;
-    box-shadow: $popover_shadow;
-  }
 }
 
 .switcher-list-item-container {
@@ -949,9 +943,13 @@ StScrollBar {
 %osd-panel {
   color: $fg_color;
   background-color: if($variant == "light", transparentize($base_color, 0.15), $base_color);
-  border: none;
-  border-radius: 2px;
+  border: 1px solid $border_color;
+  border-radius: 1px;
   padding: 12px;
+
+  @if $variant == "light" {
+    box-shadow: $popover_shadow;
+  }
 }
 
 /* Tiled window previews */
@@ -1030,7 +1028,7 @@ StScrollBar {
   .panel-button {
     -natural-hpadding: 10px;
     -minimum-hpadding: 5px;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     color: $panel_fg_color;
     transition-duration: $longer_duration;
 
@@ -1846,14 +1844,15 @@ StScrollBar {
   font-size: 1em;
   color: $fg_color;
   padding: 0;
-  border: none;
-  border-left: 0px;
-  border-radius: 0px 2px 2px 0px;
+  border: 1px solid $border_color;
+  border-left-width: 0px;
+  border-radius: 0px;
 
   @include dash_bg;
 
   &:rtl {
-    border-radius: 2px 0 0 2px;
+    border-radius: 0px;
+    border-right-width: 0px;
   }
 
   .placeholder {
@@ -2533,12 +2532,12 @@ $legacy_icon_size: 24px;
       box-shadow: $shadow_bottom_inside $primary_color !important;
       font-weight: bold;
     }
-    
+
     &:default {
       background-color: $accent_color !important;
       color: white !important;
 
-      &:hover{
+      &:hover {
         background-color: lighten($accent_color, 5%) !important;
         transition-duration: 250ms;
         color: white !important;

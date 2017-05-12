@@ -802,10 +802,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-menu.panel-menu {
-  -boxpointer-gap: 4px;
+  -boxpointer-gap: 1px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 1.75em;
-  background-color: #F4F4F4;
   border-width: 0px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
 }
@@ -825,15 +824,15 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -arrow-base: 0;
   -arrow-rise: 0;
   -arrow-box-shadow: none;
-  margin: 5px 8px 8px;
+  margin: 0px 8px 8px;
   background-color: #F4F4F4;
-  border-radius: 2px;
+  border-radius: 1px;
   box-shadow: none;
 }
 
 .popup-separator-menu-item {
   height: 1px;
-  margin: 8px 40px;
+  margin: 0px 40px;
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.1);
   border-bottom-width: 1px;
@@ -841,7 +840,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .background-menu {
-  -boxpointer-gap: 4px;
+  -boxpointer-gap: 1px;
   -arrow-rise: 0;
 }
 
@@ -899,13 +898,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .switcher-popup {
   padding: 8px;
   spacing: 16px;
-}
-
-.osd-window,
-.resize-popup,
-.switcher-list {
-  background-color: #F4F4F4;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
 }
 
 .switcher-list-item-container {
@@ -997,9 +989,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .switcher-list, .workspace-switcher-container {
   color: #505050;
   background-color: rgba(244, 244, 244, 0.85);
-  border: none;
-  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
   padding: 12px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
 }
 
 /* Tiled window previews */
@@ -1085,7 +1078,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 #panel .panel-button {
   -natural-hpadding: 10px;
   -minimum-hpadding: 5px;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   color: #505050;
   transition-duration: 0.1s;
 }
@@ -1897,14 +1890,15 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   font-size: 1em;
   color: #505050;
   padding: 0;
-  border: none;
-  border-left: 0px;
-  border-radius: 0px 2px 2px 0px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left-width: 0px;
+  border-radius: 0px;
   background: #312830;
 }
 
 #dash:rtl {
-  border-radius: 2px 0 0 2px;
+  border-radius: 0px;
+  border-right-width: 0px;
 }
 
 #dash .placeholder {
@@ -1967,6 +1961,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: #ce4414 !important;
 }
 
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.left #dash {
+  box-shadow: inset -1px 0 rgba(0, 0, 0, 0.1);
+}
+
 #dashtodockContainer.left .dash-item-container .app-well-app-running-dot {
   background-color: transparent;
 }
@@ -1991,6 +1996,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer.left .dash-item-container > StWidget:hover, #dashtodockContainer.left .dash-item-container > StWidget:active {
   background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.left #dash {
+  box-shadow: inset -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 #dashtodockContainer.left .dash-item-container .app-well-app-running-dot {
@@ -2019,6 +2035,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.left #dash {
+  box-shadow: inset -1px 0 rgba(0, 0, 0, 0.1);
+}
+
 #dashtodockContainer.left .dash-item-container .app-well-app-running-dot {
   background-color: transparent;
 }
@@ -2043,6 +2070,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer.left .dash-item-container > StWidget:hover, #dashtodockContainer.left .dash-item-container > StWidget:active {
   background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.left #dash {
+  box-shadow: inset -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 #dashtodockContainer.left .dash-item-container .app-well-app-running-dot {
@@ -2071,6 +2109,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.right #dash {
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
+}
+
 #dashtodockContainer.right .dash-item-container .app-well-app-running-dot {
   background-color: transparent;
 }
@@ -2095,6 +2144,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer.right .dash-item-container > StWidget:hover, #dashtodockContainer.right .dash-item-container > StWidget:active {
   background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.right #dash {
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 #dashtodockContainer.right .dash-item-container .app-well-app-running-dot {
@@ -2123,6 +2183,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.right #dash {
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
+}
+
 #dashtodockContainer.right .dash-item-container .app-well-app-running-dot {
   background-color: transparent;
 }
@@ -2147,6 +2218,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer.right .dash-item-container > StWidget:hover, #dashtodockContainer.right .dash-item-container > StWidget:active {
   background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.right #dash {
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 #dashtodockContainer.right .dash-item-container .app-well-app-running-dot {
@@ -2175,6 +2257,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.top #dash {
+  box-shadow: inset 0px -1 rgba(0, 0, 0, 0.1);
+}
+
 #dashtodockContainer.top .dash-item-container .app-well-app-running-dot {
   background-color: transparent;
 }
@@ -2199,6 +2292,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer.top .dash-item-container > StWidget:hover, #dashtodockContainer.top .dash-item-container > StWidget:active {
   background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.top #dash {
+  box-shadow: inset 0px -1 rgba(0, 0, 0, 0.1);
 }
 
 #dashtodockContainer.top .dash-item-container .app-well-app-running-dot {
@@ -2227,6 +2331,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.top #dash {
+  box-shadow: inset 0px -1 rgba(0, 0, 0, 0.1);
+}
+
 #dashtodockContainer.top .dash-item-container .app-well-app-running-dot {
   background-color: transparent;
 }
@@ -2251,6 +2366,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer.top .dash-item-container > StWidget:hover, #dashtodockContainer.top .dash-item-container > StWidget:active {
   background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.top #dash {
+  box-shadow: inset 0px -1 rgba(0, 0, 0, 0.1);
 }
 
 #dashtodockContainer.top .dash-item-container .app-well-app-running-dot {
@@ -2279,6 +2405,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.bottom #dash {
+  box-shadow: inset 0px 1 rgba(0, 0, 0, 0.1);
+}
+
 #dashtodockContainer.bottom .dash-item-container .app-well-app-running-dot {
   background-color: transparent;
 }
@@ -2303,6 +2440,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer.bottom .dash-item-container > StWidget:hover, #dashtodockContainer.bottom .dash-item-container > StWidget:active {
   background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.bottom #dash {
+  box-shadow: inset 0px 1 rgba(0, 0, 0, 0.1);
 }
 
 #dashtodockContainer.bottom .dash-item-container .app-well-app-running-dot {
@@ -2331,6 +2479,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(233, 84, 32, 0.25);
 }
 
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.bottom #dash {
+  box-shadow: inset 0px 1 rgba(0, 0, 0, 0.1);
+}
+
 #dashtodockContainer.bottom .dash-item-container .app-well-app-running-dot {
   background-color: transparent;
 }
@@ -2355,6 +2514,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer.bottom .dash-item-container > StWidget:hover, #dashtodockContainer.bottom .dash-item-container > StWidget:active {
   background-color: rgba(233, 84, 32, 0.25);
+}
+
+#dashtodockContainer #dash {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#dashtodockContainer.bottom #dash {
+  box-shadow: inset 0px 1 rgba(0, 0, 0, 0.1);
 }
 
 #dashtodockContainer.bottom .dash-item-container .app-well-app-running-dot {

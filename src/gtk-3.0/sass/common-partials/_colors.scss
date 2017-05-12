@@ -35,9 +35,8 @@ $light_headerbar_bg: $ubuntu_white;
 $dark_headerbar_bg: $ubuntu_black;
 $headerbar_bg: if($variant == "light", if($headerbar == "dark", $dark_headerbar_bg, $light_headerbar_bg), $dark_headerbar_bg);
 $darker_headerbar_color: $ubuntu_black;
+$darker_lighter_bg_color: lighten($ubuntu_black, 7%);
 
-// hover states
-$hover_bg: if($variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95));
 
 $fill_color: gtkalpha(currentColor, $lower_opacity);
 $semi_fill_color: gtkalpha(currentColor, $lower_opacity / 2);
@@ -53,14 +52,17 @@ $visited_link_color: darken($accent_color, 5);
 $warning_color: $orange;
 $error_color: $dark_orange;
 $success_color: $dark_green;
-$suggested_color: $accent_color;
+$suggested_color: $accent_color; // Say you want to rename something: the rename button would be in this colour in order to finish renaming the file
 
-// Say you want to rename something: the rename button would be in this colour in order to finish renaming the file
 $destructive_color: $dark_red;
 $info_bg_color: $green;
 $question_bg_color: $blue;
 $warning_bg_color: lighten($orange, 5);
 $error_bg_color: darken($red, 5);
+
+// hover states
+$hover_bg: if($variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95));
+$pressed_fg: darken($primary_color, 5%);
 
 // Aux colors
 $border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($ubuntu_white, 0.1));
@@ -68,7 +70,7 @@ $selected_border_color: $fg_color;
 $highlight_color: if($variant == "light", scale-alpha($white, 0.4), scale-alpha($white, 0.1));
 $alt_highlight_color: scale-alpha($white, 0.2);
 $unity_highlight_color: if($headerbar == "dark", scale-alpha($white, 0.1), scale-alpha($white, 0.2));
-$headerbar_highlight_color: if($headerbar == "dark", scale-alpha($white, 0.15), $highlight_color);
+$headerbar_highlight_color: if($headerbar == "dark", scale-alpha($white, 0.1), $highlight_color);
 $headerbar_indicator_color: if($headerbar == "dark", currentColor, $primary_color);
 
 // FIXME: @placeholder_text_color should really use $tertiary_fg_color, but

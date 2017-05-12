@@ -52,7 +52,8 @@ $backdrop_transition: $button_transition;
  ***************/
 .background, paned, .gedit-view text {
   background-color: $bg_color;
-  box-shadow: $background_inset_shadow;
+
+  //box-shadow: $background_inset_shadow;
   color: $fg_color;
 }
 
@@ -217,7 +218,7 @@ assistant {
   background-color: $lighter_bg_color;
   box-shadow: $shadow_bottom $primary_color;
   background-clip: padding-box;
-  -gtk-icon-shadow: 0 1px black;
+  -gtk-icon-shadow: none;
 }
 
 /*********************
@@ -260,6 +261,11 @@ entry {
     transition: all 200ms $ease-out-quad;
 
     @include entry(normal);
+
+    &.search :last-child {
+      background-color: transparent;
+      border: none;
+    }
 
     image {
       // icons inside the entry
@@ -506,7 +512,7 @@ button {
     }
 
     &.image-button:not(.text-button) {
-      padding: 4px;
+      padding: 8px;
       background-color: transparent;
       box-shadow: none;
       border: none;
@@ -521,9 +527,13 @@ button {
 
       &:active {
         background-color: $hover_bg;
+
+        image {
+          color: $pressed_fg;
+        }
       }
 
-      &:active, &:checked {
+      &:checked {
         image {
           color: $primary_color;
         }
@@ -564,9 +574,15 @@ button {
     }
 
     &.flat.toggle {
-      &:hover, &:active {
+      &:hover {
         image, label {
           color: $primary_color;
+        }
+
+        &:active {
+          image, label {
+            color: $pressed_fg;
+          }
         }
       }
     }
@@ -592,9 +608,13 @@ button {
       padding: 4px 5px;
       background-image: none;
 
-      &:hover, &:checked, &:active {
+      &:hover, &:checked {
         background-image: none;
         color: $primary_color;
+      }
+
+      &:active {
+        color: $pressed_fg;
       }
     }
 
@@ -692,7 +712,7 @@ button {
 
       //FIXME respect no edge on the button mixin
 
-      -gtk-icon-shadow: 0 1px black;
+      -gtk-icon-shadow: none;
 
       &:hover {
         @include button(osd-hover);
@@ -988,8 +1008,10 @@ modelbutton.flat,
 
   @extend %undecorated_button;
 
-  &:hover {
-    background-color: $hover_bg;
+  &:checked {
+    label, image, arrow {
+      color: white;
+    }
   }
 
   &:selected {
@@ -1137,13 +1159,13 @@ spinbutton {
         border-style: none solid none none;
       }
 
-      &:hover, &:active {
+      &:hover {
         color: $primary_color;
+        background-color: $hover_bg;
       }
 
       &:active {
-        color: lighten($primary_color, 5%);
-        background-color: $hover_bg;
+        color: $pressed_fg;
       }
 
       &:disabled {
@@ -1176,7 +1198,7 @@ spinbutton {
       border-color: transparentize($border_color, 0.3);
       border-radius: 0;
       box-shadow: none;
-      -gtk-icon-shadow: 0 1px black;
+      -gtk-icon-shadow: none;
 
       &:dir(rtl) {
         border-style: none solid none none;
@@ -1188,7 +1210,7 @@ spinbutton {
         color: $fg_color;
         border-color: transparentize(opacify($border_color, 1), 0.5);
         background-color: transparentize($fg_color, 0.9);
-        -gtk-icon-shadow: 0 1px black;
+        -gtk-icon-shadow: none;
         box-shadow: none;
       }
 
@@ -1535,14 +1557,10 @@ searchbar,
 %titlebar,
 headerbar {
   background-color: $headerbar_bg;
-  border-radius: 0px;
   color: if($headerbar == "dark", $light_fg_color, $headerbar_fg_color);
+  box-shadow: if($variant == "light", $headerbar_shadow, none);
   min-height: 45px;
   padding: 0 6px;
-
-  @if $variant == "light" and $headerbar == "light" {
-    box-shadow: $headerbar_shadow;
-  }
 
   &:disabled:not(button) > label {
     color: $disabled_fg_color;
@@ -1622,15 +1640,22 @@ headerbar {
   &.default-decoration {
     min-height: $small_size;
     padding: $container_padding;
+    border-radius: 0;
     box-shadow: inset 0 1px $headerbar_highlight_color;
-
-    //box-shadow: inset 0 1px $headerbar_shadow;
 
     .fullscreen &,
     .maximized &,
     .tiled & {
-      box-shadow: none;
+      box-shadow: if($variant == "light", $headerbar_shadow, none);
+      transition-duration: 250ms;
+      border-radius: 0px;
     }
+  }
+
+  .fullscreen &,
+  .maximized &,
+  .tiled & {
+    border-radius: 0px;
   }
 
   .solid-csd & {
@@ -1674,7 +1699,6 @@ headerbar {
     background-color: transparent;
     background-image: none;
     border-style: none;
-    box-shadow: none;
   }
 
   > separator {
@@ -1698,6 +1722,14 @@ headerbar {
 
     &:hover, &:checked, &:active {
       border: none;
+    }
+
+    &:not(:checked) {
+      opacity: .75;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
@@ -1773,10 +1805,14 @@ treeview.view {
     color: $disabled_fg_color;
 
     &:selected {
-      color: mix($highlighted_fg_color, $primary_color, 40%);
+      label {
+        color: mix($highlighted_fg_color, $primary_color, 40%);
+      }
 
       & {
-        color: mix($disabled_fg_color, $primary_color, 30%);
+        label {
+          color: mix($disabled_fg_color, $primary_color, 30%);
+        }
       }
     }
   }
@@ -1859,10 +1895,22 @@ treeview.view {
       border-radius: 0;
       background-clip: border-box;
 
-      &,
-      &:active,
-      &:hover {
+      &, &:hover {
         box-shadow: none;
+
+        label, image, arrow {
+          color: $fg_color;
+        }
+
+        &:hover{
+          color: $primary_color;
+        }
+
+        &:active {
+          label, image, arrow {
+            color: $pressed_fg;
+          }
+        }
       }
 
       &,
@@ -1910,8 +1958,6 @@ menubar,
   background-color: $headerbar_bg;
   padding: 0px;
 
-  //box-shadow: $headerbar_shadow, inset 0 1px $headerbar_highlight_color;
-
   @if $headerbar == "dark" {
     color: $light_fg_color;
     background-color: $headerbar_bg;
@@ -1938,8 +1984,7 @@ menu, menu#PagePopup,
 .menu,
 .context-menu {
   // what is pagepopup? epiphany...
-  margin: 4px;
-  padding: 2px 0px;
+  margin: 0 4px 0 0;
   background-color: $lighter_bg_color;
   border: 1px solid $border_color;
 
@@ -2104,15 +2149,23 @@ popover.background {
     padding: 0 8px;
 
     &:hover {
-      background-color: darken($bg_color, 5%);
+      background-color: $hover_bg;
     }
 
     &:active {
-      color: $primary_color;
+      background-color: $hover_bg;
+
+      label, image, arrow {
+        color: $pressed_fg;
+      }
     }
 
     &:checked {
       @extend %selected_items;
+      // possible
+      image, label, arrow {
+        color: white;
+      }
     }
   }
 }
@@ -2133,12 +2186,12 @@ notebook {
 
     tabs tab:not(:checked) {
       label {
-        color: $disabled_fg_color;
+        color: $fg_color;
       }
 
       &:hover {
         label {
-          color: $fg_color;
+          color: $primary_color;
         }
       }
     }
@@ -2157,9 +2210,15 @@ notebook {
       }
     }
 
+    &.top, &.bottom {
+      tabs tab label {
+        padding: 2px 4px;
+      }
+    }
+
     &.top {
       > tabs {
-        margin-bottom: -1px;
+        margin-bottom: 0px;
         margin-top: $container_padding;
 
         > tab {
@@ -2181,7 +2240,7 @@ notebook {
 
     &.bottom {
       > tabs {
-        margin-top: -1px;
+        margin-top: 0px;
         margin-bottom: $container_padding;
 
         > tab {
@@ -2200,10 +2259,10 @@ notebook {
     &.left {
       > tabs {
         margin-left: $container_padding;
-        margin-right: -1px;
+        margin-right: 0px;
 
         > tab {
-          border-radius: 0 3px 0 3px;
+          border-radius: 3px 0 0 3px;
           margin-bottom: $container_padding;
           border-width: 0;
 
@@ -2218,10 +2277,10 @@ notebook {
     &.right {
       > tabs {
         margin-right: $container_padding;
-        margin-left: -1px;
+        margin-left: 0px;
 
         > tab {
-          border-radius: 3px 0 3px 0;
+          border-radius: 0px 3px 3px 0px;
           margin-bottom: $container_padding;
           border-width: 0;
 
@@ -2303,7 +2362,7 @@ notebook {
       transition: $shorter_transition;
       min-height: 18px;
       min-width: 48px;
-      padding: 4px 6px;
+      padding: 4px 8px;
       outline-offset: -6px;
       border-width: 0;
       color: $secondary_fg_color;
@@ -3296,7 +3355,7 @@ row {
         color: $fg_color;
       }
 
-      &:hover, &:active, &:checked {
+      &:hover, &:checked {
         image {
           color: $primary_color;
         }
@@ -3304,6 +3363,10 @@ row {
 
       &:active {
         background-color: $hover_bg;
+
+        image {
+          color: $pressed_fg;
+        }
       }
     }
   }
@@ -3707,7 +3770,7 @@ infobar {
         background-color: $hover_bg;
 
         label, image, arrow {
-          color: white;
+          color: $pressed_fg;
         }
       }
     }
@@ -3952,7 +4015,8 @@ colorchooser .popover.osd {
  **********************/
 decoration {
   transition: $button_transition;
-  border-radius: 0;
+  border-width: 0px;
+  border-radius: 0px;
   box-shadow: $shadow_3, 0 8px 8px rgba(0, 0, 0, 0.16);
 
   // FIXME rationalize shadows

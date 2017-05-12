@@ -1,7 +1,6 @@
 $extra_background_clip: border-box;
-$transparent: transparent;
+$_fg_color: #606060;
 
-// if only because atom keeps suggesting everything BUT transparent
 // opacities
 $higher_opacity: 0.9;
 $middle_opacity: 0.6;
@@ -9,9 +8,8 @@ $lower_opacity: 0.3;
 $secondary_opacity: 0.75;
 $tertiary_opacity: 0.6;
 $disabled_opacity: 0.4;
-$quarternary_opacity: $disabled_opacity;
+$quarternary_opacity: $disabled_opacity; // simply so people wouldn't get the wrong idea
 
-// simply so people wouldn't get the wrong idea
 // sizes
 $small_size: 20px;
 $medium_size: 32px;
@@ -42,19 +40,15 @@ $shorter_transition: all $shorter_duration $deceleration_curve;
 $sharper_transition: all $shorter_duration $standard_curve;
 $longer_transition: all $longer_duration $deceleration_curve;
 
-
 // shadows
 // based shadow values: https://material-design.storage.googleapis.com/images/layout-principles-dimensionality-shadows-08_large_mdpi.png ||| box-shadow 1px blur doesn't draw correctly, see --> https://bugzilla.gnome.org/show_bug.cgi?id=738484
 $shadow_1: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24); // regular shadow
 $shadow_2: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15); // lighter shadow
 $shadow_3: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.20); // heavier shadow
 $background_inset_shadow: inset 0 2px 2px rgba(0, 0, 0, .16), 0 2px 2px rgba(0, 0, 0, .16);
-$headerbar_shadow: inset 0 -1px 0 rgba(0, 0, 0, .021), 0 2px 2px rgba(0, 0, 0, .3);
-$shadow_value: rgba(0, 0, 0, 0.1); // for the following, you'll most likely use this with the outside shadow
+$headerbar_shadow: inset 0 -1px 0 transparentize($_fg_color, .9), 0 2px 2px transparentize($_fg_color, .8);
 
 $shadow_bottom: inset 2 0px 0px; // insert a color at the end here. lets you use a border without adding height + width
 $shadow_right: inset -2 0px 0px;
 $shadow_top: inset 0 2px 0px;
 $shadow_bottom: inset 0 -2px 0px;
-$shadow_surround: 0 0px 0px 2px;
-$shadow_surround_thin: 0 0px 0px 1px;

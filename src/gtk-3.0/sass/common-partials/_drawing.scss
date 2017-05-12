@@ -79,11 +79,16 @@
     color: white;
   }
 
-  &:hover, &:checked, &:active {
+  &:hover, &:checked {
     background-color: lighten($_bg, 5%);
     border-width: 1px;
     border-color: lighten($_bg, 5%);
     box-shadow: $shadow_1;
+  }
+
+  &:active {
+    background-color: darken($_bg, 5%);
+    border-color: darken($_bg, 5%);
   }
 
   &:disabled, &:disabled:checked {
@@ -100,7 +105,7 @@
   $_button_bg: null;
 
   @if $in_headerbar == true and $headerbar == "dark" {
-    $_button_bg: $darker_headerbar_color;
+    $_button_bg: $darker_lighter_bg_color;
   }
   @else {
     $_button_bg: $lighter_bg_color;
@@ -161,6 +166,10 @@
 
     border-color: $_primary_color;
     background-color: $_primary_color;
+  }
+
+  &:checked:active {
+    background-color: darken($_primary_color, 5%);
   }
 
   &:disabled {

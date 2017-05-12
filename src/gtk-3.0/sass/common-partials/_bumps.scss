@@ -7,7 +7,6 @@ headerbar {
     border-color: transparent;
     box-shadow: none;
 
-
     @if $headerbar == "dark" {
       image, label {
         color: $light_fg_color;
@@ -49,6 +48,8 @@ headerbar {
     }
 
     &:not(.text-button) {
+      min-width: 18px;
+
       &.popup.toggle {
         background-image: none;
         background-color: transparent;
@@ -67,8 +68,12 @@ headerbar {
           color: $light_fg_color;
         }
 
-        &:hover, &:active, &:checked {
+        &:hover, &:checked {
           color: $primary_color;
+        }
+
+        &:active{
+          color: $pressed_fg;
         }
       }
     }
@@ -79,7 +84,6 @@ headerbar {
     button {
       min-width: 115px;
       border: 0px;
-
       @include toggle_button($primary_color, true);
     }
   }
@@ -116,6 +120,23 @@ button {
       background-image: none;
       background-color: transparent;
     }
+  }
+}
+
+stackswitcher button {
+  border-color: #656565;
+  border-style: solid;
+
+  &:first-child {
+    border-width: 1px 0 1px 1px;
+  }
+
+  &:last-child {
+    border-width: 1px 1px 1px 0px;
+  }
+
+  &:not(:last-child):not(:first-child) {
+    border-width: 1px 0px 1px 0px;
   }
 }
 
