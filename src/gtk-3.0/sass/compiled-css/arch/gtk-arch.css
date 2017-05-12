@@ -2820,6 +2820,40 @@ scrollbar.horizontal button.up {
   -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
 }
 
+terminal-screen-container scrollbar slider {
+  transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+  min-width: 8px;
+  min-height: 8px;
+  border: 4px solid transparent;
+  border-radius: 9999px;
+  background-clip: padding-box;
+  background-color: rgba(96, 96, 96, 0.75);
+}
+
+terminal-screen-container scrollbar slider:hover {
+  background-color: rgba(96, 96, 96, 0.75);
+}
+
+terminal-screen-container scrollbar slider:active {
+  background-color: #606060;
+}
+
+terminal-screen-container scrollbar slider:disabled {
+  background-color: rgba(96, 96, 96, 0.3);
+}
+
+terminal-screen-container scrollbar.dragging, terminal-screen-container scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+terminal-screen-container scrollbar:hover slider {
+  background-color: rgba(23, 147, 209, 0.4);
+}
+
+terminal-screen-container scrollbar.dragging slider {
+  background-color: rgba(23, 147, 209, 0.6);
+}
+
 /**********
  * Switch *
  **********/

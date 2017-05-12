@@ -2595,6 +2595,43 @@ scrollbar {
   }
 }
 
+terminal-screen-container scrollbar {
+  slider {
+    transition: $shorter_transition;
+    min-width: 8px;
+    min-height: 8px;
+    border: 4px solid transparent;
+    border-radius: $circular_radius;
+    background-clip: padding-box;
+    background-color: $secondary_fg_color;
+
+    &:hover {
+      background-color: $secondary_fg_color;
+    }
+
+    &:active {
+      background-color: $fg_color;
+    }
+
+    &:disabled {
+      background-color: $disabled_secondary_fg_color;
+    }
+  }
+
+  &.dragging,
+  &:hover {
+    background-color: $border_color;
+  }
+
+  &:hover slider {
+    background-color: transparentize($primary_color, $middle_opacity);
+  }
+
+  &.dragging slider {
+    background-color: transparentize($primary_color, $disabled_opacity);
+  }
+}
+
 /**********
  * Switch *
  **********/
