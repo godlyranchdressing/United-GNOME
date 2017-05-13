@@ -2502,20 +2502,20 @@ style "toolbar_entry" {
 #Chromium
 style "chrome-gtk-frame" {
 
-  ChromeGtkFrame::frame-color = @bg_color
-  ChromeGtkFrame::inactive-frame-color = @bg_color
+  ChromeGtkFrame::frame-color = @dark_menu_bg
+  ChromeGtkFrame::inactive-frame-color = @dark_menu_bg
 
   ChromeGtkFrame::frame-gradient-size = 0
-  ChromeGtkFrame::frame-gradient-color = shade(0.5, @bg_color)
+  ChromeGtkFrame::frame-gradient-color = shade(0.5, @dark_menu_bg)
 
-  ChromeGtkFrame::incognito-frame-color = shade(0.85, @bg_color)
-  ChromeGtkFrame::incognito-inactive-frame-color = @bg_color
+  ChromeGtkFrame::incognito-frame-color = shade(0.85, @dark_menu_bg)
+  ChromeGtkFrame::incognito-inactive-frame-color = @dark_menu_bg
 
-  ChromeGtkFrame::incognito-frame-gradient-color = @bg_color
+  ChromeGtkFrame::incognito-frame-gradient-color = @dark_menu_bg
 
-  ChromeGtkFrame::scrollbar-trough-color = shade(0.912, @bg_color)
-  ChromeGtkFrame::scrollbar-slider-prelight-color = shade(1.04, @bg_color)
-  ChromeGtkFrame::scrollbar-slider-normal-color = @bg_color
+  ChromeGtkFrame::scrollbar-trough-color = shade(0.912, @dark_menu_bg)
+  ChromeGtkFrame::scrollbar-slider-prelight-color = shade(1.04, @dark_menu_bg)
+  ChromeGtkFrame::scrollbar-slider-normal-color = @dark_menu_bg
 
 }
 

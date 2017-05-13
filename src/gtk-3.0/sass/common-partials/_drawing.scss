@@ -5,8 +5,8 @@
   // $edge: set to none to not draw the bottom edge or specify a color to not use the default one
   // possible $t values:
   // normal, focus, insensitive, backdrop, backdrop-insensitive, osd, osd-focus, osd-backdrop;
+  border-radius: $standard_radius;
   $_primary_color: $primary_color;
-
   $_blank_edge: if($edge == none, none, 0 1px transparentize($edge, 1));
   $_entry_edge: if($edge == none, none, _widget_edge($edge));
 
@@ -147,6 +147,7 @@
   }
 
   background-color: $_bg;
+  border-radius: $standard_radius;
   border: 1px solid $border_color;
   outline-color: transparentize($_fg, 0.7);
 

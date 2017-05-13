@@ -512,7 +512,9 @@ button {
     }
 
     &.image-button:not(.text-button) {
-      padding: 8px;
+      min-width: 24px;
+      min-height: 24px;
+      padding: 4px;
       background-color: transparent;
       box-shadow: none;
       border: none;
@@ -844,7 +846,7 @@ button {
     // The Bloody Circul Button
     border-radius: 9999px;
     -gtk-outline-radius: 9999px;
-    padding: 2px;
+    padding: 4px 6px;
 
     label {
       padding: 0;
@@ -947,18 +949,18 @@ toolbar.inline-toolbar toolbutton {
   @extend %linked_middle;
 
   &:first-child {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-top-left-radius: $standard_radius;
+    border-bottom-left-radius: $standard_radius;
   }
 
   &:last-child {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-top-right-radius: $standard_radius;
+    border-bottom-right-radius: $standard_radius;
     border-right-style: solid;
   }
 
   &:only-child {
-    border-radius: 0px;
+    border-radius: $standard_radius;
     border-style: solid;
   }
 }
@@ -1153,6 +1155,15 @@ spinbutton {
         margin-bottom: 2px;
         margin-top: 0px;
         margin-right: -1px;
+
+        &:hover {
+          color: $primary_color;
+          background-color: $hover_bg;
+        }
+
+        &:active {
+          color: $pressed_fg;
+        }
       }
 
       &:dir(rtl) {
@@ -1488,6 +1499,11 @@ toolbar {
     border: none;
     border-radius: 5px;
     background-color: $base_color;
+
+    button.image-button {
+      min-width: 32px;
+      min-height: 32px;
+    }
 
     &.left,
     &.right,
@@ -1902,7 +1918,7 @@ treeview.view {
           color: $fg_color;
         }
 
-        &:hover{
+        &:hover {
           color: $primary_color;
         }
 
@@ -2160,12 +2176,20 @@ popover.background {
       }
     }
 
-    &:checked {
-      @extend %selected_items;
-      // possible
-      image, label, arrow {
+    &.menu button.image-button:not(.text-button):checked {
+      background-color: $primary_color;
+      
+      image {
         color: white;
       }
+    }
+
+    &:checked {
+      @extend %selected_items;
+
+      // possible
+      // TODO: fix checked icon being the same color as the primary color S
+
     }
   }
 }

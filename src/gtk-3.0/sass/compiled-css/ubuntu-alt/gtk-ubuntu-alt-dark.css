@@ -192,6 +192,7 @@ entry {
   padding: 6px 8px;
   border: 1px solid;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 0px;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   background-color: #232323;
@@ -251,6 +252,7 @@ entry.flat {
 
 spinbutton:focus:not(.vertical),
 entry:focus {
+  border-radius: 0px;
   border-color: rgba(244, 244, 244, 0.1);
   box-shadow: inset 0 -2px 0px #A42435;
 }
@@ -262,6 +264,7 @@ entry:focus image {
 
 spinbutton:disabled:not(.vertical),
 entry:disabled {
+  border-radius: 0px;
   color: rgba(255, 255, 255, 0.4);
   border-color: rgba(21, 21, 21, 0.6);
   background-color: rgba(23, 23, 23, 0.6);
@@ -275,6 +278,7 @@ entry.error {
 
 spinbutton.error:focus:not(.vertical),
 entry.error:focus {
+  border-radius: 0px;
   border-color: rgba(244, 244, 244, 0.1);
   box-shadow: inset 0 -2px 0px #d35400;
 }
@@ -296,6 +300,7 @@ entry.warning {
 
 spinbutton.warning:focus:not(.vertical),
 entry.warning:focus {
+  border-radius: 0px;
   border-color: rgba(244, 244, 244, 0.1);
   box-shadow: inset 0 -2px 0px #e67e22;
 }
@@ -334,6 +339,7 @@ entry:drop(active) {
 
 .osd spinbutton:not(.vertical), .osd
 entry {
+  border-radius: 0px;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   background-color: rgba(244, 244, 244, 0.5);
@@ -350,6 +356,7 @@ entry:active {
 
 .osd spinbutton:focus:not(.vertical), .osd
 entry:focus {
+  border-radius: 0px;
   color: #ffffff;
   border-color: #A42435;
   background-color: rgba(244, 244, 244, 0.5);
@@ -358,6 +365,7 @@ entry:focus {
 
 .osd spinbutton:disabled:not(.vertical), .osd
 entry:disabled {
+  border-radius: 0px;
   color: rgba(255, 255, 255, 0.4);
   border-color: rgba(244, 244, 244, 0.1);
   background-color: rgba(23, 23, 23, 0.6);
@@ -464,6 +472,7 @@ button {
   min-width: 16px;
   padding: 6px 8px;
   background-color: #232323;
+  border-radius: 0px;
   border: 1px solid rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
 }
@@ -806,7 +815,9 @@ button.toggle:checked arrow {
 
 
 button.image-button:not(.text-button) {
-  padding: 8px;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 4px;
   background-color: transparent;
   box-shadow: none;
   border: none;
@@ -1310,7 +1321,7 @@ button {
 button.circular {
   border-radius: 9999px;
   -gtk-outline-radius: 9999px;
-  padding: 2px;
+  padding: 4px 6px;
   background-origin: padding-box, border-box;
   background-clip: padding-box, border-box;
 }
@@ -1607,6 +1618,15 @@ spinbutton:not(.vertical) button.up, spinbutton:not(.vertical) button.down {
   margin-right: -1px;
 }
 
+spinbutton:not(.vertical) button.up:hover, spinbutton:not(.vertical) button.down:hover {
+  color: #A42435;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+spinbutton:not(.vertical) button.up:active, spinbutton:not(.vertical) button.down:active {
+  color: #8f1f2e;
+}
+
 spinbutton:not(.vertical) button:dir(rtl) {
   border-style: none solid none none;
 }
@@ -1891,6 +1911,11 @@ toolbar.osd {
   border: none;
   border-radius: 5px;
   background-color: #1e1e1e;
+}
+
+toolbar.osd button.image-button {
+  min-width: 32px;
+  min-height: 32px;
 }
 
 toolbar.osd.left, toolbar.osd.right, toolbar.osd.top, toolbar.osd.bottom {
@@ -2501,10 +2526,13 @@ popover.background button.model:active arrow, popover.background modelbutton:act
   color: #8f1f2e;
 }
 
-popover.background.menu button:checked image, popover.background.menu button:checked label, popover.background.menu button:checked arrow,
-popover.background button.model:checked image,
-popover.background button.model:checked label,
-popover.background button.model:checked arrow, popover.background modelbutton:checked image, popover.background modelbutton:checked label, popover.background modelbutton:checked arrow, popover.background modelbutton.flat:checked image, popover.background modelbutton.flat:checked label, popover.background modelbutton.flat:checked arrow {
+popover.background.menu button.menu button.image-button:not(.text-button):checked,
+popover.background button.model.menu button.image-button:not(.text-button):checked, popover.background modelbutton.menu button.image-button:not(.text-button):checked, popover.background modelbutton.flat.menu button.image-button:not(.text-button):checked {
+  background-color: #A42435;
+}
+
+popover.background.menu button.menu button.image-button:not(.text-button):checked image,
+popover.background button.model.menu button.image-button:not(.text-button):checked image, popover.background modelbutton.menu button.image-button:not(.text-button):checked image, popover.background modelbutton.flat.menu button.image-button:not(.text-button):checked image {
   color: white;
 }
 
@@ -3864,6 +3892,7 @@ row.activatable:selected.has-open-popup, treeview.view header button:selected.ha
 .app-notification button.text-button,
 .app-notification.frame button.text-button {
   background-color: #232323;
+  border-radius: 0px;
   border: 1px solid rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
 }
@@ -4238,6 +4267,7 @@ infobar.info label, infobar.info, infobar.question label, infobar.question, info
 
 infobar.info button, infobar.question button, infobar.warning button, infobar.error button {
   background-color: #232323;
+  border-radius: 0px;
   border: 1px solid rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
 }
@@ -4820,6 +4850,10 @@ headerbar button {
   background-image: none;
   border-color: transparent;
   box-shadow: none;
+}
+
+headerbar button.image-button:not(.text-button) {
+  margin: 7px 0px;
 }
 
 headerbar button:hover, headerbar button:active, headerbar button:checked {

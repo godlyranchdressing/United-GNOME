@@ -13,6 +13,10 @@ headerbar {
       }
     }
 
+    &.image-button:not(.text-button){
+      margin: 7px 0px;
+    }
+
     &:hover, &:active, &:checked {
       color: $primary_color;
       border-color: transparent;
@@ -87,6 +91,8 @@ headerbar {
       @include toggle_button($primary_color, true);
     }
   }
+
+
 
   .path-bar button.slider-button {
     // give the appearance of the pathbar being one big box
