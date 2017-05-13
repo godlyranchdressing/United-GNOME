@@ -1,0 +1,24 @@
+#dash .show-apps .overview-icon {
+  padding: 6px;
+  background-color: rgba(233, 84, 32, 0.9) !important;
+  border-radius: 9999px;
+}
+
+
+.login-dialog .modal-dialog-button {
+  padding: 6px 16px;
+...
+}
+
+
+StEntry {
+  min-height: 34px;
+...
+}
+
+
+.login-dialog-session-list-button StIcon {
+  icon-size: 1.25em;
+  color: #232323;
+  /*color: red;*/
+}
