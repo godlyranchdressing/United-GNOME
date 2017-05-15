@@ -3,13 +3,14 @@ $panel-corner-radius: 0;
 
 // font families
 $font-family: Ubuntu, Cantarell, Sans-Serif;
+
 @if $distro == "fedora" {
   $font-family: Cantarell, Ubuntu, Sans-Serif;
 }
 
 // font sizes
-$root-font-size: if($compact == "false", 14px, 13px);
-$subheading-size: if($compact == "false", 16px, 15px);
+$root-font-size: 14px;
+$subheading-size: 16px;
 
 // opacities
 $higher_opacity: 0.9;
@@ -21,8 +22,6 @@ $tertiary_opacity: 0.6;
 $disabled_opacity: 0.4;
 $quarternary_opacity: $disabled_opacity;
 
-// simply so people wouldn't get the wrong idea
-
 // sizes
 $small_size: 20px;
 $medium_size: 32px;
@@ -32,7 +31,7 @@ $bar_size: 4px;
 $menuitem_size: 30px;
 
 // radiuses
-$standard_radius: 8px;
+$standard_radius: 6px;
 $circular_radius: 9999px;
 
 // durations
@@ -52,15 +51,11 @@ $longer_transition: all $longer_duration $deceleration_curve;
 $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
 
 // Shadow borders
-// insert a color at the end here. lets you use a border without adding height + width
-$shadow_left_inside: inset 2 0px 0px;
-$shadow_right_inside: inset -2 0px 0px;
-$shadow_top_inside: inset 0 2px 0px;
-$shadow_bottom_inside: inset 0 -2px 0px;
-$shadow_left_outside_inside: -2 0px 0px;
+$shadow_right: inset -2 0px 0px;
+$shadow_top: inset 0 2px 0px;
+$shadow_bottom: inset 0 -2px 0px;
+$shadow_surround: inset 0 0px 0px 1px;
+$shadow_thicker_surround: inset 0 0px 0px 2px;
+$popover_shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
 
-$shadow_right_outside: 2 0px 0px;
-$shadow_top_outside: 0 -2px 0px;
-$shadow_bottom_outside: 0 2px 0px;
-$shadow_surround: 0 0px 0px 1px;
-$popover_shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); // for menus in light variant
+// for menus in light variant

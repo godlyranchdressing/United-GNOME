@@ -14,11 +14,6 @@ radio-checked-insensitive
 radio-mixed-insensitive
 checkbox-checked-selectionmode
 checkbox-selectionmode
-switch
-switch-hover
-switch-insensitive
-switch-active
-switch-active-insensitive
 scale-slider
 scale-horz-marks-before-slider
 scale-horz-marks-after-slider
@@ -45,11 +40,6 @@ radio-checked-insensitive-inverse
 radio-mixed-insensitive-inverse
 checkbox-checked-selectionmode-inverse
 checkbox-selectionmode-inverse
-switch-inverse
-switch-hover-inverse
-switch-insensitive-inverse
-switch-active-inverse
-switch-active-insensitive-inverse
 checkbox-dark
 checkbox-hover-dark
 checkbox-checked-dark
@@ -67,11 +57,6 @@ radio-checked-insensitive-dark
 radio-mixed-insensitive-dark
 checkbox-checked-selectionmode-dark
 checkbox-selectionmode-dark
-switch-dark
-switch-hover-dark
-switch-insensitive-dark
-switch-active-dark
-switch-active-insensitive-dark
 scale-slider-dark
 scale-horz-marks-before-slider-dark
 scale-horz-marks-after-slider-dark

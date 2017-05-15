@@ -22,7 +22,7 @@ $menuitem_size: 32px;
 $checked_border: inset 0 -2px 0px;
 
 // radiuses
-$material_radius: 8px;
+$standard_radius: 6px;
 $circular_radius: 9999px;
 
 // durations
@@ -52,3 +52,4 @@ $shadow_bottom: inset 2 0px 0px; // insert a color at the end here. lets you use
 $shadow_right: inset -2 0px 0px;
 $shadow_top: inset 0 2px 0px;
 $shadow_bottom: inset 0 -2px 0px;
+$shadow_surround: inset 0 0px 0px 1px;

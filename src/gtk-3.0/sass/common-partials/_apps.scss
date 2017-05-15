@@ -13,10 +13,6 @@ window.nautilus-window {
   grid stack box.linked button:not(.image-button) {
     // nautilus has a not-entry button
     @include button(text, $fg_color, $lighter_bg_color);
-
-    &:hover {
-      box-shadow: $shadow_bottom $primary_color;
-    }
   }
 
   header tabs tab {
@@ -47,6 +43,7 @@ window.nautilus-window {
 viewport.frame list.tweak-categories {
   border: none;
   background-image: image($alt_bg_color);
+  border-bottom-left-radius: 8px;
 }
 
 .tweak-group-startup row {
@@ -70,12 +67,15 @@ headerbar.titlebar button.title {
   background-image: none;
 
   &:hover, &:active, &:checked {
+    color: $primary_color;
     background-image: none;
     box-shadow: none;
 
-    label, widget {
-      color: $primary_color;
+    &:checked {
+      label, widget {}
     }
+
+    color: white;
   }
 }
 
@@ -91,6 +91,5 @@ toolbar toolitem button.image-button.raised {
 // Software
 
 headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
-  @include toggle_button($primary_color, true);
   border-width: 0px;
 }
