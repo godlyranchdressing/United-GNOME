@@ -477,7 +477,8 @@ StScrollBar {
 
 .prompt-dialog {
   //this is the width of the entire modal popup
-  width: 500px;
+  min-width: 500px;
+  max-width: 600px;
   border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 }
 

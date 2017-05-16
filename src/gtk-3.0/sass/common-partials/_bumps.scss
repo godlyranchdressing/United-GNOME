@@ -1,4 +1,4 @@
-headerbar {
+headerbar, headerbar.titlebar {
   entry {
     background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
     color: if($headerbar == "dark", $light_fg_color, $fg_color);
@@ -12,25 +12,112 @@ headerbar {
     box-shadow: none;
     color: if($headerbar == "dark", $light_fg_color, $fg_color);
 
-    &:hover {
-      background: if($headerbar == "dark", $darker_lighter_bg_color, none);
-    }
-
-    &.image-button:not(.text-button) {
-      &:hover, &:active, &:checked, &:disabled {
-        border-color: transparent;
-        background-color: transparent;
+    &.text-button {
+      &:hover {
+        background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
+        color: $primary_color;
+        border-color: $primary_color;
       }
 
-      &:active, &:active:hover {
+      &:active {
+        background-color: $pressed_fg;
+
         image, label, arrow {
-          color: $pressed_fg;
+          color: white;
+        }
+
+        &, &.image-button.popup.toggle {
+          &:checked {
+            image, label, arrow {
+              color: white;
+            }
+          }
         }
       }
 
-      &:disabled {
-        color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+      &.text-button.image-button.popup.toggle {
+        &:checked {
+          image, label, arrow {
+            color: white;
+          }
+        }
       }
+
+      &.suggested-action, &.default.suggested-action {
+        @include button(normal, $suggested_color);
+
+        &:hover {
+          @include button(hover, $suggested_color);
+
+          image, label, arrow {
+            color: white;
+          }
+        }
+
+        &:active {
+          @include button(active, $suggested_color);
+
+          image, label, arrow {
+            color: white;
+          }
+        }
+
+        &:checked {
+          @include button(checked, $suggested_color);
+        }
+
+        &:disabled {
+          @include button(insensitive);
+        }
+      }
+    }
+
+    &.image-button:not(.text-button) {
+      &, &.toggle, &.popup, &.popup.toggle {
+        &, &:hover, &:active, &:checked, &:disabled, &:checked:hover {
+          @include button(flat);
+        }
+
+        &:hover, &:checked {
+          label, image, arrow {
+            color: $primary_color;
+          }
+        }
+
+        &:active, &:checked:hover {
+          background-image: image(if($headerbar == "dark", $darker_headerbar_color, $headerbar_bg));
+          border-color: if($headerbar == "dark", $darker_headerbar_color, $headerbar_bg);
+
+          label, image, arrow {
+            color: $pressed_fg;
+          }
+        }
+
+        &:disabled {
+          color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+        }
+      }
+    }
+
+    &.toggle:not(.image-button):not(.text-button) {
+      // undercover flat buttons (rhythmbox with alternative toolbar plugin)
+      @include button(flat);
+    }
+
+    &:hover, &:checked {
+      label, image, arrow {
+        color: $primary_color;
+      }
+    }
+
+    &:active, &:checked:hover {
+      label, image, arrow {
+        color: $pressed_fg;
+      }
+    }
+
+    &:disabled {
+      color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
     }
   }
 
@@ -55,7 +142,10 @@ headerbar {
 
       &.text-button, &.radio {
         &:hover, &:checked {
-          color: $primary_color;
+          label, image, arrow {
+            color: $primary_color;
+          }
+
           background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
           transition: $button_transition;
         }
@@ -64,27 +154,46 @@ headerbar {
           box-shadow: $shadow_bottom $primary_color;
 
           &:disabled {
-            color: $fg_color;
+            label, image, arrow {
+              color: $fg_color;
+            }
+
             box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
           }
         }
 
-        &:not(:checked):hover {
-          color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-          box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+        &:not(:checked) {
+          &:hover {
+            label, image, arrow {
+              color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+            }
+
+            box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+          }
+
+          &:active {
+            label, image, arrow {
+              color: $pressed_fg;
+            }
+
+            box-shadow: $shadow_bottom $primary_color;
+          }
         }
 
         &:disabled {
-          color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+          label, image, arrow {
+            color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+          }
+
           background-color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
         }
       }
 
-      &:first-child{
+      &:first-child {
         border-top-left-radius: $standard_radius;
       }
 
-      &:last-child{
+      &:last-child {
         border-top-right-radius: $standard_radius;
       }
     }
@@ -94,7 +203,12 @@ headerbar {
     // give the appearance of the pathbar being one big box
     &, &:disabled {
       background-color: if($headerbar == "dark" and $variant == "light", $darker_lighter_bg_color, $lighter_bg_color);
-      border-color: transparent;
+    }
+
+    &:disabled {
+      label, image, arrow {
+        color: $disabled_fg_color;
+      }
     }
   }
 }
@@ -178,6 +292,24 @@ messagedialog {
   button {
     // doesn't seem to inherit default button padding
     min-height: 36px;
+
+    &:hover {
+      border-color: $border_color;
+      background-color: $primary_color;
+
+      label, image, arrow {
+        color: white;
+      }
+    }
+
+    &:active {
+      border-color: $border_color;
+      background-color: $pressed_fg;
+
+      label, image, arrow {
+        color: white;
+      }
+    }
   }
 
   &.background.csd box.horizontal.titlebar {

@@ -4,35 +4,41 @@ $accent_color: null;
 
 @if $distro == "ubuntu" {
   $primary_color: $ubuntu_orange;
-  $accent_color: lighten($ubuntu_purple, 10);
+  $accent_color: $ubuntu_light_purple;
+  $suggested_color: $dark_green;
 }
-
 @else if $distro == "ubuntu-alt" {
   $primary_color: $ubuntu_maroon;
   $accent_color: $ubuntu_orange;
+  $suggested_color: $dark_green;
 }
-
 @else if $distro == "arch" {
   $primary_color: #1793D1;
   $accent_color: #4D4D4D;
+  $suggested_color: $dark_green;
 }
 @else if $distro == "fedora" {
   $primary_color: #3C6EB4;
   $accent_color: #E59728;
+  $suggested_color: $dark_green;
 }
 @else if $distro == "manjaro" {
   $primary_color: #35BF5C;
   $accent_color: #E96D19;
+  $suggested_color: $dark_blue;
 }
 @else if $distro == "opensuse" {
   $primary_color: #73BA25;
-  $accent_color: #535A5A;
+  $accent_color: #00A489;
+  $suggested_color: $dark_blue;
 }
 @else if $distro == "solus" {
   $primary_color: #5294e2;
-  $accent_color: #4c5263;
+  $accent_color: #F46067;
+  $suggested_color: $dark_green;
 }
 @else {
   $primary_color: $ubuntu_orange;
   $accent_color: lighten($ubuntu_purple, 10);
+  $suggested_color: $dark_green;
 }

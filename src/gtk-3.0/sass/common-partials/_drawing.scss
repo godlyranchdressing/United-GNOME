@@ -151,6 +151,12 @@
     color: if($t != flat, white, _pressed_fg($primary_color));
     outline-color: transparentize($tc, 0.7);
     border-color: if($c != $lighter_bg_color, lighten($c, 5%), $border_color);
+    background-color: if($c != $lighter_bg_color, darken($c, 6%), _pressed_fg($primary_color));
+  }
+  @else if $t == checked {
+    color: if($t != flat, white, _pressed_fg($primary_color));
+    outline-color: transparentize($tc, 0.7);
+    border-color: if($c != $lighter_bg_color, lighten($c, 5%), $border_color);
     background-color: if($c != $lighter_bg_color, darken($c, 6%), $primary_color);
   }
   @else if $t == insensitive {
@@ -186,7 +192,10 @@
   @else if $t == osd-hover {
     $_bg: if($c != $bg_color, transparentize($c, 0.3), lighten($bg_color, 12%));
 
-    image, label, arrow{color: $primary_color;}
+    image, label, arrow {
+      color: $primary_color;
+    }
+
     border-color: $border_color;
     background-color: $c;
     background-clip: padding-box;
@@ -195,7 +204,10 @@
   @else if $t == osd-active {
     $_bg: if($c != $bg_color, $c, $border_color);
 
-    image, label, arrow{color: $pressed_fg;}
+    image, label, arrow {
+      color: $pressed_fg;
+    }
+
     border-color: $border_color;
     background-color: $c;
     background-clip: padding-box;
@@ -204,11 +216,30 @@
   @else if $t == osd-insensitive {
     color: $disabled_fg_color;
     border-color: transparent;
-    background-color: disabled_bg_color;
+    background-color: $disabled_bg_color;
     background-clip: padding-box;
   }
-  @else if $t == undecorated {
+  @else if $t == flat {
     border-color: transparent;
+    background-image: none;
+    background-color: transparent;
+  }
+  @else if $t == flat-hover {
+    image, label, arrow {
+      color: $tc;
+    }
+
+    border-color: transparent;
+    background-image: none;
+    background-color: transparent;
+  }
+  @else if $t == flat-active {
+    image, label, arrow {
+      color: $pressed_fg;
+    }
+
+    border-color: transparent;
+    background-image: none;
     background-color: transparent;
   }
 }

@@ -321,17 +321,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 /* links */
 .shell-link {
   border-radius: 6px;
-  color: #ba57b0;
+  color: #ba4978;
 }
 
 .shell-link:hover {
-  color: #ba57b0;
-  background-color: rgba(186, 87, 176, 0.15);
+  color: #ba4978;
+  background-color: rgba(186, 73, 120, 0.15);
 }
 
 .shell-link:active {
-  color: #ba57b0;
-  background-color: rgba(186, 87, 176, 0.3);
+  color: #ba4978;
+  background-color: rgba(186, 73, 120, 0.3);
 }
 
 /* Modal Dialogs */
@@ -552,7 +552,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* Password or Authentication Dialog */
 .prompt-dialog {
-  width: 500px;
+  min-width: 500px;
+  max-width: 600px;
   border: 1px solid rgba(244, 244, 244, 0.1);
 }
 
@@ -2841,7 +2842,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* NOTIFICATIONS & MESSAGE TRAY */
 .url-highlighter {
-  link-color: #ba57b0;
+  link-color: #ba4978;
 }
 
 .notification-banner {
@@ -3334,19 +3335,19 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .login-dialog .modal-dialog-button:default {
-  background-color: #9d4194 !important;
+  background-color: #973960 !important;
   color: white !important;
 }
 
 .login-dialog .modal-dialog-button:default:hover {
-  background-color: #af48a5 !important;
+  background-color: #aa406c !important;
   transition-duration: 250ms;
   color: white !important;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24) !important;
 }
 
 .login-dialog .modal-dialog-button:default:focus, .login-dialog .modal-dialog-button:default:active {
-  background-color: #943d8c !important;
+  background-color: #8e365a !important;
   transition-duration: 250ms;
   color: white !important;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24) !important;
@@ -3651,11 +3652,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .lg-dialog .shell-link {
-  color: #ba57b0;
+  color: #ba4978;
 }
 
 .lg-dialog .shell-link:hover {
-  color: #ba57b0;
+  color: #ba4978;
 }
 
 .lg-completions-text {

@@ -72,7 +72,9 @@ headerbar.titlebar button.title {
     box-shadow: none;
 
     &:checked {
-      label, widget {}
+      * {
+        color: $pressed_fg;
+      }
     }
 
     color: white;
@@ -91,5 +93,102 @@ toolbar toolitem button.image-button.raised {
 // Software
 
 headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
+  background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
   border-width: 0px;
+}
+
+// Builder
+
+window.workbench {
+  docktabstrip {
+    //@include notebook;
+    border-bottom: 1px solid $border_color;
+  }
+
+  popover box image {
+    padding: 0 4px;
+  }
+
+  layout {
+    border: 1px solid $border_color;
+  }
+
+  .popover-content-area {
+    padding: 8px;
+  }
+
+  .popover-action-area button {
+    border-radius: 0px;
+
+    &:first-child {
+      border-right-style: none;
+      border-left-style: none;
+    }
+
+    &:last-child {
+      border-left-style: none;
+      border-right-style: none;
+    }
+
+    &:hover{
+      border-color: $border_color;
+      background-color: $primary_color;
+      label, image, arrow{color: white;}
+    }
+
+    &:hover{
+      border-color: $border_color;
+      background-color: $pressed_fg;
+      label, image, arrow{color: white;}
+    }
+  }
+
+  docktab {
+    //@include tab;
+    background-color: $lighter_bg_color;
+    min-height: 18px;
+    box-shadow: inset 0 0px $disabled_fg_color;
+
+    label {
+      padding: 4px 8px;
+    }
+
+    &:not(:checked) {
+      &:hover {
+        box-shadow: inset 0 -3px $disabled_fg_color;
+      }
+
+      label {
+        color: $disabled_fg_color;
+      }
+    }
+
+    &:checked {
+      box-shadow: inset 0 -3px $primary_color;
+
+      label {
+        color: $primary_color;
+      }
+    }
+  }
+
+  layouttab {
+    box button {
+      @include button(flat);
+
+      padding: 2px 8px;
+
+      &:hover {
+        border-color: transparent;
+      }
+
+      &:active, &:checked {
+        color: $pressed_fg;
+      }
+    }
+  }
+
+  greeter frame {
+    border: 1px solid $border_color;
+  }
 }

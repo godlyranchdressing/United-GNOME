@@ -40,18 +40,17 @@ $fill_color: gtkalpha(currentColor, $lower_opacity);
 $semi_fill_color: gtkalpha(currentColor, $lower_opacity / 2);
 $row_fill_color: gtkalpha(currentColor, 0.05);
 
+// Info colours
+$warning_color: $orange;
+$error_color: $dark_orange;
+$success_color: $dark_green;
+$suggested_color: TBD;
+
 // Theme colours
 @import "distros";
 
 $link_color: lighten($accent_color, 5);
 $visited_link_color: darken($accent_color, 5);
-
-// Info colours
-$warning_color: $orange;
-$error_color: $dark_orange;
-$success_color: $dark_green;
-$suggested_color: $dark_green;
-//$suggested_color: $accent_color;
 
 $destructive_color: $dark_red;
 $info_bg_color: $green;
