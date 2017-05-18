@@ -16,6 +16,8 @@ headerbar, headerbar.titlebar {
       &:hover {
         @include button(hover, $primary_color);
 
+        background-color: $primary_color;
+
         image, label, arrow {
           color: white;
         }
@@ -119,7 +121,7 @@ headerbar, headerbar.titlebar {
     }
 
     &:disabled {
-      color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+      image, label, arrow{color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);}
     }
   }
 
@@ -295,24 +297,17 @@ messagedialog {
 
   button {
     // doesn't seem to inherit default button padding
-    min-height: 36px;
+    min-height: 30px;
 
     &:hover {
-      border-color: $border_color;
+      color: white;
       background-color: $primary_color;
-
-      label, image, arrow {
-        color: white;
-      }
     }
 
     &:active {
-      border-color: $border_color;
+      color: white;
+      border-color: $pressed_fg;
       background-color: $pressed_fg;
-
-      label, image, arrow {
-        color: white;
-      }
     }
   }
 

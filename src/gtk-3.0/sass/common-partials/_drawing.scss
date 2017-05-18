@@ -124,7 +124,7 @@
     outline-color: transparentize($tc, 0.7);
   }
   @else if $t == hover {
-    color: if($c != $lighter_bg_color, white, $primary_color);    
+    color: if($c != $lighter_bg_color, white, $primary_color);
     background-color: if($c != $lighter_bg_color, lighten($c, 7.5%), $c);
     border-color: if($c != $lighter_bg_color, lighten($c, 5%), $border_color);
     outline-color: transparentize($tc, 0.7);
@@ -143,25 +143,40 @@
     background-color: $c;
   }
   @else if $t == active {
-    color: if($t != flat, white, _pressed_fg($primary_color));
     outline-color: transparentize($tc, 0.7);
     border-color: if($c != $lighter_bg_color, lighten($c, 5%), $border_color);
-    background-color: if($c != $lighter_bg_color, darken($c, 6%), _pressed_fg($primary_color));
+    background-color: if($c != $lighter_bg_color, darken($c, 6%), $primary_color);
+
+    image, label, arrow {
+      color: if($t != flat, white, _pressed_fg($primary_color));
+    }
   }
   @else if $t == checked {
     color: if($t != flat, white, _pressed_fg($primary_color));
     outline-color: transparentize($tc, 0.7);
     border-color: if($c != $lighter_bg_color, lighten($c, 5%), $border_color);
     background-color: if($c != $lighter_bg_color, darken($c, 6%), $primary_color);
+
+    &:hover {
+      background-color: if($c != $lighter_bg_color, darken($c, 6%), _pressed_fg($primary_color));
+    }
+
+    &:active {
+      background-color: if($c != $lighter_bg_color, darken($c, 6%), _pressed_fg($primary_color));
+
+      image, label, arrow {
+        color: if($t != flat, white, _pressed_fg($primary_color));
+      }
+    }
   }
   @else if $t == insensitive {
     $_bg: if($c != $bg_color, mix($c, $base_color, 85%), $disabled_bg_color);
-
+    
     label, & {
       color: if($tc != $fg_color, mix($tc, $_bg, 50%), $disabled_fg_color);
     }
 
-    border-color: $border_color;
+    border-color: $disabled_bg_color;
     background-color: $disabled_bg_color;
   }
   @else if $t == insensitive-active {
@@ -172,7 +187,7 @@
       color: if($c != $bg_color, mix($tc, $_bg, 60%), $disabled_fg_color);
     }
 
-    border-color: $border_color;
+    border-color: $_bg;
     background-color: $_bg;
   }
   @else if $t == osd {

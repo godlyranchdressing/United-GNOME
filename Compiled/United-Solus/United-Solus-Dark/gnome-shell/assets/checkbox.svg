@@ -40,36 +40,31 @@
          id="stop7036" />
     </linearGradient>
     <linearGradient
-       inkscape:collect="always"
-       xlink:href="#primary_color-3"
-       id="linearGradient5399"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
        id="primary_color-3"
        osb:paint="solid">
       <stop
-         style="stop-color:#5294e2;stop-opacity:1;"
+         style="stop-color:#e95420;stop-opacity:1;"
          offset="0"
          id="stop5679" />
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
        xlink:href="#dark_fg_color-9"
-       id="linearGradient5401"
+       id="linearGradient5755"
        gradientUnits="userSpaceOnUse"
-       x1="10.5"
-       y1="1033.3622"
-       x2="10.5"
-       y2="1035.3622" />
+       x1="8"
+       y1="1034.3622"
+       x2="13"
+       y2="1034.3622" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#dark_fg_color-9"
-       id="linearGradient5403"
+       id="linearGradient5757"
        gradientUnits="userSpaceOnUse"
-       x1="12"
-       y1="1027.3622"
-       x2="12"
-       y2="1035.3622" />
+       x1="11"
+       y1="1031.3622"
+       x2="13"
+       y2="1031.3622" />
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -80,63 +75,63 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1366"
-     inkscape:window-height="735"
+     inkscape:window-width="1920"
+     inkscape:window-height="1070"
      id="namedview6"
      showgrid="false"
      inkscape:zoom="13.906433"
-     inkscape:cx="1.2520281"
-     inkscape:cy="16.098096"
-     inkscape:window-x="0"
-     inkscape:window-y="432"
-     inkscape:window-maximized="0"
+     inkscape:cx="-6.7132298"
+     inkscape:cy="18.569675"
+     inkscape:window-x="1366"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
      inkscape:current-layer="svg4" />
   <g
      transform="matrix(1.375,0,0,1.375,-48.5,0.5019989)"
      style="display:inline;opacity:1"
-     id="checkbox-checked"
+     id="checkbox-checked-dark"
      inkscape:label="#g10758">
     <g
        inkscape:label="#g22047"
-       id="checkbox-5"
+       id="checkbox-5-59"
        style="display:inline"
        transform="translate(19)">
       <g
-         id="sdsd-7"
+         id="sdsd-7-54"
          inkscape:label="#g21853">
         <g
            transform="translate(0,-30)"
            inkscape:label="#g14325"
-           id="scdsdcd-5">
+           id="scdsdcd-5-8">
           <g
              transform="matrix(0.92951982,0,0,0.92914368,-156.75069,-212.9618)"
-             id="g15812-6-6-1-5"
+             id="g15812-6-6-1-5-4"
              style="display:inline">
             <g
                style="display:inline"
-               id="g5489-2-9-6-8-8-53"
+               id="g5489-2-9-6-8-8-53-5"
                transform="matrix(0.5089163,0,0,0.51739823,161.7932,197.56426)">
               <g
-                 id="g5428-8-1-4-0-0-4" />
+                 id="g5428-8-1-4-0-0-4-2" />
             </g>
           </g>
           <rect
              style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
-             id="rect13523-7"
+             id="rect13523-7-11"
              width="16"
              height="16"
              x="17"
              y="30.362183" />
           <g
-             id="g5400-6">
+             id="g5400-6-68">
             <rect
                rx="3"
                y="31.362196"
                x="18.000006"
                height="13.99999"
                width="13.999989"
-               id="rect5147-9-1-5-7-6-7"
-               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient5399);fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+               id="rect5147-9-1-5-7-6-7-4"
+               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#27ae60;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
                ry="3" />
           </g>
         </g>
@@ -144,21 +139,21 @@
     </g>
     <g
        inkscape:label="Ebene 1"
-       id="checkbox-checked-dark-7"
+       id="checkbox-checked-dark-7-37"
        transform="translate(36,-1036)"
        style="display:inline">
       <g
-         id="g3981-6-4"
+         id="g3981-6-4-97"
          transform="rotate(45,-3.2604448,1033.6624)"
          style="opacity:0.85;fill:#1a1a1a;fill-opacity:1" />
       <g
-         id="g4049-2"
+         id="g4049-2-5"
          transform="rotate(45,7.4999938,1026.3622)">
         <g
-           id="g4056-7"
+           id="g4056-7-6"
            transform="translate(12.374375,11.531233)">
           <g
-             id="g3981-0"
+             id="g3981-0-8"
              transform="translate(-3,-4.9999826)"
              style="fill:#3b3c3e;fill-opacity:1">
             <rect
@@ -168,20 +163,20 @@
                x="8"
                height="1.9999826"
                width="5"
-               id="rect3977-39"
-               style="fill:url(#linearGradient5401);fill-opacity:1;stroke:none" />
+               id="rect3977-39-90"
+               style="fill:url(#linearGradient5755);fill-opacity:1;stroke:none" />
             <rect
                ry="0"
                y="1027.3622"
                x="11"
                height="7.9999828"
                width="2"
-               id="rect3979-7"
-               style="fill:url(#linearGradient5403);fill-opacity:1;stroke:none" />
+               id="rect3979-7-60"
+               style="fill:url(#linearGradient5757);fill-opacity:1;stroke:none" />
           </g>
           <rect
              style="fill:#eeeeee;fill-opacity:0;stroke:none"
-             id="rect4047-81"
+             id="rect4047-81-5"
              width="3"
              height="1"
              x="5"

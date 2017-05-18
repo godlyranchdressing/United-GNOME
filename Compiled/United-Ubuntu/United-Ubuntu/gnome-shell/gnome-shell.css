@@ -271,27 +271,14 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   width: 24px;
   height: 24px;
   padding: 4px;
-  border-radius: 100px;
-  background-image: url("assets/checkbox-off.svg");
-}
-
-.check-box:focus StBin {
   background-image: url("assets/checkbox-off.svg");
 }
 
 .check-box:hover StBin {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.check-box:active StBin {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-image: url("assets/checkbox-hover.svg");
 }
 
 .check-box:checked StBin {
-  background-image: url("assets/checkbox.svg");
-}
-
-.check-box:focus:checked StBin {
   background-image: url("assets/checkbox.svg");
 }
 
@@ -1355,7 +1342,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-day-base:active, .calendar-day-base:selected {
-  color: #E95420;
+  color: #eb6637;
   background-color: rgba(255, 255, 255, 0.2);
 }
 

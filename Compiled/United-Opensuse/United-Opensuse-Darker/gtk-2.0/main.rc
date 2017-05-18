@@ -984,7 +984,7 @@ style "checkbutton_label" {
 }
 
 style "tool_button" {
-  text[ACTIVE]      = @selected_bg_color
+  text[ACTIVE]      = @selected_fg_color
   fg[ACTIVE] = @selected_fg_color
 
   GtkButton::inner-border = {0, 0, 0, 0}

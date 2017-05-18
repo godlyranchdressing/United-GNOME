@@ -196,27 +196,16 @@ StScrollBar {
     width: 24px;
     height: 24px;
     padding: ($medium_size - 24px) / 2;
-    border-radius: 100px;
-    background-image: url("assets/checkbox-off.svg");
-  }
 
-  &:focus StBin {
+    //border-radius: 100px;
     background-image: url("assets/checkbox-off.svg");
   }
 
   &:hover StBin {
-    background-color: $semi_fill_color;
-  }
-
-  &:active StBin {
-    background-color: $fill_color;
+    background-image: url("assets/checkbox-hover.svg");
   }
 
   &:checked StBin {
-    background-image: url("assets/checkbox.svg");
-  }
-
-  &:focus:checked StBin {
     background-image: url("assets/checkbox.svg");
   }
 }
@@ -1275,7 +1264,7 @@ StScrollBar {
 
   // &:active { background-color: $fill_color; }
   &:active, &:selected {
-    color: $primary_color;
+    color: lighten($primary_color, 5%);
     background-color: $semi_fill_color;
 
     // TODO:
@@ -2822,6 +2811,7 @@ $legacy_icon_size: 24px;
 
 #lockDialogGroup {
   background: $primary_color url("assets/noise-texture.svg");
+
   //background: $primary_color url("assets/background.png");
   background-size: cover;
 }
