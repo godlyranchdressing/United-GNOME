@@ -124,13 +124,8 @@
     outline-color: transparentize($tc, 0.7);
   }
   @else if $t == hover {
-    color: if($c == $lighter_bg_color, $primary_color, white);
+    color: if($c != $lighter_bg_color, white, $primary_color);    
     background-color: if($c != $lighter_bg_color, lighten($c, 7.5%), $c);
-
-    @if $c != $lighter_bg_color {
-      box-shadow: $shadow_1;
-    }
-
     border-color: if($c != $lighter_bg_color, lighten($c, 5%), $border_color);
     outline-color: transparentize($tc, 0.7);
   }
@@ -226,7 +221,7 @@
   }
   @else if $t == flat-hover {
     image, label, arrow {
-      color: $tc;
+      color: $c;
     }
 
     border-color: transparent;
@@ -235,7 +230,7 @@
   }
   @else if $t == flat-active {
     image, label, arrow {
-      color: $pressed_fg;
+      color: _pressed_fg($c);
     }
 
     border-color: transparent;

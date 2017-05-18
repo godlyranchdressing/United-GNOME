@@ -1,13 +1,12 @@
 United GNOME
 =========
-Based on a Ubuntu 18.04 design concept using Flat-Plat as a base. Made on and for GNOME 3.24 (Ubuntu), tested and works fine on 3.22 (Fedora). Most likely will work with 3.20 and up. Support for 3.18 and other DEs is currently unknown.
+Based on a Ubuntu 18.04 design concept with some inspiration from Unity 8. Works with and tested on both GNOME 3.24 and 3.22 using Ubuntu GNOME 17.04 and Fedora respectively. The theme will most likely work with 3.20 as well but expect a couple small issues.
 
 Features
 --------
-- Supports both light and dark variants.
-- Supports dark or light titlebar versions.
-- Supports compact version for low resolution. (GNOME Shell)
-- Supports [Dash to Dock](https://github.com/micheleg/dash-to-dock) extension's theming.
+- Shell theme: transparent dark, opaque dark and opaque light.
+- GTK3 theme: light, dark and light with a dark titlebar similar to Unity 8.
+- Supports [Dash to Dock](https://github.com/micheleg/dash-to-dock) with modifications made to make it resemble the Unity 7/8 launcher.
 
 Requirements
 ------------
@@ -17,23 +16,17 @@ Requirements
 - murrine engine
 
 ##### Supported desktop environments are:
-- GNOME Shell 3.20 and later
-- You tell me
+- GNOME Shell 3.22 and later
 
 Installation
 ------------
 Compiled versions are uploaded onto gnome-look.org at https://www.gnome-look.org/p/1174889/
-An install script hasn't been written yet.
+An install script hasn't been written yet but there is a compile script that lets you make some changes and compile every variant.
 
 Contributing
 ------------
 Please let me know of any bugs or quirks. Any contribution would be much appreciated.
 
-Roadmap 
-----------------
-- Support other DEs
-- Move over to Arc theme's (ideally custom) assets.
-- Fix the LibreOffice button issue
 
 License
 -------
@@ -52,5 +45,3 @@ Preview
 ![alt text](preview-1.jpg "Preview 1")
 ![alt text](preview-2.jpg "Preview 2")
 ![alt text](preview-3.jpg "Preview 3")
-![alt text](preview-4.jpg "Preview 4")
-

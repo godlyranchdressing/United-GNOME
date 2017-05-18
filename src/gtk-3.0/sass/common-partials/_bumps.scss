@@ -14,9 +14,11 @@ headerbar, headerbar.titlebar {
 
     &.text-button {
       &:hover {
-        background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
-        color: $primary_color;
-        border-color: $primary_color;
+        @include button(hover, $primary_color);
+
+        image, label, arrow {
+          color: white;
+        }
       }
 
       &:active {
@@ -72,9 +74,9 @@ headerbar, headerbar.titlebar {
       }
     }
 
-    &.image-button:not(.text-button) {
+    &.image-button:not(.text-button):not(.radio):not(.model) {
       &, &.toggle, &.popup, &.popup.toggle {
-        &, &:hover, &:active, &:checked, &:disabled, &:checked:hover {
+        & {
           @include button(flat);
         }
 
@@ -85,8 +87,8 @@ headerbar, headerbar.titlebar {
         }
 
         &:active, &:checked:hover {
-          background-image: image(if($headerbar == "dark", $darker_headerbar_color, $headerbar_bg));
-          border-color: if($headerbar == "dark", $darker_headerbar_color, $headerbar_bg);
+          background-color: transparent;
+          border-color: transparent;
 
           label, image, arrow {
             color: $pressed_fg;
@@ -154,8 +156,10 @@ headerbar, headerbar.titlebar {
           box-shadow: $shadow_bottom $primary_color;
 
           &:disabled {
+            background-color: if($headerbar == "dark" or $variant == "dark", $darker_disabled_bg_color, $disabled_bg_color);
+
             label, image, arrow {
-              color: $fg_color;
+              color: if($headerbar != "dark", $disabled_fg_color, $darker_disabled_fg_color);
             }
 
             box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
@@ -185,7 +189,7 @@ headerbar, headerbar.titlebar {
             color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
           }
 
-          background-color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+          background-color: if($headerbar == "dark" or $variant == "dark", $darker_disabled_bg_color, $disabled_bg_color);
         }
       }
 

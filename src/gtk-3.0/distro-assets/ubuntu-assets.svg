@@ -1049,9 +1049,9 @@
   <sodipodi:namedview
      showgrid="true"
      id="namedview4"
-     inkscape:zoom="1.5058608"
-     inkscape:cx="-276.91767"
-     inkscape:cy="-119.45164"
+     inkscape:zoom="1.0648044"
+     inkscape:cx="16.433013"
+     inkscape:cy="43.359889"
      inkscape:window-width="1848"
      inkscape:window-height="1138"
      inkscape:window-x="1438"
@@ -1062,7 +1062,8 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     showguides="false">
+     showguides="false"
+     inkscape:snap-global="false">
     <inkscape:grid
        empspacing="4"
        id="grid2"
@@ -7671,14 +7672,14 @@
        y="-198.01367" />
   </g>
   <g
-     id="g6150"
+     id="scale-slider-disabled"
      transform="translate(3,-60)">
     <use
        style="fill:url(#linearGradient6249);fill-opacity:1"
        transform="translate(-214,-60)"
        height="100%"
        width="100%"
-       id="scale-slider-disabled"
+       id="scale-1"
        xlink:href="#base-scale-slider-disabled"
        y="280"
        x="16" />
@@ -7756,13 +7757,13 @@
     </g>
   </g>
   <g
-     id="g6169"
+     id="scale-horz-marks-before-slider-disabled"
      transform="translate(3,-60)">
     <use
        transform="translate(-214,-60)"
        height="100%"
        width="100%"
-       id="scale-horz-marks-before-slider-disabled"
+       id="a"
        xlink:href="#base-scale-horz-marks-before-slider-disabled"
        y="280"
        x="52" />
@@ -7775,50 +7776,50 @@
        ry="8.8414688" />
   </g>
   <g
-     id="g6188"
-     transform="translate(3,-60)">
+     id="scale-horz-marks-after-slider-disabled">
     <use
-       transform="translate(-214,-60)"
+       transform="translate(-211,-120)"
        height="100%"
        width="100%"
-       id="scale-horz-marks-after-slider-disabled"
+       id="657"
        xlink:href="#base-scale-horz-marks-after-slider-disabled"
        y="280"
        x="88" />
     <ellipse
        ry="10.041044"
        rx="7.3535442"
-       cy="233.75"
-       cx="-114"
+       cy="173.75"
+       cx="-111"
        style="display:inline;opacity:1;fill:#dedede;fill-opacity:1;stroke:#858585;stroke-width:1.72624445;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
        id="path4068-7-3-0-3-6-8-0-93-2-6" />
-    <g
-       id="g6199">
-      <use
-         transform="translate(-214,-60)"
-         height="100%"
-         width="100%"
-         id="scale-vert-marks-before-slider-disabled"
-         xlink:href="#base-scale-vert-marks-before-slider-disabled"
-         y="280"
-         x="124" />
-      <ellipse
-         ry="8.7944756"
-         rx="8.3292465"
-         cy="232.1394"
-         cx="-79.745247"
-         style="display:inline;opacity:1;fill:#dedede;fill-opacity:1;stroke:#858585;stroke-width:1.71938193;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
-         id="path4068-7-3-0-3-6-8-0-93-2-1" />
-    </g>
   </g>
   <g
-     id="g6227"
+     id="scale-vert-marks-before-slider-disabled"
+     transform="translate(3,-60)">
+    <use
+       x="124"
+       y="280"
+       xlink:href="#base-scale-vert-marks-before-slider-disabled"
+       id="fa"
+       width="100%"
+       height="100%"
+       transform="translate(-214,-60)" />
+    <ellipse
+       id="path4068-7-3-0-3-6-8-0-93-2-1"
+       style="display:inline;opacity:1;fill:#dedede;fill-opacity:1;stroke:#858585;stroke-width:1.71938193;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
+       cx="-79.745247"
+       cy="232.1394"
+       rx="8.3292465"
+       ry="8.7944756" />
+  </g>
+  <g
+     id="scale-vert-marks-after-slider-disabled"
      transform="translate(3,-60)">
     <use
        transform="translate(-214,-60)"
        height="100%"
        width="100%"
-       id="scale-vert-marks-after-slider-disabled"
+       id="safa"
        xlink:href="#base-scale-vert-marks-after-slider-disabled"
        y="280"
        x="160" />
@@ -7831,12 +7832,12 @@
        ry="8.7501392" />
   </g>
   <g
-     id="g6268">
+     id="scale-slider-disabled-dark">
     <use
        transform="translate(-206.58789,-120)"
        height="100%"
        width="100%"
-       id="scale-slider-disabled-dark"
+       id="scale-slider-disabled-1"
        xlink:href="#base-scale-slider-disabled-dark"
        y="280"
        x="216" />
@@ -7849,12 +7850,12 @@
        id="path4068-7-3-0-3-6-8-0-93-2-1-8-7" />
   </g>
   <g
-     id="g6287">
+     id="scale-horz-marks-before-slider-disabled-dark">
     <use
        transform="translate(-206.58789,-117)"
        height="100%"
        width="100%"
-       id="scale-horz-marks-before-slider-disabled-dark"
+       id="use5968"
        xlink:href="#base-scale-horz-marks-before-slider-disabled-dark"
        y="280"
        x="252" />
@@ -7867,12 +7868,12 @@
        ry="9.4656563" />
   </g>
   <g
-     id="g6303">
+     id="scale-horz-marks-after-slider-disabled-dark">
     <use
        transform="translate(-206.58789,-123)"
        height="100%"
        width="100%"
-       id="scale-horz-marks-after-slider-disabled-dark"
+       id="use5970"
        xlink:href="#base-scale-horz-marks-after-slider-disabled-dark"
        y="280"
        x="288" />
@@ -7885,12 +7886,12 @@
        ry="9.0480986" />
   </g>
   <g
-     id="g6313">
+     id="scale-vert-marks-before-slider-disabled-dark">
     <use
        transform="translate(-206.58789,-120)"
        height="100%"
        width="100%"
-       id="scale-vert-marks-before-slider-disabled-dark"
+       id="use5972"
        xlink:href="#base-scale-vert-marks-before-slider-disabled-dark"
        y="280"
        x="324" />
@@ -7903,12 +7904,12 @@
        ry="8.7501392" />
   </g>
   <g
-     id="g6323">
+     id="scale-vert-marks-after-slider-disabled-dark">
     <use
        transform="translate(-206.58789,-120)"
        height="100%"
        width="100%"
-       id="scale-vert-marks-after-slider-disabled-dark"
+       id=""
        xlink:href="#base-scale-vert-marks-after-slider-disabled-dark"
        y="280"
        x="360" />

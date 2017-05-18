@@ -613,6 +613,22 @@ button:checked {
 }
 
 
+button.text-button:hover {
+  color: white;
+  background-color: #c32b3f;
+  border-color: #b9293c;
+  outline-color: rgba(96, 96, 96, 0.3);
+}
+
+
+button.text-button:active {
+  color: white;
+  outline-color: rgba(96, 96, 96, 0.3);
+  border-color: #b9293c;
+  background-color: #8b1e2d;
+}
+
+
 button.flat:disabled {
   border-color: transparent;
   background-image: none;
@@ -654,19 +670,61 @@ button.image-button {
 }
 
 
-button.image-button:not(.text-button):not(.radio):hover {
+button.image-button:not(.text-button):not(.radio):not(.model):hover image,
+button.image-button:not(.text-button):not(.radio):not(.model):hover label,
+button.image-button:not(.text-button):not(.radio):not(.model):hover arrow,
+button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover image,
+button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover label,
+button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover arrow,
+button.image-button:not(.text-button):not(.radio):not(.model).popup:hover image,
+button.image-button:not(.text-button):not(.radio):not(.model).popup:hover label,
+button.image-button:not(.text-button):not(.radio):not(.model).popup:hover arrow {
   color: #A42435;
 }
 
 
-button.image-button:not(.text-button):not(.radio):active {
-  color: #8f1f2e;
+button.image-button:not(.text-button):not(.radio):not(.model):active,
+button.image-button:not(.text-button):not(.radio):not(.model).toggle:active,
+button.image-button:not(.text-button):not(.radio):not(.model).popup:active {
   background-color: white;
 }
 
 
-button.image-button:not(.text-button):not(.radio):checked {
+button.image-button:not(.text-button):not(.radio):not(.model):active image,
+button.image-button:not(.text-button):not(.radio):not(.model):active label,
+button.image-button:not(.text-button):not(.radio):not(.model):active arrow,
+button.image-button:not(.text-button):not(.radio):not(.model).toggle:active image,
+button.image-button:not(.text-button):not(.radio):not(.model).toggle:active label,
+button.image-button:not(.text-button):not(.radio):not(.model).toggle:active arrow,
+button.image-button:not(.text-button):not(.radio):not(.model).popup:active image,
+button.image-button:not(.text-button):not(.radio):not(.model).popup:active label,
+button.image-button:not(.text-button):not(.radio):not(.model).popup:active arrow {
+  color: #8f1f2e;
+}
+
+
+button.image-button:not(.text-button):not(.radio):not(.model):checked,
+button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked,
+button.image-button:not(.text-button):not(.radio):not(.model).popup:checked {
   background-color: #A42435;
+}
+
+
+button.image-button.popup.toggle:hover image,
+button.image-button.popup.toggle:hover label,
+button.image-button.popup.toggle:hover arrow {
+  color: white;
+}
+
+
+button.image-button.popup.toggle:active {
+  background-color: #8f1f2e;
+}
+
+
+button.image-button.popup.toggle:active image,
+button.image-button.popup.toggle:active label,
+button.image-button.popup.toggle:active arrow {
   color: white;
 }
 
@@ -693,7 +751,7 @@ button.link:hover {
 button.link:hover image,
 button.link:hover label,
 button.link:hover arrow {
-  color: #606060;
+  color: #E95420;
 }
 
 
@@ -707,7 +765,7 @@ button.link:active {
 button.link:active image,
 button.link:active label,
 button.link:active arrow {
-  color: #8f1f2e;
+  color: #da4816;
 }
 
 
@@ -1009,7 +1067,6 @@ button.suggested-action.flat {
 button.suggested-action:hover {
   color: white;
   background-color: #2ecd71;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
   border-color: #2cc36b;
   outline-color: rgba(96, 96, 96, 0.3);
 }
@@ -1136,7 +1193,6 @@ button.destructive-action.flat {
 button.destructive-action:hover {
   color: white;
   background-color: #d44c3e;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
   border-color: #d14233;
   outline-color: rgba(96, 96, 96, 0.3);
 }
@@ -1501,6 +1557,18 @@ modelbutton.flat:hover,
   border-color: rgba(0, 0, 0, 0.15);
 }
 
+modelbutton.flat:active,
+.menuitem.button.flat:active {
+  background-color: rgba(96, 96, 96, 0.1);
+}
+
+modelbutton.flat:active image, modelbutton.flat:active label, modelbutton.flat:active arrow,
+.menuitem.button.flat:active image,
+.menuitem.button.flat:active label,
+.menuitem.button.flat:active arrow {
+  color: #8f1f2e;
+}
+
 modelbutton.flat arrow {
   background: none;
 }
@@ -1735,8 +1803,8 @@ spinbutton.vertical button {
   padding: 0;
 }
 
-spinbutton.vertical button.up:active image, spinbutton.vertical button.up:active label, spinbutton.vertical button.up:active arrow, spinbutton.vertical button.up:focus image, spinbutton.vertical button.up:focus label, spinbutton.vertical button.up:focus arrow, spinbutton.vertical button.down:active image, spinbutton.vertical button.down:active label, spinbutton.vertical button.down:active arrow, spinbutton.vertical button.down:focus image, spinbutton.vertical button.down:focus label, spinbutton.vertical button.down:focus arrow {
-  color: #8f1f2e;
+spinbutton.vertical button.up:active, spinbutton.vertical button.up:active image, spinbutton.vertical button.up:active label, spinbutton.vertical button.up:active arrow, spinbutton.vertical button.down:active, spinbutton.vertical button.down:active image, spinbutton.vertical button.down:active label, spinbutton.vertical button.down:active arrow {
+  color: white;
 }
 
 spinbutton.vertical button.up {
@@ -1904,6 +1972,8 @@ searchbar,
 headerbar {
   background-color: #F4F4F4;
   color: #606060;
+  border-radius: 6px 6px 0 0;
+  border-top: 1px solid #F4F4F4;
   box-shadow: inset 0 -1px 0 rgba(96, 96, 96, 0.1), 0 2px 2px rgba(96, 96, 96, 0.2);
   min-height: 45px;
   padding: 0 6px;
@@ -2034,11 +2104,20 @@ headerbar separator, headerbar separator.titlebutton {
   background-image: image(#F4F4F4);
 }
 
+.titlebar:not(headerbar):not(.path-bar) {
+  border-top: 1px solid #F4F4F4;
+  border-radius: 6px 6px 0 0;
+}
+
 window.csd > .titlebar:not(headerbar):not(.path-bar) {
   padding: 0;
   background-color: transparent;
   background-image: none;
   border-style: none;
+}
+
+.titlebar:not(headerbar):not(.path-bar) window.csd {
+  border-radius: 0 0 6px 6px;
 }
 
 .titlebar:not(headerbar):not(.path-bar) separator {
@@ -2097,6 +2176,7 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
 }
 
 .path-bar button.text-button.toggle:not(:checked):hover, .path-bar button.image-button.toggle:not(:checked):hover, .path-bar button.image-button.text-button.toggle:not(:checked):hover {
+  background-color: white;
   border-color: transparent;
   box-shadow: inset 0 -2px 0px rgba(96, 96, 96, 0.4);
 }
@@ -2150,7 +2230,7 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
  * Tree Views *
  **************/
 treeview.view {
-  background-color: #E8E8E7;
+  background-color: white;
   border-left-color: #adadad;
   border-top-color: #E8E8E7;
 }
@@ -2164,6 +2244,10 @@ treeview.view {
   -GtkTreeView-expander-size: 16;
 }
 
+treeview.view:selected {
+  background-color: #A42435;
+}
+
 treeview.view:selected:focus, treeview.view:selected {
   border-radius: 0;
 }
@@ -2175,6 +2259,10 @@ treeview.view:selected {
 
 treeview.view:disabled {
   color: rgba(96, 96, 96, 0.4);
+}
+
+treeview.view:disabled:selected {
+  background-color: #A42435;
 }
 
 treeview.view:disabled:selected label {
@@ -2318,6 +2406,7 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
   background-color: #F4F4F4;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.15);
   padding: 0px;
 }
 
@@ -2530,6 +2619,22 @@ popover.background button.model:active arrow, popover.background modelbutton:act
   color: #8f1f2e;
 }
 
+popover.background.menu button button.image-button.model:hover,
+popover.background button.model button.image-button.model:hover, popover.background modelbutton button.image-button.model:hover, popover.background modelbutton.flat button.image-button.model:hover {
+  background-color: rgba(96, 96, 96, 0.1);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+popover.background.menu button button.image-button.model:active,
+popover.background button.model button.image-button.model:active, popover.background modelbutton button.image-button.model:active, popover.background modelbutton.flat button.image-button.model:active {
+  background-color: rgba(96, 96, 96, 0.1);
+}
+
+popover.background.menu button button.image-button.model:active *,
+popover.background button.model button.image-button.model:active *, popover.background modelbutton button.image-button.model:active *, popover.background modelbutton.flat button.image-button.model:active * {
+  color: #8f1f2e;
+}
+
 popover.background.menu button:checked image, popover.background.menu button:checked label, popover.background.menu button:checked arrow,
 popover.background button.model:checked image,
 popover.background button.model:checked label,
@@ -2544,6 +2649,10 @@ popover.menu {
 /*************
  * Notebooks *
  *************/
+notebook * {
+  border-width: 0px;
+}
+
 notebook > header {
   border-width: 0;
   border-color: rgba(0, 0, 0, 0.15);
@@ -2563,6 +2672,26 @@ notebook > header tab button {
   background: transparent;
 }
 
+notebook > header.top {
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.15);
+}
+
+notebook > header.bottom {
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.15);
+}
+
+notebook > header.left {
+  box-shadow: inset -1px 0px rgba(0, 0, 0, 0.15);
+}
+
+notebook > header.right {
+  box-shadow: inset 1px 0px rgba(0, 0, 0, 0.15);
+}
+
+notebook > header.top tabs tab, notebook > header.bottom tabs tab, notebook > header.left tabs tab, notebook > header.right tabs tab {
+  border-width: 0;
+}
+
 notebook > header.top tabs tab:checked, notebook > header.top tabs tab:hover, notebook > header.bottom tabs tab:checked, notebook > header.bottom tabs tab:hover, notebook > header.left tabs tab:checked, notebook > header.left tabs tab:hover, notebook > header.right tabs tab:checked, notebook > header.right tabs tab:hover {
   color: #A42435;
   background-color: #fafafa;
@@ -2576,14 +2705,11 @@ notebook > header.top tabs tab label, notebook > header.bottom tabs tab label {
 notebook > header.top > tabs {
   margin-bottom: 0px;
   margin-top: 6px;
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.15);
 }
 
 notebook > header.top > tabs > tab {
   border-radius: 6px 6px 0 0;
-  border-bottom: 1px solid transparent;
   margin-left: 6px;
-  margin-bottom: 1px;
   border-width: 0;
 }
 
@@ -2595,13 +2721,11 @@ notebook > header.top > tabs > tab:hover, notebook > header.top > tabs > tab:che
 notebook > header.bottom > tabs {
   margin-top: 0px;
   margin-bottom: 6px;
-  box-shadow: inset 0 1px rgba(0, 0, 0, 0.15);
 }
 
 notebook > header.bottom > tabs > tab {
   border-radius: 0 0 6px 6px;
   margin-left: 6px;
-  margin-top: 1px;
   border-width: 0;
 }
 
@@ -2613,13 +2737,11 @@ notebook > header.bottom > tabs > tab:hover, notebook > header.bottom > tabs > t
 notebook > header.left > tabs {
   margin-left: 6px;
   margin-right: 0px;
-  box-shadow: inset -1px 0px rgba(0, 0, 0, 0.15);
 }
 
 notebook > header.left > tabs > tab {
   border-radius: 6px 0 0 6px;
   margin-bottom: 6px;
-  margin-right: 1px;
   border-width: 0;
 }
 
@@ -2631,13 +2753,11 @@ notebook > header.left > tabs > tab:hover, notebook > header.left > tabs > tab:c
 notebook > header.right > tabs {
   margin-right: 6px;
   margin-left: 0px;
-  box-shadow: inset 1px 0px rgba(0, 0, 0, 0.15);
 }
 
 notebook > header.right > tabs > tab {
   border-radius: 0px 6px 6px 0px;
   margin-bottom: 6px;
-  margin-left: 1px;
   border-width: 0;
 }
 
@@ -2995,12 +3115,13 @@ switch {
 }
 
 switch:not(:checked) {
-  background-color: rgba(96, 96, 96, 0.4);
+  background-color: #a8a8a8;
 }
 
 switch:not(:checked) slider {
-  border-color: rgba(225, 225, 225, 0.6);
-  box-shadow: inset 0 0px 0px 1px rgba(96, 96, 96, 0.4);
+  border-color: #a8a8a8;
+  background-color: white;
+  box-shadow: inset 0 0px 0px 1px #a8a8a8;
 }
 
 switch:checked {
@@ -3016,14 +3137,14 @@ switch:checked slider {
 
 switch:disabled {
   color: transparent;
-  border-color: rgba(96, 96, 96, 0.4);
+  border-color: rgba(225, 225, 225, 0.6);
   box-shadow: inset 0 0px 0px 1px rgba(225, 225, 225, 0.6);
   background-color: rgba(225, 225, 225, 0.6);
 }
 
 switch:disabled slider {
-  box-shadow: inset 0 0px 0px 1px rgba(96, 96, 96, 0.4);
-  border-color: rgba(96, 96, 96, 0.4);
+  box-shadow: inset 0 0px 0px 1px rgba(225, 225, 225, 0.6);
+  border-color: rgba(225, 225, 225, 0.6);
 }
 
 switch slider {
@@ -3032,7 +3153,7 @@ switch slider {
   border-radius: 6px;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   background: white;
-  box-shadow: inset 0 0px 0px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0px 0px 1px #a8a8a8;
 }
 
 row:selected switch {
@@ -3383,8 +3504,8 @@ radio {
   border-color: transparent;
   background-image: none;
   background-color: transparent;
-  min-width: 22px;
-  min-height: 22px;
+  min-width: 18px;
+  min-height: 18px;
   margin: 2px 4px;
 }
 
@@ -4100,6 +4221,10 @@ filechooserbutton:drop(active) {
   background-color: #E1E1E1;
 }
 
+.sidebar treeview.view, .tweak-categories treeview.view {
+  background-color: #E8E8E7;
+}
+
 stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, stacksidebar.sidebar:dir(ltr) list, .sidebar:dir(ltr), .sidebar.left, .sidebar.left:dir(rtl), .tweak-categories:dir(ltr), .tweak-categories.left, .tweak-categories.left:dir(rtl) {
   border-right: 1px solid rgba(0, 0, 0, 0.15);
   border-left-style: none;
@@ -4280,7 +4405,6 @@ infobar.info button, infobar.question button, infobar.warning button, infobar.er
 infobar.info button:hover, infobar.question button:hover, infobar.warning button:hover, infobar.error button:hover {
   color: white;
   background-color: #c32b3f;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
   border-color: #b9293c;
   outline-color: rgba(255, 255, 255, 0.3);
 }
@@ -4316,25 +4440,23 @@ infobar.info selection, infobar.question selection, infobar.warning selection, i
  * Tooltips *
  ************/
 tooltip {
-  padding: 4px;
+  padding: 2px;
   /* not working */
-  border-radius: 5px;
+  border-radius: 6px;
   box-shadow: none;
 }
 
-tooltip.background {
-  background-color: rgba(0, 0, 0, 0.8);
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+tooltip, tooltip.background, tooltip decoration {
+  background-color: rgba(233, 84, 32, 0.7);
 }
 
-tooltip decoration {
-  background-color: transparent;
+tooltip.background {
+  background-clip: padding-box;
 }
 
 tooltip * {
-  padding: 4px;
-  background-color: transparent;
+  padding: 1px;
+  border-radius: 6px;
   color: white;
 }
 
@@ -4478,26 +4600,36 @@ colorchooser .popover.osd {
 /**********************
  * Window Decorations *
  **********************/
+> :first-child {
+  background-color: transparent;
+}
+
 window {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
-  background-color: transparent;
+  background-color: #E8E8E7;
 }
 
 window > :first-child {
   border-radius: 6px;
 }
 
-window.maximized, window.fullscreen, window.tiled {
+.maximized window, .fullscreen window, .tiled window {
   border-radius: 0px;
 }
 
 decoration {
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.2), 0 8px 8px rgba(0, 0, 0, 0.16);
-  border-width: 0px;
+  background-color: #E8E8E7;
   margin: 8px;
+}
+
+.fullscreen decoration,
+.maximized decoration,
+.tiled decoration {
+  border-radius: 0px;
 }
 
 decoration:backdrop {
@@ -4537,6 +4669,30 @@ messagedialog.csd decoration {
 headerbar,
 .titlebar {
   border-radius: 6px 6px 0 0;
+}
+
+headerbar.default-decoration,
+.titlebar.default-decoration {
+  border-radius: 6px 6px 0 0;
+  background-color: #F4F4F4;
+}
+
+.fullscreen headerbar,
+.maximized headerbar,
+.tiled headerbar, .fullscreen headerbar.default-decoration,
+.maximized headerbar.default-decoration,
+.tiled headerbar.default-decoration, .fullscreen
+.titlebar,
+.maximized
+.titlebar,
+.tiled
+.titlebar, .fullscreen
+.titlebar.default-decoration,
+.maximized
+.titlebar.default-decoration,
+.tiled
+.titlebar.default-decoration {
+  border-radius: 0px;
 }
 
 headerbar.default-decoration button.titlebutton,
@@ -4862,9 +5018,14 @@ headerbar button, headerbar.titlebar button {
 }
 
 headerbar button.text-button:hover, headerbar.titlebar button.text-button:hover {
-  background-color: white;
-  color: #A42435;
-  border-color: #A42435;
+  color: white;
+  background-color: #c32b3f;
+  border-color: #b9293c;
+  outline-color: rgba(96, 96, 96, 0.3);
+}
+
+headerbar button.text-button:hover image, headerbar button.text-button:hover label, headerbar button.text-button:hover arrow, headerbar.titlebar button.text-button:hover image, headerbar.titlebar button.text-button:hover label, headerbar.titlebar button.text-button:hover arrow {
+  color: white;
 }
 
 headerbar button.text-button:active, headerbar.titlebar button.text-button:active {
@@ -4893,7 +5054,6 @@ headerbar button.text-button.suggested-action, headerbar button.text-button.defa
 headerbar button.text-button.suggested-action:hover, headerbar button.text-button.default.suggested-action:hover, headerbar.titlebar button.text-button.suggested-action:hover, headerbar.titlebar button.text-button.default.suggested-action:hover {
   color: white;
   background-color: #2ecd71;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
   border-color: #2cc36b;
   outline-color: rgba(96, 96, 96, 0.3);
 }
@@ -4929,26 +5089,26 @@ headerbar button.text-button.suggested-action:disabled label, headerbar button.t
   color: rgba(96, 96, 96, 0.4);
 }
 
-headerbar button.image-button:not(.text-button), headerbar button.image-button:not(.text-button):hover, headerbar button.image-button:not(.text-button):active, headerbar button.image-button:not(.text-button):checked, headerbar button.image-button:not(.text-button):disabled, headerbar button.image-button:not(.text-button):checked:hover, headerbar button.image-button:not(.text-button).toggle, headerbar button.image-button:not(.text-button).toggle:hover, headerbar button.image-button:not(.text-button).toggle:active, headerbar button.image-button:not(.text-button).toggle:checked, headerbar button.image-button:not(.text-button).toggle:disabled, headerbar button.image-button:not(.text-button).toggle:checked:hover, headerbar button.image-button:not(.text-button).popup, headerbar button.image-button:not(.text-button).popup:hover, headerbar button.image-button:not(.text-button).popup:active, headerbar button.image-button:not(.text-button).popup:checked, headerbar button.image-button:not(.text-button).popup:disabled, headerbar button.image-button:not(.text-button).popup:checked:hover, headerbar button.image-button:not(.text-button).popup.toggle, headerbar button.image-button:not(.text-button).popup.toggle:hover, headerbar button.image-button:not(.text-button).popup.toggle:active, headerbar button.image-button:not(.text-button).popup.toggle:checked, headerbar button.image-button:not(.text-button).popup.toggle:disabled, headerbar button.image-button:not(.text-button).popup.toggle:checked:hover, headerbar.titlebar button.image-button:not(.text-button), headerbar.titlebar button.image-button:not(.text-button):hover, headerbar.titlebar button.image-button:not(.text-button):active, headerbar.titlebar button.image-button:not(.text-button):checked, headerbar.titlebar button.image-button:not(.text-button):disabled, headerbar.titlebar button.image-button:not(.text-button):checked:hover, headerbar.titlebar button.image-button:not(.text-button).toggle, headerbar.titlebar button.image-button:not(.text-button).toggle:hover, headerbar.titlebar button.image-button:not(.text-button).toggle:active, headerbar.titlebar button.image-button:not(.text-button).toggle:checked, headerbar.titlebar button.image-button:not(.text-button).toggle:disabled, headerbar.titlebar button.image-button:not(.text-button).toggle:checked:hover, headerbar.titlebar button.image-button:not(.text-button).popup, headerbar.titlebar button.image-button:not(.text-button).popup:hover, headerbar.titlebar button.image-button:not(.text-button).popup:active, headerbar.titlebar button.image-button:not(.text-button).popup:checked, headerbar.titlebar button.image-button:not(.text-button).popup:disabled, headerbar.titlebar button.image-button:not(.text-button).popup:checked:hover, headerbar.titlebar button.image-button:not(.text-button).popup.toggle, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:hover, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:active, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:checked, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:disabled, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:checked:hover {
+headerbar button.image-button:not(.text-button):not(.radio):not(.model), headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model), headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle {
   border-color: transparent;
   background-image: none;
   background-color: transparent;
 }
 
-headerbar button.image-button:not(.text-button):hover label, headerbar button.image-button:not(.text-button):hover image, headerbar button.image-button:not(.text-button):hover arrow, headerbar button.image-button:not(.text-button):checked label, headerbar button.image-button:not(.text-button):checked image, headerbar button.image-button:not(.text-button):checked arrow, headerbar button.image-button:not(.text-button).toggle:hover label, headerbar button.image-button:not(.text-button).toggle:hover image, headerbar button.image-button:not(.text-button).toggle:hover arrow, headerbar button.image-button:not(.text-button).toggle:checked label, headerbar button.image-button:not(.text-button).toggle:checked image, headerbar button.image-button:not(.text-button).toggle:checked arrow, headerbar button.image-button:not(.text-button).popup:hover label, headerbar button.image-button:not(.text-button).popup:hover image, headerbar button.image-button:not(.text-button).popup:hover arrow, headerbar button.image-button:not(.text-button).popup:checked label, headerbar button.image-button:not(.text-button).popup:checked image, headerbar button.image-button:not(.text-button).popup:checked arrow, headerbar button.image-button:not(.text-button).popup.toggle:hover label, headerbar button.image-button:not(.text-button).popup.toggle:hover image, headerbar button.image-button:not(.text-button).popup.toggle:hover arrow, headerbar button.image-button:not(.text-button).popup.toggle:checked label, headerbar button.image-button:not(.text-button).popup.toggle:checked image, headerbar button.image-button:not(.text-button).popup.toggle:checked arrow, headerbar.titlebar button.image-button:not(.text-button):hover label, headerbar.titlebar button.image-button:not(.text-button):hover image, headerbar.titlebar button.image-button:not(.text-button):hover arrow, headerbar.titlebar button.image-button:not(.text-button):checked label, headerbar.titlebar button.image-button:not(.text-button):checked image, headerbar.titlebar button.image-button:not(.text-button):checked arrow, headerbar.titlebar button.image-button:not(.text-button).toggle:hover label, headerbar.titlebar button.image-button:not(.text-button).toggle:hover image, headerbar.titlebar button.image-button:not(.text-button).toggle:hover arrow, headerbar.titlebar button.image-button:not(.text-button).toggle:checked label, headerbar.titlebar button.image-button:not(.text-button).toggle:checked image, headerbar.titlebar button.image-button:not(.text-button).toggle:checked arrow, headerbar.titlebar button.image-button:not(.text-button).popup:hover label, headerbar.titlebar button.image-button:not(.text-button).popup:hover image, headerbar.titlebar button.image-button:not(.text-button).popup:hover arrow, headerbar.titlebar button.image-button:not(.text-button).popup:checked label, headerbar.titlebar button.image-button:not(.text-button).popup:checked image, headerbar.titlebar button.image-button:not(.text-button).popup:checked arrow, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:hover label, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:hover image, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:hover arrow, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:checked label, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:checked image, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:checked arrow {
+headerbar button.image-button:not(.text-button):not(.radio):not(.model):hover label, headerbar button.image-button:not(.text-button):not(.radio):not(.model):hover image, headerbar button.image-button:not(.text-button):not(.radio):not(.model):hover arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model):checked label, headerbar button.image-button:not(.text-button):not(.radio):not(.model):checked image, headerbar button.image-button:not(.text-button):not(.radio):not(.model):checked arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:hover label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:hover image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:hover arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:hover label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:hover image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:hover arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):hover label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):hover image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):hover arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):checked label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):checked image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):checked arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:hover label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:hover image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:hover arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:hover label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:hover image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:hover arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked arrow {
   color: #A42435;
 }
 
-headerbar button.image-button:not(.text-button):active, headerbar button.image-button:not(.text-button):checked:hover, headerbar button.image-button:not(.text-button).toggle:active, headerbar button.image-button:not(.text-button).toggle:checked:hover, headerbar button.image-button:not(.text-button).popup:active, headerbar button.image-button:not(.text-button).popup:checked:hover, headerbar button.image-button:not(.text-button).popup.toggle:active, headerbar button.image-button:not(.text-button).popup.toggle:checked:hover, headerbar.titlebar button.image-button:not(.text-button):active, headerbar.titlebar button.image-button:not(.text-button):checked:hover, headerbar.titlebar button.image-button:not(.text-button).toggle:active, headerbar.titlebar button.image-button:not(.text-button).toggle:checked:hover, headerbar.titlebar button.image-button:not(.text-button).popup:active, headerbar.titlebar button.image-button:not(.text-button).popup:checked:hover, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:active, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:checked:hover {
-  background-image: image(#F4F4F4);
-  border-color: #F4F4F4;
+headerbar button.image-button:not(.text-button):not(.radio):not(.model):active, headerbar button.image-button:not(.text-button):not(.radio):not(.model):checked:hover, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:active, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked:hover, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:active, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked:hover, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:active, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked:hover, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):active, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):checked:hover, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:active, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked:hover, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:active, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked:hover, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:active, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked:hover {
+  background-color: transparent;
+  border-color: transparent;
 }
 
-headerbar button.image-button:not(.text-button):active label, headerbar button.image-button:not(.text-button):active image, headerbar button.image-button:not(.text-button):active arrow, headerbar button.image-button:not(.text-button):checked:hover label, headerbar button.image-button:not(.text-button):checked:hover image, headerbar button.image-button:not(.text-button):checked:hover arrow, headerbar button.image-button:not(.text-button).toggle:active label, headerbar button.image-button:not(.text-button).toggle:active image, headerbar button.image-button:not(.text-button).toggle:active arrow, headerbar button.image-button:not(.text-button).toggle:checked:hover label, headerbar button.image-button:not(.text-button).toggle:checked:hover image, headerbar button.image-button:not(.text-button).toggle:checked:hover arrow, headerbar button.image-button:not(.text-button).popup:active label, headerbar button.image-button:not(.text-button).popup:active image, headerbar button.image-button:not(.text-button).popup:active arrow, headerbar button.image-button:not(.text-button).popup:checked:hover label, headerbar button.image-button:not(.text-button).popup:checked:hover image, headerbar button.image-button:not(.text-button).popup:checked:hover arrow, headerbar button.image-button:not(.text-button).popup.toggle:active label, headerbar button.image-button:not(.text-button).popup.toggle:active image, headerbar button.image-button:not(.text-button).popup.toggle:active arrow, headerbar button.image-button:not(.text-button).popup.toggle:checked:hover label, headerbar button.image-button:not(.text-button).popup.toggle:checked:hover image, headerbar button.image-button:not(.text-button).popup.toggle:checked:hover arrow, headerbar.titlebar button.image-button:not(.text-button):active label, headerbar.titlebar button.image-button:not(.text-button):active image, headerbar.titlebar button.image-button:not(.text-button):active arrow, headerbar.titlebar button.image-button:not(.text-button):checked:hover label, headerbar.titlebar button.image-button:not(.text-button):checked:hover image, headerbar.titlebar button.image-button:not(.text-button):checked:hover arrow, headerbar.titlebar button.image-button:not(.text-button).toggle:active label, headerbar.titlebar button.image-button:not(.text-button).toggle:active image, headerbar.titlebar button.image-button:not(.text-button).toggle:active arrow, headerbar.titlebar button.image-button:not(.text-button).toggle:checked:hover label, headerbar.titlebar button.image-button:not(.text-button).toggle:checked:hover image, headerbar.titlebar button.image-button:not(.text-button).toggle:checked:hover arrow, headerbar.titlebar button.image-button:not(.text-button).popup:active label, headerbar.titlebar button.image-button:not(.text-button).popup:active image, headerbar.titlebar button.image-button:not(.text-button).popup:active arrow, headerbar.titlebar button.image-button:not(.text-button).popup:checked:hover label, headerbar.titlebar button.image-button:not(.text-button).popup:checked:hover image, headerbar.titlebar button.image-button:not(.text-button).popup:checked:hover arrow, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:active label, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:active image, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:active arrow, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:checked:hover label, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:checked:hover image, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:checked:hover arrow {
+headerbar button.image-button:not(.text-button):not(.radio):not(.model):active label, headerbar button.image-button:not(.text-button):not(.radio):not(.model):active image, headerbar button.image-button:not(.text-button):not(.radio):not(.model):active arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model):checked:hover label, headerbar button.image-button:not(.text-button):not(.radio):not(.model):checked:hover image, headerbar button.image-button:not(.text-button):not(.radio):not(.model):checked:hover arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:active label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:active image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:active arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked:hover label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked:hover image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked:hover arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:active label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:active image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:active arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked:hover label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked:hover image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked:hover arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:active label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:active image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:active arrow, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked:hover label, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked:hover image, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked:hover arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):active label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):active image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):active arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):checked:hover label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):checked:hover image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):checked:hover arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:active label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:active image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:active arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked:hover label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked:hover image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked:hover arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:active label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:active image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:active arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked:hover label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked:hover image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked:hover arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:active label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:active image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:active arrow, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked:hover label, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked:hover image, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked:hover arrow {
   color: #8f1f2e;
 }
 
-headerbar button.image-button:not(.text-button):disabled, headerbar button.image-button:not(.text-button).toggle:disabled, headerbar button.image-button:not(.text-button).popup:disabled, headerbar button.image-button:not(.text-button).popup.toggle:disabled, headerbar.titlebar button.image-button:not(.text-button):disabled, headerbar.titlebar button.image-button:not(.text-button).toggle:disabled, headerbar.titlebar button.image-button:not(.text-button).popup:disabled, headerbar.titlebar button.image-button:not(.text-button).popup.toggle:disabled {
+headerbar button.image-button:not(.text-button):not(.radio):not(.model):disabled, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:disabled, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:disabled, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:disabled, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):disabled, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:disabled, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:disabled, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:disabled {
   color: rgba(96, 96, 96, 0.4);
 }
 
@@ -4999,11 +5159,12 @@ headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:chec
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.radio:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.radio:checked:disabled {
+  background-color: rgba(225, 225, 225, 0.6);
   box-shadow: inset 0 -2px 0px rgba(96, 96, 96, 0.4);
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.radio:checked:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.radio:checked:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.radio:checked:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.radio:checked:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.radio:checked:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.radio:checked:disabled arrow {
-  color: #606060;
+  color: rgba(96, 96, 96, 0.4);
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:not(:checked):hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.radio:not(:checked):hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:not(:checked):hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.radio:not(:checked):hover {
@@ -5023,7 +5184,7 @@ headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:not(
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.radio:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.radio:disabled {
-  background-color: rgba(96, 96, 96, 0.4);
+  background-color: rgba(225, 225, 225, 0.6);
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.radio:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.radio:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.radio:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.radio:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.radio:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.radio:disabled arrow {
@@ -5152,6 +5313,40 @@ window.nautilus-window popover grid stack button:not(.image-button):hover, windo
   background-color: #eeeeee;
 }
 
+window.nautilus-window scrolledwindow treeeview.view, window.nautilus-window .nautilus-list-view overlay treeview {
+  background-color: #E8E8E7;
+}
+
+window.nautilus-window scrolledwindow treeeview.view *:selected, window.nautilus-window .nautilus-list-view overlay treeview *:selected {
+  background-color: #A42435;
+}
+
+window.nautilus-window popover viewport button {
+  border-color: transparent;
+  background-image: none;
+  background-color: transparent;
+}
+
+window.nautilus-window popover viewport button:hover {
+  border-color: transparent;
+  background-image: none;
+  background-color: transparent;
+}
+
+window.nautilus-window popover viewport button:hover image, window.nautilus-window popover viewport button:hover label, window.nautilus-window popover viewport button:hover arrow {
+  color: #A42435;
+}
+
+window.nautilus-window popover viewport button:active {
+  border-color: transparent;
+  background-image: none;
+  background-color: transparent;
+}
+
+window.nautilus-window popover viewport button:active image, window.nautilus-window popover viewport button:active label, window.nautilus-window popover viewport button:active arrow {
+  color: #8f1f2e;
+}
+
 window.nautilus-window header tabs tab {
   padding: 0px 8px;
 }
@@ -5210,7 +5405,66 @@ toolbar toolitem button.image-button.raised {
 
 headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
   background-color: white;
+  border-radius: 0px;
   border-width: 0px;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:first-child {
+  border-top-left-radius: 6px;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:last-child {
+  border-top-right-radius: 6px;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked label, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked image, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked arrow {
+  color: #A42435;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:active label, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:active image, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:active arrow {
+  color: #8f1f2e;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:active {
+  background-color: white;
+  box-shadow: inset 0 -2px 0px #A42435;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked:hover {
+  color: #606060;
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.15);
+  outline-color: rgba(96, 96, 96, 0.3);
+  border-color: transparent;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked:hover label, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked:hover image, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:checked:hover arrow {
+  color: #8f1f2e;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked) {
+  background-color: white;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked) label, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked) image, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked) arrow {
+  color: rgba(96, 96, 96, 0.4);
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked):hover {
+  border-color: transparent;
+  box-shadow: inset 0 -2px 0px rgba(96, 96, 96, 0.4);
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked):hover label, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked):hover image, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked):hover arrow {
+  color: rgba(96, 96, 96, 0.4);
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked):hover:active {
+  box-shadow: inset 0 -2px 0px #A42435;
+}
+
+headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked):hover:active label, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked):hover:active image, headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:not(:checked):hover:active arrow {
+  color: #8f1f2e;
 }
 
 window.workbench docktabstrip {

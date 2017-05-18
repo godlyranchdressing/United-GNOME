@@ -10,8 +10,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="54.000477"
-   height="22.000015"
+   width="48.000259"
+   height="19.99968"
    id="svg2857"
    version="1.1"
    inkscape:version="0.92.1 r"
@@ -70,16 +70,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.07058824"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9999996"
-     inkscape:cx="6.5177853"
-     inkscape:cy="-1.2687323"
+     inkscape:zoom="11.313708"
+     inkscape:cx="5.4354374"
+     inkscape:cy="6.1505081"
      inkscape:document-units="px"
      inkscape:current-layer="g37994"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="736"
-     inkscape:window-x="0"
-     inkscape:window-y="432"
+     inkscape:window-width="1848"
+     inkscape:window-height="1137"
+     inkscape:window-x="1438"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
      borderlayer="true"
      inkscape:showpageshadow="false"
@@ -98,8 +98,8 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="-11.07897"
-       originy="-0.54882733" />
+       originx="-13.537318"
+       originy="-1.5430152" />
   </sodipodi:namedview>
   <metadata
      id="metadata2862">
@@ -109,7 +109,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -117,25 +117,25 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-450.18473,-780.69063)">
+     transform="translate(-452.64308,-781.69678)">
     <g
        transform="matrix(0.6526046,0,0,0.80554422,99.592644,-636.32172)"
        id="g37994">
       <g
          id="g863"
-         transform="matrix(0.75693558,0,0,0.93729461,140.70557,110.85518)">
+         transform="matrix(0.74011283,0,0,0.93727959,149.60738,110.88923)">
         <g
            transform="translate(-115,1277)"
            id="g37996">
           <rect
-             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#b1b1b1;fill-opacity:1;fill-rule:nonzero;stroke:#979797;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#1c1c1c;fill-opacity:1;fill-rule:nonzero;stroke:#232323;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
              id="rect38000"
              width="98"
              height="25"
              x="644.5"
              y="483.5"
-             rx="6.2659993"
-             ry="4.0995283" />
+             rx="6.4084258"
+             ry="4.0995936" />
         </g>
         <g
            id="g38002"
@@ -145,14 +145,14 @@
              style="display:inline"
              transform="translate(-115,1247)">
             <rect
-               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#bfbfbf;stroke-width:1.37920964;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#383838;fill-opacity:1;fill-rule:nonzero;stroke:#232323;stroke-width:1.37920964;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
                id="rect38006"
                width="45.969578"
                height="25"
                x="694.53046"
                y="515.5"
-               rx="6.1922345"
-               ry="4.0512676" />
+               rx="6.332984"
+               ry="4.0513325" />
           </g>
         </g>
       </g>

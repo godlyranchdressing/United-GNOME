@@ -9,13 +9,13 @@ style "default" {
   GtkMenuBar::window-dragging = 1
   GtkToolbar::window-dragging = 1
   GtkToolbar::internal-padding = 4
-  GtkToolButton::icon-spacing = 42
+  GtkToolButton::icon-spacing = 4
 
   GtkWidget::tooltip-radius = 2
   GtkWidget::tooltip-alpha = 235
   GtkWidget::new-tooltip-style = 1 #for compatibility
 
-  GtkSeparatorMenuItem::horizontal-padding = 2
+  GtkSeparatorMenuItem::horizontal-padding = 3
   GtkSeparatorMenuItem::wide-separators = 1
   GtkSeparatorMenuItem::separator-height = 1
 
@@ -28,7 +28,6 @@ style "default" {
   GtkScrollbar::trough-border = 0
   GtkRange::trough-border = 0
   GtkRange::slider-width = 13
-  GtkRange::activate-slider   = 1
   GtkRange::stepper-size = 0
 
   GtkScrollbar::activate-slider = 1
@@ -54,7 +53,7 @@ style "default" {
   GtkMenu::vertical-padding = 0
 
   GtkCheckButton::indicator_spacing = 3
-  GtkOptionMenu::indicator_spacing = { 8, 8, 0, 0 }
+  GtkOptionMenu::indicator_spacing = { 8, 2, 0, 0 }
 
   GtkTreeView::row_ending_details = 0
   GtkTreeView::expander-size = 11
@@ -75,10 +74,10 @@ style "default" {
   # Colors
 
   bg[NORMAL] = @bg_color
-  bg[PRELIGHT] = shade (1.02, @bg_color)
+  bg[PRELIGHT] = @bg_color
   bg[SELECTED] = @selected_bg_color
   bg[INSENSITIVE] = @insensitive_bg_color
-  bg[ACTIVE] = shade (0.9, @bg_color)
+  bg[ACTIVE] = @selected_bg_color
 
   fg[NORMAL] = @text_color
   fg[PRELIGHT] = @fg_color
@@ -93,7 +92,7 @@ style "default" {
   text[ACTIVE] = @selected_fg_color
 
   base[NORMAL] = @base_color
-  base[PRELIGHT] = shade (0.95, @bg_color)
+  base[PRELIGHT] = @bg_color
   base[SELECTED] = @selected_bg_color
   base[INSENSITIVE] = @bg_color
   base[ACTIVE] = shade (0.9, @selected_bg_color)
@@ -118,7 +117,7 @@ style "default" {
       recolorable = TRUE
       state = PRELIGHT
       shadow = OUT
-      overlay_file = "assets/checkbox-unchecked.png"
+      overlay_file = "assets/checkbox-unchecked-prelight.png"
       overlay_stretch = FALSE
     }
 
@@ -127,7 +126,7 @@ style "default" {
       recolorable = TRUE
       state = ACTIVE
       shadow = OUT
-      overlay_file = "assets/checkbox-unchecked.png"
+      overlay_file = "assets/checkbox-unchecked-prelight.png"
       overlay_stretch = FALSE
     }
 
@@ -208,7 +207,7 @@ style "default" {
       function = OPTION
       state = PRELIGHT
       shadow = OUT
-      overlay_file = "assets/radio-unchecked.png"
+      overlay_file = "assets/radio-unchecked-prelight.png"
       overlay_stretch = FALSE
     }
 
@@ -216,7 +215,7 @@ style "default" {
       function = OPTION
       state = ACTIVE
       shadow = OUT
-      overlay_file = "assets/radio-unchecked.png"
+      overlay_file = "assets/radio-unchecked-prelight.png"
       overlay_stretch = FALSE
     }
 
@@ -289,7 +288,7 @@ style "default" {
     image {
       function = ARROW
       state = PRELIGHT
-      overlay_file = "assets/arrow-up-prelight.png"
+      overlay_file = "assets/arrow-up-colored.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = UP
@@ -685,9 +684,9 @@ style "menu" {
 
   GtkMenuItem::arrow-scaling = 0.4
 
-  bg[NORMAL] = @base_color
-  bg[INSENSITIVE] = @base_color
-  bg[PRELIGHT] = @base_color
+  bg[NORMAL] = @headerbar_bg
+  bg[INSENSITIVE] = @headerbar_bg
+  bg[PRELIGHT] = @headerbar_bg
 
   engine "pixmap" { # For menus that use horizontal lines rather than gtkseparator
 
@@ -701,6 +700,7 @@ style "menu" {
 }
 
 style "menu_framed_box" {
+  bg[NORMAL] = @base_color
 
   engine "adwaita" {
   }
@@ -709,7 +709,7 @@ style "menu_framed_box" {
 style "menu_item"
 {
   xthickness = 2
-  ythickness = 4
+  ythickness = 5
 
   # HACK: Gtk doesn't actually read this value
   # while rendering the menu items, but Libreoffice
@@ -719,15 +719,24 @@ style "menu_item"
   # highlight. The price to pay is black text on menus as well,
   # but at least it's readable.
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
+  bg[NORMAL] = @base_color
+  bg[SELECTED] = @selected_fg_color
+
   fg[NORMAL] = @fg_color
-  text[NORMAL] = @fg_color
-  bg[PRELIGHT] = @selected_bg_color
   fg[SELECTED] = @selected_fg_color
+
   fg[PRELIGHT] = @selected_fg_color
   text[PRELIGHT] = @selected_fg_color
 
-
   engine "pixmap" {
+
+    image {
+      function = BOX
+      state = PRELIGHT
+      file = "assets/menuitem.png"
+      border = { 1, 0, 1, 0 }
+      stretch = TRUE
+    }
 
     # Fix invisible scale trough on selected menuitems
 
@@ -767,7 +776,7 @@ style "menu_item"
       recolorable = TRUE
       state = PRELIGHT
       shadow = OUT
-      overlay_file = "assets/menu-checkbox-unchecked-selected.png"
+      overlay_file = "assets/menu-checkbox-unchecked-prelight.png"
       overlay_stretch = FALSE
     }
 
@@ -776,7 +785,7 @@ style "menu_item"
       recolorable = TRUE
       state = ACTIVE
       shadow = OUT
-      overlay_file = "assets/menu-checkbox-unchecked.png"
+      overlay_file = "assets/menu-checkbox-unchecked-prelight.png"
       overlay_stretch = FALSE
     }
 
@@ -839,7 +848,7 @@ style "menu_item"
       function = OPTION
       state = PRELIGHT
       shadow = OUT
-      overlay_file = "assets/menu-radio-unchecked-selected.png"
+      overlay_file = "assets/menu-radio-unchecked-prelight.png"
       overlay_stretch = FALSE
     }
 
@@ -847,7 +856,7 @@ style "menu_item"
       function = OPTION
       state = ACTIVE
       shadow = OUT
-      overlay_file = "assets/menu-radio-unchecked.png"
+      overlay_file = "assets/menu-radio-unchecked-prelight.png"
       overlay_stretch = FALSE
     }
 
@@ -922,8 +931,8 @@ style "menu_item"
 
 style "button" {
 
-  xthickness = 5
-  ythickness = 5
+  xthickness = 4
+  ythickness = 4
 
   engine "pixmap" {
 
@@ -961,18 +970,85 @@ style "button" {
   }
 }
 
+style "button_label" {
+  fg[NORMAL] = @fg_color
+  fg[PRELIGHT]    = @selected_bg_color
+  fg[ACTIVE] = @selected_fg_color
+}
+
+style "checkbutton_label" {
+  fg[NORMAL] = @fg_color
+  fg[PRELIGHT]    = @fg_color
+  fg[SELECTED] = @fg_color
+  fg[ACTIVE] = @fg_color
+}
+
+style "tool_button" {
+  text[ACTIVE]      = @selected_bg_color
+  fg[ACTIVE] = @selected_fg_color
+
+  GtkButton::inner-border = {0, 0, 0, 0}
+
+  # For the sake of sanity style buttons this way
+  engine "pixmap" {
+
+    image {
+      function = BOX
+      state    = NORMAL
+      file     = "assets/flat-button.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+
+    image {
+      function = BOX
+      state    = PRELIGHT
+      shadow   = OUT
+      file     = "assets/flat-button-active.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+
+    # Don't add hover effect on pressed buttons
+    image {
+      function = BOX
+      state    = PRELIGHT
+      shadow   = IN
+      file     = "assets/flat-button-active.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+
+    image {
+      function = BOX
+      state    = ACTIVE
+      file     = "assets/flat-button-active.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+
+    image {
+      function = BOX
+      state    = INSENSITIVE
+      shadow   = OUT
+      file     = "assets/entry-disabled-bg.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+  }
+}
+
 style "checkbutton" {
 
   fg[PRELIGHT] = @text_color
-  bg[PRELIGHT] = @bg_color
   fg[ACTIVE] = @text_color
 
 }
 
 style "entry" {
 
-  xthickness = 5
-  ythickness = 5
+  xthickness = 6
+  ythickness = 4
 
   engine "pixmap" {
 
@@ -981,7 +1057,7 @@ style "entry" {
       state = NORMAL
       detail = "entry"
       file = "assets/entry-bg.png"
-      border = {4, 4, 4, 4}
+      border = {6, 6, 6, 6}
       stretch = TRUE
     }
 
@@ -989,7 +1065,7 @@ style "entry" {
       function = SHADOW
       state = ACTIVE
       detail = "entry"
-      file = "assets/entry-border-active-bg.png"
+      file = "assets/entry-active-bg.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -1003,34 +1079,24 @@ style "entry" {
       stretch = TRUE
     }
 
-        image {
-          function = FLAT_BOX
-          state    = NORMAL
-          file = "assets/entry-background-color.png"
-          detail   = "entry_bg"
-          stretch = TRUE
-        }
-
-
     image {
       function = FLAT_BOX
       state    = ACTIVE
-      file = "assets/entry-background-color.png"
       detail   = "entry_bg"
-      stretch = TRUE
+      file     = "assets/entry-background.png"
     }
 
     image {
       function = FLAT_BOX
       state    = INSENSITIVE
       detail   = "entry_bg"
-      file = "assets/entry-disabled-bg.png"
+      file     = "assets/entry-background-disabled.png"
     }
 
     image {
       function = FLAT_BOX
       detail   = "entry_bg"
-
+      file     = "assets/entry-background.png"
     }
   }
 }
@@ -1043,7 +1109,7 @@ style "notebook_entry" {
       function = SHADOW
       state = NORMAL
       detail = "entry"
-      file = "assets/entry-bg.png"
+      file = "assets/entry-notebook.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -1052,8 +1118,8 @@ style "notebook_entry" {
       function = SHADOW
       state = ACTIVE
       detail = "entry"
-      file = "assets/entry-border-active-bg.png"
-      border = {4, 4, 4, 4}
+      file = "assets/entry-active-notebook.png"
+      border = {6, 6, 6, 6}
       stretch = TRUE
     }
 
@@ -1061,7 +1127,7 @@ style "notebook_entry" {
       function = SHADOW
       state = INSENSITIVE
       detail = "entry"
-      file = "assets/entry-disabled-bg.png"
+      file = "assets/entry-disabled-notebook.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -1069,9 +1135,9 @@ style "notebook_entry" {
 }
 
 style "notebook_tab_label" {
-  fg[PRELIGHT] = @selected_bg_color
-  fg[NORMAL] = @selected_bg_color
-  font_name = "Medium"
+
+ fg[ACTIVE] = @fg_color
+
 }
 
 style "combobox_entry"
@@ -1099,7 +1165,7 @@ style "combobox_entry"
       detail = "entry"
       state = INSENSITIVE
       shadow = IN
-      file = "assets/entry-disabled-bg.png"
+      file = "assets/combo-entry-insensitive.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = LTR
@@ -1133,7 +1199,7 @@ style "combobox_entry"
       detail = "entry"
       state = INSENSITIVE
       shadow = IN
-      file = "assets/entry-disabled-bg.png"
+      file = "assets/combo-entry-insensitive-rtl.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = RTL
@@ -1162,7 +1228,7 @@ style "notebook_combobox_entry" {
       detail = "entry"
       state = NORMAL
       shadow = IN
-      file = "assets/entry-bg.png"
+      file = "assets/combo-entry-notebook.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = LTR
@@ -1173,7 +1239,7 @@ style "notebook_combobox_entry" {
       detail = "entry"
       state = INSENSITIVE
       shadow = IN
-      file = "assets/entry-disabled-bg.png"
+      file = "assets/combo-entry-insensitive-notebook.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = LTR
@@ -1207,7 +1273,7 @@ style "notebook_combobox_entry" {
       detail = "entry"
       state = INSENSITIVE
       shadow = IN
-      file = "assets/entry-disabled-bg.png"
+      file = "assets/combo-entry-insensitive-notebook-rtl.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = RTL
@@ -1256,7 +1322,7 @@ style "combobox_entry_button"
     image {
       function = BOX
       state = INSENSITIVE
-      file = "assets/entry-disabled-bg.png"
+      file = "assets/combo-entry-button-insensitive.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = LTR
@@ -1293,7 +1359,7 @@ style "combobox_entry_button"
     image {
       function = BOX
       state = INSENSITIVE
-      file = "assets/entry-disabled-bg.png"
+      file = "assets/combo-entry-button-insensitive-rtl.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = RTL
@@ -1302,7 +1368,7 @@ style "combobox_entry_button"
     image {
       function = BOX
       state = ACTIVE
-      file = "assets/combo-entry-button-active.png"
+      file = "assets/combo-entry-button-active-rtl.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = RTL
@@ -1353,7 +1419,7 @@ style "spinbutton" {
       function = BOX
       state = INSENSITIVE
       detail = "spinbutton_up"
-      file = "assets/spin-background-disable.png"
+      file = "assets/up-background-disable.png"
       border = { 1, 4, 5, 0 }
       stretch = TRUE
       overlay_file = "assets/arrow-up-small-insens.png"
@@ -1365,16 +1431,15 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_up"
-      file = "assets/spin-background-disable.png"
+      file = "assets/up-background-active.png"
       border = { 1, 4, 5, 0 }
       stretch = TRUE
-      overlay_file = "assets/arrow-up-small-colored.png"
+      overlay_file = "assets/arrow-up-small-active.png"
       overlay_stretch = FALSE
       direction = LTR
     }
 
     # Spin-Up RTL
-
     image {
       function = BOX
       state = NORMAL
@@ -1394,7 +1459,7 @@ style "spinbutton" {
       file = "assets/up-background-rtl.png"
       border = { 4, 1, 5, 0 }
       stretch = TRUE
-      overlay_file = "assets/arrow-up-small-prelight.png"
+      overlay_file = "assets/arrow-up-small-colored.png"
       overlay_stretch = FALSE
       direction = RTL
     }
@@ -1403,7 +1468,7 @@ style "spinbutton" {
       function = BOX
       state = INSENSITIVE
       detail = "spinbutton_up"
-      file = "assets/spin-background-disable.png"
+      file = "assets/up-background-disable-rtl.png"
       border = { 4, 1, 5, 0 }
       stretch = TRUE
       overlay_file = "assets/arrow-up-small-insens.png"
@@ -1415,10 +1480,10 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_up"
-      file = "assets/up-background-rtl.png"
+      file = "assets/up-background-active-rtl.png"
       border = { 4, 1, 5, 0 }
       stretch	= TRUE
-      overlay_file = "assets/arrow-up-small-prelight.png"
+      overlay_file = "assets/arrow-up-small-active.png"
       overlay_stretch	= FALSE
       direction = RTL
     }
@@ -1453,7 +1518,7 @@ style "spinbutton" {
       function = BOX
       state = INSENSITIVE
       detail = "spinbutton_down"
-      file = "assets/spin-background-disable.png"
+      file = "assets/down-background-disable.png"
       border = { 1, 4, 1, 4 }
       stretch = TRUE
       overlay_file = "assets/arrow-down-small-insens.png"
@@ -1465,10 +1530,10 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_down"
-      file = "assets/spin-background-disable.png"
+      file = "assets/down-background-active.png"
       border = { 1, 4, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-colored.png"
+      overlay_file = "assets/arrow-down-small-active.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1494,7 +1559,7 @@ style "spinbutton" {
       file = "assets/down-background-rtl.png"
       border = { 4, 1, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-prelight.png"
+      overlay_file = "assets/arrow-down-small-colored.png"
       overlay_stretch = FALSE
       direction = RTL
     }
@@ -1503,7 +1568,7 @@ style "spinbutton" {
       function = BOX
       state = INSENSITIVE
       detail = "spinbutton_down"
-      file = "assets/spin-background-disable.png"
+      file = "assets/down-background-disable-rtl.png"
       border = { 4, 1, 1, 4 }
       stretch = TRUE
       overlay_file = "assets/arrow-down-small-insens.png"
@@ -1515,10 +1580,10 @@ style "spinbutton" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_down"
-      file = "assets/down-background-rtl.png"
+      file = "assets/down-background-active-rtl.png"
       border = { 4, 1, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-prelight.png"
+      overlay_file = "assets/arrow-down-small-active.png"
       overlay_stretch = FALSE
       direction = RTL
     }
@@ -1776,95 +1841,6 @@ style "combobox" {
 
 }
 
-style "button_label" {
-  fg[NORMAL] = @fg_color
-  fg[PRELIGHT]    = @selected_bg_color
-  fg[ACTIVE] = @selected_fg_color
-}
-
-style "link_label" {
-    fg[NORMAL] = @fg_color
-    fg[PRELIGHT]    = @selected_bg_color
-    fg[ACTIVE] = @selected_fg_color
-}
-
-style "link_button" {
-  # doesn't seem to be working
-  engine "pixmap" {
-    image {
-      function = BOX
-      state    = NORMAL
-      shadow   = OUT
-      file     = "assets/button-active-suggested.png"
-      border   = {0, 0, 0, 0}
-      stretch  = TRUE
-    }
-  }
-}
-
-style "checkbutton_label" {
-  fg[NORMAL] = @fg_color
-  fg[PRELIGHT]    = @fg_color
-  fg[ACTIVE] = @fg_color
-}
-
-
-style "tool_button" {
-  text[ACTIVE]      = @selected_bg_color
-  fg[ACTIVE] = @selected_fg_color
-
-  GtkButton::inner-border = {0, 0, 0, 0}
-
-  # For the sake of sanity style buttons this way
-  engine "pixmap" {
-
-    image {
-      function = BOX
-      state    = NORMAL
-      file     = "assets/flat-button.png"
-      border   = {6, 6, 6, 6}
-      stretch  = TRUE
-    }
-
-    image {
-      function = BOX
-      state    = PRELIGHT
-      shadow   = OUT
-      file     = "assets/flat-button-active.png"
-      border   = {6, 6, 6, 6}
-      stretch  = TRUE
-    }
-
-    # Don't add hover effect on pressed buttons
-    image {
-      function = BOX
-      state    = PRELIGHT
-      shadow   = IN
-      file     = "assets/flat-button-active.png"
-      border   = {6, 6, 6, 6}
-      stretch  = TRUE
-    }
-
-    image {
-      function = BOX
-      state    = ACTIVE
-      file     = "assets/flat-button-active.png"
-      border   = {6, 6, 6, 6}
-      stretch  = TRUE
-    }
-
-    image {
-      function = BOX
-      state    = INSENSITIVE
-      shadow   = OUT
-      file     = "assets/entry-disabled-bg.png"
-      border   = {6, 6, 6, 6}
-      stretch  = TRUE
-    }
-  }
-}
-
-
 style "combobox_button" {
 
   xthickness = 3
@@ -1938,18 +1914,6 @@ style "range" {
 
     image {
       function = SLIDER
-      state = ACTIVE
-      file = "assets/null.png"
-      border = { 0, 0, 0, 0 }
-      stretch = TRUE
-      overlay_file = "assets/slider-prelight.png"
-      overlay_stretch = FALSE
-      orientation = HORIZONTAL
-    }
-
-
-    image {
-      function = SLIDER
       state = INSENSITIVE
       file = "assets/null.png"
       border = { 0, 0, 0, 0 }
@@ -1982,17 +1946,6 @@ style "range" {
       overlay_stretch = FALSE
       orientation = VERTICAL
     }
-
-        image {
-          function = SLIDER
-          state = ACTIVE
-          file = "assets/null.png"
-          border = { 0, 0, 0, 0 }
-          stretch = TRUE
-          overlay_file = "assets/slider-prelight.png"
-          overlay_stretch = FALSE
-          orientation = VERTICAL
-        }
 
     image {
       function = SLIDER
@@ -2382,13 +2335,57 @@ style "null" {
   }
 }
 
+style "menubar" {
+
+  bg[NORMAL] = @headerbar_bg
+  fg[NORMAL] = @fg_color
+  fg[PRELIGHT] = @selected_bg_color
+  fg[ACTIVE] = @selected_bg_color
+  fg[SELECTED] = @selected_fg_color
+  fg[INSENSITIVE] = @insensitive_fg_color
+
+  xthickness = 0
+  ythickness = 0
+
+  #engine "pixmap" {
+    #
+    #image {
+      #function = BOX
+      #file  = "assets/menubar.png"
+      #stretch  = TRUE
+      #border = { 1, 1, 1, 1 }
+    #}
+  #}
+}
+
+style "menubar-borderless" {
+
+  bg[NORMAL] = @headerbar_bg
+  fg[NORMAL] = @fg_color
+  fg[SELECTED] = @fg_color
+  fg[INSENSITIVE] = @insensitive_fg_color
+
+  xthickness = 0
+  ythickness = 0
+
+  engine "pixmap" {
+
+    image {
+      function = BOX
+      file  = "assets/null.png"
+      stretch  = TRUE
+      border = { 1, 1, 1, 1 }
+    }
+  }
+}
+
 style "menubar_item" {
 
   xthickness = 2
   ythickness = 4
 
-  bg[NORMAL] = @dark_menu_bg
-  fg[NORMAL] = @dark_menu_fg
+  bg[NORMAL] = @fg_color
+  fg[NORMAL] = @menubar_fg
   fg[PRELIGHT] = @selected_bg_color
   fg[ACTIVE] = @selected_bg_color
   fg[SELECTED] = @selected_bg_color
@@ -2400,43 +2397,13 @@ style "menubar_item" {
       state = PRELIGHT
       file = "assets/highlight.png"
       border = { 0, 0, 0, 4 }
+      stretch = FALSE
     }
   }
 }
 
-style "menubar" {
-
-  bg[NORMAL] = @dark_menu_bg
-  fg[NORMAL] = @dark_menu_fg
-  text[NORMAL] = @dark_menu_fg
-  fg[PRELIGHT] = @selected_fg_color
-  fg[ACTIVE] = @selected_bg_color
-  fg[SELECTED] = @selected_bg_color
-  fg[INSENSITIVE] = @insensitive_fg_color
-
-  xthickness = 0
-  ythickness = 0
-
-
-}
-
-style "menubar-borderless" {
-
-  bg[NORMAL] = @menu_bg
-  fg[NORMAL] = @dark_menu_fg
-  fg[SELECTED] = @fg_color
-  fg[INSENSITIVE] = @insensitive_fg_color
-
-  xthickness = 0
-  ythickness = 0
-
-}
-
-
-
 # Text Style Menubar
 style "menubar-text" {
-fg[NORMAL] = @dark_menu_fg
 
   engine "murrine" {
     text_shade = 0.0
@@ -2472,7 +2439,7 @@ style "toolbar_entry" {
       function = SHADOW
       state = INSENSITIVE
       detail = "entry"
-      file = "assets/entry-disabled-bg.png"
+      file = "assets/entry-disabled-toolbar.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -2502,14 +2469,14 @@ style "toolbar_entry" {
 #Chromium
 style "chrome-gtk-frame" {
 
-  ChromeGtkFrame::frame-color = @bg_color
-  ChromeGtkFrame::inactive-frame-color = @bg_color
+  ChromeGtkFrame::frame-color = @headerbar_bg
+  ChromeGtkFrame::inactive-frame-color = @headerbar_bg
 
   ChromeGtkFrame::frame-gradient-size = 0
-  ChromeGtkFrame::frame-gradient-color = shade(0.5, @bg_color)
+  ChromeGtkFrame::frame-gradient-color = shade(0.5, @headerbar_bg)
 
-  ChromeGtkFrame::incognito-frame-color = shade(0.85, @bg_color)
-  ChromeGtkFrame::incognito-inactive-frame-color = @bg_color
+  ChromeGtkFrame::incognito-frame-color = shade(0.85, @headerbar_bg)
+  ChromeGtkFrame::incognito-inactive-frame-color = @headerbar_bg
 
   ChromeGtkFrame::incognito-frame-gradient-color = @bg_color
 
@@ -2519,10 +2486,20 @@ style "chrome-gtk-frame" {
 
 }
 
+widget_class "*<GtkMenuBar>*"                                       style "menubar"
 
+widget_class "*ThunarWindow*<GtkToolbar>"                           style "menubar"
+widget_class "*CajaNavigationWindow*<GtkToolbar>"                   style "menubar"
 
+class "ChromeGtkFrame"                                              style "chrome-gtk-frame"
 
+widget_class "*<GtkMenuBar>*<GtkMenuItem>*<GtkAccelLabel>"          style "menubar-text"
 
+# Whitelist for dark toolbars
+widget_class "*ThunarWindow*<GtkMenuBar>"                           style "menubar-borderless"
+widget_class "*CajaNavigationWindow*<GtkMenuBar>"                   style "menubar-borderless"
+widget_class "*ThunarWindow*<GtkToolbar>*<GtkEntry>"                style "toolbar_entry"
+widget_class "*CajaNavigationWindow*<GtkToolbar>*<GtkEntry>"        style "toolbar_entry"
 
 class "GtkWidget"                                                   style "default"
 class "GtkScrollbar"                                                style "scrollbar"
@@ -2545,8 +2522,6 @@ widget_class "*<GtkMenu>*"                                          style "menu_
 widget_class "*<GtkMenuItem>*"                                      style "menu_item"
 widget_class "*<GtkCheckButton>*"                                   style "checkbutton"
 widget_class "*<GtkComboBox>"                                       style "combobox"
-widget_class "*<GtkToolButton>*<GtkButton>"                        style "tool_button"
-widget_class "*<GtkButton>*<GtkLabel>"                             style "button_label"
 widget_class "*<GtkComboBox>*<GtkButton>"                           style "combobox_button"
 widget_class "*<GtkComboBox>*<GtkSeparator>"                        style "combobox_separator"
 widget_class "*<GtkTreeView>*<GtkButton>*"                          style "treeview_header"
@@ -2563,6 +2538,9 @@ widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkEntry>"                      styl
 
 widget_class "*<GtkNotebook>*<GtkComboBoxEntry>*<GtkEntry>"                 style "notebook_combobox_entry"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkComboBoxEntry>*<GtkEntry>"   style "combobox_entry"
+
+# We also need to avoid changing fg color for the inactive notebook tab labels
+widget_class "*<GtkNotebook>.<GtkLabel>"                            style "notebook_tab_label"
 
 # GTK tooltips
 widget "gtk-tooltip*"                                               style "tooltips"
@@ -2601,31 +2579,12 @@ widget "xfwm4-tabwin*GtkButton*"                                    style "xfwm-
 widget_class "*<GtkLabel>"                                          style "text"
 widget_class "*<GtkMenu>*<GtkLabel>"                                style "menu_text"
 widget_class "*<GtkComboBox>*<GtkCellLayout>"                       style "text"
+widget_class "*<GtkNotebook>*<GtkLabel>"                            style "text"
 widget_class "*<GtkNotebook>*<GtkCellLayout>"                       style "text"
 
 # Imported
 widget_class "*<GtkButton>*<GtkLabel>"                             style "button_label"
 widget_class "*<GtkCheckButton>.<GtkLabel>"                        style "checkbutton_label"
+widget_class "*<GtkRadioButton>.<GtkLabel>"                        style "checkbutton_label"
 widget_class "*<GtkToolButton>*<GtkButton>"                        style "tool_button"
-widget_class "*<GtkLinkButton>*<GtkLabel>"                             style "link_label"
-widget_class "*<GtkNotebook>.<GtkLabel>"                           style "notebook_tab_label"
-widget_class "*<GtkNotebook>.<GtkHBox>.<GtkLabel>"                 style "notebook_tab_label"
-class "GtkLinkButton"                                              style "link_button"
-widget_class "*<GtkVBox>*<GtkEventBox>.<GtkToolbar>*<GtkButton>"   style "tool_button"
-
-widget_class "*<GtkMenuBar>*"                                       style "menubar"
-widget_class "*<GtkMenuItem>*"              style "menu_item"
 widget_class "*<GtkMenuBar>.<GtkMenuItem>*"                         style "menubar_item"
-
-widget_class "*ThunarWindow*<GtkToolbar>"                           style "menubar"
-widget_class "*CajaNavigationWindow*<GtkToolbar>"                   style "menubar"
-
-class "ChromeGtkFrame"                                              style "chrome-gtk-frame"
-
-widget_class "*<GtkMenuBar>*<GtkMenuItem>*<GtkAccelLabel>"          style "menubar-text"
-
-# Whitelist for dark toolbars
-widget_class "*ThunarWindow*<GtkMenuBar>"                           style "menubar-borderless"
-widget_class "*CajaNavigationWindow*<GtkMenuBar>"                   style "menubar-borderless"
-widget_class "*ThunarWindow*<GtkToolbar>*<GtkEntry>"                style "toolbar_entry"
-widget_class "*CajaNavigationWindow*<GtkToolbar>*<GtkEntry>"        style "toolbar_entry"

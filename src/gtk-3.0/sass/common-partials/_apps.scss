@@ -10,12 +10,32 @@ window.nautilus-window {
     }
   }
 
+  scrolledwindow treeeview.view, .nautilus-list-view overlay treeview {
+    background-color: $bg_color;
+
+    *:selected {
+      background-color: $primary_color;
+    }
+  }
+
+  popover viewport button {
+    @include button(flat, $primary_color);
+
+    &:hover {
+      @include button(flat-hover, $primary_color);
+    }
+
+    &:active {
+      @include button(flat-active, $primary_color);
+    }
+  }
+
   grid stack box.linked button:not(.image-button) {
     // nautilus has a not-entry button
     @include button(text, $fg_color, $lighter_bg_color);
   }
 
-  header tabs tab {
+  header tabs tab { // TODO: remove bottom border - make allowance for epiphany
     // necessary v-padding for regular tabs seems to be too much for nautilus
     padding: 0px 8px;
   }
@@ -94,7 +114,69 @@ toolbar toolitem button.image-button.raised {
 
 headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
   background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
+  border-radius: 0px;
   border-width: 0px;
+
+  &:first-child {
+    border-top-left-radius: $standard_radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: $standard_radius;
+  }
+
+  &:checked {
+    label, image, arrow {
+      color: $primary_color;
+    }
+  }
+
+  &:active {
+    label, image, arrow {
+      color: $pressed_fg;
+    }
+  }
+
+  &:checked, &:active {
+    background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
+    box-shadow: $shadow_bottom $primary_color;
+  }
+
+  &:checked:hover {
+    @include button(normal, if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color), if($headerbar == "dark", $light_fg_color, $fg_color));
+
+    border-color: transparent;
+
+    label, image, arrow {
+      color: $pressed_fg;
+    }
+  }
+
+  &:not(:checked) {
+    background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
+
+    label, image, arrow {
+      color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+    }
+
+    &:hover {
+      border-color: transparent;
+
+      label, image, arrow {
+        color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+      }
+
+      &:active {
+        label, image, arrow {
+          color: $pressed_fg;
+        }
+
+        box-shadow: $shadow_bottom $primary_color;
+      }
+
+      box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+    }
+  }
 }
 
 // Builder
@@ -130,16 +212,22 @@ window.workbench {
       border-right-style: none;
     }
 
-    &:hover{
+    &:hover {
       border-color: $border_color;
       background-color: $primary_color;
-      label, image, arrow{color: white;}
+
+      label, image, arrow {
+        color: white;
+      }
     }
 
-    &:hover{
+    &:hover {
       border-color: $border_color;
       background-color: $pressed_fg;
-      label, image, arrow{color: white;}
+
+      label, image, arrow {
+        color: white;
+      }
     }
   }
 
