@@ -1233,6 +1233,11 @@ button.color {
     .osd & {
       box-shadow: none;
     }
+
+    &:disabled {
+      background-color: transparent;
+      border-color: transparent;
+    }
   }
 
   @if $variant == "light" {
@@ -3351,13 +3356,23 @@ scale {
 // testing
 
 scale {
-  &.marks-after, &.marks-before {
+  &.marks-before {
     slider {
       border-radius: 0px;
       background: transparent;
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-      border-top: 15px solid #E59728;
+      border-bottom: 15px solid $accent_color;
+    }
+  }
+
+  &.marks-after {
+    slider {
+      border-radius: 0px;
+      background: transparent;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 15px solid $accent_color;
     }
   }
 }
@@ -3632,13 +3647,17 @@ row {
     @include button(flat);
 
     &:hover, &:checked {
-      color: $primary_color;
+      :not(label) {
+        color: $primary_color;
+      }
 
       @include button(flat);
     }
 
     &:active {
-      color: $pressed_fg;
+      :not(label) {
+        color: $pressed_fg;
+      }
 
       @include button(flat);
     }

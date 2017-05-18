@@ -1685,6 +1685,11 @@ button.color colorswatch:only-child, button.color colorswatch:only-child overlay
   box-shadow: none;
 }
 
+button.color colorswatch:only-child:disabled {
+  background-color: transparent;
+  border-color: transparent;
+}
+
 /*********
  * Links *
  *********/
@@ -3806,12 +3811,20 @@ scale.vertical.fine-tune indicator {
   min-width: 7px;
 }
 
-scale.marks-after slider, scale.marks-before slider {
+scale.marks-before slider {
   border-radius: 0px;
   background: transparent;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 15px solid #E59728;
+  border-bottom: 15px solid #4D4D4D;
+}
+
+scale.marks-after slider {
+  border-radius: 0px;
+  background: transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid #4D4D4D;
 }
 
 /*****************
@@ -4086,17 +4099,23 @@ row checkbutton, row radiobutton {
 }
 
 row checkbutton:hover, row checkbutton:checked, row radiobutton:hover, row radiobutton:checked {
-  color: #1793D1;
   border-color: transparent;
   background-image: none;
   background-color: transparent;
 }
 
+row checkbutton:hover :not(label), row checkbutton:checked :not(label), row radiobutton:hover :not(label), row radiobutton:checked :not(label) {
+  color: #1793D1;
+}
+
 row checkbutton:active, row radiobutton:active {
-  color: #1483ba;
   border-color: transparent;
   background-image: none;
   background-color: transparent;
+}
+
+row checkbutton:active :not(label), row radiobutton:active :not(label) {
+  color: #1483ba;
 }
 
 /*********************
