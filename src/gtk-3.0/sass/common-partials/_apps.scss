@@ -1,4 +1,7 @@
-// Nautilus
+/************
+ * Nautilus *
+ ************/
+
 window.nautilus-window {
   popover grid stack button:not(.image-button) {
     background-color: $alt_base_color;
@@ -55,7 +58,9 @@ window.nautilus-window {
   }
 }
 
-// Tweak Tool
+/************
+ * GNOME Tweak Tool *
+ ************/
 
 .tweak-categories separator {
   background: transparent;
@@ -82,7 +87,10 @@ viewport.frame list.tweak-categories {
   }
 }
 
-// Calculator
+/************
+ * Calculator *
+ ************/
+
 headerbar.titlebar button.title {
   // the calculator's title is a button
   background-image: none;
@@ -102,7 +110,10 @@ headerbar.titlebar button.title {
   }
 }
 
-// Rhythmbox
+/************
+ * Rhythmbox *
+ ************/
+
 #AltToolbarSideBar {
   box-shadow: none;
 }
@@ -111,7 +122,13 @@ toolbar toolitem button.image-button.raised {
   border: none;
 }
 
-// Software
+toolbar.horizontal box.linked button:hover {
+  border-color: $border_color;
+}
+
+/************
+ * GNOME Software *
+ ************/
 
 headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
   background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
@@ -180,7 +197,9 @@ headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
   }
 }
 
-// Builder
+/************
+ * GNOME Builder *
+ ************/
 
 window.workbench {
   docktabstrip {

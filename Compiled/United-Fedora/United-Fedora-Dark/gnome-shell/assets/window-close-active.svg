@@ -52,7 +52,7 @@
      cy="18"
      r="18"
      id="circle2"
-     style="fill:#3C6EB4;fill-opacity:1" />
+     style="fill:#3c6eb4;fill-opacity:1" />
   <circle
      style="opacity:0;fill:#ffffff"
      cx="18"
@@ -74,5 +74,5 @@
      cy="18"
      r="18"
      id="circle4-2"
-     style="opacity:0.3;fill:#ffffff" />
+     style="opacity:0.25;fill:#000000" />
 </svg>

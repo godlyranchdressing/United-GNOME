@@ -1,11 +1,13 @@
 #! /bin/bash
 DISTROS="distros.txt"
 
+echo "Compressing..."
+
 for distro in `cat $DISTROS`; do
   for variants in '' '-Light' '-Dark' '-Darker'; do
     cd Compiled
     cd United-${distro^}
-    tar -czvf United-${distro^}.tar.gz United-${distro^} United-${distro^}-Light United-${distro^}-Darker United-${distro^}-Dark
+    tar -cvzf United-${distro^}.tar.gz United-${distro^} United-${distro^}-Light United-${distro^}-Darker United-${distro^}-Dark
     mv United-${distro^}.tar.gz ../..
     cd ..
   done

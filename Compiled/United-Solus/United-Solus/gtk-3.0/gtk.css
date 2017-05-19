@@ -1,3 +1,18 @@
+/************
+ * Functions *
+ ************/
+/************
+ * Entries *
+ ************/
+/************
+ * Buttons *
+ ************/
+/************
+ * Overshoot *
+ ************/
+/************
+ * Undershoot *
+ ************/
 * {
   padding: 0;
   -GtkToolButton-icon-spacing: 2;
@@ -625,7 +640,7 @@ button.text-button:hover {
 
 button.text-button:active {
   outline-color: rgba(96, 96, 96, 0.3);
-  border-color: #68a2e6;
+  border-color: ligthen(#5294e2, 5%);
   background-color: #3884de;
   background-color: #5294e2;
 }
@@ -652,7 +667,7 @@ button.flat:disabled {
 
 
 button:disabled {
-  border-color: rgba(225, 225, 225, 0.6);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(225, 225, 225, 0.6);
 }
 
@@ -716,65 +731,6 @@ button.image-button {
 }
 
 
-button.image-button:not(.text-button):not(.radio):not(.model):hover image,
-button.image-button:not(.text-button):not(.radio):not(.model):hover label,
-button.image-button:not(.text-button):not(.radio):not(.model):hover arrow,
-button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover image,
-button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover label,
-button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover arrow,
-button.image-button:not(.text-button):not(.radio):not(.model).popup:hover image,
-button.image-button:not(.text-button):not(.radio):not(.model).popup:hover label,
-button.image-button:not(.text-button):not(.radio):not(.model).popup:hover arrow {
-  color: #5294e2;
-}
-
-
-button.image-button:not(.text-button):not(.radio):not(.model):active,
-button.image-button:not(.text-button):not(.radio):not(.model).toggle:active,
-button.image-button:not(.text-button):not(.radio):not(.model).popup:active {
-  background-color: white;
-}
-
-
-button.image-button:not(.text-button):not(.radio):not(.model):active image,
-button.image-button:not(.text-button):not(.radio):not(.model):active label,
-button.image-button:not(.text-button):not(.radio):not(.model):active arrow,
-button.image-button:not(.text-button):not(.radio):not(.model).toggle:active image,
-button.image-button:not(.text-button):not(.radio):not(.model).toggle:active label,
-button.image-button:not(.text-button):not(.radio):not(.model).toggle:active arrow,
-button.image-button:not(.text-button):not(.radio):not(.model).popup:active image,
-button.image-button:not(.text-button):not(.radio):not(.model).popup:active label,
-button.image-button:not(.text-button):not(.radio):not(.model).popup:active arrow {
-  color: #3c86de;
-}
-
-
-button.image-button:not(.text-button):not(.radio):not(.model):checked,
-button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked,
-button.image-button:not(.text-button):not(.radio):not(.model).popup:checked {
-  background-color: #5294e2;
-}
-
-
-button.image-button.popup.toggle:hover image,
-button.image-button.popup.toggle:hover label,
-button.image-button.popup.toggle:hover arrow {
-  color: white;
-}
-
-
-button.image-button.popup.toggle:active {
-  background-color: #3c86de;
-}
-
-
-button.image-button.popup.toggle:active image,
-button.image-button.popup.toggle:active label,
-button.image-button.popup.toggle:active arrow {
-  color: white;
-}
-
-
 button.lock:hover {
   border-color: #5294e2;
 }
@@ -824,7 +780,7 @@ button.link.flat:disabled {
 
 
 button.link:disabled {
-  border-color: rgba(225, 225, 225, 0.6);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(225, 225, 225, 0.6);
 }
 
@@ -1094,7 +1050,11 @@ button.flat.image-button.scale:checked arrow {
 }
 
 
-button.suggested-action {
+button.suggested-action,
+button.text-button.suggested-action,
+button.toggle.suggested-action,
+button.text-button.toggle.suggested-action,
+button.image-button.text-button.toggle.suggested-action {
   color: white;
   background-color: #27ae60;
   border-color: #27ae60;
@@ -1102,7 +1062,11 @@ button.suggested-action {
 }
 
 
-button.suggested-action.flat {
+button.suggested-action.flat,
+button.text-button.suggested-action.flat,
+button.toggle.suggested-action.flat,
+button.text-button.toggle.suggested-action.flat,
+button.image-button.text-button.toggle.suggested-action.flat {
   border-color: transparent;
   background-image: none;
   background-color: transparent;
@@ -1110,54 +1074,103 @@ button.suggested-action.flat {
 }
 
 
-button.suggested-action:hover {
+button.suggested-action:hover,
+button.text-button.suggested-action:hover,
+button.toggle.suggested-action:hover,
+button.text-button.toggle.suggested-action:hover,
+button.image-button.text-button.toggle.suggested-action:hover {
   color: white;
-  background-color: #2ecd71;
-  border-color: #2cc36b;
+  background-color: ligthen(#27ae60, 5%);
+  border-color: ligthen(#27ae60, 5%);
   outline-color: rgba(96, 96, 96, 0.3);
+  background-color: #2cc36b;
 }
 
 
-button.suggested-action:active {
+button.suggested-action:active,
+button.text-button.suggested-action:active,
+button.toggle.suggested-action:active,
+button.text-button.toggle.suggested-action:active,
+button.image-button.text-button.toggle.suggested-action:active {
   outline-color: rgba(96, 96, 96, 0.3);
-  border-color: #2cc36b;
+  border-color: ligthen(#27ae60, 5%);
   background-color: #219552;
 }
 
 
 button.suggested-action:active image,
 button.suggested-action:active label,
-button.suggested-action:active arrow {
+button.suggested-action:active arrow,
+button.text-button.suggested-action:active image,
+button.text-button.suggested-action:active label,
+button.text-button.suggested-action:active arrow,
+button.toggle.suggested-action:active image,
+button.toggle.suggested-action:active label,
+button.toggle.suggested-action:active arrow,
+button.text-button.toggle.suggested-action:active image,
+button.text-button.toggle.suggested-action:active label,
+button.text-button.toggle.suggested-action:active arrow,
+button.image-button.text-button.toggle.suggested-action:active image,
+button.image-button.text-button.toggle.suggested-action:active label,
+button.image-button.text-button.toggle.suggested-action:active arrow {
   color: white;
 }
 
 
-button.suggested-action:checked {
+button.suggested-action:checked,
+button.text-button.suggested-action:checked,
+button.toggle.suggested-action:checked,
+button.text-button.toggle.suggested-action:checked,
+button.image-button.text-button.toggle.suggested-action:checked {
   color: white;
   outline-color: rgba(96, 96, 96, 0.3);
-  border-color: #2cc36b;
+  border-color: ligthen(#27ae60, 5%);
   background-color: #219552;
 }
 
 
-button.suggested-action:checked:hover {
+button.suggested-action:checked:hover,
+button.text-button.suggested-action:checked:hover,
+button.toggle.suggested-action:checked:hover,
+button.text-button.toggle.suggested-action:checked:hover,
+button.image-button.text-button.toggle.suggested-action:checked:hover {
   background-color: #219552;
 }
 
 
-button.suggested-action:checked:active {
+button.suggested-action:checked:active,
+button.text-button.suggested-action:checked:active,
+button.toggle.suggested-action:checked:active,
+button.text-button.toggle.suggested-action:checked:active,
+button.image-button.text-button.toggle.suggested-action:checked:active {
   background-color: #219552;
 }
 
 
 button.suggested-action:checked:active image,
 button.suggested-action:checked:active label,
-button.suggested-action:checked:active arrow {
+button.suggested-action:checked:active arrow,
+button.text-button.suggested-action:checked:active image,
+button.text-button.suggested-action:checked:active label,
+button.text-button.suggested-action:checked:active arrow,
+button.toggle.suggested-action:checked:active image,
+button.toggle.suggested-action:checked:active label,
+button.toggle.suggested-action:checked:active arrow,
+button.text-button.toggle.suggested-action:checked:active image,
+button.text-button.toggle.suggested-action:checked:active label,
+button.text-button.toggle.suggested-action:checked:active arrow,
+button.image-button.text-button.toggle.suggested-action:checked:active image,
+button.image-button.text-button.toggle.suggested-action:checked:active label,
+button.image-button.text-button.toggle.suggested-action:checked:active arrow {
   color: white;
 }
 
 
-button.suggested-action.flat:disabled {
+button.suggested-action.flat:disabled,
+button.text-button.suggested-action.flat:disabled,
+button.toggle.suggested-action.flat:disabled,
+button.text-button.toggle.suggested-action.flat:disabled,
+button.image-button.text-button.toggle.suggested-action.flat:disabled {
   border-color: transparent;
   background-image: none;
   background-color: transparent;
@@ -1165,20 +1178,40 @@ button.suggested-action.flat:disabled {
 }
 
 
-button.suggested-action:disabled {
-  border-color: rgba(225, 225, 225, 0.6);
+button.suggested-action:disabled,
+button.text-button.suggested-action:disabled,
+button.toggle.suggested-action:disabled,
+button.text-button.toggle.suggested-action:disabled,
+button.image-button.text-button.toggle.suggested-action:disabled {
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(225, 225, 225, 0.6);
 }
 
 
 button.suggested-action:disabled label,
-button.suggested-action:disabled {
+button.suggested-action:disabled,
+button.text-button.suggested-action:disabled label,
+button.text-button.suggested-action:disabled,
+button.toggle.suggested-action:disabled label,
+button.toggle.suggested-action:disabled,
+button.text-button.toggle.suggested-action:disabled label,
+button.text-button.toggle.suggested-action:disabled,
+button.image-button.text-button.toggle.suggested-action:disabled label,
+button.image-button.text-button.toggle.suggested-action:disabled {
   color: rgba(96, 96, 96, 0.4);
 }
 
 
 button.suggested-action:disabled:active,
-button.suggested-action:disabled:checked {
+button.suggested-action:disabled:checked,
+button.text-button.suggested-action:disabled:active,
+button.text-button.suggested-action:disabled:checked,
+button.toggle.suggested-action:disabled:active,
+button.toggle.suggested-action:disabled:checked,
+button.text-button.toggle.suggested-action:disabled:active,
+button.text-button.toggle.suggested-action:disabled:checked,
+button.image-button.text-button.toggle.suggested-action:disabled:active,
+button.image-button.text-button.toggle.suggested-action:disabled:checked {
   border-color: #3b9c64;
   background-color: #3b9c64;
 }
@@ -1187,12 +1220,32 @@ button.suggested-action:disabled:checked {
 button.suggested-action:disabled:active label,
 button.suggested-action:disabled:active,
 button.suggested-action:disabled:checked label,
-button.suggested-action:disabled:checked {
+button.suggested-action:disabled:checked,
+button.text-button.suggested-action:disabled:active label,
+button.text-button.suggested-action:disabled:active,
+button.text-button.suggested-action:disabled:checked label,
+button.text-button.suggested-action:disabled:checked,
+button.toggle.suggested-action:disabled:active label,
+button.toggle.suggested-action:disabled:active,
+button.toggle.suggested-action:disabled:checked label,
+button.toggle.suggested-action:disabled:checked,
+button.text-button.toggle.suggested-action:disabled:active label,
+button.text-button.toggle.suggested-action:disabled:active,
+button.text-button.toggle.suggested-action:disabled:checked label,
+button.text-button.toggle.suggested-action:disabled:checked,
+button.image-button.text-button.toggle.suggested-action:disabled:active label,
+button.image-button.text-button.toggle.suggested-action:disabled:active,
+button.image-button.text-button.toggle.suggested-action:disabled:checked label,
+button.image-button.text-button.toggle.suggested-action:disabled:checked {
   color: #517862;
 }
 
 .osd
-button.suggested-action {
+button.suggested-action, .osd
+button.text-button.suggested-action, .osd
+button.toggle.suggested-action, .osd
+button.text-button.toggle.suggested-action, .osd
+button.image-button.text-button.toggle.suggested-action {
   color: #606060;
   border-color: rgba(0, 0, 0, 0.15);
   background: #27ae60;
@@ -1201,7 +1254,11 @@ button.suggested-action {
 }
 
 .osd
-button.suggested-action:hover {
+button.suggested-action:hover, .osd
+button.text-button.suggested-action:hover, .osd
+button.toggle.suggested-action:hover, .osd
+button.text-button.toggle.suggested-action:hover, .osd
+button.image-button.text-button.toggle.suggested-action:hover {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #27ae60;
   background-clip: padding-box;
@@ -1211,13 +1268,33 @@ button.suggested-action:hover {
 .osd
 button.suggested-action:hover image, .osd
 button.suggested-action:hover label, .osd
-button.suggested-action:hover arrow {
+button.suggested-action:hover arrow, .osd
+button.text-button.suggested-action:hover image, .osd
+button.text-button.suggested-action:hover label, .osd
+button.text-button.suggested-action:hover arrow, .osd
+button.toggle.suggested-action:hover image, .osd
+button.toggle.suggested-action:hover label, .osd
+button.toggle.suggested-action:hover arrow, .osd
+button.text-button.toggle.suggested-action:hover image, .osd
+button.text-button.toggle.suggested-action:hover label, .osd
+button.text-button.toggle.suggested-action:hover arrow, .osd
+button.image-button.text-button.toggle.suggested-action:hover image, .osd
+button.image-button.text-button.toggle.suggested-action:hover label, .osd
+button.image-button.text-button.toggle.suggested-action:hover arrow {
   color: #5294e2;
 }
 
 .osd
 button.suggested-action:active, .osd
-button.suggested-action:checked {
+button.suggested-action:checked, .osd
+button.text-button.suggested-action:active, .osd
+button.text-button.suggested-action:checked, .osd
+button.toggle.suggested-action:active, .osd
+button.toggle.suggested-action:checked, .osd
+button.text-button.toggle.suggested-action:active, .osd
+button.text-button.toggle.suggested-action:checked, .osd
+button.image-button.text-button.toggle.suggested-action:active, .osd
+button.image-button.text-button.toggle.suggested-action:checked {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #27ae60;
   background-clip: padding-box;
@@ -1230,12 +1307,40 @@ button.suggested-action:active label, .osd
 button.suggested-action:active arrow, .osd
 button.suggested-action:checked image, .osd
 button.suggested-action:checked label, .osd
-button.suggested-action:checked arrow {
+button.suggested-action:checked arrow, .osd
+button.text-button.suggested-action:active image, .osd
+button.text-button.suggested-action:active label, .osd
+button.text-button.suggested-action:active arrow, .osd
+button.text-button.suggested-action:checked image, .osd
+button.text-button.suggested-action:checked label, .osd
+button.text-button.suggested-action:checked arrow, .osd
+button.toggle.suggested-action:active image, .osd
+button.toggle.suggested-action:active label, .osd
+button.toggle.suggested-action:active arrow, .osd
+button.toggle.suggested-action:checked image, .osd
+button.toggle.suggested-action:checked label, .osd
+button.toggle.suggested-action:checked arrow, .osd
+button.text-button.toggle.suggested-action:active image, .osd
+button.text-button.toggle.suggested-action:active label, .osd
+button.text-button.toggle.suggested-action:active arrow, .osd
+button.text-button.toggle.suggested-action:checked image, .osd
+button.text-button.toggle.suggested-action:checked label, .osd
+button.text-button.toggle.suggested-action:checked arrow, .osd
+button.image-button.text-button.toggle.suggested-action:active image, .osd
+button.image-button.text-button.toggle.suggested-action:active label, .osd
+button.image-button.text-button.toggle.suggested-action:active arrow, .osd
+button.image-button.text-button.toggle.suggested-action:checked image, .osd
+button.image-button.text-button.toggle.suggested-action:checked label, .osd
+button.image-button.text-button.toggle.suggested-action:checked arrow {
   color: #3c86de;
 }
 
 .osd
-button.suggested-action:disabled {
+button.suggested-action:disabled, .osd
+button.text-button.suggested-action:disabled, .osd
+button.toggle.suggested-action:disabled, .osd
+button.text-button.toggle.suggested-action:disabled, .osd
+button.image-button.text-button.toggle.suggested-action:disabled {
   color: rgba(96, 96, 96, 0.4);
   border-color: transparent;
   background-color: rgba(225, 225, 225, 0.6);
@@ -1243,7 +1348,11 @@ button.suggested-action:disabled {
 }
 
 
-button.destructive-action {
+button.destructive-action,
+button.text-button.destructive-action,
+button.toggle.destructive-action,
+button.text-button.toggle.destructive-action,
+button.image-button.text-button.toggle.destructive-action {
   color: white;
   background-color: #c0392b;
   border-color: #c0392b;
@@ -1251,7 +1360,11 @@ button.destructive-action {
 }
 
 
-button.destructive-action.flat {
+button.destructive-action.flat,
+button.text-button.destructive-action.flat,
+button.toggle.destructive-action.flat,
+button.text-button.toggle.destructive-action.flat,
+button.image-button.text-button.toggle.destructive-action.flat {
   border-color: transparent;
   background-image: none;
   background-color: transparent;
@@ -1259,54 +1372,103 @@ button.destructive-action.flat {
 }
 
 
-button.destructive-action:hover {
+button.destructive-action:hover,
+button.text-button.destructive-action:hover,
+button.toggle.destructive-action:hover,
+button.text-button.toggle.destructive-action:hover,
+button.image-button.text-button.toggle.destructive-action:hover {
   color: white;
-  background-color: #d44c3e;
-  border-color: #d14233;
+  background-color: ligthen(#c0392b, 5%);
+  border-color: ligthen(#c0392b, 5%);
   outline-color: rgba(96, 96, 96, 0.3);
+  background-color: #d14233;
 }
 
 
-button.destructive-action:active {
+button.destructive-action:active,
+button.text-button.destructive-action:active,
+button.toggle.destructive-action:active,
+button.text-button.toggle.destructive-action:active,
+button.image-button.text-button.toggle.destructive-action:active {
   outline-color: rgba(96, 96, 96, 0.3);
-  border-color: #d14233;
+  border-color: ligthen(#c0392b, 5%);
   background-color: #a73225;
 }
 
 
 button.destructive-action:active image,
 button.destructive-action:active label,
-button.destructive-action:active arrow {
+button.destructive-action:active arrow,
+button.text-button.destructive-action:active image,
+button.text-button.destructive-action:active label,
+button.text-button.destructive-action:active arrow,
+button.toggle.destructive-action:active image,
+button.toggle.destructive-action:active label,
+button.toggle.destructive-action:active arrow,
+button.text-button.toggle.destructive-action:active image,
+button.text-button.toggle.destructive-action:active label,
+button.text-button.toggle.destructive-action:active arrow,
+button.image-button.text-button.toggle.destructive-action:active image,
+button.image-button.text-button.toggle.destructive-action:active label,
+button.image-button.text-button.toggle.destructive-action:active arrow {
   color: white;
 }
 
 
-button.destructive-action:checked {
+button.destructive-action:checked,
+button.text-button.destructive-action:checked,
+button.toggle.destructive-action:checked,
+button.text-button.toggle.destructive-action:checked,
+button.image-button.text-button.toggle.destructive-action:checked {
   color: white;
   outline-color: rgba(96, 96, 96, 0.3);
-  border-color: #d14233;
+  border-color: ligthen(#c0392b, 5%);
   background-color: #a73225;
 }
 
 
-button.destructive-action:checked:hover {
+button.destructive-action:checked:hover,
+button.text-button.destructive-action:checked:hover,
+button.toggle.destructive-action:checked:hover,
+button.text-button.toggle.destructive-action:checked:hover,
+button.image-button.text-button.toggle.destructive-action:checked:hover {
   background-color: #a73225;
 }
 
 
-button.destructive-action:checked:active {
+button.destructive-action:checked:active,
+button.text-button.destructive-action:checked:active,
+button.toggle.destructive-action:checked:active,
+button.text-button.toggle.destructive-action:checked:active,
+button.image-button.text-button.toggle.destructive-action:checked:active {
   background-color: #a73225;
 }
 
 
 button.destructive-action:checked:active image,
 button.destructive-action:checked:active label,
-button.destructive-action:checked:active arrow {
+button.destructive-action:checked:active arrow,
+button.text-button.destructive-action:checked:active image,
+button.text-button.destructive-action:checked:active label,
+button.text-button.destructive-action:checked:active arrow,
+button.toggle.destructive-action:checked:active image,
+button.toggle.destructive-action:checked:active label,
+button.toggle.destructive-action:checked:active arrow,
+button.text-button.toggle.destructive-action:checked:active image,
+button.text-button.toggle.destructive-action:checked:active label,
+button.text-button.toggle.destructive-action:checked:active arrow,
+button.image-button.text-button.toggle.destructive-action:checked:active image,
+button.image-button.text-button.toggle.destructive-action:checked:active label,
+button.image-button.text-button.toggle.destructive-action:checked:active arrow {
   color: white;
 }
 
 
-button.destructive-action.flat:disabled {
+button.destructive-action.flat:disabled,
+button.text-button.destructive-action.flat:disabled,
+button.toggle.destructive-action.flat:disabled,
+button.text-button.toggle.destructive-action.flat:disabled,
+button.image-button.text-button.toggle.destructive-action.flat:disabled {
   border-color: transparent;
   background-image: none;
   background-color: transparent;
@@ -1314,20 +1476,40 @@ button.destructive-action.flat:disabled {
 }
 
 
-button.destructive-action:disabled {
-  border-color: rgba(225, 225, 225, 0.6);
+button.destructive-action:disabled,
+button.text-button.destructive-action:disabled,
+button.toggle.destructive-action:disabled,
+button.text-button.toggle.destructive-action:disabled,
+button.image-button.text-button.toggle.destructive-action:disabled {
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(225, 225, 225, 0.6);
 }
 
 
 button.destructive-action:disabled label,
-button.destructive-action:disabled {
+button.destructive-action:disabled,
+button.text-button.destructive-action:disabled label,
+button.text-button.destructive-action:disabled,
+button.toggle.destructive-action:disabled label,
+button.toggle.destructive-action:disabled,
+button.text-button.toggle.destructive-action:disabled label,
+button.text-button.toggle.destructive-action:disabled,
+button.image-button.text-button.toggle.destructive-action:disabled label,
+button.image-button.text-button.toggle.destructive-action:disabled {
   color: rgba(96, 96, 96, 0.4);
 }
 
 
 button.destructive-action:disabled:active,
-button.destructive-action:disabled:checked {
+button.destructive-action:disabled:checked,
+button.text-button.destructive-action:disabled:active,
+button.text-button.destructive-action:disabled:checked,
+button.toggle.destructive-action:disabled:active,
+button.toggle.destructive-action:disabled:checked,
+button.text-button.toggle.destructive-action:disabled:active,
+button.text-button.toggle.destructive-action:disabled:checked,
+button.image-button.text-button.toggle.destructive-action:disabled:active,
+button.image-button.text-button.toggle.destructive-action:disabled:checked {
   border-color: #b44236;
   background-color: #b44236;
 }
@@ -1336,12 +1518,32 @@ button.destructive-action:disabled:checked {
 button.destructive-action:disabled:active label,
 button.destructive-action:disabled:active,
 button.destructive-action:disabled:checked label,
-button.destructive-action:disabled:checked {
+button.destructive-action:disabled:checked,
+button.text-button.destructive-action:disabled:active label,
+button.text-button.destructive-action:disabled:active,
+button.text-button.destructive-action:disabled:checked label,
+button.text-button.destructive-action:disabled:checked,
+button.toggle.destructive-action:disabled:active label,
+button.toggle.destructive-action:disabled:active,
+button.toggle.destructive-action:disabled:checked label,
+button.toggle.destructive-action:disabled:checked,
+button.text-button.toggle.destructive-action:disabled:active label,
+button.text-button.toggle.destructive-action:disabled:active,
+button.text-button.toggle.destructive-action:disabled:checked label,
+button.text-button.toggle.destructive-action:disabled:checked,
+button.image-button.text-button.toggle.destructive-action:disabled:active label,
+button.image-button.text-button.toggle.destructive-action:disabled:active,
+button.image-button.text-button.toggle.destructive-action:disabled:checked label,
+button.image-button.text-button.toggle.destructive-action:disabled:checked {
   color: #82544f;
 }
 
 .osd
-button.destructive-action {
+button.destructive-action, .osd
+button.text-button.destructive-action, .osd
+button.toggle.destructive-action, .osd
+button.text-button.toggle.destructive-action, .osd
+button.image-button.text-button.toggle.destructive-action {
   color: #606060;
   border-color: rgba(0, 0, 0, 0.15);
   background: #c0392b;
@@ -1350,7 +1552,11 @@ button.destructive-action {
 }
 
 .osd
-button.destructive-action:hover {
+button.destructive-action:hover, .osd
+button.text-button.destructive-action:hover, .osd
+button.toggle.destructive-action:hover, .osd
+button.text-button.toggle.destructive-action:hover, .osd
+button.image-button.text-button.toggle.destructive-action:hover {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #c0392b;
   background-clip: padding-box;
@@ -1360,13 +1566,33 @@ button.destructive-action:hover {
 .osd
 button.destructive-action:hover image, .osd
 button.destructive-action:hover label, .osd
-button.destructive-action:hover arrow {
+button.destructive-action:hover arrow, .osd
+button.text-button.destructive-action:hover image, .osd
+button.text-button.destructive-action:hover label, .osd
+button.text-button.destructive-action:hover arrow, .osd
+button.toggle.destructive-action:hover image, .osd
+button.toggle.destructive-action:hover label, .osd
+button.toggle.destructive-action:hover arrow, .osd
+button.text-button.toggle.destructive-action:hover image, .osd
+button.text-button.toggle.destructive-action:hover label, .osd
+button.text-button.toggle.destructive-action:hover arrow, .osd
+button.image-button.text-button.toggle.destructive-action:hover image, .osd
+button.image-button.text-button.toggle.destructive-action:hover label, .osd
+button.image-button.text-button.toggle.destructive-action:hover arrow {
   color: #5294e2;
 }
 
 .osd
 button.destructive-action:active, .osd
-button.destructive-action:checked {
+button.destructive-action:checked, .osd
+button.text-button.destructive-action:active, .osd
+button.text-button.destructive-action:checked, .osd
+button.toggle.destructive-action:active, .osd
+button.toggle.destructive-action:checked, .osd
+button.text-button.toggle.destructive-action:active, .osd
+button.text-button.toggle.destructive-action:checked, .osd
+button.image-button.text-button.toggle.destructive-action:active, .osd
+button.image-button.text-button.toggle.destructive-action:checked {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #c0392b;
   background-clip: padding-box;
@@ -1379,12 +1605,40 @@ button.destructive-action:active label, .osd
 button.destructive-action:active arrow, .osd
 button.destructive-action:checked image, .osd
 button.destructive-action:checked label, .osd
-button.destructive-action:checked arrow {
+button.destructive-action:checked arrow, .osd
+button.text-button.destructive-action:active image, .osd
+button.text-button.destructive-action:active label, .osd
+button.text-button.destructive-action:active arrow, .osd
+button.text-button.destructive-action:checked image, .osd
+button.text-button.destructive-action:checked label, .osd
+button.text-button.destructive-action:checked arrow, .osd
+button.toggle.destructive-action:active image, .osd
+button.toggle.destructive-action:active label, .osd
+button.toggle.destructive-action:active arrow, .osd
+button.toggle.destructive-action:checked image, .osd
+button.toggle.destructive-action:checked label, .osd
+button.toggle.destructive-action:checked arrow, .osd
+button.text-button.toggle.destructive-action:active image, .osd
+button.text-button.toggle.destructive-action:active label, .osd
+button.text-button.toggle.destructive-action:active arrow, .osd
+button.text-button.toggle.destructive-action:checked image, .osd
+button.text-button.toggle.destructive-action:checked label, .osd
+button.text-button.toggle.destructive-action:checked arrow, .osd
+button.image-button.text-button.toggle.destructive-action:active image, .osd
+button.image-button.text-button.toggle.destructive-action:active label, .osd
+button.image-button.text-button.toggle.destructive-action:active arrow, .osd
+button.image-button.text-button.toggle.destructive-action:checked image, .osd
+button.image-button.text-button.toggle.destructive-action:checked label, .osd
+button.image-button.text-button.toggle.destructive-action:checked arrow {
   color: #3c86de;
 }
 
 .osd
-button.destructive-action:disabled {
+button.destructive-action:disabled, .osd
+button.text-button.destructive-action:disabled, .osd
+button.toggle.destructive-action:disabled, .osd
+button.text-button.toggle.destructive-action:disabled, .osd
+button.image-button.text-button.toggle.destructive-action:disabled {
   color: rgba(96, 96, 96, 0.4);
   border-color: transparent;
   background-color: rgba(225, 225, 225, 0.6);
@@ -1550,7 +1804,7 @@ button.needs-attention > image:dir(rtl), stacksidebar row.needs-attention > labe
 }
 
 .inline-toolbar toolbutton > button.flat:disabled {
-  border-color: rgba(225, 225, 225, 0.6);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(225, 225, 225, 0.6);
 }
 
@@ -2005,10 +2259,6 @@ toolbar, toolbar.horizontal, toolbar.vertical {
 }
 
 toolbar toolbutton button, toolbar.horizontal toolbutton button, toolbar.vertical toolbutton button {
-  padding: 0px;
-}
-
-toolbar toolbutton button.flat, toolbar.horizontal toolbutton button.flat, toolbar.vertical toolbutton button.flat {
   padding: 4px;
 }
 
@@ -2032,10 +2282,6 @@ toolbar toolbutton button.flat:active image, toolbar toolbutton button.flat:acti
 
 toolbar toolbutton button:disabled image, toolbar.horizontal toolbutton button:disabled image, toolbar.vertical toolbutton button:disabled image {
   opacity: .75;
-}
-
-toolbar toolbutton button.image-button, toolbar.horizontal toolbutton button.image-button, toolbar.vertical toolbutton button.image-button {
-  padding: 0px;
 }
 
 on OSD .osd toolbar, on OSD .osd toolbar.horizontal, on OSD .osd toolbar.vertical {
@@ -3274,13 +3520,17 @@ switch:checked slider {
 switch:disabled {
   color: transparent;
   border-color: rgba(225, 225, 225, 0.6);
-  box-shadow: inset 0 0px 0px 1px rgba(225, 225, 225, 0.6);
+  box-shadow: inset 0 0px 0px 1px rgba(96, 96, 96, 0.4);
   background-color: rgba(225, 225, 225, 0.6);
 }
 
+switch:disabled, switch:disabled slider {
+  opacity: .5;
+}
+
 switch:disabled slider {
-  box-shadow: inset 0 0px 0px 1px rgba(225, 225, 225, 0.6);
-  border-color: rgba(225, 225, 225, 0.6);
+  box-shadow: inset 0 0px 0px 1px rgba(96, 96, 96, 0.4);
+  border-color: rgba(96, 96, 96, 0.4);
 }
 
 switch slider {
@@ -3712,14 +3962,14 @@ scale slider {
   transition-property: background, border;
 }
 
-scale slider:active {
+scale slider:active, scale slider:hover {
   background-clip: border-box;
-  background-color: #F46067;
-  border-color: #F46067;
+  background-color: #f79095;
+  border-color: #f79095;
 }
 
 scale slider:disabled {
-  background-color: rgba(225, 225, 225, 0.6);
+  background-color: rgba(96, 96, 96, 0.4);
 }
 
 menuitem:hover scale slider,
@@ -3834,19 +4084,27 @@ scale.vertical.fine-tune indicator {
 }
 
 scale.marks-before slider {
-  border-radius: 0px;
+  border-radius: 9999px;
   background: transparent;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 15px solid #F46067;
 }
 
+scale.marks-before slider:hover, scale.marks-before slider:active {
+  border-bottom-color: #f79095;
+}
+
 scale.marks-after slider {
-  border-radius: 0px;
+  border-radius: 9999px;
   background: transparent;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 15px solid #F46067;
+}
+
+scale.marks-after slider:hover, scale.marks-after slider:active {
+  border-top-color: #f79095;
 }
 
 /*****************
@@ -4719,7 +4977,7 @@ window > :first-child {
 
 decoration {
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.2), 0 8px 8px rgba(0, 0, 0, 0.16);
   background-color: transparent;
   margin: 8px;
@@ -5118,8 +5376,8 @@ headerbar button, headerbar.titlebar button {
 
 headerbar button.text-button:hover, headerbar.titlebar button.text-button:hover {
   color: white;
-  background-color: #73a8e7;
-  border-color: #68a2e6;
+  background-color: ligthen(#5294e2, 5%);
+  border-color: ligthen(#5294e2, 5%);
   outline-color: rgba(96, 96, 96, 0.3);
   background-color: #5294e2;
 }
@@ -5144,6 +5402,14 @@ headerbar button.text-button.text-button.image-button.popup.toggle:checked image
   color: white;
 }
 
+headerbar button.text-button.image-button.popup.toggle:checked, headerbar button.text-button.image-button.popup.toggle:checked:hover, headerbar.titlebar button.text-button.image-button.popup.toggle:checked, headerbar.titlebar button.text-button.image-button.popup.toggle:checked:hover {
+  background-color: transparent;
+}
+
+headerbar button.text-button.image-button.popup.toggle:checked image, headerbar button.text-button.image-button.popup.toggle:checked label, headerbar button.text-button.image-button.popup.toggle:checked arrow, headerbar button.text-button.image-button.popup.toggle:checked:hover image, headerbar button.text-button.image-button.popup.toggle:checked:hover label, headerbar button.text-button.image-button.popup.toggle:checked:hover arrow, headerbar.titlebar button.text-button.image-button.popup.toggle:checked image, headerbar.titlebar button.text-button.image-button.popup.toggle:checked label, headerbar.titlebar button.text-button.image-button.popup.toggle:checked arrow, headerbar.titlebar button.text-button.image-button.popup.toggle:checked:hover image, headerbar.titlebar button.text-button.image-button.popup.toggle:checked:hover label, headerbar.titlebar button.text-button.image-button.popup.toggle:checked:hover arrow {
+  color: #3c86de;
+}
+
 headerbar button.text-button.suggested-action, headerbar button.text-button.default.suggested-action, headerbar.titlebar button.text-button.suggested-action, headerbar.titlebar button.text-button.default.suggested-action {
   color: white;
   background-color: #27ae60;
@@ -5153,9 +5419,10 @@ headerbar button.text-button.suggested-action, headerbar button.text-button.defa
 
 headerbar button.text-button.suggested-action:hover, headerbar button.text-button.default.suggested-action:hover, headerbar.titlebar button.text-button.suggested-action:hover, headerbar.titlebar button.text-button.default.suggested-action:hover {
   color: white;
-  background-color: #2ecd71;
-  border-color: #2cc36b;
+  background-color: ligthen(#27ae60, 5%);
+  border-color: ligthen(#27ae60, 5%);
   outline-color: rgba(96, 96, 96, 0.3);
+  background-color: ligthen(#27ae60, 5%);
 }
 
 headerbar button.text-button.suggested-action:hover image, headerbar button.text-button.suggested-action:hover label, headerbar button.text-button.suggested-action:hover arrow, headerbar button.text-button.default.suggested-action:hover image, headerbar button.text-button.default.suggested-action:hover label, headerbar button.text-button.default.suggested-action:hover arrow, headerbar.titlebar button.text-button.suggested-action:hover image, headerbar.titlebar button.text-button.suggested-action:hover label, headerbar.titlebar button.text-button.suggested-action:hover arrow, headerbar.titlebar button.text-button.default.suggested-action:hover image, headerbar.titlebar button.text-button.default.suggested-action:hover label, headerbar.titlebar button.text-button.default.suggested-action:hover arrow {
@@ -5164,7 +5431,7 @@ headerbar button.text-button.suggested-action:hover image, headerbar button.text
 
 headerbar button.text-button.suggested-action:active, headerbar button.text-button.default.suggested-action:active, headerbar.titlebar button.text-button.suggested-action:active, headerbar.titlebar button.text-button.default.suggested-action:active {
   outline-color: rgba(96, 96, 96, 0.3);
-  border-color: #2cc36b;
+  border-color: ligthen(#27ae60, 5%);
   background-color: #219552;
 }
 
@@ -5179,7 +5446,7 @@ headerbar button.text-button.suggested-action:active image, headerbar button.tex
 headerbar button.text-button.suggested-action:checked, headerbar button.text-button.default.suggested-action:checked, headerbar.titlebar button.text-button.suggested-action:checked, headerbar.titlebar button.text-button.default.suggested-action:checked {
   color: white;
   outline-color: rgba(96, 96, 96, 0.3);
-  border-color: #2cc36b;
+  border-color: ligthen(#27ae60, 5%);
   background-color: #219552;
 }
 
@@ -5196,7 +5463,7 @@ headerbar button.text-button.suggested-action:checked:active image, headerbar bu
 }
 
 headerbar button.text-button.suggested-action:disabled, headerbar button.text-button.default.suggested-action:disabled, headerbar.titlebar button.text-button.suggested-action:disabled, headerbar.titlebar button.text-button.default.suggested-action:disabled {
-  border-color: rgba(225, 225, 225, 0.6);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(225, 225, 225, 0.6);
 }
 
@@ -5207,6 +5474,10 @@ headerbar button.text-button.suggested-action:disabled label, headerbar button.t
 headerbar button.image-button:not(.text-button):not(.radio):not(.model), headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model), headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle {
   border-color: transparent;
   background-image: none;
+  background-color: transparent;
+}
+
+headerbar button.image-button:not(.text-button):not(.radio):not(.model):hover, headerbar button.image-button:not(.text-button):not(.radio):not(.model):checked, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover, headerbar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:hover, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:hover, headerbar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):hover, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model):checked, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:hover, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).toggle:checked, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:hover, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup:checked, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:hover, headerbar.titlebar button.image-button:not(.text-button):not(.radio):not(.model).popup.toggle:checked {
   background-color: transparent;
 }
 
@@ -5239,6 +5510,11 @@ headerbar button:hover label, headerbar button:hover image, headerbar button:hov
 
 headerbar button:active label, headerbar button:active image, headerbar button:active arrow, headerbar button:checked:hover label, headerbar button:checked:hover image, headerbar button:checked:hover arrow, headerbar.titlebar button:active label, headerbar.titlebar button:active image, headerbar.titlebar button:active arrow, headerbar.titlebar button:checked:hover label, headerbar.titlebar button:checked:hover image, headerbar.titlebar button:checked:hover arrow {
   color: #3c86de;
+}
+
+headerbar button:disabled, headerbar.titlebar button:disabled {
+  background-color: transparent;
+  border-color: transparent;
 }
 
 headerbar button:disabled image, headerbar button:disabled label, headerbar button:disabled arrow, headerbar.titlebar button:disabled image, headerbar.titlebar button:disabled label, headerbar.titlebar button:disabled arrow {
@@ -5411,6 +5687,9 @@ popover.menu button:hover {
   border-color: transparent;
 }
 
+/************
+ * Nautilus *
+ ************/
 window.nautilus-window popover grid stack button:not(.image-button) {
   background-color: #eeeeee;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -5463,6 +5742,9 @@ window.nautilus-window notebook > header.top tabs tab.reorderable-page:checked, 
   background-color: white;
 }
 
+/************
+ * GNOME Tweak Tool *
+ ************/
 .tweak-categories separator {
   background: transparent;
 }
@@ -5488,6 +5770,9 @@ viewport.frame list.tweak-categories {
   box-shadow: none;
 }
 
+/************
+ * Calculator *
+ ************/
 headerbar.titlebar button.title {
   background-image: none;
 }
@@ -5503,6 +5788,9 @@ headerbar.titlebar button.title:hover:checked *, headerbar.titlebar button.title
   color: #3c86de;
 }
 
+/************
+ * Rhythmbox *
+ ************/
 #AltToolbarSideBar {
   box-shadow: none;
 }
@@ -5511,6 +5799,13 @@ toolbar toolitem button.image-button.raised {
   border: none;
 }
 
+toolbar.horizontal box.linked button:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/************
+ * GNOME Software *
+ ************/
 headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
   background-color: white;
   border-radius: 0px;
@@ -5575,6 +5870,9 @@ headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software:no
   color: #3c86de;
 }
 
+/************
+ * GNOME Builder *
+ ************/
 window.workbench docktabstrip {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
@@ -5689,7 +5987,7 @@ UnityDecoration .top {
   border-bottom-width: 0;
   border-radius: 4px 4px 0 0;
   padding: 1px 6px 0 6px;
-  background-image: _solid(#f4f4f4);
+  background-image: image(#f4f4f4);
   color: #606060;
   box-shadow: inset 0 1px #fcfcfc;
 }
@@ -5707,7 +6005,7 @@ UnityDecoration .left:backdrop, UnityDecoration .right:backdrop, UnityDecoration
 
 UnityPanelWidget,
 .unity-panel {
-  background-image: _solid(#2f343f);
+  background-image: image(#2f343f);
   color: #939393;
   box-shadow: none;
 }
@@ -5721,7 +6019,7 @@ UnityPanelWidget:backdrop,
 .unity-panel.menubar .menuitem *:hover {
   border-radius: 0;
   color: #ffffff;
-  background-image: _solid(#5294e2);
+  background-image: image(#5294e2);
   border-bottom: none;
 }
 

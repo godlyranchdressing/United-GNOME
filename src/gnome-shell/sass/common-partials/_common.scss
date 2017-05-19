@@ -1589,7 +1589,7 @@ StScrollBar {
   background-size: $medium_size;
 
   &:hover {
-    background-image: url("assets/window-close-active.svg");
+    background-image: url("assets/window-close-hover.svg");
   }
 
   &:active {

@@ -47,11 +47,23 @@ headerbar, headerbar.titlebar {
         }
       }
 
+      &.image-button.popup.toggle {
+        &:checked, &:checked:hover {
+          background-color: transparent;
+
+          image, label, arrow {
+            color: $pressed_fg;
+          }
+        }
+      }
+
       &.suggested-action, &.default.suggested-action {
         @include button(normal, $suggested_color);
 
         &:hover {
           @include button(hover, $suggested_color);
+
+          background-color: _hover_shade($suggested_color);
 
           image, label, arrow {
             color: white;
@@ -83,6 +95,8 @@ headerbar, headerbar.titlebar {
         }
 
         &:hover, &:checked {
+          background-color: transparent;
+
           label, image, arrow {
             color: $primary_color;
           }
@@ -121,7 +135,12 @@ headerbar, headerbar.titlebar {
     }
 
     &:disabled {
-      image, label, arrow{color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);}
+      background-color: transparent;
+      border-color: transparent;
+
+      image, label, arrow {
+        color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+      }
     }
   }
 
