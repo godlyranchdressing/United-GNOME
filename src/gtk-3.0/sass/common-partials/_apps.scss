@@ -56,6 +56,15 @@ window.nautilus-window {
       }
     }
   }
+
+paned > separator {
+  background: transparent;
+}
+
+
+  placessidebar {
+    box-shadow: inset -10px 0 10px 0px rgba(0, 0, 0, 0.055);
+  }
 }
 
 /************
@@ -102,7 +111,7 @@ headerbar.titlebar button.title {
 
     &:checked {
       * {
-        color: $pressed_fg;
+        color: _pressed_shade($primary_color);
       }
     }
 
@@ -151,7 +160,7 @@ headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
 
   &:active {
     label, image, arrow {
-      color: $pressed_fg;
+      color: _pressed_shade($primary_color);
     }
   }
 
@@ -166,7 +175,7 @@ headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
     border-color: transparent;
 
     label, image, arrow {
-      color: $pressed_fg;
+      color: _pressed_shade($primary_color);
     }
   }
 
@@ -186,7 +195,7 @@ headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
 
       &:active {
         label, image, arrow {
-          color: $pressed_fg;
+          color: _pressed_shade($primary_color);
         }
 
         box-shadow: $shadow_bottom $primary_color;
@@ -243,7 +252,7 @@ window.workbench {
 
     &:hover {
       border-color: $border_color;
-      background-color: $pressed_fg;
+      background-color: _pressed_shade($primary_color);
 
       label, image, arrow {
         color: white;
@@ -291,7 +300,7 @@ window.workbench {
       }
 
       &:active, &:checked {
-        color: $pressed_fg;
+        color: _pressed_shade($primary_color);
       }
     }
   }
@@ -299,4 +308,13 @@ window.workbench {
   greeter frame {
     border: 1px solid $border_color;
   }
+}
+
+/************
+ * GNOME Maps *
+ ************/
+
+
+#zoom-in-button, #zoom-out-button{
+border-radius: 0px;
 }

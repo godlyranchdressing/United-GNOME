@@ -1,217 +1,87 @@
 headerbar, headerbar.titlebar {
   entry {
     background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
+    border-color: if($headerbar != "dark", $border_color, $darker_border_color);
     color: if($headerbar == "dark", $light_fg_color, $fg_color);
   }
 
   button {
     // make the styling on headerbar buttons more discreet
+    @include button(normal, $in_headerbar: true);
+
     margin: 5px 0;
-    background-color: transparent;
-    border-color: transparent;
-    box-shadow: none;
-    color: if($headerbar == "dark", $light_fg_color, $fg_color);
 
-    &.text-button {
+    &.text-button, &.text-button.toggle {
       &:hover {
-        @include button(hover, $primary_color);
-
-        background-color: $primary_color;
-
-        image, label, arrow {
-          color: white;
-        }
+        @include button(hover, $in_headerbar: true)
+        border-color: $primary_color;
       }
 
       &:active {
-        background-color: $pressed_fg;
-
-        image, label, arrow {
-          color: white;
-        }
-
-        &, &.image-button.popup.toggle {
-          &:checked {
-            image, label, arrow {
-              color: white;
-            }
-          }
-        }
+        @include button(active, $primary_color, $in_headerbar: true);
       }
 
-      &.text-button.image-button.popup.toggle {
-        &:checked {
-          image, label, arrow {
-            color: white;
-          }
-        }
+      &:checked {
+        @include button(checked, $primary_color, $in_headerbar: true);
       }
+    }
 
-      &.image-button.popup.toggle {
-        &:checked, &:checked:hover {
-          background-color: transparent;
-
-          image, label, arrow {
-            color: $pressed_fg;
-          }
-        }
-      }
-
-      &.suggested-action, &.default.suggested-action {
-        @include button(normal, $suggested_color);
+    &.text-button {
+      &.suggested-action {
+        @include button(normal, $suggested_color, white);
 
         &:hover {
-          @include button(hover, $suggested_color);
-
-          background-color: _hover_shade($suggested_color);
-
-          image, label, arrow {
-            color: white;
-          }
+          @include button(hover, $suggested_color, white);
         }
 
         &:active {
-          @include button(active, $suggested_color);
-
-          image, label, arrow {
-            color: white;
-          }
-        }
-
-        &:checked {
-          @include button(checked, $suggested_color);
+          @include button(active, $suggested_color, white);
         }
 
         &:disabled {
-          @include button(insensitive);
+          @include button(disabled);
         }
       }
     }
 
-    &.image-button:not(.text-button):not(.radio):not(.model) {
-      &, &.toggle, &.popup, &.popup.toggle {
-        & {
-          @include button(flat);
-        }
+    &.image-button:not(.text-button), &.toggle:not(.image-button):not(.text-button){
+            @include button(flat, $primary_color, $in_headerbar: true);
 
-        &:hover, &:checked {
-          background-color: transparent;
+            &:hover {
+              @include button(flat-hover, $primary_color, $in_headerbar: true);
+            }
 
-          label, image, arrow {
-            color: $primary_color;
-          }
-        }
-
-        &:active, &:checked:hover {
-          background-color: transparent;
-          border-color: transparent;
-
-          label, image, arrow {
-            color: $pressed_fg;
-          }
-        }
-
-        &:disabled {
-          color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-        }
-      }
-    }
-
-    &.toggle:not(.image-button):not(.text-button) {
-      // undercover flat buttons (rhythmbox with alternative toolbar plugin)
-      @include button(flat);
-    }
-
-    &:hover, &:checked {
-      label, image, arrow {
-        color: $primary_color;
-      }
-    }
-
-    &:active, &:checked:hover {
-      label, image, arrow {
-        color: $pressed_fg;
-      }
-    }
-
-    &:disabled {
-      background-color: transparent;
-      border-color: transparent;
-
-      image, label, arrow {
-        color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-      }
+            &:active, &:checked {
+              @include button(flat-active, $primary_color, $in_headerbar: true);
+            }
     }
   }
 
   stackswitcher.horizontal.linked.stack-switcher {
     // make the stackswitcher look the way we want it to look
 
-    button.image-button.radio {
-      &:checked {
-        background-color: $lighter_bg_color;
-        border-color: $primary_color;
-      }
-    }
-
     button {
-      background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
-      color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
       min-width: 115px;
+      border-width: 0px;
       border-radius: 0px;
-      border: 0px;
-      box-shadow: none;
-      transition: $button_transition;
 
-      &.text-button, &.radio {
-        &:hover, &:checked {
-          label, image, arrow {
-            color: $primary_color;
-          }
+      @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
 
-          background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
-          transition: $button_transition;
-        }
+      &:hover {
+        @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
+      }
 
-        &:checked {
-          box-shadow: $shadow_bottom $primary_color;
-
-          &:disabled {
-            background-color: if($headerbar == "dark" or $variant == "dark", $darker_disabled_bg_color, $disabled_bg_color);
-
-            label, image, arrow {
-              color: if($headerbar != "dark", $disabled_fg_color, $darker_disabled_fg_color);
-            }
-
-            box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-          }
-        }
-
-        &:not(:checked) {
-          &:hover {
-            label, image, arrow {
-              color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-            }
-
-            box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-          }
-
-          &:active {
-            label, image, arrow {
-              color: $pressed_fg;
-            }
-
-            box-shadow: $shadow_bottom $primary_color;
-          }
-        }
+      &:active, &:checked {
+        @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
 
         &:disabled {
-          label, image, arrow {
-            color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-          }
-
-          background-color: if($headerbar == "dark" or $variant == "dark", $darker_disabled_bg_color, $disabled_bg_color);
+          @include button(disabled, $in_headerbar: true);
+          box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
         }
+      }
+
+      &:disabled {
+        @include button(disabled, $in_headerbar: true);
       }
 
       &:first-child {
@@ -224,15 +94,42 @@ headerbar, headerbar.titlebar {
     }
   }
 
-  .path-bar button.slider-button {
-    // give the appearance of the pathbar being one big box
-    &, &:disabled {
-      background-color: if($headerbar == "dark" and $variant == "light", $darker_lighter_bg_color, $lighter_bg_color);
+  .path-bar button {
+    border-width: 0px;
+
+    &.text-button.toggle {
+      @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+      &:hover {
+        @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
+      }
+
+      &:active, &:checked {
+        @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+        &:disabled {
+          @include button(disabled, $in_headerbar: true);
+
+          box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+        }
+      }
+
+      &:disabled {
+        @include button(disabled, $in_headerbar: true);
+      }
     }
 
-    &:disabled {
-      label, image, arrow {
-        color: $disabled_fg_color;
+    &.slider-button {
+      border-width: 0px;
+      color: if($headerbar == "dark" and $variant == "light", $light_fg_color, $fg_color);
+
+      &:disabled {
+        @include button(disabled);
+      }
+
+      &, &:disabled {
+        // to give the appearance of the pathbar being one large box, even if the sliders are disabled
+        background-color: if($headerbar == "dark" and $variant == "light", $darker_lighter_bg_color, $lighter_bg_color);
       }
     }
   }
@@ -325,8 +222,8 @@ messagedialog {
 
     &:active {
       color: white;
-      border-color: $pressed_fg;
-      background-color: $pressed_fg;
+      border-color: _pressed_shade($primary_color);
+      background-color: _pressed_shade($primary_color);
     }
   }
 
@@ -335,14 +232,5 @@ messagedialog {
     min-height: 24px;
     background-image: image($bg_color);
     padding: 0px;
-  }
-}
-
-popover.menu {
-  button {
-    &:hover {
-      box-shadow: none;
-      border-color: transparent;
-    }
   }
 }

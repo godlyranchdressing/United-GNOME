@@ -60,7 +60,7 @@ $error_bg_color: darken($red, 5);
 
 // hover states
 $hover_bg: if($variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95));
-$pressed_fg: darken($primary_color, 5%);
+
 
 // Aux colors
 $border_color: if($variant == "light", scale-alpha($black, 0.15), scale-alpha($ubuntu_white, 0.1));
@@ -87,7 +87,8 @@ $backdrop_base_color: $disabled_base_color;
 $backdrop_border_color: $disabled_base_color;
 
 // darker_bg_color
-$darker_bg_color: if($variant == "light", darken($ubuntu_white, 30%), lighten($ubuntu_black, 5%));
+$darker_bg_color: lighten($ubuntu_black, 8%);
+$darker_base_color: lighten($ubuntu_black, 5%);
 $darker_headerbar_color: $ubuntu_black;
 $darker_lighter_bg_color: lighten($ubuntu_black, 7%);
 $darker_disabled_bg_color: #1C1C1C;

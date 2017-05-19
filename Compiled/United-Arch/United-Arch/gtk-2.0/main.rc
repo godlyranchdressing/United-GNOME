@@ -1135,8 +1135,8 @@ style "notebook_entry" {
 }
 
 style "notebook_tab_label" {
+  font_name = "Bold"
 
- fg[ACTIVE] = @fg_color
 
 }
 
@@ -2539,9 +2539,6 @@ widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkEntry>"                      styl
 widget_class "*<GtkNotebook>*<GtkComboBoxEntry>*<GtkEntry>"                 style "notebook_combobox_entry"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkComboBoxEntry>*<GtkEntry>"   style "combobox_entry"
 
-# We also need to avoid changing fg color for the inactive notebook tab labels
-widget_class "*<GtkNotebook>.<GtkLabel>"                            style "notebook_tab_label"
-
 # GTK tooltips
 widget "gtk-tooltip*"                                               style "tooltips"
 
@@ -2588,3 +2585,4 @@ widget_class "*<GtkCheckButton>.<GtkLabel>"                        style "checkb
 widget_class "*<GtkRadioButton>.<GtkLabel>"                        style "checkbutton_label"
 widget_class "*<GtkToolButton>*<GtkButton>"                        style "tool_button"
 widget_class "*<GtkMenuBar>.<GtkMenuItem>*"                         style "menubar_item"
+widget_class "*<GtkNotebook>.<GtkLabel>"                            style "notebook_tab_label"

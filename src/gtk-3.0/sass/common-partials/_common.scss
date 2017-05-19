@@ -316,17 +316,7 @@ entry {
     }
 
     &:disabled {
-      @include entry(insensitive);
-    }
-
-    &:backdrop {
-      @include entry(backdrop);
-
-      transition: $backdrop_transition;
-    }
-
-    &:backdrop:disabled {
-      @include entry(backdrop-insensitive);
+      @include entry(disabled);
     }
 
     selection {
@@ -572,94 +562,83 @@ button {
     @include button(normal);
 
     &:hover {
-      @include button(hover, $lighter_bg_color, $primary_color);
-
-      border-color: $primary_color;
-
-      //-gtk-icon-filter: brightness(1.2);
-
+      @include button(hover);
     }
 
     &:active {
       @include button(active);
-
-      background-color: $lighter_bg_color;
-      border-color: _pressed_shade($primary_color);
-
-      label, image, arrow {
-        color: _pressed_shade($primary_color);
-      }
-
-      transition-duration: 50ms;
     }
 
     &:checked {
       @include button(checked);
-    }
 
-    &.text-button {
-      & {
-        &:hover {
-          @include button(hover, $lighter_bg_color, $fg_color);
-        }
-
-        &:active {
-          @include button(active, $primary_color);
-
-          background-color: $primary_color;
-        }
-
-        &:checked {
-          &:hover {
-            color: white;
-            background-color: $pressed_fg;
-          }
-        }
+      &:disabled {
+        @include button(active-insensitive);
       }
-    }
-
-    &.flat:disabled {
-      @include button(flat);
     }
 
     &:disabled {
-      @include button(insensitive);
-
-      &:active,
-      &:checked {
-        @include button(insensitive-active);
-      }
+      @include button(disabled);
     }
 
-    &.flat, &.sidebar-button {
-      @include button(flat);
+    // Now that the default styling for buttons has been declared,
+    // we go through the major button subtypes to apply special styling
+    /// ***  ***  *** ///
+    /// * Text Buttons * ///
 
-      transition: none;
+    &.text-button {
+      label {
+        padding: 0 4px;
+      }
 
       &:hover {
-        @include button(flat);
+        border-color: $primary_color;
+      }
 
-        transition: $button_transition;
-        transition-duration: 500ms;
+      &:active {
+        @include button(active, $primary_color, white);
+      }
 
-        &:active, &:checked {
-          @include button(flat);
-
-          transition: $button_transition;
-          color: _pressed_shade($primary_color);
-        }
+      &.checked {
+        @include button(checked, $primary_color, white);
       }
     }
 
-    &.image-button {
+    &.lock:hover {
+      // Mimic text-button hover effect
+      border-color: $primary_color;
+    }
+
+    /// * Image Buttons * ///
+
+    &.image-button, &.toggle {
+      // Give 1:1 dimensions
       min-width: 24px;
       padding-left: 4px;
       padding-right: 4px;
-    }
 
-    &.lock {
       &:hover {
         border-color: $primary_color;
+      }
+    }
+
+    /// * Flat Buttons * ///
+
+    &.flat {
+      &:hover {
+        border-color: $primary_color;
+      }
+    }
+
+    &.sidebar-button, &.flat.scale, &.flat.image-button {
+      @include button(flat, $primary_color);
+
+      &:hover {
+        @include button(flat-hover, $primary_color);
+      }
+
+      &:active, &:checked {
+        @include button(flat-active, $primary_color);
       }
     }
 
@@ -683,17 +662,7 @@ button {
       }
 
       &:disabled {
-        @include button(insensitive);
-      }
-    }
-
-    &.text-button {
-      label {
-        padding: 0 4px;
-      }
-
-      &:hover {
-        border-color: $primary_color;
+        @include button(disabled);
       }
     }
 
@@ -811,60 +780,54 @@ button {
   }
 
   // Suggested and Destructive Action buttons
-  &, &.text-button, &.toggle, &.text-button.toggle, &.image-button.text-button.toggle {
-    @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color) {
-      &.#{$b_type} {
-        @include button(normal, $b_color);
 
-        &.flat {
-          @include button(flat);
+  @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color) {
+    &.#{$b_type} {
+      @include button(normal, $b_color);
 
-          color: $b_color;
+      &.flat {
+        @include button(flat, $b_color);
+      }
+
+      &:hover {
+        @include button(hover, $b_color);
+      }
+
+      &:active {
+        @include button(active, $b_color);
+      }
+
+      &:checked {
+        @include button(checked, $b_color);
+      }
+
+      &.flat:disabled {
+        @include button(flat, $b_color);
+      }
+
+      &:disabled {
+        @include button(disabled);
+
+        &:active,
+        &:checked {
+          @include button(disabled-active, $b_color);
         }
+      }
+
+      .osd & {
+        @include button(osd, $b_color);
 
         &:hover {
-          @include button(hover, $b_color);
-          background-color: lighten($b_color, 5%);
+          @include button(osd-hover, $b_color);
         }
 
-        &:active {
-          @include button(active, $b_color);
-        }
-
+        &:active,
         &:checked {
-          @include button(checked, $b_color);
-        }
-
-        &.flat:disabled {
-          @include button(flat);
-
-          color: transparentize($b_color, 0.2);
+          @include button(osd-active, $b_color);
         }
 
         &:disabled {
-          @include button(insensitive);
-
-          &:active,
-          &:checked {
-            @include button(insensitive-active, $b_color);
-          }
-        }
-
-        .osd & {
-          @include button(osd, $b_color);
-
-          &:hover {
-            @include button(osd-hover, $b_color);
-          }
-
-          &:active,
-          &:checked {
-            @include button(osd-active, $b_color);
-          }
-
-          &:disabled {
-            @include button(osd-insensitive, $b_color);
-          }
+          @include button(osd-insensitive, $b_color);
         }
       }
     }
@@ -1002,7 +965,7 @@ button {
         @include button(flat);
 
         image, label, arrow {
-          color: $pressed_fg;
+          color: _pressed_shade($primary_color);
         }
       }
 
@@ -1032,32 +995,31 @@ button {
   }
 }
 
-// all the following is for the +|- buttons on inline toolbars, that way
-// should really be deprecated...
-.inline-toolbar toolbutton > button {
-  // redefining the button look is
-  // needed since those are flat...
-  &.flat {
-    @include button(normal);
+toolbar {
+  &.horizontal, &.vertical {
+    &, &.inline-toolbar {
+      toolbutton button {
+        @include button(normal);
 
-    padding: 4px;
+        &:hover {
+          @include button(hover);
+        }
 
-    &:hover {
-      border-color: $border_color;
-      background-color: $lighter_bg_color;
-    }
+        &:active {
+          @include button(active);
+        }
 
-    &:active, &:checked {
-      border: 1px solid $primary_color;
-      background-color: $lighter_bg_color;
-    }
+        &:checked {
+          @include button(checked);
 
-    &:disabled {
-      @include button(insensitive);
+          &:disabled {
+            @include button(active-insensitive);
+          }
+        }
 
-      &:active,
-      &:checked {
-        @include button(insensitive-active);
+        &:disabled {
+          @include button(disabled);
+        }
       }
     }
   }
@@ -1107,6 +1069,10 @@ toolbar.inline-toolbar toolbutton {
     border-radius: $standard_radius;
     border-style: solid;
   }
+
+  &:hover {
+    border-color: $border_color;
+  }
 }
 
 %linked_vertical_middle {
@@ -1143,25 +1109,20 @@ toolbar.inline-toolbar toolbutton {
 /* menu buttons */
 modelbutton.flat,
 .menuitem.button.flat {
-  min-height: 26px;
-  padding-left: 5px;
-  padding-right: 5px;
+  min-height: 24px;
+  padding-left: 4px;
+  padding-right: 4px;
   border-radius: $standard_radius;
   outline-offset: -2px;
 
   @extend %flat_button;
 
   &:hover {
-    background-color: $hover_bg;
-    border-color: $border_color;
+    @include button(flat-hover-actionable, $primary_color);
   }
 
   &:active {
-    background-color: $hover_bg;
-
-    image, label, arrow {
-      color: $pressed_fg;
-    }
+    @include button(flat-active-actionable, $primary_color);
   }
 
   &:selected {
@@ -1321,10 +1282,10 @@ spinbutton {
       margin: 0;
       padding-bottom: 0;
       padding-top: 0;
-      color: mix($fg_color, $base_color, 90%);
+      color: $fg_color;
       background-image: none;
       border-style: none none none solid;
-      border-color: transparentize($border_color, 0.7);
+      border-color: $border_color;
       border-radius: 0;
       box-shadow: none;
 
@@ -1332,18 +1293,19 @@ spinbutton {
         border-style: none solid none none;
       }
 
-      &:hover {
-        color: $primary_color;
-        background-color: $hover_bg;
-      }
+      &.up, &.down {
+        &:hover {
+          @include button(flat-hover-actionable, $primary_color);
+        }
 
-      &:disabled {
-        color: $disabled_fg_color;
-        background-color: transparent;
-      }
+        &:disabled {
+          @include button(flat-disable);
+          color: $disabled_fg_color;
+        }
 
-      &:active {
-        background-color: transparentize(black, 0.9);
+        &:active {
+          @include button(flat-active-actionable, $primary_color);
+        }
       }
 
       &:dir(ltr):last-child {
@@ -1366,8 +1328,9 @@ spinbutton {
       border-color: transparentize($border_color, 0.3);
       border-radius: 0;
       box-shadow: none;
-      -gtk-icon-shadow: 0 1px black;
 
+      // -gtk-icon-shadow: 0 1px black;
+      //
       &:dir(rtl) {
         border-style: none solid none none;
       }
@@ -1377,8 +1340,10 @@ spinbutton {
 
         color: $fg_color;
         background-color: transparentize($fg_color, 0.9);
-        -gtk-icon-shadow: 0 1px black;
-        box-shadow: none;
+
+        // -gtk-icon-shadow: 0 1px black;
+        //        box-shadow: none;
+
       }
 
       &:disabled {
@@ -1418,9 +1383,11 @@ spinbutton {
     }
 
     button {
-      min-height: 32px;
-      min-width: 32px;
-      padding: 0;
+      // same dimensions as image-button
+      min-height: 24px;
+      min-width: 24px;
+      padding-left: 4px;
+      padding-right: 4px;
 
       &.up {
         @extend %top_button;
@@ -1431,12 +1398,12 @@ spinbutton {
       }
 
       &.up, &.down {
-        &:active {
-          background-color: $hover_bg;
+        &:hover {
+          @include button(flat-hover-actionable, $primary_color);
+        }
 
-          &, image, label, arrow {
-            color: $pressed_fg;
-          }
+        &:active {
+          @include button(flat-active-actionable, $primary_color);
         }
       }
     }
@@ -1491,6 +1458,11 @@ combobox {
     min-height: 16px;
     min-width: 16px;
   }
+
+button:disabled{
+@include button(disabled);
+background-color: $disabled_bg_color;
+}
 
   &.linked {
     button:nth-child(2) {
@@ -1558,52 +1530,35 @@ combobox {
   background-color: $bg_color;
 }
 
-.toolbar, box.toolbar {
-  .image-button:not(.text-button) {
-    border-color: transparent;
-    background-color: transparent;
-
-    &:active, &:checked {
-      background-color: transparent;
-      color: $pressed_fg;
-    }
-  }
-}
-
 toolbar, toolbar.horizontal, toolbar.vertical {
   @extend %toolbar;
 
-  toolbutton button {
-    padding: 4px;
+  toolbutton > button {
+    transition-duration: 150ms;
 
-    &.flat {
-      &:hover {
-        border-color: $border_color;
-        background-color: $lighter_bg_color;
+    &.flat.image-button.text-button {
+      padding: 4px;
 
-        image, label, color {
-          color: $primary_color;
-        }
-      }
-
-      &:active, &:checked {
-        border: 1px solid $primary_color;
-        background-color: $lighter_bg_color;
-
-        image, label, color {
-          color: _pressed_shade($primary_color);
-        }
-      }
-    }
-
-    &:disabled {
-      image {
-        opacity: .75;
+      &:disabled {
+        opacity: .5;
       }
     }
   }
 
-  padding: 4px 3px 3px 4px;
+  &:not(.inline-toolbar) toolbutton button.text-button {
+    transition-duration: 150ms;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: $lighter_bg_color;
+      border: 1px solid $border_color;
+    }
+
+    &:checked, &:active {
+      background-color: $hover_bg;
+      border: 1px solid _pressed_shade($primary_color);
+    }
+  }
 
   //
   on OSD
@@ -1862,74 +1817,10 @@ headerbar {
  * Pathbars *
  ************/
 .path-bar button {
-  @include button(normal, if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color), if($headerbar == "dark", $light_fg_color, $fg_color));
+  @include button(toggle, $in_headerbar: true);
 
-  &.toggle {
-    border-color: transparent;
-  }
-
-  &.text-button, &.image-button, &.image-button.text-button {
-    &.toggle {
-      @include button(normal, if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color), if($headerbar == "dark", $light_fg_color, $fg_color));
-
-      border-width: 1px 0 1px 0;
-      border-color: transparent;
-      padding-left: 4px;
-      padding-right: 4px;
-
-      &:checked {
-        label, image, arrow {
-          color: $primary_color;
-        }
-      }
-
-      &:active {
-        label, image, arrow {
-          color: $pressed_fg;
-        }
-      }
-
-      &:checked, &:active {
-        background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
-        box-shadow: $shadow_bottom $primary_color;
-      }
-
-      &:checked:hover {
-        @include button(normal, if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color), if($headerbar == "dark", $light_fg_color, $fg_color));
-
-        border-color: transparent;
-
-        label, image, arrow {
-          color: $pressed_fg;
-        }
-      }
-
-      &:not(:checked) {
-        label, image, arrow {
-          color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-        }
-
-        &:hover {
-          background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
-          border-color: transparent;
-
-          label, image, arrow {
-            color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-          }
-
-          &:active {
-            label, image, arrow {
-              color: $pressed_fg;
-            }
-
-            box-shadow: $shadow_bottom $primary_color;
-          }
-
-          box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-        }
-      }
-    }
-  }
+  padding-left: 4px;
+  padding-right: 4px;
 
   &.text-button.image-button label {
     padding-left: 0;
@@ -1996,6 +1887,7 @@ treeview.view {
   // to avoid borders being overridden by the previously set props
 
   &:selected {
+    color: $highlighted_fg_color;
     background-color: $primary_color;
 
     &:focus, & {
@@ -2123,7 +2015,7 @@ treeview.view {
 
       &:active {
         label, image, arrow {
-          color: $pressed_fg;
+          color: _pressed_shade($primary_color);
         }
       }
 
@@ -2368,46 +2260,20 @@ popover.background {
 
   &.menu button,
   button.model, modelbutton, modelbutton.flat {
-    min-height: 35px;
+    min-height: 32px;
     border-radius: 0px;
-    padding: 0 8px;
+    padding: 0 4px;
 
     &:hover {
-      background-color: $hover_bg;
-      border-color: $border_color;
+      @include button(flat-hover-actionable, $primary_color);
     }
 
     &:active {
-      background-color: $hover_bg;
-      border-color: $border_color;
-
-      label, image, arrow {
-        color: $pressed_fg;
-      }
-    }
-
-    button.image-button.model {
-      &:hover {
-        background-color: $hover_bg;
-        border-color: $border_color;
-      }
-
-      &:active {
-        background-color: $hover_bg;
-
-        * {
-          color: $pressed_fg;
-        }
-      }
+      @include button(flat-active-actionable, $primary_color);
     }
 
     &:checked {
       @extend %selected_items;
-
-      // possible
-      image, label, arrow {
-        color: white;
-      }
     }
   }
 }
@@ -2431,14 +2297,15 @@ notebook {
     background-clip: border-box;
 
     tabs tab:not(:checked) {
-      label {
-        color: $fg_color;
-      }
+
+        color: $disabled_fg_color;
+
 
       &:hover {
-        label {
-          color: $primary_color;
-        }
+
+          label{color: $fg_color;}
+
+
       }
     }
 
@@ -2467,10 +2334,13 @@ notebook {
         border-width: 0;
 
         &:checked, &:hover {
-          color: $primary_color;
           background-color: $base_color;
           box-shadow: none;
         }
+
+
+
+
       }
     }
 
@@ -2639,9 +2509,30 @@ notebook {
       color: $secondary_fg_color;
       font-weight: 500;
 
+      &:not(:checked) button{
+              &:hover {
+                @include button(flat-hover, $primary_color);
+              }
+
+              &:active, &:checked {
+                @include button(flat-active, $primary_color);
+              }
+      }
+
       button {
         min-height: 0px;
+        border-width: 0px;
         padding: 4px 6px;
+
+        @include button(flat);
+
+        &:hover {
+          @include button(flat-hover, $primary_color);
+        }
+
+        &:active, &:checked {
+          @include button(flat-active, $primary_color);
+        }
       }
 
       &:hover {
@@ -2789,6 +2680,8 @@ scrollbar {
     border-radius: $circular_radius;
     background-clip: padding-box;
     background-color: $secondary_fg_color;
+
+
 
     &:hover {
       background-color: $secondary_fg_color;
@@ -2968,16 +2861,16 @@ terminal-screen-container scrollbar {
 switch {
   outline-offset: -4px;
   color: transparent;
-  border-color: if($variant == "dark", $disabled_bg_color, $border_color);
+  border-color: $border_color;
   border-radius: $standard_radius;
 
   &:not(:checked) {
-    background-color: if($variant == "dark", $disabled_bg_color, $darker_bg_color);
+    background-color: $disabled_fg_color;
 
     slider {
-      border-color: if($variant == "dark", $disabled_bg_color, $darker_bg_color);
-      background-color: if($variant == "dark", $darker_border_color, $lighter_bg_color);
-      box-shadow: $shadow_surround if($variant == "dark", $disabled_bg_color, $darker_bg_color);
+      background-color: $lighter_bg_color;
+      border-color: $disabled_fg_color;
+      box-shadow: $shadow_surround $disabled_fg_color;
     }
   }
 
@@ -3003,6 +2896,7 @@ switch {
     }
 
     slider {
+      background-color: $disabled_bg_color;
       box-shadow: $shadow_surround $disabled_fg_color;
       border-color: $disabled_fg_color;
     }
@@ -3157,7 +3051,7 @@ scale {
   // the slider is inside the trough, so to have make it bigger there's a negative margin
 
   contents {
-    background: $darker_bg_color;
+    background: $disabled_fg_color;
   }
 
   slider {
@@ -3167,7 +3061,7 @@ scale {
   Scale
   trough {
     outline-offset: 2px;
-    background-color: $darker_bg_color;
+    background-color: $disabled_fg_color;
   }
 
   &.vertical trough {
@@ -3198,17 +3092,24 @@ scale {
   }
 
   slider {
+    margin: -8.5px;
+    transition: all 75ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
     background-color: $accent_color;
     border-radius: 100%;
     min-width: 0px;
-    min-height: 0px;
-    transition: $button_transition;
-    transition-property: background, border;
+    min-height: 0px
 
     &:active, &:hover {
+      margin: -10px;
+      transition: all 75ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
       background-clip: border-box;
-      background-color: lighten($accent_color, 10%);
-      border-color: lighten($accent_color, 10%);
+      background-color: _hover_shade($accent_color);
+      border-color:  _hover_shade($accent_color);
+
+      &:active{
+        background-color: _pressed_shade($accent_color);
+        border-color:  _pressed_shade($accent_color);
+      }
     }
 
     &:disabled {
@@ -3449,7 +3350,7 @@ levelbar {
     }
 
     &.empty {
-      background-color: $fill_color;
+      background-color: $disabled_fg_color;
       color: $disabled_fg_color;
     }
   }
@@ -3585,12 +3486,14 @@ row {
     }
 
     &:active {
-      box-shadow: inset 0 2px 2px -2px transparentize(black, 0.8);
+      //box-shadow: inset 0 2px 2px -2px transparentize(black, 0.8);
+
     }
 
     &:selected {
       &:active {
-        box-shadow: inset 0 2px 3px -1px transparentize(black, 0.5);
+        //box-shadow: inset 0 2px 3px -1px transparentize(black, 0.5);
+
       }
 
       &.has-open-popup,
@@ -3602,26 +3505,38 @@ row {
 
   &:selected {
     @extend %selected_items;
+
+    &:hover {
+      background-color: _pressed_shade($primary_color);
+    }
   }
 
   checkbutton, radiobutton {
     @include button(flat);
 
     &:hover, &:checked {
-      :not(label) {
-        color: $primary_color;
-      }
-
-      @include button(flat);
+      @include button(flat, $fg_color);
     }
 
     &:active {
-      :not(label) {
-        color: $pressed_fg;
-      }
-
-      @include button(flat);
+      @include button(flat, $fg_color);
     }
+  }
+}
+
+list {
+  button.image-button {
+    border-width: 0px;
+
+    @include button(flat);
+  }
+
+  &:hover {
+    @include button(flat-hover, $primary_color);
+  }
+
+  &:active, &:checked {
+    @include button(flat-active, $primary_color);
   }
 }
 
@@ -3647,7 +3562,7 @@ row {
         border-color: transparent;
 
         &:active {
-          color: $pressed_fg;
+          color: _pressed_shade($primary_color);
         }
       }
     }
@@ -4051,36 +3966,26 @@ infobar {
 
     button, button.text-button {
       // FIXME: extend selection mode buttons
-      @include button(normal, $lighter_bg_color, $suggested_color);
-
-      image, label, color {
+      @include button(normal, white, $suggested_color);
+      *{
         color: $suggested_color;
       }
 
-      &:hover {
-        background-color: lighten($suggested_color, 5%);
 
-        image, label, color {
+      &:hover{
+        @include button(normal, $suggested_color, white);
+        *{
           color: white;
         }
       }
 
+
       &:active, &:checked {
-        @include button(active, $lighter_bg_color, $primary_color);
-
-        background-color: _pressed_shade($suggested_color);
-
-        image, label, arrow {
-          color: white;
-        }
+        @include button(active, $suggested_color, white);
       }
 
       &:disabled {
-        background-color: $disabled_bg_color;
-
-        image, label, arrow {
-          color: $disabled_fg_color;
-        }
+        @include button(disabled);
       }
     }
 

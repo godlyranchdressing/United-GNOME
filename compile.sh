@@ -26,10 +26,10 @@ for distro in `cat $DISTROS`; do
     rm $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/* -R
     cp src/gtk-3.0/common-assets/*dark* $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/ -R
     for buttons in '-minimize' '-maximize' '-close'; do
-      cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
-      cp src/gtk-3.0/common-assets/titlebutton${buttons}-backdrop-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/
+      cp src/gtk-3.0/common-assets/titlebutton${buttons}-dar*.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
+      cp src/gtk-3.0/common-assets/titlebutton${buttons}-backdrop-da*.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-ho*.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-act*.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/
     done
   done
 
@@ -40,10 +40,10 @@ for distro in `cat $DISTROS`; do
     cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/ -R
     cp src/gtk-3.0/distro-assets/$distro-assets/* $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/ -R
     for buttons in '-minimize' '-maximize' '-close'; do
-      cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
-      cp src/gtk-3.0/common-assets/titlebutton${buttons}-backdrop-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
+      cp src/gtk-3.0/common-assets/titlebutton${buttons}-dar*.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
+      cp src/gtk-3.0/common-assets/titlebutton${buttons}-backdrop-dar*.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-*.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-*.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
     done
   done
 

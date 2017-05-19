@@ -1,7 +1,6 @@
-/************
- * Functions *
- ************/
-
+///************///
+/// * Functions * ///
+/// ************///
 @function _pressed_shade($bg) {
   // returns pressed/active shade
   @return darken($bg, 5%);
@@ -9,13 +8,12 @@
 
 @function _hover_shade($bg) {
   // returns hover shade
-  @return ligthen($bg, 5%);
+  @return lighten($bg, 5%);
 }
 
-
-/************
- * Entries *
- ************/
+///************///
+/// * Entries * ///
+/// ************///
 @function entry_focus_border($fc: $primary_color) {
   @return $fc;
 }
@@ -35,7 +33,7 @@
     border-color: entry_focus_border($fc);
   }
 
-  @if $type == insensitive {
+  @if $type == disabled {
     color: $disabled_fg_color;
     border-color: $border_color;
     background-color: $disabled_bg_color;
@@ -55,7 +53,7 @@
     background-clip: padding-box;
   }
 
-  @if $type == osd-insensitive {
+  @if $type == osd-disabled {
     color: $disabled_fg_color;
     border-color: $border_color;
     background-color: $disabled_bg_color;
@@ -63,164 +61,245 @@
   }
 }
 
-/************
- * Buttons *
- ************/
+///************///
+/// * Buttons * ///
+/// ************///
+@mixin button($type, $bg: $lighter_bg_color, $fg: $fg_color, $in_headerbar: false) {
+  // $in_header uses white text color (if headerbar == dark) and also makes the button background transparent
+  // local variables to be used if the case may be for some fancy if/else statements
+  $_bg: TBA;
+  $_fg: TBA;
+  $_bc: TBA;
 
-@mixin button($type, $bg: $lighter_bg_color, $fg: $fg_color) {
   @if $type == normal {
-    color: if($bg != $lighter_bg_color, white, $fg);
-    background-color: $bg;
-    border-color: if($bg != $lighter_bg_color, $bg, $border_color);
+    /// * Default state * ///
+        @if $in_headerbar == true  {
+      $_bg: transparent;
+      $_fg: $fg_color;
+      $_bc: transparent;
+
+
+      @if $headerbar == "dark" {
+        $_fg: $light_fg_color;
+
+      }
+    }
+    @else  {
+      $_bg: $bg;
+      $_fg: if($bg == $lighter_bg_color or $bg == white, $fg, white);
+      $_bc: if($bg == $lighter_bg_color, $border_color, $bg);
+    }
+
+    background-color: $_bg;
+    color: $_fg;
+    border-color: $_bc;
     outline-color: transparentize($fg, 0.7);
   }
   @else if $type == hover {
-    color: if($bg != $lighter_bg_color, white, $primary_color);
-    background-color: if($bg != $lighter_bg_color, _hover_shade($bg), $bg);
-    border-color: if($bg != $lighter_bg_color, _hover_shade($bg), $border_color);
+    /// * Hover state * ///
+
+    background-color: if($bg == $lighter_bg_color, $bg, _hover_shade($bg));
+    color: if($bg == $lighter_bg_color or $bg == white, $primary_color, white);
+    border-color: if($bg == $lighter_bg_color, $border_color, _hover_shade($bg));
     outline-color: transparentize($fg, 0.7);
   }
-
   @else if $type == active {
+    background-color: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
+    color: white;
+    border-color: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
     outline-color: transparentize($fg, 0.7);
-    border-color: if($bg != $lighter_bg_color, _hover_shade($bg), $border_color);
-    background-color: if($bg != $lighter_bg_color, darken($bg, 6%), $primary_color);
-
-    image, label, arrow {
-      color: if($type != flat, white, _pressed_shade($primary_color));
-    }
   }
   @else if $type == checked {
-    color: if($type != flat, white, _pressed_shade($primary_color));
+    /// * Checked/toggled state * ///
+    background-color: if($bg == $lighter_bg_color, $primary_color, $bg);
+    color: white;
+    border-color: if($bg == $lighter_bg_color, $primary_color, $bg);
     outline-color: transparentize($fg, 0.7);
-    border-color: if($bg != $lighter_bg_color, _hover_shade($bg), $border_color);
-    background-color: if($bg != $lighter_bg_color, darken($bg, 6%), $primary_color);
 
+    &:active,
     &:hover {
-      background-color: if($bg != $lighter_bg_color, darken($bg, 6%), _pressed_shade($primary_color));
+      background-color: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
+      color: white;
     }
 
-    &:active {
-      background-color: if($bg != $lighter_bg_color, darken($bg, 6%), _pressed_shade($primary_color));
-
-      image, label, arrow {
-        color: if($type != flat, white, _pressed_shade($primary_color));
-      }
+    &:disabled{
+      background-color: transparentize(_pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg)), $lower_opacity);
+      border-color: transparentize(_pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg)), $higher_opacity);
+      &, *{color: transparentize(white, $lower_opacity);}
     }
   }
-
-  @if $type == normal-alt {
-    color: $fg;
-    outline-color: transparentize($fg, 0.7);
-    border-color: if($bg != $bg_color, _border_color($bg, true), $border_color);
-    background-color: $bg;
-  }
-  @else if $type == hover-alt {
-    color: $fg;
-    outline-color: transparentize($fg, 0.7);
-    border-color: if($bg != $lighter_bg_color, _hover_shade($bg), $border_color);
-    background-color: $bg;
-  }
-
-  @else if $type == insensitive {
-    $_bg: if($bg != $bg_color, mix($bg, $base_color, 85%), $disabled_bg_color);
-
-    label, & {
-      color: if($fg != $fg_color, mix($fg, $_bg, 50%), $disabled_fg_color);
+  @else if $type == disabled {
+    /// * Disabled state * ///
+    @if $in_headerbar == true and $headerbar == "dark"{
+      $_bg: if($bg != $bg_color, mix($darker_lighter_bg_color, $darker_base_color, 85%), $darker_disabled_bg_color);
+      $_fg: if($bg != $bg_color, mix($light_fg_color, $_bg, 60%), $darker_disabled_fg_color);
     }
 
-    border-color: $border_color;
-    background-color: $disabled_bg_color;
-  }
-  @else if $type == insensitive-active {
-    $_bg: darken(mix($bg, $base_color, 85%), 8%);
-    $_bc: if($bg != $bg_color, _border_color($bg), transparent);
-
-    label, & {
-      color: if($bg != $bg_color, mix($fg, $_bg, 60%), $disabled_fg_color);
+    @else{
+      $_bg: if($bg != $bg_color, mix($bg, $base_color, 85%), $disabled_bg_color);
+      $_fg: if($bg != $bg_color, mix($fg, $_bg, 60%), $disabled_fg_color);
     }
-
-    border-color: $_bg;
     background-color: $_bg;
-  }
+    border-color: $border_color;
 
-  /************
-   * OSD *
-   ************/
+    &, label, image, arrow, cellview {
+      color: $_fg;
+    }
+  }
 
   @else if $type == osd {
     $_bg: if($bg != $bg_color, transparentize($bg, 0.5), $bg_color);
 
+    background: $bg;
     color: $fg_color;
     border-color: $border_color;
-    background: $bg;
-    background-clip: padding-box;
     outline-color: transparentize($fg_color, 0.7);
+    background-clip: padding-box;
   }
   @else if $type == osd-hover {
     $_bg: if($bg != $bg_color, transparentize($bg, 0.3), lighten($bg_color, 12%));
 
-    image, label, arrow {
-      color: $primary_color;
-    }
-
-    border-color: $border_color;
     background-color: $bg;
+    color: $primary_color;
+    border-color: $border_color;
     background-clip: padding-box;
     outline-color: transparentize($fg_color, 0.7);
   }
   @else if $type == osd-active {
     $_bg: if($bg != $bg_color, $bg, $border_color);
 
-    image, label, arrow {
-      color: $pressed_fg;
-    }
-
-    border-color: $border_color;
     background-color: $bg;
-    background-clip: padding-box;
+    color: _pressed_shade($primary_color);
+    border-color: $border_color;
     outline-color: transparentize($fg_color, 0.7);
+    background-clip: padding-box;
   }
-  @else if $type == osd-insensitive {
+  @else if $type == osd-disabled {
+    background-color: $disabled_bg_color;
     color: $disabled_fg_color;
     border-color: transparent;
-    background-color: $disabled_bg_color;
     background-clip: padding-box;
   }
-
-  /************
-   * Flat Buttons *
-   ************/
-
   @else if $type == flat {
+
+    @if $in_headerbar == true  {
+
+  $_fg: $fg_color;
+
+
+
+  @if $headerbar == "dark" {
+    $_fg: $light_fg_color;
+
+  }
+}
+@else  {
+
+  $_fg:$fg;
+
+}
+    background-color: transparent;
+    color: $_fg;
     border-color: transparent;
     background-image: none;
-    background-color: transparent;
   }
   @else if $type == flat-hover {
-    image, label, arrow {
-      color: $bg;
+    @if $bg == $lighter_bg_color {
+      $_bg: if($bg == $lighter_bg_color, $primary_color, $bg);
+    }
+    @else {
+      $_bg: $bg;
     }
 
+    background-color: transparent;
+    color: $_bg;
     border-color: transparent;
     background-image: none;
-    background-color: transparent;
+    -gtk-icon-effect: highlight;
   }
   @else if $type == flat-active {
-    image, label, arrow {
-      color: _pressed_shade($bg);
-    }
-
+    background-color: transparent;
+    color: _pressed_shade($bg);
     border-color: transparent;
     background-image: none;
+    -gtk-icon-effect: highlight;
+  }
+  @else if $type == flat-hover-actionable {
+    background-color: $hover_bg;
+    color: $primary_color;
+    background-image: none;
+    -gtk-icon-effect: highlight;
+  }
+  @else if $type == flat-active-actionable {
+    background-color: $hover_bg;
+    color: _pressed_shade($bg);
+    background-image: none;
+    -gtk-icon-effect: highlight;
+  }
+  @else if $type == flat-disable {
     background-color: transparent;
+    background-image: none;
+    opacity: .5;
+  }
+  @else if $type == toggle {
+    border-color: transparent;
+
+    @if $in_headerbar == true and $headerbar == "dark" {
+      $_bg: $darker_lighter_bg_color;
+      $_fg: $darker_disabled_fg_color;
+    }
+    @else {
+      $_bg: $lighter_bg_color;
+      $_fg: $disabled_fg_color;
+    }
+
+    background-color: $_bg;
+    color: $_fg;
+    border-color: transparent;
+    transition: all 250ms ease;
+  }
+  @else if $type == toggle-hover {
+    border-color: transparent;
+
+    @if $in_headerbar == true and $headerbar == "dark" {
+      $_bg: $darker_lighter_bg_color;
+      $_fg: $darker_disabled_fg_color;
+    }
+    @else {
+      $_bg: $lighter_bg_color;
+      $_fg: $disabled_fg_color;
+    }
+
+    background-color: $_bg;
+    box-shadow: $shadow_bottom $_fg;
+    color: $_fg;
+    border-color: transparent;
+  }
+  @else if $type == toggle-active {
+    @if $in_headerbar == true and $headerbar == "dark" {
+      $_bg: $darker_lighter_bg_color;
+      $_fg: $primary_color;
+    }
+    @else {
+      $_bg: $lighter_bg_color;
+      $_fg: $primary_color;
+    }
+
+    background-color: $_bg;
+    box-shadow: $shadow_bottom $primary_color;
+    color: $_fg;
+
+    border-color: transparent;
+    label{
+    transition: font-weight 0s;
+    font-weight: bold;
+    }
   }
 }
 
-/************
- * Overshoot *
- ************/
-
+///************///
+/// * Overshoot * ///
+/// ************///
 @mixin overshoot($p, $type: normal, $bg: $primary_color) {
   $_small_gradient_length: 3%;
   $_big_gradient_length: 50%;
@@ -253,17 +332,12 @@
   background-repeat: no-repeat;
   background-position: $p;
   background-color: transparent;
-
-
   border: none;
-
-
 }
 
-/************
- * Undershoot *
- ************/
-
+///************///
+/// * Undershoot * ///
+/// ************///
 @mixin undershoot($p) {
   // $p: position
   // possible values: top, bottom, right, left
@@ -272,15 +346,16 @@
   $_undershoot_color_light: $primary_color;
 
   $_gradient_dir: left;
-  $_dash_bg_size: 10px 0px;
+  $_dash_bg_size: 10px 0;
   $_gradient_repeat: repeat-x;
   $_bg_pos: center $p;
 
-  background-color: transparent;   // shouldn't be needed, but better to be sure;
+  background-color: transparent;
 
+  // shouldn't be needed, but better to be sure;
   @if $p == left or $p == right {
     $_gradient_dir: top;
-    $_dash_bg_size: 0px 10px;
+    $_dash_bg_size: 0 10px;
     $_gradient_repeat: repeat-y;
     $_bg_pos: $p center;
   }
