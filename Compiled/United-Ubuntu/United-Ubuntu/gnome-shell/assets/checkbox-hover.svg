@@ -56,14 +56,14 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1070"
+     inkscape:window-width="1848"
+     inkscape:window-height="1137"
      id="namedview6"
      showgrid="false"
      inkscape:zoom="19.666666"
-     inkscape:cx="-15.257683"
+     inkscape:cx="-1.8305102"
      inkscape:cy="16.54274"
-     inkscape:window-x="1366"
+     inkscape:window-x="1438"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4" />
@@ -99,18 +99,17 @@
            id="rect13523-4-0-5"
            style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate" />
         <g
-           id="g5400-2-47-4">
-          <rect
-             ry="3"
-             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#27ae60;fill-opacity:0;stroke:#27ae60;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
-             id="rect5147-9-1-5-7-6-3-70-7"
-             width="13"
-             height="12.999997"
-             x="18.5"
-             y="31.862183"
-             rx="3" />
-        </g>
+           id="g5400-2-47-4" />
       </g>
     </g>
   </g>
+  <rect
+     ry="3.0860829"
+     style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:#0e9547;stroke-width:1.48643541;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+     id="checkbox-hover"
+     width="16.513565"
+     height="16.513565"
+     x="3.7432175"
+     y="3.7432175"
+     rx="3.0447505" />
 </svg>

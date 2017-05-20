@@ -75,14 +75,14 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1070"
+     inkscape:window-width="1848"
+     inkscape:window-height="1137"
      id="namedview6"
      showgrid="false"
      inkscape:zoom="13.906433"
-     inkscape:cx="-6.7132298"
+     inkscape:cx="4.279227"
      inkscape:cy="18.569675"
-     inkscape:window-x="1366"
+     inkscape:window-x="1438"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4" />
@@ -122,18 +122,6 @@
              height="16"
              x="17"
              y="30.362183" />
-          <g
-             id="g5400-6-68">
-            <rect
-               rx="3"
-               y="31.362196"
-               x="18.000006"
-               height="13.99999"
-               width="13.999989"
-               id="rect5147-9-1-5-7-6-7-4"
-               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#27ae60;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
-               ry="3" />
-          </g>
         </g>
       </g>
     </g>
@@ -185,5 +173,24 @@
         </g>
       </g>
     </g>
+  </g>
+  <g
+     style="display:inline"
+     id="checkbox-checked"
+     transform="matrix(1.1008833,0,0,1.1012433,-37.625682,31.845185)">
+    <rect
+       rx="2.7250845"
+       y="-25.5184"
+       x="37.577915"
+       height="14.995382"
+       width="15.000286"
+       id="rect5147-9-1-5-7-6-43-9"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#27ae60;fill-opacity:1;stroke:#0e9547;stroke-width:1.35000002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       ry="2.7241936" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path8913-6-7-1-5-1-9-12"
+       d="m 50.859308,-23.342974 -6.5,6.39453 -2.9375,-2.9375 -2.125,2.125 5.0625,5.0625 6.5,-6.60547 z"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.99191427;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
   </g>
 </svg>

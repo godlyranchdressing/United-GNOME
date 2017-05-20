@@ -251,7 +251,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -slider-height: 2px;
   -slider-background-color: rgba(80, 80, 80, 0.75);
   -slider-border-color: transparent;
-  -slider-active-background-color: #1793D1;
+  -slider-active-background-color: #4D4D4D;
   -slider-active-border-color: transparent;
   -slider-border-width: 0;
   -slider-handle-radius: 0px;
@@ -271,11 +271,20 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   width: 24px;
   height: 24px;
   padding: 4px;
+  transition-duration: 250ms;
   background-image: url("assets/checkbox-off.svg");
+}
+
+.check-box:hover, .check-box:active, .check-box:checked {
+  transition-duration: 150ms;
 }
 
 .check-box:hover StBin {
   background-image: url("assets/checkbox-hover.svg");
+}
+
+.check-box:active StBin {
+  background-image: url("assets/checkbox-active.svg");
 }
 
 .check-box:checked StBin {
@@ -756,10 +765,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: white;
 }
 
-.popup-menu .popup-menu-item:checked:active {
-  color: #505050 !important;
-}
-
 .popup-menu .popup-menu-item:checked:insensitive {
   color: rgba(80, 80, 80, 0.4);
 }
@@ -770,8 +775,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   transition-duration: 0s;
 }
 
-.popup-menu .popup-menu-item:active, .popup-menu .popup-menu-item:hover {
-  background-color: rgba(80, 80, 80, 0.1);
+.popup-menu .popup-menu-item:hover {
+  background-color: rgba(80, 80, 80, 0.2) !important;
+}
+
+.popup-menu .popup-menu-item:active {
+  background-color: rgba(80, 80, 80, 0.1) !important;
   color: #505050;
   transition-duration: 0.1s;
 }
@@ -863,7 +872,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .osd-window .level-bar {
   color: rgba(80, 80, 80, 0.16);
-  background-color: #1793D1;
+  background-color: #4D4D4D;
   border-radius: 0px;
 }
 
@@ -1210,6 +1219,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 4px 8px;
 }
 
+.datemenu-today-button:active,
+.world-clocks-button:active,
+.weather-button:active,
+.events-section-title:active, .message-list-section-title:active {
+  background-color: rgba(80, 80, 80, 0.1) !important;
+}
+
 .message-list-section-close > StIcon {
   background-color: transparent;
   border-radius: 9999px;
@@ -1218,11 +1234,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message-list-section-close:hover StIcon {
-  background-color: rgba(80, 80, 80, 0.2);
+  background-color: transparent;
+  color: #1793D1;
 }
 
 .message-list-section-close:active StIcon {
-  backgrounnd-color: rgba(80, 80, 80, 0.1);
+  background-color: transparent;
+  color: #1483ba;
 }
 
 .datemenu-today-button {
@@ -1321,12 +1339,60 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-image: url("assets/calendar-arrow-right.svg");
 }
 
+.calendar-change-month-back:hover {
+  background-color: transparent;
+  background-image: url("assets/calendar-arrow-left-hover.svg");
+}
+
+.calendar-change-month-back:hover:rtl {
+  background-image: url("assets/calendar-arrow-right-hover.svg");
+}
+
+.calendar-change-month-back:active {
+  background-color: transparent;
+  background-image: url("assets/calendar-arrow-left-active.svg");
+}
+
+.calendar-change-month-back:active:rtl {
+  background-image: url("assets/calendar-arrow-right-active.svg");
+}
+
+.calendar-change-month-back:focus {
+  background-color: transparent;
+}
+
 .calendar-change-month-forward {
   background-image: url("assets/calendar-arrow-right.svg");
 }
 
 .calendar-change-month-forward:rtl {
   background-image: url("assets/calendar-arrow-left.svg");
+}
+
+.calendar-change-month-forward:hover {
+  background-color: transparent;
+  background-image: url("assets/calendar-arrow-right-hover.svg");
+}
+
+.calendar-change-month-forward:hover:rtl {
+  background-image: url("assets/calendar-arrow-left-hover.svg");
+}
+
+.calendar-change-month-forward:active {
+  background-color: transparent;
+  background-image: url("assets/calendar-arrow-right-active.svg");
+}
+
+.calendar-change-month-forward:active:rtl {
+  background-image: url("assets/calendar-arrow-left-active.svg");
+}
+
+.calendar-change-month-forward:focus {
+  background-color: transparent;
+}
+
+.calendar-change-month-back, .calendar-change-month-back:hover, .calendar-change-month-back:active, .calendar-change-month-forward, .calendar-change-month-forward:hover, .calendar-change-month-forward:active {
+  transition-duration: 150ms;
 }
 
 .calendar-day-base {
@@ -1337,18 +1403,20 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   height: 30px;
   padding: 0;
   margin: 2px;
-  border: 1px solid transparent !important;
   transition-duration: 250ms;
   border-radius: 6px;
 }
 
 .calendar-day-base:hover, .calendar-day-base:focus {
   background-color: rgba(80, 80, 80, 0.2);
+  box-shadow: inset 0 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
 .calendar-day-base:active, .calendar-day-base:selected {
   color: #1ca2e6;
-  background-color: rgba(80, 80, 80, 0.2);
+  font-weight: bold !important;
+  background-color: rgba(80, 80, 80, 0.1);
+  box-shadow: inset 0 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
 .calendar-day-base.calendar-day-heading {
@@ -1366,6 +1434,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-day {
+  color: rgba(80, 80, 80, 0.75);
   border-width: 0;
 }
 
@@ -1378,11 +1447,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-nonwork-day {
-  color: #505050;
+  color: rgba(80, 80, 80, 0.75);
 }
 
 .calendar-today {
   font-weight: bold !important;
+  color: #1793D1 !important;
   border: none;
 }
 
@@ -1537,7 +1607,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message-media-control:active {
-  color: #1793D1;
+  color: #1483ba;
 }
 
 .message-media-control:insensitive {
@@ -1610,10 +1680,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .system-menu-action:hover {
   background-color: rgba(80, 80, 80, 0.2);
+  color: #1793D1;
 }
 
 .system-menu-action:active {
   background-color: rgba(80, 80, 80, 0.1);
+  color: #1483ba;
 }
 
 .ripple-box {
@@ -2607,6 +2679,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .app-view-control .button:active, .app-view-control .button:checked, .app-view-control .button:checked:hover, .app-view-control:active, .app-view-control:checked, .app-view-control:checked:hover {
   transition-duration: 250ms;
   color: #1793D1 !important;
+  font-weight: bold !important;
   background-color: rgba(0, 0, 0, 0.1) !important;
   box-shadow: inset 0 -2px 0px #1793D1 !important;
 }
@@ -2809,7 +2882,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .workspace-thumbnail-indicator {
-  border: 0 solid #1793D1;
+  border: 0 solid #4D4D4D;
   border-left-width: 2px;
   padding: 6px;
   border-radius: 0;

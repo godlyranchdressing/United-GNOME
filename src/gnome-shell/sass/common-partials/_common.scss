@@ -1,5 +1,4 @@
 //This is the RIGHT PLACE to edit the stylesheet
-
 //let's start by telling people not to edit the generated CSS:
 $cakeisalie: "This stylesheet is generated, DO NOT EDIT";
 
@@ -34,7 +33,6 @@ stage {
 }
 
 /* WIDGETS */
-
 /* Buttons */
 .button {
   min-height: $medium_size;
@@ -170,7 +168,7 @@ StScrollBar {
   -slider-border-color: transparent;
 
   //trough border color
-  -slider-active-background-color: $primary_color;
+  -slider-active-background-color: $accent_color;
 
   //active trough fill
   -slider-active-border-color: transparent;
@@ -196,13 +194,22 @@ StScrollBar {
     width: 24px;
     height: 24px;
     padding: ($medium_size - 24px) / 2;
+    transition-duration: 250ms;
 
     //border-radius: 100px;
     background-image: url("assets/checkbox-off.svg");
   }
 
+  &:hover, &:active, &:checked {
+    transition-duration: 150ms;
+  }
+
   &:hover StBin {
     background-image: url("assets/checkbox-hover.svg");
+  }
+
+  &:active StBin {
+    background-image: url("assets/checkbox-active.svg");
   }
 
   &:checked StBin {
@@ -687,10 +694,6 @@ StScrollBar {
         background-color: if($variant == "light", white, $semi_fill_color);
       }
 
-      &:active {
-        color: $fg_color !important;
-      }
-
       &:insensitive {
         color: $disabled_fg_color;
       }
@@ -702,8 +705,12 @@ StScrollBar {
       transition-duration: 0s;
     }
 
-    &:active, &:hover {
-      background-color: $fill_color;
+    &:hover {
+      background-color: $semi_fill_color !important;
+    }
+
+    &:active {
+      background-color: $fill_color !important;
       color: $fg_color;
       transition-duration: $longer_duration;
     }
@@ -807,7 +814,7 @@ StScrollBar {
 
   .level-bar {
     color: $disabled_fill_color;
-    background-color: $primary_color;
+    background-color: $accent_color;
     border-radius: 0px;
   }
 }
@@ -1129,6 +1136,10 @@ StScrollBar {
   border-radius: 0px;
   min-height: $menuitem_size - 4px * 2;
   padding: 4px 8px;
+
+  &:active {
+    background-color: $fill_color !important;
+  }
 }
 
 .message-list-section-close {
@@ -1140,11 +1151,13 @@ StScrollBar {
   }
 
   &:hover StIcon {
-    background-color: $semi_fill_color;
+    background-color: transparent;
+    color: $primary_color;
   }
 
   &:active StIcon {
-    backgrounnd-color: $fill_color;
+    background-color: transparent;
+    color: _pressed_shade($primary_color);
   }
 }
 
@@ -1235,6 +1248,28 @@ StScrollBar {
   &:rtl {
     background-image: url("assets/calendar-arrow-right.svg");
   }
+
+  &:hover {
+    background-color: transparent;
+    background-image: url("assets/calendar-arrow-left-hover.svg");
+
+    &:rtl {
+      background-image: url("assets/calendar-arrow-right-hover.svg");
+    }
+  }
+
+  &:active {
+    background-color: transparent;
+    background-image: url("assets/calendar-arrow-left-active.svg");
+
+    &:rtl {
+      background-image: url("assets/calendar-arrow-right-active.svg");
+    }
+  }
+
+  &:focus {
+    background-color: transparent;
+  }
 }
 
 .calendar-change-month-forward {
@@ -1243,6 +1278,34 @@ StScrollBar {
 
   &:rtl {
     background-image: url("assets/calendar-arrow-left.svg");
+  }
+
+  &:hover {
+    background-color: transparent;
+    background-image: url("assets/calendar-arrow-right-hover.svg");
+
+    &:rtl {
+      background-image: url("assets/calendar-arrow-left-hover.svg");
+    }
+  }
+
+  &:active {
+    background-color: transparent;
+    background-image: url("assets/calendar-arrow-right-active.svg");
+
+    &:rtl {
+      background-image: url("assets/calendar-arrow-left-active.svg");
+    }
+  }
+
+  &:focus {
+    background-color: transparent;
+  }
+}
+
+.calendar-change-month-back, .calendar-change-month-forward {
+  &, &:hover, &:active {
+    transition-duration: 150ms;
   }
 }
 
@@ -1254,18 +1317,20 @@ StScrollBar {
   height: $menuitem_size;
   padding: 0;
   margin: 2px;
-  border: 1px solid transparent !important;
   transition-duration: 250ms;
   border-radius: $standard_radius;
 
   &:hover, &:focus {
     background-color: $semi_fill_color;
+    box-shadow: $shadow_surround $border_color;
   }
 
   // &:active { background-color: $fill_color; }
   &:active, &:selected {
     color: lighten($primary_color, 5%);
-    background-color: $semi_fill_color;
+    font-weight: bold !important;
+    background-color: $fill_color;
+    box-shadow: $shadow_surround $border_color;
 
     // TODO:
 
@@ -1292,6 +1357,7 @@ StScrollBar {
 
 .calendar-day {
   //border collapse hack - see calendar.js
+  color: $secondary_fg_color;
   border-width: 0;
 }
 
@@ -1306,11 +1372,12 @@ StScrollBar {
 .calendar-work-day {}
 
 .calendar-nonwork-day {
-  color: $fg_color;
+  color: $secondary_fg_color;
 }
 
 .calendar-today {
   font-weight: bold !important;
+  color: $primary_color !important;
 
   //color: $fg_color;
   //background-color: transparent;
@@ -1475,7 +1542,7 @@ StScrollBar {
   }
 
   &:active {
-    color: $primary_color;
+    color: _pressed_shade($primary_color);
   }
 
   &:insensitive {
@@ -1551,10 +1618,12 @@ StScrollBar {
 
   &:hover {
     background-color: $semi_fill_color;
+    color: $primary_color;
   }
 
   &:active {
     background-color: $fill_color;
+    color: _pressed_shade($primary_color);
   }
 }
 
@@ -1919,6 +1988,7 @@ StScrollBar {
     &:active, &:checked, &:checked:hover {
       transition-duration: 250ms;
       color: $primary_color !important;
+      font-weight: bold !important;
       background-color: rgba(0, 0, 0, 0.1) !important;
       box-shadow: $shadow_bottom $primary_color !important;
     }
@@ -2084,7 +2154,7 @@ StScrollBar {
 }
 
 .workspace-thumbnail-indicator {
-  border: 0 solid $primary_color;
+  border: 0 solid $accent_color;
   border-left-width: 2px;
   padding: 6px;
   border-radius: 0;

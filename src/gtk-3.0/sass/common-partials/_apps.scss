@@ -15,10 +15,6 @@ window.nautilus-window {
 
   scrolledwindow treeeview.view, .nautilus-list-view overlay treeview {
     background-color: $bg_color;
-
-    *:selected {
-      background-color: $primary_color;
-    }
   }
 
   popover viewport button {
@@ -49,7 +45,6 @@ window.nautilus-window {
       &.top {
         tabs tab.reorderable-page {
           &:checked, &:hover {
-            // for the tab color to be the same color as the view in nautilus when active -> hardcoded for now
             background-color: $lighter_bg_color;
           }
         }
@@ -57,10 +52,9 @@ window.nautilus-window {
     }
   }
 
-paned > separator {
-  background: transparent;
-}
-
+  paned > separator {
+    background: transparent;
+  }
 
   placessidebar {
     box-shadow: inset -10px 0 10px 0px rgba(0, 0, 0, 0.055);
@@ -102,20 +96,18 @@ viewport.frame list.tweak-categories {
 
 headerbar.titlebar button.title {
   // the calculator's title is a button
-  background-image: none;
+  @include button(normal, $in_headerbar: true);
 
-  &:hover, &:active, &:checked {
-    color: $primary_color;
-    background-image: none;
-    box-shadow: none;
+  &:hover {
+    @include button(hover, $lighter_bg_color, $primary_color);
+  }
 
-    &:checked {
-      * {
-        color: _pressed_shade($primary_color);
-      }
-    }
+  &:active {
+    @include button(active, $lighter_bg_color, $primary_color);
+  }
 
-    color: white;
+  &:checked {
+    @include button(checked, $lighter_bg_color, $primary_color);
   }
 }
 
@@ -139,8 +131,7 @@ toolbar.horizontal box.linked button:hover {
  * GNOME Software *
  ************/
 
-headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
-  background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
+headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software {
   border-radius: 0px;
   border-width: 0px;
 
@@ -152,56 +143,19 @@ headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
     border-top-right-radius: $standard_radius;
   }
 
-  &:checked {
-    label, image, arrow {
-      color: $primary_color;
-    }
-  }
+  @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
 
-  &:active {
-    label, image, arrow {
-      color: _pressed_shade($primary_color);
-    }
+  &:hover {
+    @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
   }
 
   &:checked, &:active {
-    background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
-    box-shadow: $shadow_bottom $primary_color;
-  }
+    @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
 
-  &:checked:hover {
-    @include button(normal, if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color), if($headerbar == "dark", $light_fg_color, $fg_color));
+    &:disabled {
+      @include button(disabled, $in_headerbar: true);
 
-    border-color: transparent;
-
-    label, image, arrow {
-      color: _pressed_shade($primary_color);
-    }
-  }
-
-  &:not(:checked) {
-    background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
-
-    label, image, arrow {
-      color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-    }
-
-    &:hover {
-      border-color: transparent;
-
-      label, image, arrow {
-        color: if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
-      }
-
-      &:active {
-        label, image, arrow {
-          color: _pressed_shade($primary_color);
-        }
-
-        box-shadow: $shadow_bottom $primary_color;
-      }
-
-      box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+      box-shadow: $shadow_bottom if($headerbar == "dark", $darker_secondary_fg_color, $secondary_fg_color);
     }
   }
 }
@@ -264,7 +218,7 @@ window.workbench {
     //@include tab;
     background-color: $lighter_bg_color;
     min-height: 18px;
-    box-shadow: inset 0 0px $disabled_fg_color;
+    box-shadow: inset 0 0px $secondary_fg_color;
 
     label {
       padding: 4px 8px;
@@ -272,11 +226,11 @@ window.workbench {
 
     &:not(:checked) {
       &:hover {
-        box-shadow: inset 0 -3px $disabled_fg_color;
+        box-shadow: inset 0 -3px $secondary_fg_color;
       }
 
       label {
-        color: $disabled_fg_color;
+        color: $secondary_fg_color;
       }
     }
 
@@ -314,7 +268,32 @@ window.workbench {
  * GNOME Maps *
  ************/
 
+#zoom-in-button, #zoom-out-button {
+  // to hide the white background
+  border-radius: 0px;
+}
 
-#zoom-in-button, #zoom-out-button{
-border-radius: 0px;
+/************
+ * GNOME Maps *
+ ************/
+headerbar.titlebar.incognito-mode {
+  button {
+    @include button(flat);
+  }
+}
+
+/************
+ * Evolution *
+ ************/
+
+button.ecalendar.flat {
+  @include button(flat);
+
+  &:hover {
+    @include button(flat-hover, $primary_color);
+  }
+
+  &:active, &:checked {
+    @include button(flat-active, $primary_color);
+  }
 }

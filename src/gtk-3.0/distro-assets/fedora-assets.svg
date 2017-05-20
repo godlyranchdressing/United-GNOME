@@ -9,12 +9,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="131.73334"
-   height="17.066668"
-   viewBox="0 0 131.73334 17.066668"
+   width="132.66667"
+   height="18.000011"
+   viewBox="0 0 132.66667 18.000012"
    version="1.1"
    id="svg435"
-   sodipodi:docname="arch-assets.svg"
+   sodipodi:docname="fedora-assets.svg"
    inkscape:version="0.92.1 r">
   <defs
      id="defs846">
@@ -313,9 +313,9 @@
   <sodipodi:namedview
      showgrid="true"
      id="namedview4"
-     inkscape:zoom="8.5184352"
-     inkscape:cx="82.21409"
-     inkscape:cy="0.42140073"
+     inkscape:zoom="4.2592176"
+     inkscape:cx="18.624653"
+     inkscape:cy="-42.08244"
      inkscape:window-width="1848"
      inkscape:window-height="1137"
      inkscape:window-x="1438"
@@ -330,8 +330,8 @@
     <inkscape:grid
        empspacing="4"
        id="grid2"
-       originx="-4.2666953"
-       originy="-390.39994" />
+       originx="-3.8000058"
+       originy="-389.93328" />
   </sodipodi:namedview>
   <rect
      sodipodi:insensitive="true"
@@ -339,13 +339,13 @@
      height="300"
      id="background-light"
      style="fill:url(#linearGradient4914);stroke-width:0.86602557"
-     x="-4.266695"
-     y="-4.8074284" />
+     x="-3.8000057"
+     y="-4.3407612" />
   <g
      style="display:inline"
      id="titlebutton-close-hover"
      inkscape:label="#g6332"
-     transform="translate(-427.73333,198.01367)">
+     transform="matrix(1.0546874,0,0,1.0546874,-453.45828,208.84254)">
     <g
        id="g4927-8-7-5"
        style="display:inline;opacity:1"
@@ -428,7 +428,7 @@
      style="display:inline"
      id="titlebutton-maximize-hover"
      inkscape:label="#g6356"
-     transform="translate(-418.13336,198.01367)">
+     transform="matrix(1.0546874,0,0,1.0546874,-442.16665,208.84254)">
     <g
        id="g4891-4-6"
        style="display:inline;opacity:1"
@@ -519,7 +519,7 @@
      style="display:inline"
      id="titlebutton-minimize-hover"
      inkscape:label="#g6414"
-     transform="translate(-408.53333,198.01367)">
+     transform="matrix(1.0546874,0,0,1.0546874,-430.87495,208.84254)">
     <g
        id="g4909-1-0"
        style="display:inline;opacity:1"
@@ -610,11 +610,11 @@
      style="display:inline"
      id="titlebutton-close-active"
      inkscape:label="#g6332"
-     transform="translate(-355.73333,198.01367)">
+     transform="translate(-355.26664,198.48034)">
     <g
        id="g4927-8-7"
        style="display:inline;opacity:1"
-       transform="translate(-940.8,-461.48034)">
+       transform="matrix(1.0953347,0,0,1.0953347,-1076.1498,-487.41137)">
       <g
          transform="translate(-109.86667)"
          style="display:inline;opacity:1"
@@ -682,17 +682,17 @@
       </g>
     </g>
     <rect
-       y="-198.01367"
-       x="470.39993"
-       height="17.066668"
-       width="17.066668"
+       y="-198.48033"
+       x="469.93326"
+       height="18"
+       width="18"
        id="rect17883-02"
-       style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1.06666672;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0" />
+       style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1.125;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0" />
     <g
        style="display:inline;opacity:0.25"
        id="darken-layer-close"
        inkscape:label="#g6332"
-       transform="translate(-5.4307678e-5,-1.9033814e-6)">
+       transform="matrix(1.0546874,0,0,1.0546874,-26.191694,10.362194)">
       <g
          id="g4927-8-7-5-5"
          style="display:inline;opacity:1"
@@ -776,7 +776,7 @@
      style="display:inline"
      id="titlebutton-maximize-active"
      inkscape:label="#g6356"
-     transform="translate(-346.13336,198.01367)">
+     transform="matrix(1.0546872,0,0,1.0546873,-370.16653,208.84251)">
     <g
        id="g4891-4"
        style="display:inline;opacity:1"
@@ -958,7 +958,7 @@
      style="display:inline"
      id="titlebutton-minimize-active"
      inkscape:label="#g6414"
-     transform="translate(-336.53333,198.01367)">
+     transform="matrix(1.0546865,0,0,1.0546873,-358.87456,208.84251)">
     <g
        id="g4909-1"
        style="display:inline;opacity:1"

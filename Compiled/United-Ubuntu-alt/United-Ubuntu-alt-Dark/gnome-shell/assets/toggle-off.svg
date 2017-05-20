@@ -70,9 +70,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.07058824"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313708"
-     inkscape:cx="5.4354374"
-     inkscape:cy="6.1505081"
+     inkscape:zoom="22.627416"
+     inkscape:cx="22.99961"
+     inkscape:cy="13.106971"
      inkscape:document-units="px"
      inkscape:current-layer="g37994"
      showgrid="false"
@@ -109,7 +109,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -128,7 +128,7 @@
            transform="translate(-115,1277)"
            id="g37996">
           <rect
-             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#1c1c1c;fill-opacity:1;fill-rule:nonzero;stroke:#232323;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#1c1c1c;fill-opacity:1;fill-rule:nonzero;stroke:#313131;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
              id="rect38000"
              width="98"
              height="25"
@@ -145,7 +145,7 @@
              style="display:inline"
              transform="translate(-115,1247)">
             <rect
-               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#383838;fill-opacity:1;fill-rule:nonzero;stroke:#232323;stroke-width:1.37920964;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#252525;fill-opacity:1;fill-rule:nonzero;stroke:#313131;stroke-width:1.37920964;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
                id="rect38006"
                width="45.969578"
                height="25"

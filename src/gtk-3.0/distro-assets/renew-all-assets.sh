@@ -4,7 +4,7 @@ COMPILED_FOLDER="sass/compiled-css"
 OUTPUT="Compiled"
 ###
 
-echo "Compiling and copying..."
+echo "Rendering assets..."
 for distro in `cat $DISTROS`; do
   rm ${distro}-assets/*
   bash render-assets-${distro}.sh

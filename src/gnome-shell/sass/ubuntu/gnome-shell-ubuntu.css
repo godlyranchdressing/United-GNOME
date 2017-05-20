@@ -251,7 +251,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -slider-height: 2px;
   -slider-background-color: rgba(255, 255, 255, 0.75);
   -slider-border-color: transparent;
-  -slider-active-background-color: #E95420;
+  -slider-active-background-color: #973960;
   -slider-active-border-color: transparent;
   -slider-border-width: 0;
   -slider-handle-radius: 0px;
@@ -861,7 +861,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .osd-window .level-bar {
   color: rgba(255, 255, 255, 0.16);
-  background-color: #E95420;
+  background-color: #973960;
   border-radius: 0px;
 }
 
@@ -1316,12 +1316,44 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-image: url("assets/calendar-arrow-right.svg");
 }
 
+.calendar-change-month-back:hover {
+  background-image: url("assets/calendar-arrow-left-hover.svg");
+}
+
+.calendar-change-month-back:hover:rtl {
+  background-image: url("assets/calendar-arrow-right-hover.svg");
+}
+
+.calendar-change-month-back:active {
+  background-image: url("assets/calendar-arrow-left-active.svg");
+}
+
+.calendar-change-month-back:active:rtl {
+  background-image: url("assets/calendar-arrow-right-active.svg");
+}
+
 .calendar-change-month-forward {
   background-image: url("assets/calendar-arrow-right.svg");
 }
 
 .calendar-change-month-forward:rtl {
   background-image: url("assets/calendar-arrow-left.svg");
+}
+
+.calendar-change-month-forward:hover {
+  background-image: url("assets/calendar-arrow-right-hover.svg");
+}
+
+.calendar-change-month-forward:hover:rtl {
+  background-image: url("assets/calendar-arrow-left-hover.svg");
+}
+
+.calendar-change-month-forward:active {
+  background-image: url("assets/calendar-arrow-right-active.svg");
+}
+
+.calendar-change-month-forward:active:rtl {
+  background-image: url("assets/calendar-arrow-left-active.svg");
 }
 
 .calendar-day-base {
@@ -1332,18 +1364,20 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   height: 30px;
   padding: 0;
   margin: 2px;
-  border: 1px solid transparent !important;
   transition-duration: 250ms;
   border-radius: 6px;
 }
 
 .calendar-day-base:hover, .calendar-day-base:focus {
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0px 0px 1px rgba(244, 244, 244, 0.1);
 }
 
 .calendar-day-base:active, .calendar-day-base:selected {
   color: #eb6637;
-  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bold !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0px 0px 1px rgba(244, 244, 244, 0.1);
 }
 
 .calendar-day-base.calendar-day-heading {
@@ -1361,6 +1395,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-day {
+  color: rgba(255, 255, 255, 0.75);
   border-width: 0;
 }
 
@@ -1373,11 +1408,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .calendar-nonwork-day {
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .calendar-today {
   font-weight: bold !important;
+  color: #E95420 !important;
   border: none;
 }
 
@@ -1804,14 +1840,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .search-entry .search-entry-icon {
-  color: transparent;
-  icon-size: 1px;
-  padding: 0 0;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .search-entry:focus .search-entry-icon {
-  color: transparent;
-  icon-size: 1px;
+  color: #973960;
 }
 
 #searchResultsBin {
@@ -2601,6 +2634,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .app-view-control .button:active, .app-view-control .button:checked, .app-view-control .button:checked:hover, .app-view-control:active, .app-view-control:checked, .app-view-control:checked:hover {
   transition-duration: 250ms;
   color: #E95420 !important;
+  font-weight: bold !important;
   background-color: rgba(0, 0, 0, 0.1) !important;
   box-shadow: inset 0 -2px 0px #E95420 !important;
 }

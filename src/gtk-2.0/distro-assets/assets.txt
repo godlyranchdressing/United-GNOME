@@ -10,14 +10,14 @@ menuitem
 menubar_button
 entry-active-toolbar
 slider-horiz-active
-slider-vert-prelight
+slider-vert-hover
 entry-border-active-bg
 combo-entry-border-focus
 combo-entry-border-focus-rtl
 flat-button-active
 slider
-slider-horiz-prelight
-slider-prelight
+slider-horiz-hover
+slider-hover
 trough-horizontal-active
 trough-vertical-active
 progressbar_v

@@ -1,3 +1,20 @@
+///************///
+/// * Functions * ///
+/// ************///
+@function _pressed_shade($_bg, $value: 1) {
+  // returns pressed/active shade
+  $_amount: TBA;
+  $_amount: $value * 5;
+  @return darken($_bg, $_amount);
+}
+
+@function _hover_shade($_bg, $value: 1) {
+  // returns hover shade
+  $_amount: TBA;
+  $_amount: $value * 5;
+  @return lighten($_bg, $_amount);
+}
+
 // generic drawing of more complex things
 // provide font size in pt, with px fallback
 @function pt($size: $root-font-size) {
