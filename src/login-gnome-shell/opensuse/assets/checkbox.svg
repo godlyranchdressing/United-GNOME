@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   fill="#FF4081"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="checkbox.svg"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8">
+    <linearGradient
+       id="dark_fg_color-9"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop7036" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#primary_color-3"
+       id="linearGradient5399"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="primary_color-3"
+       osb:paint="solid">
+      <stop
+         style="stop-color: #73BA25;stop-opacity:1;"
+         offset="0"
+         id="stop5679" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#dark_fg_color-9"
+       id="linearGradient5401"
+       gradientUnits="userSpaceOnUse"
+       x1="10.5"
+       y1="1033.3622"
+       x2="10.5"
+       y2="1035.3622" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#dark_fg_color-9"
+       id="linearGradient5403"
+       gradientUnits="userSpaceOnUse"
+       x1="12"
+       y1="1027.3622"
+       x2="12"
+       y2="1035.3622" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="735"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="13.906433"
+     inkscape:cx="14.627133"
+     inkscape:cy="16.098096"
+     inkscape:window-x="0"
+     inkscape:window-y="432"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4" />
+  <g
+     transform="matrix(1.375,0,0,1.375,-48.5,0.5019989)"
+     style="display:inline;opacity:1"
+     id="checkbox-checked"
+     inkscape:label="#g10758">
+    <g
+       inkscape:label="#g22047"
+       id="checkbox-5"
+       style="display:inline"
+       transform="translate(19)">
+      <g
+         id="sdsd-7"
+         inkscape:label="#g21853">
+        <g
+           transform="translate(0,-30)"
+           inkscape:label="#g14325"
+           id="scdsdcd-5">
+          <g
+             transform="matrix(0.92951982,0,0,0.92914368,-156.75069,-212.9618)"
+             id="g15812-6-6-1-5"
+             style="display:inline">
+            <g
+               style="display:inline"
+               id="g5489-2-9-6-8-8-53"
+               transform="matrix(0.5089163,0,0,0.51739823,161.7932,197.56426)">
+              <g
+                 id="g5428-8-1-4-0-0-4" />
+            </g>
+          </g>
+          <rect
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
+             id="rect13523-7"
+             width="16"
+             height="16"
+             x="17"
+             y="30.362183" />
+          <g
+             id="g5400-6">
+            <rect
+               rx="0"
+               y="31.362196"
+               x="18.000006"
+               height="13.99999"
+               width="13.999989"
+               id="rect5147-9-1-5-7-6-7"
+               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient5399);fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+               ry="0" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:label="Ebene 1"
+       id="checkbox-checked-dark-7"
+       transform="translate(36,-1036)"
+       style="display:inline">
+      <g
+         id="g3981-6-4"
+         transform="rotate(45,-3.2604448,1033.6624)"
+         style="opacity:0.85;fill:#1a1a1a;fill-opacity:1" />
+      <g
+         id="g4049-2"
+         transform="rotate(45,7.4999938,1026.3622)">
+        <g
+           id="g4056-7"
+           transform="translate(12.374375,11.531233)">
+          <g
+             id="g3981-0"
+             transform="translate(-3,-4.9999826)"
+             style="fill:#3b3c3e;fill-opacity:1">
+            <rect
+               ry="0.66666085"
+               rx="0.66666085"
+               y="1033.3622"
+               x="8"
+               height="1.9999826"
+               width="5"
+               id="rect3977-39"
+               style="fill:url(#linearGradient5401);fill-opacity:1;stroke:none" />
+            <rect
+               ry="0"
+               y="1027.3622"
+               x="11"
+               height="7.9999828"
+               width="2"
+               id="rect3979-7"
+               style="fill:url(#linearGradient5403);fill-opacity:1;stroke:none" />
+          </g>
+          <rect
+             style="fill:#eeeeee;fill-opacity:0;stroke:none"
+             id="rect4047-81"
+             width="3"
+             height="1"
+             x="5"
+             y="-8"
+             transform="translate(0,1036.3622)" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

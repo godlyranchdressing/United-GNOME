@@ -22,3 +22,9 @@ StEntry {
   color: #232323;
   /*color: red;*/
 }
+
+StEntry StIcon.capslock-warning {
+  ...
+  warning-color: #e67e22;
+  ...
+}
