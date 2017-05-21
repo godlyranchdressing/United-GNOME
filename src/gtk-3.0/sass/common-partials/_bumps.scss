@@ -1,109 +1,149 @@
-headerbar {
+headerbar, headerbar.titlebar {
+  entry {
+    background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
+    border-color: if($headerbar != "dark", $border_color, $darker_border_color);
+    color: if($headerbar == "dark", $light_fg_color, $fg_color);
+
+    &:focus {
+      @include entry(focus);
+    }
+
+    &:disabled {
+      @include entry(disabled);
+    }
+  }
+
   button {
     // make the styling on headerbar buttons more discreet
+    @include button(normal, $in_headerbar: true);
+
+
+
     margin: 5px 0;
-    background-color: transparent;
-    background-image: none;
-    border-color: transparent;
-    box-shadow: none;
 
-    @if $headerbar == "dark" {
-      image, label {
-        color: $light_fg_color;
+    &.text-button, &.text-button.toggle {
+      &:hover {
+        @include button(hover, $in_headerbar: true);
+        border-color: $primary_color;
       }
-    }
 
-    &.image-button:not(.text-button){
-      margin: 7px 0px;
-    }
+      &:active {
+        @include button(active, $primary_color, $in_headerbar: true);
+      }
 
-    &:hover, &:active, &:checked {
-      color: $primary_color;
-      border-color: transparent;
-      background-image: none;
-      background-color: transparent;
+      &:checked {
+        @include button(checked, $primary_color, $in_headerbar: true);
+      }
     }
 
     &.text-button {
-      // same as the above
-      border: 1px solid transparent;
+      &.suggested-action {
+        @include button(normal, $suggested_color, white);
 
-      @if $headerbar == "dark" {
-        image, label {
-          color: $light_fg_color;
+        &:hover {
+          @include button(hover, $suggested_color, white);
         }
-      }
 
-      &:hover {
-        background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
-        color: $primary_color;
-        border: 1px solid $border_color;
-      }
+        &:active {
+          @include button(active, $suggested_color, white);
+        }
 
-      &:active, &:checked {
-        background-color: $primary_color;
-        color: white;
-      }
-
-      &.default {
-        background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
-        border-color: $border_color;
+        &:disabled {
+          @include button(disabled, $suggested_color, $in_headerbar: true);
+        }
       }
     }
 
-    &:not(.text-button) {
-      min-width: 18px;
+    &.image-button:not(.text-button), &.toggle:not(.image-button):not(.text-button) {
+      @include button(flat, $primary_color, $in_headerbar: true);
 
-      &.popup.toggle {
-        background-image: none;
-        background-color: transparent;
-        box-shadow: none;
-
-        &:hover, &:active, &:checked {
-          background-image: none;
-          color: $primary_color;
-        }
+      &:hover {
+        @include button(flat-hover, $primary_color, $in_headerbar: true);
       }
 
-      &.image-button {
-        box-shadow: none;
-
-        @if $headerbar == "dark" {
-          color: $light_fg_color;
-        }
-
-        &:hover, &:checked {
-          color: $primary_color;
-        }
-
-        &:active{
-          color: $pressed_fg;
-        }
+      &:active, &:checked {
+        @include button(flat-active, $primary_color, $in_headerbar: true);
       }
     }
   }
 
   stackswitcher.horizontal.linked.stack-switcher {
     // make the stackswitcher look the way we want it to look
+
     button {
       min-width: 115px;
-      border: 0px;
-      @include toggle_button($primary_color, true);
+      border-width: 0px;
+      border-radius: 0px;
+
+      @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+      &:hover {
+        @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
+      }
+
+      &:active, &:checked {
+        @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+        &:disabled {
+          @include button(disabled, $in_headerbar: true);
+
+          box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+        }
+      }
+
+      &:disabled {
+        @include button(disabled, $in_headerbar: true);
+      }
+
+      &:first-child {
+        border-top-left-radius: $standard_radius;
+      }
+
+      &:last-child {
+        border-top-right-radius: $standard_radius;
+      }
     }
   }
 
+  .path-bar button {
+    border-width: 0px;
 
+    &.text-button.toggle {
+      @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
 
-  .path-bar button.slider-button {
-    // give the appearance of the pathbar being one big box
-    &, &:disabled {
-      background-color: if($headerbar == "dark" and $variant == "light", $darker_headerbar_color, $lighter_bg_color);
+      &:hover {
+        @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
+      }
+
+      &:active, &:checked {
+        @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+        &:disabled {
+          @include button(disabled, $in_headerbar: true);
+
+          box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+        }
+      }
+
+      &:disabled {
+        @include button(disabled, $in_headerbar: true);
+      }
+    }
+
+    &.slider-button {
+      border-width: 0px;
+      @include button(flat, $in_headerbar: true);
+
+      &:disabled {
+        @include button(disabled);
+      }
+
+      &, &:disabled {
+        // to give the appearance of the pathbar being one large box, even if the sliders are disabled
+        background-color: if($headerbar == "dark" and $variant == "light", $darker_lighter_bg_color, $lighter_bg_color);
+      }
     }
   }
-}
-
-.path-bar button.text-button {
-  @include toggle_button($primary_color, true);
 }
 
 .nautilus-window notebook header tabs tab {
@@ -130,7 +170,7 @@ button {
 }
 
 stackswitcher button {
-  border-color: #656565;
+  border-color: $border_color;
   border-style: solid;
 
   &:first-child {
@@ -149,6 +189,12 @@ stackswitcher button {
 scale:disabled contents {
   // disabled state for scale
   background-color: darken($bg_color, 5%);
+}
+
+dialog {
+  @if $headerbar != "dark" {
+    background-image: image($headerbar_bg);
+  }
 }
 
 messagedialog {
@@ -178,7 +224,18 @@ messagedialog {
 
   button {
     // doesn't seem to inherit default button padding
-    min-height: 36px;
+    min-height: 30px;
+
+    &:hover {
+      color: white;
+      background-color: $primary_color;
+    }
+
+    &:active {
+      color: white;
+      border-color: _pressed_shade($primary_color);
+      background-color: _pressed_shade($primary_color);
+    }
   }
 
   &.background.csd box.horizontal.titlebar {
@@ -186,14 +243,5 @@ messagedialog {
     min-height: 24px;
     background-image: image($bg_color);
     padding: 0px;
-  }
-}
-
-popover.menu {
-  button {
-    &:hover {
-      box-shadow: none;
-      border-color: transparent;
-    }
   }
 }

@@ -1,6 +1,6 @@
 #! /bin/bash
 
-DISTROS="distros.txt"
+DISTROS="../../../distros.txt"
 
 for distro in `cat $DISTROS`
 do

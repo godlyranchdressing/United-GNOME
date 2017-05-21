@@ -22,7 +22,7 @@ $menuitem_size: 32px;
 $checked_border: inset 0 -2px 0px;
 
 // radiuses
-$standard_radius: 0px;
+$standard_radius: 6px;
 $circular_radius: 9999px;
 
 // durations
@@ -49,6 +49,8 @@ $background_inset_shadow: inset 0 2px 2px rgba(0, 0, 0, .16), 0 2px 2px rgba(0, 
 $headerbar_shadow: inset 0 -1px 0 transparentize($_fg_color, .9), 0 2px 2px transparentize($_fg_color, .8);
 
 $shadow_bottom: inset 2 0px 0px; // insert a color at the end here. lets you use a border without adding height + width
+$shadow_left: inset 2 0px 0px;
 $shadow_right: inset -2 0px 0px;
 $shadow_top: inset 0 2px 0px;
 $shadow_bottom: inset 0 -2px 0px;
+$shadow_surround: inset 0 0px 0px 1px;

@@ -1,4 +1,7 @@
-// Nautilus
+/************
+ * Nautilus *
+ ************/
+
 window.nautilus-window {
   popover grid stack button:not(.image-button) {
     background-color: $alt_base_color;
@@ -10,16 +13,29 @@ window.nautilus-window {
     }
   }
 
-  grid stack box.linked button:not(.image-button) {
-    // nautilus has a not-entry button
-    @include button(text, $fg_color, $lighter_bg_color);
+  scrolledwindow treeeview.view, .nautilus-list-view overlay treeview {
+    background-color: $bg_color;
+  }
+
+  popover viewport button {
+    @include button(flat, $primary_color);
 
     &:hover {
-      box-shadow: $shadow_bottom $primary_color;
+      @include button(flat-hover, $primary_color);
+    }
+
+    &:active {
+      @include button(flat-active, $primary_color);
     }
   }
 
+  grid stack box.linked button:not(.image-button) {
+    // nautilus has a not-entry button
+    @include button(text, $fg_color, $lighter_bg_color);
+  }
+
   header tabs tab {
+    // TODO: remove bottom border - make allowance for epiphany
     // necessary v-padding for regular tabs seems to be too much for nautilus
     padding: 0px 8px;
   }
@@ -29,16 +45,25 @@ window.nautilus-window {
       &.top {
         tabs tab.reorderable-page {
           &:checked, &:hover {
-            // for the tab color to be the same color as the view in nautilus when active -> hardcoded for now
             background-color: $lighter_bg_color;
           }
         }
       }
     }
   }
+
+  paned > separator {
+    background: transparent;
+  }
+
+  placessidebar {
+    box-shadow: inset -10px 0 10px 0px rgba(0, 0, 0, 0.055);
+  }
 }
 
-// Tweak Tool
+/************
+ * GNOME Tweak Tool *
+ ************/
 
 .tweak-categories separator {
   background: transparent;
@@ -47,6 +72,7 @@ window.nautilus-window {
 viewport.frame list.tweak-categories {
   border: none;
   background-image: image($alt_bg_color);
+  border-bottom-left-radius: 8px;
 }
 
 .tweak-group-startup row {
@@ -64,22 +90,31 @@ viewport.frame list.tweak-categories {
   }
 }
 
-// Calculator
+/************
+ * Calculator *
+ ************/
+
 headerbar.titlebar button.title {
   // the calculator's title is a button
-  background-image: none;
+  @include button(normal, $in_headerbar: true);
 
-  &:hover, &:active, &:checked {
-    background-image: none;
-    box-shadow: none;
+  &:hover {
+    @include button(hover, $lighter_bg_color, $primary_color);
+  }
 
-    label, widget {
-      color: $primary_color;
-    }
+  &:active {
+    @include button(active, $lighter_bg_color, $primary_color);
+  }
+
+  &:checked {
+    @include button(checked, $lighter_bg_color, $primary_color);
   }
 }
 
-// Rhythmbox
+/************
+ * Rhythmbox *
+ ************/
+
 #AltToolbarSideBar {
   box-shadow: none;
 }
@@ -88,9 +123,177 @@ toolbar toolitem button.image-button.raised {
   border: none;
 }
 
-// Software
+toolbar.horizontal box.linked button:hover {
+  border-color: $border_color;
+}
 
-headerbar buttonbox.horizontal.linked button.toolbar-primary-buttons-software {
-  @include toggle_button($primary_color, true);
+/************
+ * GNOME Software *
+ ************/
+
+headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software {
+  border-radius: 0px;
   border-width: 0px;
+
+  &:first-child {
+    border-top-left-radius: $standard_radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: $standard_radius;
+  }
+
+  @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+  &:hover {
+    @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
+  }
+
+  &:checked, &:active {
+    @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+    &:disabled {
+      @include button(disabled, $in_headerbar: true);
+
+      box-shadow: $shadow_bottom if($headerbar == "dark", $darker_secondary_fg_color, $secondary_fg_color);
+    }
+  }
+}
+
+/************
+ * GNOME Builder *
+ ************/
+
+window.workbench {
+  docktabstrip {
+    //@include notebook;
+    border-bottom: 1px solid $border_color;
+  }
+
+  popover box image {
+    padding: 0 4px;
+  }
+
+  layout {
+    border: 1px solid $border_color;
+  }
+
+  .popover-content-area {
+    padding: 8px;
+  }
+
+  .popover-action-area button {
+    border-radius: 0px;
+
+    &:first-child {
+      border-right-style: none;
+      border-left-style: none;
+    }
+
+    &:last-child {
+      border-left-style: none;
+      border-right-style: none;
+    }
+
+    &:hover {
+      border-color: $border_color;
+      background-color: $primary_color;
+
+      label, image, arrow {
+        color: white;
+      }
+    }
+
+    &:hover {
+      border-color: $border_color;
+      background-color: _pressed_shade($primary_color);
+
+      label, image, arrow {
+        color: white;
+      }
+    }
+  }
+
+  docktab {
+    //@include tab;
+    background-color: $lighter_bg_color;
+    min-height: 18px;
+    box-shadow: inset 0 0px $secondary_fg_color;
+
+    label {
+      padding: 4px 8px;
+    }
+
+    &:not(:checked) {
+      &:hover {
+        box-shadow: inset 0 -3px $secondary_fg_color;
+      }
+
+      label {
+        color: $secondary_fg_color;
+      }
+    }
+
+    &:checked {
+      box-shadow: inset 0 -3px $primary_color;
+
+      label {
+        color: $primary_color;
+      }
+    }
+  }
+
+  layouttab {
+    box button {
+      @include button(flat);
+
+      padding: 2px 8px;
+
+      &:hover {
+        border-color: transparent;
+      }
+
+      &:active, &:checked {
+        color: _pressed_shade($primary_color);
+      }
+    }
+  }
+
+  greeter frame {
+    border: 1px solid $border_color;
+  }
+}
+
+/************
+ * GNOME Maps *
+ ************/
+
+#zoom-in-button, #zoom-out-button {
+  // to hide the white background
+  border-radius: 0px;
+}
+
+/************
+ * GNOME Maps *
+ ************/
+headerbar.titlebar.incognito-mode {
+  button {
+    @include button(flat);
+  }
+}
+
+/************
+ * Evolution *
+ ************/
+
+button.ecalendar.flat {
+  @include button(flat);
+
+  &:hover {
+    @include button(flat-hover, $primary_color);
+  }
+
+  &:active, &:checked {
+    @include button(flat-active, $primary_color);
+  }
 }

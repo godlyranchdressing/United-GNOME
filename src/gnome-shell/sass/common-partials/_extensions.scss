@@ -85,19 +85,21 @@
               background-color: transparent;
             }
 
+            StButton.app-well-app.running#{$i}:last-child {
+              background-image: url("assets/dash/#{$g}/running#{$i}-indicator-#{$g}.svg");
+            }
+
             > StWidget.running#{$i} {
               // running items look like this
               background-color: transparentize($primary_color, 0.75);
 
               &:active, &.focused {
                 // running and focused items (the currenlty focused window) look like this
-                box-shadow: $_shadow $primary_color;
                 background-color: transparentize($primary_color, 0.5);
               }
 
               &:hover {
                 // hovering over a running item looks like this
-                box-shadow: $_shadow $primary_color;
                 background-color: transparentize($primary_color, 0.5);
               }
             }
