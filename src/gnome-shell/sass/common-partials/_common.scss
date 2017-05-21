@@ -265,10 +265,13 @@ StScrollBar {
 }
 
 .modal-dialog {
+  @extend %osd-panel;
+
   border-radius: 0px;
   color: $fg_color;
   background-color: if($transparency == "true", transparentize($the_base_color, 0.25), $the_base_color);
-  border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
+
+  //  border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 
   .modal-dialog-content-box {
     padding: 24px;
@@ -305,8 +308,11 @@ StScrollBar {
 
 /* End Session Dialog */
 .end-session-dialog {
+  @extend %osd-panel;
+
   spacing: 42px;
-  border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
+
+  // border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 }
 
 .end-session-dialog-list {
@@ -396,6 +402,8 @@ StScrollBar {
 
 .show-processes-dialog,
 .mount-question-dialog {
+  @extend %osd-panel;
+
   spacing: 24px;
 }
 
@@ -472,10 +480,13 @@ StScrollBar {
 /* Password or Authentication Dialog */
 
 .prompt-dialog {
+  @extend %osd-panel;
+
   //this is the width of the entire modal popup
   min-width: 500px;
   max-width: 600px;
-  border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
+
+  //  border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 }
 
 .prompt-dialog-main-layout {
@@ -548,6 +559,8 @@ StScrollBar {
 
 /* Audio selection dialog */
 .audio-device-selection-dialog {
+  @extend %osd-panel;
+
   spacing: 30px;
 }
 
@@ -585,6 +598,8 @@ StScrollBar {
 
 /* Access Dialog */
 .access-dialog {
+  @extend %osd-panel;
+
   spacing: 30px;
 }
 
@@ -614,6 +629,8 @@ StScrollBar {
 
 /* Geolocation Dialog */
 .geolocation-dialog {
+  @extend %osd-panel;
+
   spacing: 30px;
 }
 
@@ -682,16 +699,16 @@ StScrollBar {
       padding: 0.4em 0 0.4em 24px;
     }
 
-    &:checked {
+    &:checked, &:selected {
       color: $fg_color;
       border-top: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
       border-bottom: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
-      background-color: if($variant == "light", white, $semi_fill_color);
+      background-color: $semi_fill_color;
       font-weight: bold;
 
-      &.selected, &:hover {
+      &.selected, &:hover { // TODO: find out what the HELL i was trying to do here
         color: $fg_color;
-        background-color: if($variant == "light", white, $semi_fill_color);
+        background-color: $semi_fill_color;
       }
 
       &:insensitive {
@@ -941,8 +958,12 @@ StScrollBar {
   color: $fg_color;
   background-color: if($variant == "light", transparentize($base_color, 0.15), $base_color);
   border: 1px solid $border_color;
-  border-radius: $standard_radius;
-  padding: 12px;
+
+  //border-radius: $standard_radius;
+  border-radius: $standard_radius * 2;
+  box-shadow: 0 0 0 ($standard_radius + 2) px transparentize($ubuntu_black, $quarternary_opacity);
+
+  // padding: 12px;
 
   @if $variant == "light" {
     box-shadow: $popover_shadow;
@@ -1145,9 +1166,8 @@ StScrollBar {
 .message-list-section-close {
   > StIcon {
     background-color: transparent;
-    border-radius: $circular_radius;
     padding: 2px;
-    color: $fg_color;
+    color: $secondary_fg_color;
   }
 
   &:hover StIcon {
@@ -1327,10 +1347,10 @@ StScrollBar {
 
   // &:active { background-color: $fill_color; }
   &:active, &:selected {
-    color: lighten($primary_color, 5%);
+    color: white;
     font-weight: bold !important;
-    background-color: $fill_color;
-    box-shadow: $shadow_surround $border_color;
+    background-color: transparentize($primary_color, $middle_opacity);
+    box-shadow: $shadow_surround _pressed_shade($primary_color);
 
     // TODO:
 
@@ -1377,7 +1397,7 @@ StScrollBar {
 
 .calendar-today {
   font-weight: bold !important;
-  color: $primary_color !important;
+  color: $fg_color !important;
 
   //color: $fg_color;
   //background-color: transparent;
@@ -1389,6 +1409,14 @@ StScrollBar {
   font-weight: normal;
   text-decoration: none;
   background-image: none;
+
+  &:hover {
+    color: _hover_shade($primary_color);
+  }
+
+  &:active, &:selected {
+    color: $fg_color;
+  }
 }
 
 .calendar-other-month-day {
@@ -1422,13 +1450,11 @@ StScrollBar {
     color: $ubuntu_fg;
   }
 
-  &:hover, &:focus {
-    background-color: if($variant != "light", $semi_fill_color, $base_color) !important;
+  &:hover, &:active {
+    background-color: $semi_fill_color;
   }
 
-  &:active {
-    background-color: if($variant != "light", $fill_color, darken($base_color, 7.5%)) !important;
-  }
+
 
   margin: 8px 8px 0;
 }
@@ -1484,13 +1510,13 @@ StScrollBar {
 
 .message-secondary-bin > .event-time {
   min-height: $small_size - 2px;
-  padding-top: 2px;
+  padding-top: 2px 0;
   color: $tertiary_fg_color;
   font-size: 1em;
 
   /* HACK: the label should be baseline-aligned with a 1em label,
            fake this with some bottom padding */
-  padding-bottom: 0;
+  // padding-bottom: 0px;  leads to popping on hover on 3.22 TODO: see if this affects 3.24 in any negative way
 }
 
 .message-secondary-bin > StIcon {
@@ -1522,13 +1548,13 @@ StScrollBar {
 /* FIXME: how do you do this in sass? */
 .message-content *:hover > StIcon,
 .message-content *:focus > StIcon {
-  color: $fg_color;
-  background-color: $semi_fill_color;
+  color: _hover_shade($primary_color);
+  background-color: transparent;
 }
 
 .message-content *:active > StIcon {
-  color: $fg_color;
-  background-color: $fill_color;
+  color: _pressed_shade($primary_color);
+  background-color: transparent;
 }
 
 .message-media-control {
@@ -1616,9 +1642,14 @@ StScrollBar {
     icon-size: 16px;
   }
 
+  &:hover, &:active {
+    // background-color: transparent !important;
+
+  }
+
   &:hover {
     background-color: $semi_fill_color;
-    color: $primary_color;
+    color: _hover_shade($primary_color);
   }
 
   &:active {
@@ -1675,6 +1706,8 @@ StScrollBar {
 /* NETWORK DIALOGS */
 
 .nm-dialog {
+  @extend %osd-panel;
+
   max-height: 500px;
   min-height: 450px;
   min-width: 470px;
@@ -1780,7 +1813,7 @@ StScrollBar {
 }
 
 .window-clone-border {
-  border: 4px solid $inverse_fill_color;
+  border: 4px solid $primary_color;
   border-radius: $standard_radius;
 
   // For window decorations with round corners we can't match
@@ -1798,7 +1831,7 @@ StScrollBar {
   -shell-caption-spacing: 12px;
 
   &:hover {
-    background-color: if($variant == "light", transparentize(black, $disabled_opacity), $semi_fill_color);
+    background-color: $semi_fill_color;
     color: $white_fg_color;
   }
 }
@@ -2194,12 +2227,11 @@ StScrollBar {
   margin: 5px;
   border-radius: 0px;
   color: $fg_color;
-  background-color: transparentize(if($variant == "light", $white, $black), if($variant == "light", 0.15, 0.25));
-  border: 1px solid $border_color;
-  box-shadow: inset 2px 0px 0px $primary_color;
+  background-color: transparentize(if($variant == "light", $ubuntu_white, $ubuntu_black), if($variant == "light", 0.15, 0.25));
+  box-shadow: inset 2px 0px 0px $primary_color, inset 1px 1px $border_color, inset -1px -1px $border_color;
 
-  &:hover, &:focus {
-    background-color: if($variant == "light", $white, $black);
+  &:hover{
+    background-color: if($variant == "light", $ubuntu_white, $ubuntu_black);
   }
 
   .notification-icon {
@@ -2582,6 +2614,8 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog {
+  @extend %osd-panel;
+
   //reset
   border: none;
   background-color: transparent;
@@ -2894,11 +2928,12 @@ $legacy_icon_size: 24px;
 
 // Looking Glass
 #LookingGlassDialog {
-  background-color: $base_color;
+  background-color: if($variant == "light", $ubuntu_white, $ubuntu_black);
   spacing: 4px;
   padding: 0;
-  border: none;
-  border-radius: $standard_radius;
+  border: 1px solid $border_color;
+  border-top-width: 0px !important;
+  border-radius: 0;
 
   & > #Toolbar {
     padding: 0 8px;
@@ -2915,8 +2950,10 @@ $legacy_icon_size: 24px;
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
     font-weight: bold;
-    color: $tertiary_fg_color;
+    color: $secondary_fg_color;
     transition-duration: $longer_duration;
+    background-color: $fill_color;
+    box-shadow: $shadow_bottom $disabled_fg_color;
     padding-left: 16px;
     padding-right: 16px;
     min-height: $medium_size;
@@ -2930,9 +2967,13 @@ $legacy_icon_size: 24px;
     &:selected {
       border-bottom-width: 0;
       border-color: transparent;
-      background-color: rgba($base_color, 0.01);
-      color: $fg_color;
       text-shadow: none;
+
+      &, &:hover {
+        background-color: $semi_fill_color;
+        box-shadow: $shadow_bottom $primary_color;
+        color: $fg_color;
+      }
     }
   }
 
@@ -2948,6 +2989,7 @@ $legacy_icon_size: 24px;
 
 .lg-dialog {
   StEntry {
+    border: 1px solid $border_color;
     selection-background-color: $primary_color;
     selected-color: $fg_color;
   }

@@ -578,11 +578,11 @@ button {
     /// ***  ***  *** ///
     /// * Text Buttons * ///
 
-    &.text-button {
-      label {
-        padding: 0 4px;
-      }
+    &:not(.image-button) label {
+      padding: 0 4px;
+    }
 
+    &.text-button {
       &:hover {
         border-color: $primary_color;
       }
@@ -608,29 +608,45 @@ button {
       min-width: 24px;
       padding-left: 4px;
       padding-right: 4px;
+    }
 
+    &:not(.text-button) {
       &:hover {
-        border-color: $primary_color;
+        border-color: $border_color;
+      }
+
+      &:active, &:checked {
+        border-color: $border_color;
       }
     }
 
     /// * Flat Buttons * ///
 
     &.flat {
+      @include button(flat);
+
       &:hover {
-        border-color: $primary_color;
+        @include button(flat-hover);
+      }
+
+      &:active {
+        @include button(flat-active);
+      }
+
+      &:disabled {
+        @include button(flat-disable);
       }
     }
 
     &.sidebar-button, &.flat.scale, &.flat.image-button {
-      @include button(flat, $primary_color);
+      @include button(flat);
 
       &:hover {
-        @include button(flat-hover, $primary_color);
+        @include button(flat-hover);
       }
 
       &:active, &:checked {
-        @include button(flat-active, $primary_color);
+        @include button(flat-active);
       }
     }
 
@@ -746,7 +762,7 @@ button {
       @include button(flat);
 
       &:hover {
-        @include button(flat-hover, $primary_color);
+        @include button(flat-hover);
       }
 
       &:disabled {
@@ -755,7 +771,7 @@ button {
 
       &:active,
       &:checked {
-        @include button(flat-active, $primary_color);
+        @include button(flat-active);
       }
     }
   }
@@ -957,6 +973,15 @@ button {
   }
 }
 
+stackswitcher.stack-switcher {
+  button {
+    &:checked, &:not(:checked):hover {
+      background: $primary_color;
+      color: white;
+    }
+  }
+}
+
 %needs_attention {
   // the dot is drawn by using two radial gradient, the first one is the actuall dot, the other
   // simulates the shadow labels and icons normally have in buttons.
@@ -1094,12 +1119,22 @@ modelbutton.flat,
 
   @extend %flat_button;
 
+  @include button(flat);
+
   &:hover {
-    @include button(flat-hover-actionable, $primary_color);
+    @include button(flat-hover);
+
+    * {
+      color: $fg_color;
+    }
   }
 
-  &:active {
-    @include button(flat-active-actionable, $primary_color);
+  &:active, &:checked {
+    @include button(flat-active);
+
+    * {
+      color: $fg_color;
+    }
   }
 
   &:selected {
@@ -1164,7 +1199,13 @@ button.color {
     color: $accent_color;
   }
 
-  &:hover, &:active {
+  &:hover {
+    label {
+      color: _hover_shade($accent_color, 1.5);
+    }
+  }
+
+  &:active {
     label {
       color: _pressed_shade($accent_color);
     }
@@ -1271,18 +1312,12 @@ spinbutton {
       }
 
       &.up, &.down {
-        &:hover {
-          @include button(flat-hover-actionable, $primary_color);
+        &:active {
+          color: white;
         }
 
         &:disabled {
-          @include button(flat-disable);
-
-          color: $disabled_fg_color;
-        }
-
-        &:active {
-          @include button(flat-active-actionable, $primary_color);
+          @include button(disabled);
         }
       }
 
@@ -1376,12 +1411,12 @@ spinbutton {
       }
 
       &.up, &.down {
-        &:hover {
-          @include button(flat-hover-actionable, $primary_color);
+        &:active {
+          color: white;
         }
 
-        &:active {
-          @include button(flat-active-actionable, $primary_color);
+        &:disabled {
+          @include button(disabled);
         }
       }
     }
@@ -1512,21 +1547,24 @@ combobox {
 toolbar, toolbar.horizontal, toolbar.vertical {
   @extend %toolbar;
 
-  toolbutton button {
+  &:not(.inline-toolbar) toolbutton button {
     transition-duration: 150ms;
 
     &.flat {
-      &, &.toggle, &.popup, &.popup.toggle{
       @include button(flat);
 
       &:hover {
-        @include button(flat-hover, $primary_color);
+        @include button(flat-hover);
       }
 
       &:active, &:checked {
-        @include button(flat-active, $primary_color);
+        @include button(flat-active);
       }
-    }}
+
+      &:disabled {
+        @include button(disabled-flat);
+      }
+    }
 
     &.flat.image-button.text-button {
       padding: 4px;
@@ -1553,8 +1591,12 @@ toolbar, toolbar.horizontal, toolbar.vertical {
     }
 
     &:checked, &:active {
-      background-color: $hover_bg;
+      background-color: _pressed_shade($lighter_bg_color);
       border: 1px solid _pressed_shade($primary_color);
+    }
+
+    &:disabled {
+      @include button(flat-disabled);
     }
   }
 
@@ -1641,7 +1683,7 @@ searchbar,
 headerbar {
   background-color: $headerbar_bg;
   color: if($headerbar == "dark", $light_fg_color, $headerbar_fg_color);
-  border-radius: $standard_radius $standard_radius 0 0;
+  border-radius: ($standard_radius + 4) ($standard_radius + 4) 0 0;
   border-top: 1px solid if($headerbar == "dark", $darker_headerbar_color, $headerbar_bg);
   box-shadow: if($variant == "light", $headerbar_shadow, none);
   min-height: 45px;
@@ -1649,14 +1691,6 @@ headerbar {
 
   &:disabled:not(button) > label {
     color: $disabled_fg_color;
-  }
-
-  &:backdrop {
-    color: $secondary_fg_color;
-
-    &:disabled:not(button) > label {
-      color: $disabled_secondary_fg_color;
-    }
   }
 
   .title {
@@ -1708,14 +1742,6 @@ headerbar {
   }
 
   .titlebar {
-    button.text-button:not(.default):not(.suggested-action) {
-      background: if($headerbar == "dark", $darker_lighter_bg_color, $lighter_bg_color);
-
-      label {
-        color: $fg_color;
-      }
-    }
-
     separator {
       background-color: if($headerbar == "dark", $darker_border_color, $border_color);
     }
@@ -1769,6 +1795,8 @@ headerbar {
   switch {
     margin-top: 10px;
     margin-bottom: 10px;
+
+    @include switch($in_headerbar: true);
   }
 
   // reset button margins of the spinbutton
@@ -1892,11 +1920,11 @@ headerbar {
       @include button(flat);
 
       &:hover {
-        @include button(flat-hover, $primary_color);
+        @include button(flat-hover);
       }
 
       &:active {
-        @include button(flat-active, $primary_color);
+        @include button(flat-active);
       }
 
       &:disabled {
@@ -2313,23 +2341,36 @@ popover.background {
   }
 
   &.menu, & {
-    button, modelbutton {
-      &:not(.text-button), &.model, &.flat {
+    modelbutton {
+      &, &.flat {
         min-height: 32px;
         border-radius: 0px;
         padding: 0 4px;
 
+        @include button(flat);
+
         &:hover {
-          @include button(flat-hover-actionable, $primary_color);
+          @include button(flat-hover);
         }
 
         &:active {
-          @include button(flat-active-actionable, $primary_color);
+          @include button(flat-active);
         }
 
         &:checked {
           @extend %selected_items;
         }
+      }
+    }
+
+    button.model, modelbutton {
+      &:hover:not(:checked):not(:active) {
+        background-color: $hover_bg;
+      }
+
+      &:active:not(:checked) {
+        color: _pressed_shade($primary_color);
+        background-color: _pressed_shade($hover_bg);
       }
     }
   }
@@ -2390,16 +2431,11 @@ notebook {
         > tab {
           border-radius: $standard_radius $standard_radius 0 0;
           margin-left: $container_padding;
-
-          //margin-bottom: 1px;
           border-width: 0;
 
           &:hover, &:checked {
             border: 0;
-            box-shadow: inset 0px 0px 0px $border_color, 1px 0px 0px $border_color, -1px 0px 0px $border_color, 0px -1px 0px $border_color;
-
-            // literally just guesses till it worked | need to figure this stuff out
-
+            box-shadow: _shadow_border(1, 1, 0, 1), _shadow_border(1, 1, 0, 1);
           }
         }
       }
@@ -2413,13 +2449,11 @@ notebook {
         > tab {
           border-radius: 0 0 $standard_radius $standard_radius;
           margin-left: $container_padding;
-
-          //margin-top: 1px;
           border-width: 0;
 
           &:hover, &:checked {
             border: 0;
-            box-shadow: inset 0px 0px 0px $border_color, 1px 0px 0px $border_color, -1px 0px 0px $border_color, 0px 1px 0px $border_color;
+            box-shadow: _shadow_border(0, 1, 1, 1), _shadow_border(0, 1, 1, 1);
           }
         }
       }
@@ -2439,7 +2473,7 @@ notebook {
 
           &:hover, &:checked {
             border: 0;
-            box-shadow: inset 0px 0px 0px $border_color, -1px 0px 0px $border_color, 0px 1px 0px $border_color, 0px -1px 0px $border_color;
+            box-shadow: _shadow_border(1, 0, 1, 1), _shadow_border(1, 0, 1, 1);
           }
         }
       }
@@ -2459,7 +2493,7 @@ notebook {
 
           &:hover, &:checked {
             border: 0;
-            box-shadow: inset 0px 0px 0px $border_color, 0px 0px 0px $border_color, 1px 1px 0px $border_color, 1px -1px 0px $border_color;
+            box-shadow: _shadow_border(1, 1, 1, 0), _shadow_border(1, 1, 1, 0);
           }
         }
       }
@@ -2559,11 +2593,15 @@ notebook {
         // we don't want the close button to be of equal importance
 
         &:hover {
-          @include button(flat-hover, $primary_color);
+          @include button(flat-hover);
+
+          background-color: transparent;
         }
 
         &:active, &:checked {
-          @include button(flat-active, $primary_color);
+          @include button(flat-active);
+
+          background-color: transparent;
         }
       }
 
@@ -2886,65 +2924,10 @@ terminal-screen-container scrollbar {
 /**********
  * Switch *
  **********/
+
 switch {
-  background: $disabled_bg_color;
-  color: transparent;
-  box-shadow: $shadow_surround $border_color;
-  border-radius: $standard_radius;
-  outline-offset: -4px;
-
-  slider {
-    min-height: 23px;
-    min-width: 20px;
-    border-radius: $standard_radius;
-    transition: $button_transition;
-    background: $lighter_bg_color;
-    box-shadow: $shadow_surround $switch_border_color;
-  }
-
-  &:hover {
-    slider {
-      box-shadow: $shadow_surround $switch_border_color, $shadow_surround $switch_border_color;
-    }
-  }
-
-  &:checked {
-    color: transparent;
-    box-shadow: $shadow_surround $suggested_color;
-    border-color: $suggested_color;
-    background-color: $suggested_color;
-
-    slider {
-      box-shadow: $shadow_surround $suggested_color, $shadow_surround $suggested_color;
-    }
-  }
-
-  &:disabled {
-    &, slider {
-      opacity: $middle_opacity;
-    }
-  }
-
-  row:selected & {
-    @if $variant == "light" {
-      box-shadow: none;
-      box-shadow: $shadow_surround $suggested_color;
-
-      &.slider:dir(rtl) {
-        border-left-color: $border_color;
-      }
-
-      &.slider:dir(ltr) {
-        border-right-color: $border_color;
-      }
-
-      &.slider {
-        &:checked, & {
-          box-shadow: $shadow_surround $suggested_color;
-        }
-      }
-    }
-  }
+  // smooth as heck
+  @include switch;
 }
 
 /*************************
@@ -3047,8 +3030,8 @@ radio {
  ************/
 scale {
   // sizing
-  $_marks_length: 20px;
-  $_marks_distance: -9px;
+  $_marks_length: 14px;
+  $_marks_distance: -6px;
 
   $slider_size: 24px;
   $marks_slider_size: 30px;
@@ -3240,7 +3223,7 @@ scale {
 
         slider {
           &, &:active, &:active:hover {
-            margin: -7.5px -8.5px -8.5px -8.5px;
+            margin: -8.5px;
           }
 
           &:hover {
@@ -3255,7 +3238,7 @@ scale {
         &.marks-after, &.marks-before {
           trough {
             slider {
-              margin: -5px -6px -6px -6px;
+              margin: -6px;
             }
           }
         }
@@ -3570,14 +3553,14 @@ list {
     border-width: 0px;
 
     @include button(flat);
-  }
 
-  &:hover {
-    @include button(flat-hover, $primary_color);
-  }
+    &:hover {
+      @include button(flat-hover);
+    }
 
-  &:active, &:checked {
-    @include button(flat-active, $primary_color);
+    &:active, &:checked {
+      @include button(flat-active);
+    }
   }
 }
 
@@ -4009,22 +3992,14 @@ infobar {
 
     button, button.text-button {
       // FIXME: extend selection mode buttons
-      @include button(normal, white, $suggested_color);
-
-      * {
-        color: $suggested_color;
-      }
+      @include button(normal, white, white);
 
       &:hover {
-        @include button(normal, $suggested_color, white);
-
-        * {
-          color: white;
-        }
+        @include button(hover, white, white);
       }
 
-      &:active, &:checked {
-        @include button(active, $suggested_color, white);
+      &:active {
+        @include button(active, white, white);
       }
 
       &:disabled {
@@ -4269,24 +4244,24 @@ colorchooser .popover.osd {
 // with the headerbar occupying the top part and the "window" occupying the rest
 // default-decoration seems to double as window for gtk2
 
-window {
-  border-bottom-left-radius: $standard_radius;
-  border-bottom-right-radius: $standard_radius;
-  background-color: $bg_color;
+// window {
+//   border-bottom-left-radius: $standard_radius;
+//   border-bottom-right-radius: $standard_radius;
+//   background-color: $bg_color;
+//   doesn't seem possible at all, unfortunately
+//   > :first-child {
+//     // TODO: seems to be affecting other things
+//     border-bottom-left-radius: $standard_radius;
+//     border-bottom-right-radius: $standard_radius;
+//   }
+// }
 
-  > :first-child {
-    // TODO: seems to be affecting other things
-    border-radius: $standard_radius;
-  }
-
-  .maximized &, .fullscreen &, .tiled & {
-    border-radius: 0px;
-  }
+decoration, .default-decoration {
+  border-radius: ($standard_radius + 4) ($standard_radius + 4) 0 0;
 }
 
 decoration {
   transition: $button_transition;
-  border-radius: $standard_radius + 2;
   box-shadow: $shadow_3, 0 8px 8px rgba(0, 0, 0, 0.16);
   background-color: transparent;
 
@@ -4381,8 +4356,8 @@ headerbar,
 
   button.titlebutton {
     padding: 0;
-    min-width: 20px;
-    min-height: 20px;
+    min-width: 22px;
+    min-height: 22px;
 
     &.close, &.maximize, &.minimize {
       background-size: 16px;
@@ -4430,6 +4405,30 @@ headerbar,
 
     &:disabled {
       color: mix($highlighted_fg_color, $primary_color, 50%);
+    }
+  }
+}
+
+:selected button {
+  background-color: transparent;
+
+  label, image {
+    color: white;
+  }
+
+  &:hover {
+    background-color: white;
+
+    label, image {
+      color: $primary_color;
+    }
+  }
+
+  &:active {
+    background-color: white;
+
+    label, image {
+      color: _pressed_shade($primary_color);
     }
   }
 }

@@ -1,29 +1,49 @@
 headerbar, headerbar.titlebar {
   entry {
-    background-color: if($headerbar != "dark", $lighter_bg_color, $darker_lighter_bg_color);
-    border-color: if($headerbar != "dark", $border_color, $darker_border_color);
-    color: if($headerbar == "dark", $light_fg_color, $fg_color);
+    @include entry(normal, $in_headerbar: true);
 
     &:focus {
-      @include entry(focus);
+      @include entry(focus, $in_headerbar: true);
     }
 
     &:disabled {
-      @include entry(disabled);
+      @include entry(disabled, $in_headerbar: true);
+    }
+  }
+
+  box.horizontal.linked {
+    // stubborn button in GNOME Dictionary
+    button.popup.text-button.toggle {
+      @include button(flat, $in_headerbar: true);
+
+      &:hover {
+        @include button(flat-hover, $in_headerbar: true);
+      }
+
+      &:active {
+        @include button(flat-active, $in_headerbar: true);
+      }
+
+      &:disabled {
+        @include button(flat-disabled, $in_headerbar: true);
+      }
     }
   }
 
   button {
-    // make the styling on headerbar buttons more discreet
+    // make the styling on headerbar buttons more discreet and make accomodations for the dark headerbar
     @include button(normal, $in_headerbar: true);
 
-
+    &:disabled {
+      @include button(disabled, $in_headerbar: true);
+    }
 
     margin: 5px 0;
 
     &.text-button, &.text-button.toggle {
       &:hover {
         @include button(hover, $in_headerbar: true);
+
         border-color: $primary_color;
       }
 
@@ -71,36 +91,38 @@ headerbar, headerbar.titlebar {
     // make the stackswitcher look the way we want it to look
 
     button {
-      min-width: 115px;
-      border-width: 0px;
-      border-radius: 0px;
+      &, &.text-button {
+        min-width: 115px;
+        border-width: 0px;
+        border-radius: 0px;
 
-      @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
+        @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
 
-      &:hover {
-        @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
-      }
+        &:hover {
+          @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
+        }
 
-      &:active, &:checked {
-        @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
+        &:active, &:checked {
+          @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+          &:disabled {
+            @include button(disabled, $in_headerbar: true);
+
+            box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+          }
+        }
 
         &:disabled {
           @include button(disabled, $in_headerbar: true);
-
-          box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
         }
-      }
 
-      &:disabled {
-        @include button(disabled, $in_headerbar: true);
-      }
+        &:first-child {
+          border-top-left-radius: $standard_radius;
+        }
 
-      &:first-child {
-        border-top-left-radius: $standard_radius;
-      }
-
-      &:last-child {
-        border-top-right-radius: $standard_radius;
+        &:last-child {
+          border-top-right-radius: $standard_radius;
+        }
       }
     }
   }
@@ -132,6 +154,7 @@ headerbar, headerbar.titlebar {
 
     &.slider-button {
       border-width: 0px;
+
       @include button(flat, $in_headerbar: true);
 
       &:disabled {
@@ -202,6 +225,11 @@ messagedialog {
   border-radius: 0px;
   border-width: 0px 1px 1px 1px;
 
+  decoration {
+    border: 6px solid $border_color;
+    border-radius: $standard_radius;
+  }
+
   &.background.csd, box.dialog-vbox.horizontal, buttonbox.dialog-action-area.horizontal.linked, box.horizontal.titlebar {
     border-radius: 0px;
     border-style: solid;
@@ -215,10 +243,6 @@ messagedialog {
   &.background.csd {
     &, box.horizontal:last-child, decoration {
       box-shadow: none;
-    }
-
-    buttonbox.linked {
-      border-width: 0 1px 1px 1px;
     }
   }
 

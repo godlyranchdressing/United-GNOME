@@ -142,6 +142,7 @@
 
     &:focus {
       color: $_fg_color;
+      background-color: transparent;
       text-shadow: none;
       icon-shadow: none;
       box-shadow: none;

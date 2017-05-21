@@ -14,7 +14,7 @@
    height="19.99968"
    id="svg2857"
    version="1.1"
-   inkscape:version="0.92.1 r"
+   inkscape:version="0.92+devel unknown"
    sodipodi:docname="toggle-off.svg">
   <defs
      id="defs2859">
@@ -70,11 +70,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.07058824"
      inkscape:pageshadow="2"
-     inkscape:zoom="22.627416"
-     inkscape:cx="22.99961"
-     inkscape:cy="13.106971"
+     inkscape:zoom="5.656854"
+     inkscape:cx="-22.153684"
+     inkscape:cy="-13.834383"
      inkscape:document-units="px"
-     inkscape:current-layer="g37994"
+     inkscape:current-layer="g863"
      showgrid="false"
      inkscape:window-width="1848"
      inkscape:window-height="1137"
@@ -90,7 +90,8 @@
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0">
+     fit-margin-bottom="0"
+     inkscape:document-rotation="0">
     <inkscape:grid
        type="xygrid"
        id="grid12954"
@@ -128,7 +129,7 @@
            transform="translate(-115,1277)"
            id="g37996">
           <rect
-             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#1c1c1c;fill-opacity:1;fill-rule:nonzero;stroke:#313131;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#313131;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
              id="rect38000"
              width="98"
              height="25"

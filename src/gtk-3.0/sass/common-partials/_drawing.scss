@@ -17,6 +17,10 @@
   @return lighten($_bg, $_amount);
 }
 
+@function _shadow_border($top, $right, $bottom, $left, $color: $border_color) {
+  @return inset #{$left}px #{$top}px $color, inset -#{$right}px -#{$bottom}px $color;
+}
+
 ///************///
 /// * Entries * ///
 /// ************///
@@ -28,11 +32,32 @@
   @return inset 0 0 0 1px $fc;
 }
 
-@mixin entry($type, $fc: $primary_color, $edge: none) {
+@mixin entry($type, $fc: $primary_color, $in_headerbar: false) {
+  $_bg: TBA;
+  $_fg: TBA;
+  $_bc: TBA;
+  $_dbg: TBA;
+  $_dfg: TBA;
+
+  @if $in_headerbar == true and $headerbar == "dark" {
+    $_bg: $darker_lighter_bg_color;
+    $_fg: $light_fg_color;
+    $_bc: $darker_border_color;
+    $_dbg: $darker_disabled_bg_color;
+    $_dfg: $darker_disabled_fg_color;
+  }
+  @else {
+    $_bg: $lighter_bg_color;
+    $_fg: $fg_color;
+    $_bc: $border_color;
+    $_dbg: $disabled_bg_color;
+    $_dfg: $disabled_fg_color;
+  }
+
   @if $type == normal {
-    color: $fg_color;
-    border-color: $border_color;
-    background-color: $lighter_bg_color;
+    color: $_fg;
+    border-color: $_bc;
+    background-color: $_bg;
   }
 
   @if $type == focus {
@@ -40,40 +65,49 @@
   }
 
   @if $type == disabled {
-    color: $disabled_fg_color;
-    border-color: $border_color;
-    background-color: $disabled_bg_color;
+    color: $_dfg;
+    border-color: $_bc;
+    background-color: $_dbg;
   }
 }
 
 ///************///
 /// * Buttons * ///
 /// ************///
-@mixin button($type, $bg: $lighter_bg_color, $fg: $fg_color, $in_headerbar: false) {
+@mixin button($type: normal, $bg: $lighter_bg_color, $fg: $fg_color, $in_headerbar: false) {
   // $in_header is there to determine if the white text color should be used if the headerbar is dark
   // It also determines if a button background is supposed to be transparent, all headerbar buttons are supposed
   // to be flat, unless they're a "friendly" button, i.e suggested actions
   //
   // these are the local variables to be used for some fancy if/else statements
-  $_bg: TBA;
-  $_fg: TBA;
-  $_bc: TBA;
+  $_bg: $bg;
+  $_fg: $fg;
+  $_bc: $border_color;
 
   @if $type == normal {
     /// * Default state * ///
-    @if $in_headerbar == true {
-      $_bg: transparent;
-      $_fg: $fg_color;
-      $_bc: transparent;
 
-      @if $headerbar == "dark" {
-        $_fg: $light_fg_color;
-      }
+    @if $bg == white and $fg == white {
+      // info bar buttons
+      $_bg: transparent;
+      $_fg: white;
+      $_bc: white;
     }
     @else {
       $_bg: $bg;
       $_fg: if($bg == $lighter_bg_color or $bg == white, $fg, white);
       $_bc: if($bg == $lighter_bg_color, $border_color, $bg);
+    }
+
+    @if $in_headerbar == true {
+      $_bg: transparent;
+      $_fg: $fg_color;
+      $_bc: transparent;
+    }
+
+    @if $in_headerbar == true and $headerbar == "dark" {
+      $_fg: $light_fg_color;
+      $_bc: transparent;
     }
 
     background-color: $_bg;
@@ -88,21 +122,43 @@
       $_bg: $darker_lighter_bg_color;
       $_fg: $darker_secondary_fg_color;
     }
+    @else if $bg == white and $fg == white {
+      // info bar buttons
+      $_bg: white;
+      $_fg: $suggested_color;
+      $_bc: $suggested_color;
+    }
+    @else if $bg != $lighter_bg_color {
+      $_bg: _hover_shade($bg);
+      $_fg: white;
+    }
     @else {
-      $_bg: if($bg == $lighter_bg_color, $bg, _hover_shade($bg));
-      $_fg: $secondary_fg_color;
+      $_bg: $lighter_bg_color;
+      $_fg: $primary_color;
     }
 
     background-color: $_bg;
-    color: if($bg == $lighter_bg_color or $bg == white, $primary_color, white);
+    color: $_fg;
     border-color: _hover_shade(if($bg == $lighter_bg_color, $border_color, $bg));
     outline-color: transparentize($fg, 0.7);
   }
   @else if $type == active {
     /// * Pressed state * ///
-    background-color: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
-    color: white;
-    border-color: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
+    @if $bg == white and $fg == white {
+      // info bar buttons
+      $_bg: white;
+      $_fg: _pressed_shade($suggested_color);
+      $_bc: _pressed_shade($suggested_color);
+    }
+    @else {
+      $_bg: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
+      $_fg: white;
+      $_bc: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
+    }
+
+    background-color: $_bg;
+    color: $_fg;
+    border-color: $_bc;
     outline-color: transparentize($fg, 0.7);
   }
   @else if $type == checked {
@@ -114,7 +170,7 @@
 
     &:active,
     &:hover {
-      background-color: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
+      background-color: _pressed_shade($primary_color);
     }
 
     &:disabled {
@@ -130,7 +186,7 @@
     /// * Disabled state * ///
     @if $in_headerbar == true and $headerbar == "dark" {
       $_bg: if($bg != $bg_color, mix($darker_lighter_bg_color, $darker_base_color, 85%), $darker_disabled_bg_color);
-      $_fg: if($bg != $bg_color, mix($light_fg_color, $_bg, 60%), $darker_disabled_fg_color);
+      $_fg: if($bg != $bg_color, mix($dark_fg_color, $_bg, 60%), $darker_disabled_fg_color);
     }
     @else {
       $_bg: if($bg != $bg_color, mix($lighter_bg_color, $base_color, 85%), $disabled_bg_color);
@@ -154,21 +210,37 @@
     // hover and press shade functions throw an error
 
     @if $in_headerbar == true and $headerbar == "dark" {
-      $_bg: $light_fg_color;
-    }
-    @else {
-      $_bg: $fg_color;
+      $_fg: $light_fg_color;
     }
 
+    @if $fg != $fg_color {
+      $_fg: $fg_color;
+    }
+
+    color: $_fg;
     background-color: transparent;
-    color: $_bg;
     border-color: transparent;
     background-image: none;
   }
   @else if $type == flat-hover {
     /// * Flat buttons hover state * ///
-    background-color: transparent;
-    color: $_bg;
+
+    @if $bg == $lighter_bg_color {
+      $_bg: $primary_color;
+    }
+    @else {
+      $_bg: $bg;
+    }
+
+    @if $in_headerbar == true {
+      $_fg: transparent;
+    }
+    @else {
+      $_fg: $hover_bg;
+    }
+
+    color: _hover_shade($_bg);
+    background-color: $_fg;
     border-color: transparent;
     background-image: none;
     -gtk-icon-effect: highlight;
@@ -176,26 +248,23 @@
   @else if $type == flat-active {
     /// * Flat buttons pressed state * ///
     // Flat buttons use the same styling for active and toggled/enabled states
-    background-color: transparent;
-    color: _pressed_shade($bg);
+    @if $bg == $lighter_bg_color {
+      $_bg: $primary_color;
+    }
+    @else {
+      $_bg: $bg;
+    }
+
+    @if $in_headerbar == true {
+      $_fg: transparent;
+    }
+    @else {
+      $_fg: _pressed_shade($hover_bg);
+    }
+
+    color: _pressed_shade($_bg);
+    background-color: $_fg;
     border-color: transparent;
-    background-image: none;
-    -gtk-icon-effect: highlight;
-  }
-  @else if $type == flat-hover-actionable {
-    // Actionable flat buttons are buttons that you "press", like the plus and minus buttons
-    // These also follow the same background color as foreground color rule as regular flat buttons
-    // Since they're basically regular flat buttons, there's no default state and only a hover and active state
-    /// * Actionable hover state * ///
-    background-color: $hover_bg;
-    color: $bg;
-    background-image: none;
-    -gtk-icon-effect: highlight;
-  }
-  @else if $type == flat-active-actionable {
-    /// * Actionable... active state * ///
-    background-color: _pressed_shade($hover_bg, 7.5);
-    color: _pressed_shade($bg);
     background-image: none;
     -gtk-icon-effect: highlight;
   }
@@ -221,8 +290,8 @@
       $_fg: $secondary_fg_color;
     }
 
-    background-color: $_bg;
     color: $_fg;
+    background-color: $_bg;
     border-color: transparent;
     transition: all 250ms ease;
   }
@@ -263,6 +332,76 @@
     label {
       transition: font-weight 0s;
       font-weight: bold;
+    }
+
+    &:hover {
+      &, > * {
+        color: _pressed_shade($primary_color);
+      }
+
+      box-shadow: $shadow_bottom _pressed_shade($primary_color);
+    }
+  }
+}
+
+///************///
+/// * Switch * ///
+/// ************///
+
+@mixin switch($in_headerbar: false) {
+  $switch_bg: TBA;
+  $_border_color: TBA;
+  $slider_bg: TBA;
+  $slider_border: TBA;
+
+  @if $in_headerbar == true and $headerbar == "dark" {
+    $switch_bg: $darker_disabled_bg_color;
+    $_border_color: $darker_border_color;
+    $slider_bg: $darker_lighter_bg_color;
+    $slider_border: $darker_switch_border_color;
+  }
+  @else {
+    $switch_bg: $disabled_bg_color;
+    $_border_color: $border_color;
+    $slider_bg: $lighter_bg_color;
+    $slider_border: $switch_border_color;
+  }
+
+  background: $switch_bg;
+  color: transparent;
+  box-shadow: $shadow_surround $_border_color;
+  border-radius: $standard_radius;
+  outline-offset: -4px;
+
+  slider {
+    min-height: 23px;
+    min-width: 20px;
+    border-radius: $standard_radius;
+    transition: $button_transition;
+    background: $slider_bg;
+    box-shadow: $shadow_surround $slider_border;
+  }
+
+  &:hover {
+    slider {
+      box-shadow: $shadow_surround $slider_border, $shadow_surround $slider_border;
+    }
+  }
+
+  &:checked {
+    color: transparent;
+    box-shadow: $shadow_surround $suggested_color;
+    border-color: $suggested_color;
+    background-color: $suggested_color;
+
+    slider {
+      box-shadow: $shadow_surround $suggested_color, $shadow_surround $suggested_color;
+    }
+  }
+
+  &:disabled {
+    &, slider {
+      opacity: $middle_opacity;
     }
   }
 }

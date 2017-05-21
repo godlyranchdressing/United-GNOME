@@ -13,8 +13,19 @@ window.nautilus-window {
     }
   }
 
-  scrolledwindow treeeview.view, .nautilus-list-view overlay treeview {
+  scrolledwindow treeeview.view, .nautilus-list-view overlay {
     background-color: $bg_color;
+
+    // treeview:not(header) {
+    // weirdness where the selected background color in treeview doesn't work for multiple selected items
+    // seems to be working now but I'll keep the rule just in case
+    //   &, &:backdrop {
+    //     :selected {
+    //       background: $primary_color;
+    //     }
+    //   }
+    // }
+
   }
 
   popover viewport button {
@@ -35,8 +46,6 @@ window.nautilus-window {
   }
 
   header tabs tab {
-    // TODO: remove bottom border - make allowance for epiphany
-    // necessary v-padding for regular tabs seems to be too much for nautilus
     padding: 0px 8px;
   }
 
@@ -166,100 +175,110 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
 
 window.workbench {
   docktabstrip {
-    //@include notebook;
-    border-bottom: 1px solid $border_color;
+    // analogous to notebook header
+    border-color: $border_color;
+    margin-top: $container_padding;
+    background-color: $alt_bg_color;
+    box-shadow: _shadow_border(0, 0, 1, 0);
+
+    docktab {
+      // analogous to notebook tabs
+      border-radius: $standard_radius $standard_radius 0 0;
+      box-shadow: _shadow_border(1, 1, 0, 1), _shadow_border(1, 1, 0, 1);
+      border-color: $border_color;
+      color: $secondary_fg_color;
+      transition: $shorter_transition;
+      min-height: 18px;
+      min-width: 48px;
+      padding: 4px 8px;
+      margin: 0 $container_padding;
+      outline-offset: -6px;
+      border-width: 0;
+      font-weight: 500;
+
+      &:checked, &:hover {
+        background-color: $base_color;
+
+        label {
+          color: $fg_color;
+        }
+      }
+    }
   }
 
-  popover box image {
-    padding: 0 4px;
+  layouttab button {
+    border-width: 0px;
+
+    @include button(flat);
+
+    &:hover {
+      @include button(flat-hover, $primary_color);
+    }
+
+    &:active {
+      @include button(flat-active, $primary_color);
+    }
   }
 
-  layout {
-    border: 1px solid $border_color;
+  popover {
+    .popover-content-area {
+      padding: $container_padding;
+    }
+
+    list row {
+      label {
+        padding: 0 $container_padding;
+      }
+
+      min-height: 16px;
+    }
+
+    button.model {
+      @include button(normal);
+
+      &:hover {
+        @include button(hover, $primary_color);
+
+        border-color: $border_color;
+      }
+
+      &:active {
+        @include button(active, $primary_color);
+      }
+
+      &:checked {
+        @include button(checked, $primary_color);
+
+        &:hover {
+          &, > * {
+            color: white;
+          }
+        }
+      }
+    }
   }
 
-  .popover-content-area {
-    padding: 8px;
-  }
-
-  .popover-action-area button {
+  box.popover-action-area .text-button {
     border-radius: 0px;
-
-    &:first-child {
-      border-right-style: none;
-      border-left-style: none;
-    }
-
-    &:last-child {
-      border-left-style: none;
-      border-right-style: none;
-    }
 
     &:hover {
       border-color: $border_color;
       background-color: $primary_color;
-
-      label, image, arrow {
-        color: white;
-      }
+      color: white;
     }
 
-    &:hover {
+    &:active {
       border-color: $border_color;
       background-color: _pressed_shade($primary_color);
+      color: white;
+    }
 
-      label, image, arrow {
-        color: white;
-      }
+    &:not(:first-child):not(:last-child) {
+      border-width: 1px 0 1px 0;
     }
   }
 
-  docktab {
-    //@include tab;
-    background-color: $lighter_bg_color;
-    min-height: 18px;
-    box-shadow: inset 0 0px $secondary_fg_color;
-
-    label {
-      padding: 4px 8px;
-    }
-
-    &:not(:checked) {
-      &:hover {
-        box-shadow: inset 0 -3px $secondary_fg_color;
-      }
-
-      label {
-        color: $secondary_fg_color;
-      }
-    }
-
-    &:checked {
-      box-shadow: inset 0 -3px $primary_color;
-
-      label {
-        color: $primary_color;
-      }
-    }
-  }
-
-  layouttab {
-    box button {
-      @include button(flat);
-
-      padding: 2px 8px;
-
-      &:hover {
-        border-color: transparent;
-      }
-
-      &:active, &:checked {
-        color: _pressed_shade($primary_color);
-      }
-    }
-  }
-
-  greeter frame {
+  greeter frame, layout > stack {
     border: 1px solid $border_color;
   }
 }
@@ -296,4 +315,13 @@ button.ecalendar.flat {
   &:active, &:checked {
     @include button(flat-active, $primary_color);
   }
+}
+
+/************
+ * GNOME Web *
+ ************/
+
+#PagePopup separator {
+  background-image: image($border_color);
+  background-color: $border_color;
 }
