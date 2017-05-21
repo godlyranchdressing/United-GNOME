@@ -6,17 +6,15 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="24"
    height="24"
    viewBox="0 0 24 24"
-   fill="#FFFFFF"
-   opacity="0.75"
+   fill="#FF4081"
    version="1.1"
    id="svg4"
-   sodipodi:docname="checkbox-off.svg"
+   sodipodi:docname="checkbox-hover.svg"
    inkscape:version="0.92.1 r">
   <metadata
      id="metadata10">
@@ -26,19 +24,12 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
      id="defs8">
-    <linearGradient
-       id="linearGradient5684"
-       osb:paint="solid">
-      <stop
-         style="stop-color:#0e9547;stop-opacity:1;"
-         offset="0"
-         id="stop5682" />
-    </linearGradient>
     <linearGradient
        id="dark_fg_color-9"
        osb:paint="solid">
@@ -48,14 +39,13 @@
          id="stop7036" />
     </linearGradient>
     <linearGradient
-       inkscape:collect="always"
-       xlink:href="#dark_fg_color-9"
-       id="linearGradient5686"
-       x1="2.9999998"
-       y1="12"
-       x2="21"
-       y2="12"
-       gradientUnits="userSpaceOnUse" />
+       id="primary_color-3"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#e95420;stop-opacity:1;"
+         offset="0"
+         id="stop5679" />
+    </linearGradient>
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -70,9 +60,9 @@
      inkscape:window-height="1137"
      id="namedview6"
      showgrid="false"
-     inkscape:zoom="19.666667"
-     inkscape:cx="-1.1521313"
-     inkscape:cy="13.601447"
+     inkscape:zoom="19.666666"
+     inkscape:cx="-1.8305102"
+     inkscape:cy="16.54274"
      inkscape:window-x="1438"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
@@ -80,25 +70,25 @@
   <g
      transform="matrix(1.375,0,0,1.375,-22.375,0.5019989)"
      style="display:inline;opacity:1"
-     id="checkbox-dark-2"
+     id="checkbox-hover-dark"
      inkscape:label="#g22047">
     <g
        inkscape:label="#g21853"
-       id="sdsd-0-1-9">
+       id="sdsd-0-1-2">
       <g
-         id="scdsdcd-0-4-3"
+         id="scdsdcd-0-4-0"
          inkscape:label="#g14325"
          transform="translate(0,-30)">
         <g
            style="display:inline"
-           id="g15812-6-6-1-4-4-1"
+           id="g15812-6-6-1-4-4-6"
            transform="matrix(0.92951982,0,0,0.92914368,-156.75069,-212.9618)">
           <g
              transform="matrix(0.5089163,0,0,0.51739823,161.7932,197.56426)"
-             id="g5489-2-9-6-8-8-9-7-9"
+             id="g5489-2-9-6-8-8-9-7-1"
              style="display:inline">
             <g
-               id="g5428-8-1-4-0-0-65-8-4" />
+               id="g5428-8-1-4-0-0-65-8-5" />
           </g>
         </g>
         <rect
@@ -106,17 +96,16 @@
            x="17"
            height="16"
            width="16"
-           id="rect13523-4-0-7"
+           id="rect13523-4-0-5"
            style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate" />
         <g
-           id="g5400-2-47-8"
-           style="fill:#ff0000" />
+           id="g5400-2-47-4" />
       </g>
     </g>
   </g>
   <rect
      ry="3.0860829"
-     style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:url(#linearGradient5686);stroke-width:1.48643541;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+     style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:#0e9547;stroke-width:1.48643541;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
      id="checkbox-hover"
      width="16.513565"
      height="16.513565"
