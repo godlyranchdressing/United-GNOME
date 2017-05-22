@@ -10,39 +10,51 @@
 @import "color-palette";
 
 // Foreground colors
-$light_fg_color: $white;
-$dark_fg_color: $ubuntu_fg;
-$fg_color: if($variant == "light", $dark_fg_color, $light_fg_color); // for shorthand's sake
-$panel_fg_color: if($panel == "light" or $variant == "light", $dark_fg_color, $fg_color); // if light variant then use this for the panel
+$dark_fg_color: #606060;
+$light_fg_color: #ffffff;
+$fg_color: if($variant == "light", $dark_fg_color, $light_fg_color);
+
+// for shorthand's sake
 $secondary_fg_color: scale-alpha($fg_color, $secondary_opacity);
 $tertiary_fg_color: scale-alpha($fg_color, $tertiary_opacity);
 
-// This section is for things that always need to be in a light text color i.e: search results in the overview
-$white_fg_color: $light_fg_color;
-$secondary_white_fg_color: scale-alpha($white_fg_color, $secondary_opacity);
-$tertiary_white_fg_color: scale-alpha($white_fg_color, $tertiary_opacity);
+// Light foreground colors used for elements that always need white text (overview elements)
+$light_fg_color: $light_fg_color;
+$secondary_light_fg_color: scale-alpha($light_fg_color, $secondary_opacity);
+$tertiary_light_fg_color: scale-alpha($light_fg_color, $tertiary_opacity);
 
+// Disabled foreground colors
 $disabled_fg_color: scale-alpha($fg_color, $disabled_opacity);
 $disabled_secondary_fg_color: scale-alpha($secondary_fg_color, $disabled_opacity);
 $disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
 
-@import "distros"; // determine colors to be used
+@import "distros"; // determine primary and accent colors to be used
 
 // Background colors
-$the_base_color: if($variant == "light", $ubuntu_white, $ubuntu_black);
-$base_color: if($transparency == "true", transparentize($the_base_color, $quarternary_opacity), $the_base_color);
-$alt_base_color: if($transparency == "true", transparentize($the_base_color, $quarternary_opacity), lighten($the_base_color, 15)); // if transparency is true then this will just serve as an overlay and darken the background further so we just leave it as the same value
-$alt_base_color: if($variant == "light", darken($base_color, 5%), $alt_base_color); // if it's the light variant then we lighten the alt_base color, otherwise we just use the value previously established
-$the_bg_color: if($variant == "light", $white, $black); // determine the bg color
-$bg_color: if($transparency == "true", scale-alpha($black, $quarternary_opacity), $black); // determine if transparent and adjust as needed
+$base_color: if($variant == "light", $ubuntu_white, $ubuntu_black);
+$bg_color: if($variant == "light", $ubuntu_bg, #181818); // lighten($ubuntu_black, 6%) new value taken from Unity 8
+$alt_base_color: if($variant == "light", darken($ubuntu_white, 2.5%), mix($base_color, $bg_color, 50%));
+$alt_bg_color: if($variant == "light", $ubuntu_pane_bg, lighten($ubuntu_black, 7.5%));
 $lighter_bg_color: if($variant == "light", lighten($ubuntu_white, 5%), lighten($ubuntu_black, 7%));
-$alt_bg_color: if($transparency == "true", transparentize($the_base_color, $lower_opacity), lighten($the_base_color, 15));
-$inverse_bg_color: if($variant == "light", $alt_base_color, scale-alpha($fg_color, 0.1));
-$panel_bg_color: if($transparency == "true", transparentize($the_base_color, $quarternary_opacity), $the_base_color);
-$panel_bg_color: if($panel == "light" or $variant == "light", $ubuntu_white, $panel_bg_color); // if variant is light then we just use white as the panel bg, otherwise we use the value previously established
 
-$semi_fill_color: if($variant == "light", transparentize($dark_fg_color, 0.8), transparentize($fg_color, 0.9));
-$fill_color: if($variant == "light", transparentize($dark_fg_color, 0.9), transparentize($fg_color, 0.9));
+@if $transparency == true {
+  $base_color: transparentize($base_color, $quarternary_opacity);
+  $bg_color: transparentize($bg_color, $quarternary_opacity);
+  $alt_base_color: transparentize($alt_base_color, $quarternary_opacity);
+  $alt_bg_color: transparentize($alt_bg_color, $quarternary_opacity);
+  $lighter_bg_color: transparentize($lighter_bg_color, $quarternary_opacity);
+}
+@else {
+  $base_color: $base_color;
+  $bg_color: $bg_color;
+  $alt_base_color: $alt_base_color;
+  $alt_bg_color: $alt_bg_color;
+  $lighter_bg_color: $lighter_bg_color;
+}
+
+$semi_fill_color: if($variant == "light", darken($lighter_bg_color, 5%), transparentize($fg_color, 0.85));
+$dark_semi_fill_color: transparentize($dark_fg_color, 0.85);
+$fill_color: if($variant == "light", darken($lighter_bg_color, 7.5%), transparentize($fg_color, 0.9));
 $disabled_fill_color: scale-alpha($disabled_fg_color, $disabled_opacity);
 
 $inverse_semi_fill_color: transparentize(if($variant == "light", $light_fg_color, $dark_fg_color), 0.8);
@@ -68,6 +80,7 @@ $warning_bg_color: lighten($orange, 5);
 $error_bg_color: darken($red, 5);
 
 // Border and highlight colours
+$osd_box_shadow_color: transparentize(if($variant == "light", $ubuntu_white, $ubuntu_black), 0.6);
+$osd_box_light_shadow_color: transparentize($ubuntu_white, 0.6);
 $border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($ubuntu_white, 0.1));
-$highlight_color: if($variant == "light", scale-alpha($white, 0.4), scale-alpha($white, 0.1));
-$alt_highlight_color: scale-alpha($white, 0.2);
+$dark_border_color: scale-alpha($ubuntu_white, 0.1);

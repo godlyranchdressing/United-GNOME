@@ -14,7 +14,7 @@
    version="1.1"
    id="svg4"
    sodipodi:docname="checkbox-off.svg"
-   inkscape:version="0.92.1 r"
+   inkscape:version="0.92+devel unknown"
    fill="#FFFFFF"
    opacity="0.75">
   <metadata
@@ -53,12 +53,13 @@
      id="namedview6"
      showgrid="false"
      inkscape:zoom="13.906433"
-     inkscape:cx="4.279227"
+     inkscape:cx="5.142137"
      inkscape:cy="9.6188586"
      inkscape:window-x="1438"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="svg4"
+     inkscape:document-rotation="0" />
   <g
      transform="matrix(1.375,0,0,1.375,-22.375,0.5019989)"
      style="display:inline;opacity:1"
@@ -123,7 +124,7 @@
        id="g5400-8-9">
       <rect
          ry="2.8024251"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:#656565;stroke-width:1.3501941;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:#757575;stroke-width:1.3501941;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
          id="rect5147-9-1-5-7-6-43"
          width="15.004601"
          height="14.995382"

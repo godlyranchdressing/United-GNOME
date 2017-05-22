@@ -80,13 +80,13 @@ style "default" {
   bg[ACTIVE] = @selected_bg_color
 
   fg[NORMAL] = @text_color
-  fg[PRELIGHT] = @fg_color
+  fg[PRELIGHT] = @selected_bg_color
   fg[SELECTED] = @selected_fg_color
   fg[INSENSITIVE] = @insensitive_fg_color
   fg[ACTIVE] = @fg_color
 
-  text[NORMAL] = @text_color
-  text[PRELIGHT] = @text_color
+  text[NORMAL] = @fg_color
+  text[PRELIGHT] = @selected_bg_color
   text[SELECTED] = @selected_fg_color
   text[INSENSITIVE] = @insensitive_fg_color
   text[ACTIVE] = @selected_fg_color
@@ -95,7 +95,7 @@ style "default" {
   base[PRELIGHT] = @bg_color
   base[SELECTED] = @selected_bg_color
   base[INSENSITIVE] = @bg_color
-  base[ACTIVE] = shade (0.9, @selected_bg_color)
+  base[ACTIVE] = @selected_bg_color
 
   # For succinctness, all reasonable pixmap options remain here
 
@@ -971,9 +971,8 @@ style "button" {
 }
 
 style "button_label" {
-  fg[NORMAL] = @fg_color
   fg[PRELIGHT]    = @selected_bg_color
-  fg[ACTIVE] = @selected_fg_color
+  fg[ACTIVE] = @selected_bg_color
 }
 
 style "checkbutton_label" {
@@ -1008,7 +1007,7 @@ style "tool_button" {
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
-    
+
     # Don't add hover effect on pressed buttons
     image {
       function = BOX
@@ -2558,6 +2557,7 @@ widget_class "*<GimpToolbox>*<GtkFrame>"                            style "gimp_
 
 # Chrome/Chromium
 widget_class "*Chrom*Button*"                                       style "button"
+widget_class "*Chrom*Button*<GtkLabel>"                                       style "button_label"
 widget_class "*<GtkCustomMenu>*<GtkCustomMenuItem>*"                style "chrome_menu_item"
 
 # Eclipse/SWT

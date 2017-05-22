@@ -1,3 +1,4 @@
+$compact: true;
 $extra_background_clip: border-box;
 $_fg_color: #606060;
 
@@ -47,6 +48,7 @@ $shadow_2: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15); //
 $shadow_3: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.20); // heavier shadow
 $background_inset_shadow: inset 0 2px 2px rgba(0, 0, 0, .16), 0 2px 2px rgba(0, 0, 0, .16);
 $headerbar_shadow: inset 0 -1px 0 transparentize($_fg_color, .9), 0 2px 2px transparentize($_fg_color, .8);
+$osd_box_shadow_length: 0 0 0 8px;
 
 $shadow_bottom: inset 2 0px 0px; // insert a color at the end here. lets you use a border without adding height + width
 $shadow_left: inset 2 0px 0px;

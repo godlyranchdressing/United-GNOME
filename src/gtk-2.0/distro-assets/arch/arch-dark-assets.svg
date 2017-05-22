@@ -828,15 +828,6 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#selected_bg_color"
-       id="linearGradient9677"
-       x1="100"
-       y1="267.63782"
-       x2="124"
-       y2="267.63782"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#selected_bg_color"
        id="linearGradient5377"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.72222223,0,0,0.72222223,2.777778,-75.34383)"
@@ -878,11 +869,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.656854"
-     inkscape:cx="132.20302"
-     inkscape:cy="252.93904"
+     inkscape:zoom="2.828427"
+     inkscape:cx="6.481046"
+     inkscape:cy="322.84256"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="combo-entry-button-active-rtl"
      showgrid="true"
      showborder="false"
      inkscape:window-width="1848"
@@ -1014,7 +1005,7 @@
          height="23"
          width="23"
          id="rect7903-7-22"
-         style="display:inline;opacity:1;fill:url(#linearGradient9677);fill-opacity:1.0;stroke:#1793d1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="display:inline;opacity:1;fill:#0c0c0c;fill-opacity:1;stroke:#1793d1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          transform="scale(1,-1)" />
       <rect
          y="-279.63782"
@@ -1923,7 +1914,7 @@
          id="button-active-4"
          style="display:inline">
         <rect
-           style="opacity:1;fill:#1793d1;fill-opacity:1;stroke:#1793d1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           style="opacity:1;fill:#0c0c0c;fill-opacity:1;stroke:#1793d1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect7903-21-8"
            width="22"
            height="21.999998"
@@ -1971,7 +1962,7 @@
          id="button-active-5"
          style="display:inline">
         <rect
-           style="opacity:1;fill:#1793d1;fill-opacity:1;stroke:#1793d1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           style="opacity:1;fill:#0c0c0c;fill-opacity:1;stroke:#1793d1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect7903-21-5"
            width="22"
            height="21.999998"

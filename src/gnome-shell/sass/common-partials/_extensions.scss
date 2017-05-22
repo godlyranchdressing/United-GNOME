@@ -6,115 +6,86 @@
     transition-duration: 250ms;
   }
 
-  #dashtodockContainer .app-well-app {
-    // get rid of default hover effects for dash to dock
-    color: transparent;
-    background-color: transparent;
-
-    &:hover, &:focus, &:active {
+  #dashtodockContainer {
+    StWidget {
+      // get rid of default hover effects for dash to dock
       background-color: transparent;
-
-      StWidget, StBin.overview-icon {
-        background-color: transparent;
-        box-shadow: none;
-      }
+      box-shadow: none;
     }
-  }
-
-  .dashtopanelMainPanel .show-apps {
-    .overview-icon {
-      background-color: $launcher_background;
-      border-radius: $circular_radius;
-    }
-
-    &:hover, &:active, &:checked {
-      .overview-icon {
-        background-color: darken($launcher_background, 7.5) !important;
-      }
+    
+    .app-well-app-running-dot {
+      background-color: none;
+      width: 28px;
+      height: 4px;
     }
   }
 
   @each $g in left right top bottom {
-    @for $i from 1 through 4 {
-      $_indicator_height: 5;
-      $_shadow: null;
-      $_dock_border: null;
+    // loop through each position and apply styling
+    $_indicator_height: 5;
+    $_shadow: null;
+    $_dock_border: null;
 
-      @if $g == "left" {
-        // if the dock is pinned to the left ☜(ﾟ∀ﾟ☜)
-        //$_shadow: inset #{$_indicator_height}px 0;
-        $_shadow: inset 0px -#{$_indicator_height}px;
-        $_dock_border: inset -1px 0 $border_color;
-      }
+    @if $g == "left" {
+      // if the dock is pinned to the left ☜(ﾟ∀ﾟ☜)
+      //$_shadow: inset #{$_indicator_height}px 0;
+      $_shadow: inset 0px -#{$_indicator_height}px;
+      $_dock_border: inset -1px 0 $border_color;
+    }
 
-      @if $g == "right" {
-        // to the right (☞ﾟ∀ﾟ)☞
-        //$_shadow: inset -#{$_indicator_height}px 0;
-        $_shadow: inset 0px -#{$_indicator_height}px;
-        $_dock_border: inset 1px 0 $border_color;
-      }
+    @if $g == "right" {
+      // to the right (☞ﾟ∀ﾟ)☞
+      //$_shadow: inset -#{$_indicator_height}px 0;
+      $_shadow: inset 0px -#{$_indicator_height}px;
+      $_dock_border: inset 1px 0 $border_color;
+    }
 
-      @if $g == "bottom" {
-        // now down ☟(˚▽˚)☟
-        $_shadow: inset 0px -#{$_indicator_height}px;
-        $_dock_border: inset 0px 1 $border_color;
-      }
+    @if $g == "bottom" {
+      // now down ☟(˚▽˚)☟
+      $_shadow: inset 0px -#{$_indicator_height}px;
+      $_dock_border: inset 0px 1 $border_color;
+    }
 
-      @if $g == "top" {
-        // and up ☝(˚▽˚)☝
-        $_shadow: inset 0px #{$_indicator_height}px;
-        $_dock_border: inset 0px -1 $border_color;
-      }
+    @if $g == "top" {
+      // and up ☝(˚▽˚)☝
+      $_shadow: inset 0px #{$_indicator_height}px;
+      $_dock_border: inset 0px -1 $border_color;
+    }
 
-      #dashtodockContainer {
+    #dashtodockContainer {
+      &.#{$g} {
         #dash {
-          border-left: 0px;
-          border-right: 0px;
-          border-top: 1px solid $border_color;
-          border-bottom: 1px solid $border_color;
+          // apply glass effect and get rid of default dash's border
+          border-width: 0px;
+          box-shadow: $_dock_border;
         }
 
-        &.#{$g} {
-          #dash {
-            box-shadow: $_dock_border;
-          }
-
-          .dash-item-container {
-            .app-well-app-running-dot {
-              // get rid of the running dot
-              background-color: transparent;
-            }
-
-            StButton.app-well-app.running#{$i}:last-child {
-              background-image: url("assets/dash/#{$g}/running#{$i}-indicator-#{$g}.svg");
-            }
-
-            > StWidget.running#{$i} {
-              // running items look like this
-              background-color: transparentize($primary_color, 0.75);
-
-              &:active, &.focused {
-                // running and focused items (the currenlty focused window) look like this
-                background-color: transparentize($primary_color, 0.5);
-              }
-
-              &:hover {
-                // hovering over a running item looks like this
-                background-color: transparentize($primary_color, 0.5);
-              }
-            }
-
-            > StWidget {
-              // unopened or regular items look like this (in most cases there should be no styling)
-              background-color: rgba(0, 0, 0, 0.01);
-
-              &:hover, &:active {
-                // hovering over an unopened item looks like this (should mirror the running item look from above imo)
-                background-color: transparentize($primary_color, 0.75);
-              }
-            }
+        @for $i from 1 through 4 {
+          // inject the external indicators
+          .running#{$i} .app-well-app-running-dot {
+            background-image: url("assets/dash/running#{$i}-indicator.svg");
           }
         }
+      }
+    }
+  }
+
+  #dashtodockContainer #dash {
+    @for $i from 1 through 4 {
+      StWidget.running#{$i} {
+        // running items look like this
+        background-color: transparentize($primary_color, $secondary_opacity);
+
+        &:active, &.focused, &:hover {
+          background-color: transparentize($primary_color, $middle_opacity);
+        }
+      }
+    }
+
+    .app-well-app {
+      &:hover, &:active {
+        // hovering over an unopened item looks like this (should mirror the running item look from above imo)
+        background-color: transparentize($primary_color, $secondary_opacity);
       }
     }
   }
@@ -122,7 +93,7 @@
 
 @mixin dash_bg {
   // the dash should never be white
-  $_dash_color: if($transparency == "true", transparentize($ubuntu_black, $middle_opacity), $ubuntu_dark_grey);
+  $_dash_color: if($transparency == true, transparentize($ubuntu_black, $middle_opacity), $ubuntu_dark_grey);
 
   background: if($variant == "light" or $panel == "light", $ubuntu_dark_grey, $_dash_color);
 }
@@ -130,70 +101,63 @@
 @mixin ubuntu_launcher {
   .show-apps {
     .overview-icon {
-      // common styling
+      // give it the new launcher icon
       background-image: url("assets/#{if($distro == "ubuntu-alt", "ubuntu", $distro)}-launcher.svg") !important;
       background-size: contain !important;
     }
 
     StWidget {
-      // no border to get rid of a width problem otherwise and default hover effects
-      border: none;
-      color: transparent;
-      box-shadow: none;
+      &, &:checked, &:hover, &:active {
+        // remove the original icon and get rid of its border
+        background-color: transparent !important;
+        color: transparent;
+        border-width: 0px;
+      }
     }
+  }
 
-    &:checked, &:hover, &:active {
-      // get rid of default hover effect
-      background-color: transparent !important;
-
+  #dashtodockContainer, .dashtopanelMainPanel {
+    // the non-panel mode dock
+    .show-apps {
       .overview-icon {
-        // give it the launcher image
-        background-image: url("assets/#{if($distro == "ubuntu-alt", "ubuntu", $distro)}-launcher.svg") !important;
-        background-size: contain !important;
+        // circular icon for Dash to Panel and for Dash to Dock's non-extended mode
+        border-radius: $circular_radius;
+      }
 
-        StWidget {
-          // hide the default icon by making it transparent
-          color: transparent;
+      &:hover {
+        .overview-icon {
+          background-color: red;
+        }
+      }
+
+      &:checked, &:active {
+        .overview-icon {
+          background-color: blue;
         }
       }
     }
   }
 
-  #dashtodockContainer {
-    // the non-panel mode dock
+  #dashtodockContainer.extended {
+    // extended / panel mode
     .show-apps {
       .overview-icon {
-        // circular icon for non-extended/panel d2d
-        border-radius: $circular_radius;
-        background-color: $launcher_background !important;
-      }
-
-      &:checked, &:hover, &:active {
-        .overview-icon {
-          background-color: darken($launcher_background, 7.5) !important;
-        }
+        // revert to default
+        border-radius: 0px;
+        background-color: transparent !important;
       }
     }
 
-    &.extended {
-      // extended / panel mode
-      .show-apps {
-        // made the entirety of the .show-apps container the launcher color since we don't want a radius
-        background-color: $launcher_background !important;
+    .show-apps {
+      // make the entirety of the .show-apps container the launcher color since we don't want a radius
+      background-color: $launcher_background !important;
 
-        .overview-icon {
-          background-color: transparent !important;
+      &:hover {
+        background-color: _hover_shade($launcher_background) !important;
+      }
 
-          &:hover, &:checked, &:focus {
-            background-color: transparent;
-          }
-        }
-
-        &:checked,
-        &:focus,
-        &:hover {
-          background-color: darken($launcher_background, 7.5) !important;
-        }
+      &:checked, &:active {
+        background-color: _pressed_shade($launcher_background) !important;
       }
     }
   }
@@ -211,7 +175,7 @@
       // no padding just looks weird so we're going to use the remaining spacing to make the menu items themselves look nicer
 
       padding: 0 4px;
-      color: $panel_fg_color;
+      color: $fg_color;
 
       &:hover {
         // hover effect consistent with regular panel buttons
@@ -222,7 +186,7 @@
         // same as above
         background-color: rgba($bg_color, 0.01);
         box-shadow: inset 0 -2px 0px $primary_color;
-        color: $panel_fg_color;
+        color: $fg_color;
       }
     }
   }
@@ -238,6 +202,7 @@
       -minimum-hpadding: 0px;
       spacing: 0px;
       padding: 0px;
+      icon-size: em(18px);
     }
 
     .panel-button {

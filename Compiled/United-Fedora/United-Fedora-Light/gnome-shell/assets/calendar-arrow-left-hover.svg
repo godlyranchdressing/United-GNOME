@@ -14,8 +14,8 @@
    opacity="0.75"
    version="1.1"
    id="svg4"
-   sodipodi:docname="calendar-arrow-left.svg"
-   inkscape:version="0.92.1 r">
+   sodipodi:docname="calendar-arrow-left-hover.svg"
+   inkscape:version="0.92+devel unknown">
   <metadata
      id="metadata10">
     <rdf:RDF>
@@ -48,13 +48,14 @@
      inkscape:window-x="1438"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="svg4"
+     inkscape:document-rotation="0" />
   <g
      id="g5088"
-     transform="matrix(-0.26340143,0,0,-0.26340143,9.0402808,18.099366)"
-     style="fill:#3C6EB4;fill-opacity:1">
+     transform="matrix(-0.28096152,0,0,-0.28096152,9.1096328,18.772657)"
+     style="fill:#3c6eb4;fill-opacity:1">
     <path
-       style="fill:#3C6EB4;fill-opacity:1"
+       style="fill:#3c6eb4;fill-opacity:1"
        d="m -5.089544,62.860165 c 0,-2.951144 0.952244,-5.31697 3.75,-9.316778 2.0625,-2.948651 4.839422,-7.693633 6.170937,-10.544405 2.420938,-5.183223 2.420938,-5.183223 0,-10.366446 -1.331515,-2.850772 -4.131711,-7.628979 -6.222657,-10.618238 -3.115578,-4.454093 -3.747266,-6.152349 -3.5,-9.409549 0.30172,-3.9745328 0.30172,-3.9745328 4.918597,2.368238 2.539282,3.488525 6.762517,10.055272 9.384967,14.592772 4.768091,8.25 4.768091,8.25 0,16.5 -4.277126,7.400507 -13.409281,20.75 -14.194712,20.75 -0.168923,0 -0.307132,-1.780018 -0.307132,-3.955594 z"
        id="path5096"
        inkscape:connector-curvature="0" />

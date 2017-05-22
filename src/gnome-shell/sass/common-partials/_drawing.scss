@@ -5,6 +5,7 @@
   // returns pressed/active shade
   $_amount: TBA;
   $_amount: $value * 5;
+
   @return darken($_bg, $_amount);
 }
 
@@ -12,6 +13,7 @@
   // returns hover shade
   $_amount: TBA;
   $_amount: $value * 5;
+
   @return lighten($_bg, $_amount);
 }
 
@@ -35,6 +37,7 @@
     // font-family: $large-font-family;
     font-size: 112px;
     font-weight: 300;
+
     // line-height: 1;
   }
 
@@ -42,6 +45,7 @@
     // font-family: $large-font-family;
     font-size: 56px;
     font-weight: 400;
+
     // line-height: 1;
   }
 
@@ -49,6 +53,7 @@
     // font-family: $large-font-family;
     font-size: 45px;
     font-weight: 400;
+
     // line-height: 48px;
   }
 
@@ -56,70 +61,79 @@
     // font-family: $large-font-family;
     font-size: 34px;
     font-weight: 400;
+
     // line-height: 40px;
   }
 
   @if $size == headline {
     font-size: pt(24px);
     font-weight: 400;
+
     // line-height: 32px;
   }
 
   @if $size == title {
     font-size: pt(20px);
     font-weight: 500;
+
     // line-height: 1;
   }
 
   @if $size == subheading {
     font-size: pt($subheading-size);
     font-weight: 400;
+
     // line-height: 24px;
   }
 
   @if $size == body-2 {
     font-size: pt($root-font-size);
     font-weight: 500;
+
     // line-height: 24px;
   }
 
   @if $size == body-1 {
     font-size: pt($root-font-size);
     font-weight: 400;
+
     // line-height: 20px;
   }
 
   @if $size == caption {
     font-size: pt(12px);
     font-weight: 400;
+
     // line-height: 1;
   }
 
   @if $size == button {
     font-size: pt($root-font-size);
     font-weight: 500;
+
     // line-height: 20px;
   }
 }
 
-@mixin entry($_focus_color: $primary_color) {
-  background-color: $the_base_color;
+@mixin entry($_focus_color: $primary_color, $_bg_color: $base_color) {
+  background-color: $_bg_color;
+  color: $fg_color;
   border-radius: $standard_radius;
   border: 1px solid transparent;
-  box-shadow: $shadow_surround $semi_fill_color;
+  box-shadow: $shadow_surround $dark_semi_fill_color;
+  selection-background-color: $primary_color;
+  selected-color: $ubuntu_white;
   transition-duration: 250ms;
 
-  &:hover {
+  &:hover, &:focus, &:active {
     border: 1px solid transparent;
-    box-shadow: $shadow_surround $semi_fill_color;
+    box-shadow: if($variant == "light", $shadow_thicker_surround, $shadow_surround) $dark_semi_fill_color;
     transition-duration: 250ms;
   }
 
   &:focus, &:active {
-    color: if($variant != "light", $light_fg_color, $ubuntu_fg);
-    border: 1px solid transparent;
-    box-shadow: if($variant != "light", $shadow_surround, $shadow_thicker_surround) $_focus_color;
-    transition-duration: 250ms;
+    box-shadow: if($variant == "light", $shadow_thicker_surround, $shadow_surround) $primary_color;
+    color: $fg_color;
   }
 
   &:disabled {
@@ -167,7 +181,7 @@
     }
 
     &:insensitive {
-      color: if($_fg_color == $fg_color, $disabled_secondary_fg_color, $_fg_color);
+      color: $disabled_fg_color;
       background-color: if($_bg_color == $base_color, $disabled_fill_color, $_bg_color);
       border-color: transparent;
       box-shadow: none;
@@ -211,7 +225,7 @@
     }
 
     &:insensitive {
-      color: if($variant == "light", $dark_fg_color, $light_fg_color);
+      color: $disabled_fg_color;
       background-color: transparent;
       border-color: transparent;
       box-shadow: none;

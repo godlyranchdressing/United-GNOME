@@ -1,8 +1,8 @@
 $variant: "light"; // light or dark
 $panel: "dark"; // light or dark
-$compact: "false"; // true or false
-$transparency: "false"; // true or false
-@if $transparency == "true" and $variant == "light" {$transparency: "false"}
+; // true or false
+$transparency: false; // true or false
+@if $transparency == true and $variant == "light" {$transparency: false}
 $distro: "ubuntu-alt"; // arch, fedora, manjaro, opensuse, solus and ubuntu
 
 @import "../common-partials/variables";

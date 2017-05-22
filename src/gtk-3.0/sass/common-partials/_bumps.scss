@@ -220,14 +220,27 @@ dialog {
   }
 }
 
+dialog, messagedialog {
+  // make dialog boxes match Shell OSD elements
+  border-radius: 0 0 $standard_radius $standard_radius;
+
+  decoration {
+    border: 8px solid $osd_box_shadow_color;
+    border-radius: $standard_radius * 2;
+  }
+
+  headerbar {
+    border-radius: $standard_radius $standard_radius 0 0;
+  }
+}
+
 messagedialog {
   // Flat dialog boxes
   border-radius: 0px;
   border-width: 0px 1px 1px 1px;
 
-  decoration {
-    border: 6px solid $border_color;
-    border-radius: $standard_radius;
+  box.dialog-vbox {
+    min-width: 300px;
   }
 
   &.background.csd, box.dialog-vbox.horizontal, buttonbox.dialog-action-area.horizontal.linked, box.horizontal.titlebar {

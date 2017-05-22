@@ -614,40 +614,6 @@ button.text-button:hover {
 }
 
 
-button.text-button:active {
-  background-color: #66a521;
-  color: white;
-  border-color: #66a521;
-  outline-color: rgba(255, 255, 255, 0.3);
-}
-
-
-button.text-button.checked {
-  background-color: #73BA25;
-  color: white;
-  border-color: #66a521;
-  outline-color: rgba(255, 255, 255, 0.3);
-}
-
-
-button.text-button.checked:active,
-button.text-button.checked:hover {
-  background-color: #66a521;
-}
-
-
-button.text-button.checked:disabled {
-  background-color: rgba(102, 165, 33, 0.7);
-  border-color: rgba(102, 165, 33, 0.1);
-}
-
-
-button.text-button.checked:disabled,
-button.text-button.checked:disabled * {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-
 button.lock:hover {
   border-color: #73BA25;
 }
@@ -724,6 +690,7 @@ button.flat.image-button:hover {
   border-color: transparent;
   background-image: none;
   -gtk-icon-effect: highlight;
+  background-color: transparent;
 }
 
 
@@ -1738,6 +1705,10 @@ spinbutton:not(.vertical) button:dir(rtl) {
   border-style: none solid none none;
 }
 
+spinbutton:not(.vertical) button.up:hover, spinbutton:not(.vertical) button.down:hover {
+  background-color: #191919;
+}
+
 spinbutton:not(.vertical) button.up:active, spinbutton:not(.vertical) button.down:active {
   color: white;
 }
@@ -1745,6 +1716,7 @@ spinbutton:not(.vertical) button.up:active, spinbutton:not(.vertical) button.dow
 spinbutton:not(.vertical) button.up:disabled, spinbutton:not(.vertical) button.down:disabled {
   background-color: rgba(23, 23, 23, 0.6);
   border-color: rgba(244, 244, 244, 0.1);
+  background-color: rgba(23, 23, 23, 0.6);
 }
 
 spinbutton:not(.vertical) button.up:disabled, spinbutton:not(.vertical) button.up:disabled label, spinbutton:not(.vertical) button.up:disabled image, spinbutton:not(.vertical) button.up:disabled arrow, spinbutton:not(.vertical) button.up:disabled cellview, spinbutton:not(.vertical) button.down:disabled, spinbutton:not(.vertical) button.down:disabled label, spinbutton:not(.vertical) button.down:disabled image, spinbutton:not(.vertical) button.down:disabled arrow, spinbutton:not(.vertical) button.down:disabled cellview {
@@ -1833,6 +1805,7 @@ spinbutton.vertical button.up:active, spinbutton.vertical button.down:active {
 spinbutton.vertical button.up:disabled, spinbutton.vertical button.down:disabled {
   background-color: rgba(23, 23, 23, 0.6);
   border-color: rgba(244, 244, 244, 0.1);
+  background-color: rgba(23, 23, 23, 0.6);
 }
 
 spinbutton.vertical button.up:disabled, spinbutton.vertical button.up:disabled label, spinbutton.vertical button.up:disabled image, spinbutton.vertical button.up:disabled arrow, spinbutton.vertical button.up:disabled cellview, spinbutton.vertical button.down:disabled, spinbutton.vertical button.down:disabled label, spinbutton.vertical button.down:disabled image, spinbutton.vertical button.down:disabled arrow, spinbutton.vertical button.down:disabled cellview {
@@ -1923,38 +1896,39 @@ toolbar, toolbar.horizontal, toolbar.vertical, .inline-toolbar, searchbar,
   background-color: #252525;
 }
 
-toolbar:not(.inline-toolbar) toolbutton button, toolbar.horizontal:not(.inline-toolbar) toolbutton button, toolbar.vertical:not(.inline-toolbar) toolbutton button {
+toolbar:not(.inline-toolbar) toolbutton > button, toolbar toolitem > button, toolbar.horizontal:not(.inline-toolbar) toolbutton > button, toolbar.horizontal toolitem > button, toolbar.vertical:not(.inline-toolbar) toolbutton > button, toolbar.vertical toolitem > button {
+  padding: 4px;
+  margin: 1px;
   transition-duration: 150ms;
 }
 
-toolbar:not(.inline-toolbar) toolbutton button.flat, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat {
+toolbar:not(.inline-toolbar) toolbutton > button, toolbar:not(.inline-toolbar) toolbutton > button.flat, toolbar:not(.inline-toolbar) toolbutton > button.flat.image-button, toolbar:not(.inline-toolbar) toolbutton > button.flat.toggle, toolbar toolitem > button, toolbar toolitem > button.flat, toolbar toolitem > button.flat.image-button, toolbar toolitem > button.flat.toggle, toolbar.horizontal:not(.inline-toolbar) toolbutton > button, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.image-button, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.toggle, toolbar.horizontal toolitem > button, toolbar.horizontal toolitem > button.flat, toolbar.horizontal toolitem > button.flat.image-button, toolbar.horizontal toolitem > button.flat.toggle, toolbar.vertical:not(.inline-toolbar) toolbutton > button, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.image-button, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.toggle, toolbar.vertical toolitem > button, toolbar.vertical toolitem > button.flat, toolbar.vertical toolitem > button.flat.image-button, toolbar.vertical toolitem > button.flat.toggle {
   color: #ffffff;
   background-color: transparent;
   border-color: transparent;
   background-image: none;
 }
 
-toolbar:not(.inline-toolbar) toolbutton button.flat:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:hover, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:hover {
+toolbar:not(.inline-toolbar) toolbutton > button:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat.image-button:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat.toggle:hover, toolbar toolitem > button:hover, toolbar toolitem > button.flat:hover, toolbar toolitem > button.flat.image-button:hover, toolbar toolitem > button.flat.toggle:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.image-button:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.toggle:hover, toolbar.horizontal toolitem > button:hover, toolbar.horizontal toolitem > button.flat:hover, toolbar.horizontal toolitem > button.flat.image-button:hover, toolbar.horizontal toolitem > button.flat.toggle:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.image-button:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.toggle:hover, toolbar.vertical toolitem > button:hover, toolbar.vertical toolitem > button.flat:hover, toolbar.vertical toolitem > button.flat.image-button:hover, toolbar.vertical toolitem > button.flat.toggle:hover {
   color: #80cf29;
   background-color: #191919;
   border-color: transparent;
   background-image: none;
   -gtk-icon-effect: highlight;
+  background-color: #252525;
+  border-color: rgba(244, 244, 244, 0.1);
 }
 
-toolbar:not(.inline-toolbar) toolbutton button.flat:active, toolbar:not(.inline-toolbar) toolbutton button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:active, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:checked {
+toolbar:not(.inline-toolbar) toolbutton > button:active, toolbar:not(.inline-toolbar) toolbutton > button:active:hover, toolbar:not(.inline-toolbar) toolbutton > button:checked, toolbar:not(.inline-toolbar) toolbutton > button:checked:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat:active, toolbar:not(.inline-toolbar) toolbutton > button.flat:active:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat:checked, toolbar:not(.inline-toolbar) toolbutton > button.flat:checked:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat.image-button:active, toolbar:not(.inline-toolbar) toolbutton > button.flat.image-button:active:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat.image-button:checked, toolbar:not(.inline-toolbar) toolbutton > button.flat.image-button:checked:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat.toggle:active, toolbar:not(.inline-toolbar) toolbutton > button.flat.toggle:active:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat.toggle:checked, toolbar:not(.inline-toolbar) toolbutton > button.flat.toggle:checked:hover, toolbar toolitem > button:active, toolbar toolitem > button:active:hover, toolbar toolitem > button:checked, toolbar toolitem > button:checked:hover, toolbar toolitem > button.flat:active, toolbar toolitem > button.flat:active:hover, toolbar toolitem > button.flat:checked, toolbar toolitem > button.flat:checked:hover, toolbar toolitem > button.flat.image-button:active, toolbar toolitem > button.flat.image-button:active:hover, toolbar toolitem > button.flat.image-button:checked, toolbar toolitem > button.flat.image-button:checked:hover, toolbar toolitem > button.flat.toggle:active, toolbar toolitem > button.flat.toggle:active:hover, toolbar toolitem > button.flat.toggle:checked, toolbar toolitem > button.flat.toggle:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:active, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:active:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:active:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.image-button:active, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.image-button:active:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.image-button:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.image-button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.toggle:active, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.toggle:active:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.toggle:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.toggle:checked:hover, toolbar.horizontal toolitem > button:active, toolbar.horizontal toolitem > button:active:hover, toolbar.horizontal toolitem > button:checked, toolbar.horizontal toolitem > button:checked:hover, toolbar.horizontal toolitem > button.flat:active, toolbar.horizontal toolitem > button.flat:active:hover, toolbar.horizontal toolitem > button.flat:checked, toolbar.horizontal toolitem > button.flat:checked:hover, toolbar.horizontal toolitem > button.flat.image-button:active, toolbar.horizontal toolitem > button.flat.image-button:active:hover, toolbar.horizontal toolitem > button.flat.image-button:checked, toolbar.horizontal toolitem > button.flat.image-button:checked:hover, toolbar.horizontal toolitem > button.flat.toggle:active, toolbar.horizontal toolitem > button.flat.toggle:active:hover, toolbar.horizontal toolitem > button.flat.toggle:checked, toolbar.horizontal toolitem > button.flat.toggle:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button:active, toolbar.vertical:not(.inline-toolbar) toolbutton > button:active:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button:checked, toolbar.vertical:not(.inline-toolbar) toolbutton > button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:active, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:active:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.image-button:active, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.image-button:active:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.image-button:checked, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.image-button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.toggle:active, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.toggle:active:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.toggle:checked, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.toggle:checked:hover, toolbar.vertical toolitem > button:active, toolbar.vertical toolitem > button:active:hover, toolbar.vertical toolitem > button:checked, toolbar.vertical toolitem > button:checked:hover, toolbar.vertical toolitem > button.flat:active, toolbar.vertical toolitem > button.flat:active:hover, toolbar.vertical toolitem > button.flat:checked, toolbar.vertical toolitem > button.flat:checked:hover, toolbar.vertical toolitem > button.flat.image-button:active, toolbar.vertical toolitem > button.flat.image-button:active:hover, toolbar.vertical toolitem > button.flat.image-button:checked, toolbar.vertical toolitem > button.flat.image-button:checked:hover, toolbar.vertical toolitem > button.flat.toggle:active, toolbar.vertical toolitem > button.flat.toggle:active:hover, toolbar.vertical toolitem > button.flat.toggle:checked, toolbar.vertical toolitem > button.flat.toggle:checked:hover {
   color: #66a521;
   background-color: #0c0c0c;
   border-color: transparent;
   background-image: none;
   -gtk-icon-effect: highlight;
+  border-color: #73BA25;
 }
 
-toolbar:not(.inline-toolbar) toolbutton button.flat.image-button.text-button, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat.image-button.text-button, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat.image-button.text-button {
-  padding: 4px;
-}
-
-toolbar:not(.inline-toolbar) toolbutton button.flat.image-button.text-button:disabled, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat.image-button.text-button:disabled, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat.image-button.text-button:disabled {
+toolbar:not(.inline-toolbar) toolbutton > button:disabled, toolbar:not(.inline-toolbar) toolbutton > button.flat:disabled, toolbar:not(.inline-toolbar) toolbutton > button.flat.image-button:disabled, toolbar:not(.inline-toolbar) toolbutton > button.flat.toggle:disabled, toolbar toolitem > button:disabled, toolbar toolitem > button.flat:disabled, toolbar toolitem > button.flat.image-button:disabled, toolbar toolitem > button.flat.toggle:disabled, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:disabled, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:disabled, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.image-button:disabled, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat.toggle:disabled, toolbar.horizontal toolitem > button:disabled, toolbar.horizontal toolitem > button.flat:disabled, toolbar.horizontal toolitem > button.flat.image-button:disabled, toolbar.horizontal toolitem > button.flat.toggle:disabled, toolbar.vertical:not(.inline-toolbar) toolbutton > button:disabled, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:disabled, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.image-button:disabled, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat.toggle:disabled, toolbar.vertical toolitem > button:disabled, toolbar.vertical toolitem > button.flat:disabled, toolbar.vertical toolitem > button.flat.image-button:disabled, toolbar.vertical toolitem > button.flat.toggle:disabled {
   opacity: .5;
 }
 
@@ -2029,7 +2003,7 @@ headerbar {
   border-radius: 10px 10px 0 0;
   border-top: 1px solid #111111;
   box-shadow: none;
-  min-height: 45px;
+  min-height: 0px;
   padding: 0 6px;
 }
 
@@ -2447,7 +2421,7 @@ treeview.view.trough {
 }
 
 treeview.view.trough:selected {
-  border-bottom-color: alpha(currentColor, 0.3);
+  border-bottom-color: #191919;
 }
 
 treeview.view header button {
@@ -2655,18 +2629,18 @@ menuitem accelerator {
 
 menuitem check,
 menuitem radio {
-  min-height: 16px;
-  min-width: 16px;
+  min-height: 14px;
+  min-width: 14px;
 }
 
 menuitem check:dir(ltr),
 menuitem radio:dir(ltr) {
-  margin-right: 7px;
+  margin: 0 3px;
 }
 
 menuitem check:dir(rtl),
 menuitem radio:dir(rtl) {
-  margin-left: 7px;
+  margin: 0 3px;
 }
 
 /***************
@@ -2921,7 +2895,7 @@ notebook > header tab:active label, notebook > header tab:checked label {
   color: #ffffff;
 }
 
-notebook > header tab button {
+notebook > header tab button, notebook > header tab button.flat {
   min-height: 0px;
   border-width: 0px;
   padding: 4px 6px;
@@ -2932,7 +2906,7 @@ notebook > header tab button {
   color: rgba(255, 255, 255, 0.4);
 }
 
-notebook > header tab button:hover {
+notebook > header tab button:hover, notebook > header tab button.flat:hover {
   color: #80cf29;
   background-color: #191919;
   border-color: transparent;
@@ -2941,7 +2915,7 @@ notebook > header tab button:hover {
   background-color: transparent;
 }
 
-notebook > header tab button:active, notebook > header tab button:checked {
+notebook > header tab button:active, notebook > header tab button:checked, notebook > header tab button.flat:active, notebook > header tab button.flat:checked {
   color: #66a521;
   background-color: #0c0c0c;
   border-color: transparent;
@@ -3321,11 +3295,11 @@ infobar check:active {
 check:disabled,
 treeview.check:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-insensitive-dark.png"), url("assets/checkbox-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox--dark.png"), url("assets/checkbox--dark@2.png"));
 }
 
 .osd check:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-insensitive-dark.png"), url("assets/checkbox-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox--dark.png"), url("assets/checkbox--dark@2.png"));
 }
 
 menuitem check:disabled:hover,
@@ -3334,7 +3308,7 @@ treeview.check:disabled:selected,
 row:selected check:disabled,
 infobar check:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-insensitive-inverse.png"), url("assets/checkbox-insensitive-inverse@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox--inverse.png"), url("assets/checkbox--inverse@2.png"));
   background-color: transparent;
 }
 
@@ -3363,11 +3337,11 @@ infobar check:indeterminate {
 check:indeterminate:disabled,
 treeview.check:indeterminate:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed--dark.png"), url("assets/checkbox-mixed--dark@2.png"));
 }
 
 .osd check:indeterminate:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed--dark.png"), url("assets/checkbox-mixed--dark@2.png"));
 }
 
 menuitem check:indeterminate:disabled:hover,
@@ -3376,7 +3350,7 @@ treeview.check:indeterminate:disabled:selected,
 row:selected check:indeterminate:disabled,
 infobar check:indeterminate:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-inverse.png"), url("assets/checkbox-mixed-insensitive-inverse@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed--inverse.png"), url("assets/checkbox-mixed--inverse@2.png"));
   background-color: transparent;
 }
 
@@ -3405,11 +3379,11 @@ infobar check:checked {
 check:checked:disabled,
 treeview.check:checked:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked--dark.png"), url("assets/checkbox-checked--dark@2.png"));
 }
 
 .osd check:checked:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked--dark.png"), url("assets/checkbox-checked--dark@2.png"));
 }
 
 menuitem check:checked:disabled:hover,
@@ -3418,7 +3392,7 @@ treeview.check:checked:disabled:selected,
 row:selected check:checked:disabled,
 infobar check:checked:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-inverse.png"), url("assets/checkbox-checked-insensitive-inverse@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked--inverse.png"), url("assets/checkbox-checked--inverse@2.png"));
   background-color: transparent;
 }
 
@@ -3489,11 +3463,11 @@ infobar radio:active {
 radio:disabled,
 treeview.radio:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-insensitive-dark.png"), url("assets/radio-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/radio--dark.png"), url("assets/radio--dark@2.png"));
 }
 
 .osd radio:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-insensitive-dark.png"), url("assets/radio-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/radio--dark.png"), url("assets/radio--dark@2.png"));
 }
 
 menuitem radio:disabled:hover,
@@ -3502,7 +3476,7 @@ treeview.radio:disabled:selected,
 row:selected radio:disabled,
 infobar radio:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-insensitive-inverse.png"), url("assets/radio-insensitive-inverse@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/radio--inverse.png"), url("assets/radio--inverse@2.png"));
   background-color: transparent;
 }
 
@@ -3531,11 +3505,11 @@ infobar radio:indeterminate {
 radio:indeterminate:disabled,
 treeview.radio:indeterminate:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed--dark.png"), url("assets/radio-mixed--dark@2.png"));
 }
 
 .osd radio:indeterminate:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed--dark.png"), url("assets/radio-mixed--dark@2.png"));
 }
 
 menuitem radio:indeterminate:disabled:hover,
@@ -3544,7 +3518,7 @@ treeview.radio:indeterminate:disabled:selected,
 row:selected radio:indeterminate:disabled,
 infobar radio:indeterminate:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-inverse.png"), url("assets/radio-mixed-insensitive-inverse@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed--inverse.png"), url("assets/radio-mixed--inverse@2.png"));
   background-color: transparent;
 }
 
@@ -3573,11 +3547,11 @@ infobar radio:checked {
 radio:checked:disabled,
 treeview.radio:checked:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked--dark.png"), url("assets/radio-checked--dark@2.png"));
 }
 
 .osd radio:checked:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked--dark.png"), url("assets/radio-checked--dark@2.png"));
 }
 
 menuitem radio:checked:disabled:hover,
@@ -3586,7 +3560,7 @@ treeview.radio:checked:disabled:selected,
 row:selected radio:checked:disabled,
 infobar radio:checked:disabled {
   transition: none;
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-inverse.png"), url("assets/radio-checked-insensitive-inverse@2.png"));
+  -gtk-icon-source: -gtk-scaled(url("assets/radio-checked--inverse.png"), url("assets/radio-checked--inverse@2.png"));
   background-color: transparent;
 }
 
@@ -3626,8 +3600,8 @@ radio {
   background-color: transparent;
   border-color: transparent;
   background-image: none;
-  min-width: 16px;
-  min-height: 16px;
+  min-width: 14px;
+  min-height: 14px;
   margin: 2px 4px;
 }
 
@@ -3682,7 +3656,7 @@ scale highlight:disabled {
 }
 
 scale fill {
-  background-color: alpha(currentColor, 0.3);
+  background-color: #191919;
 }
 
 scale fill:disabled {
@@ -4543,7 +4517,7 @@ tooltip {
 }
 
 tooltip, tooltip.background, tooltip decoration {
-  background-color: rgba(37, 37, 37, 0.7);
+  background-color: rgba(17, 17, 17, 0.7);
 }
 
 tooltip.background {
@@ -5405,14 +5379,26 @@ dialog {
   background-image: image(#111111);
 }
 
+dialog, messagedialog {
+  border-radius: 0 0 6px 6px;
+}
+
+dialog decoration, messagedialog decoration {
+  border: 8px solid rgba(17, 17, 17, 0.4);
+  border-radius: 12px;
+}
+
+dialog headerbar, messagedialog headerbar {
+  border-radius: 6px 6px 0 0;
+}
+
 messagedialog {
   border-radius: 0px;
   border-width: 0px 1px 1px 1px;
 }
 
-messagedialog decoration {
-  border: 6px solid rgba(244, 244, 244, 0.1);
-  border-radius: 6px;
+messagedialog box.dialog-vbox {
+  min-width: 300px;
 }
 
 messagedialog.background.csd, messagedialog box.dialog-vbox.horizontal, messagedialog buttonbox.dialog-action-area.horizontal.linked, messagedialog box.horizontal.titlebar {
@@ -5465,6 +5451,10 @@ window.nautilus-window popover grid stack button:not(.image-button):hover, windo
 
 window.nautilus-window scrolledwindow treeeview.view, window.nautilus-window .nautilus-list-view overlay {
   background-color: #252525;
+}
+
+window.nautilus-window scrolledwindow treeeview.view box.floating-bar, window.nautilus-window .nautilus-list-view overlay box.floating-bar {
+  border: 1px solid rgba(244, 244, 244, 0.1);
 }
 
 window.nautilus-window popover viewport button {

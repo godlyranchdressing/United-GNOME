@@ -842,11 +842,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.9999998"
-     inkscape:cx="138.46878"
-     inkscape:cy="193.21438"
+     inkscape:zoom="5.6568539"
+     inkscape:cx="95.765672"
+     inkscape:cy="196.96689"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="combo-entry-button-active-rtl"
      showgrid="true"
      showborder="false"
      inkscape:window-width="1848"
@@ -978,7 +978,7 @@
          height="23"
          width="23"
          id="rect7903-7-22"
-         style="display:inline;opacity:1;fill:#73ba25;fill-opacity:1;stroke:#73ba25;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="display:inline;opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#73ba25;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          transform="scale(1,-1)" />
       <rect
          y="-279.63782"
@@ -1877,7 +1877,7 @@
          id="button-active-4"
          style="display:inline">
         <rect
-           style="opacity:1;fill:#73ba25;fill-opacity:1;stroke:#73ba25;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#73ba25;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect7903-21-8"
            width="22"
            height="21.999998"
@@ -1925,7 +1925,7 @@
          id="button-active-5"
          style="display:inline">
         <rect
-           style="opacity:1;fill:#73ba25;fill-opacity:1;stroke:#73ba25;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#73ba25;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect7903-21-5"
            width="22"
            height="21.999998"

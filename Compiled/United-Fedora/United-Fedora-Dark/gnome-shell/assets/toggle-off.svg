@@ -70,11 +70,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.07058824"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.656854"
-     inkscape:cx="-22.153684"
-     inkscape:cy="-13.834383"
+     inkscape:zoom="7.9999995"
+     inkscape:cx="-5.2244967"
+     inkscape:cy="-19.106411"
      inkscape:document-units="px"
-     inkscape:current-layer="g863"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1848"
      inkscape:window-height="1137"
@@ -129,7 +129,7 @@
            transform="translate(-115,1277)"
            id="g37996">
           <rect
-             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#313131;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#1c1c1c;fill-opacity:1;fill-rule:nonzero;stroke:#494949;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
              id="rect38000"
              width="98"
              height="25"
@@ -146,7 +146,7 @@
              style="display:inline"
              transform="translate(-115,1247)">
             <rect
-               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#252525;fill-opacity:1;fill-rule:nonzero;stroke:#313131;stroke-width:1.37920964;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+               style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#252525;fill-opacity:1;fill-rule:nonzero;stroke:#494949;stroke-width:1.37940469;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
                id="rect38006"
                width="45.969578"
                height="25"

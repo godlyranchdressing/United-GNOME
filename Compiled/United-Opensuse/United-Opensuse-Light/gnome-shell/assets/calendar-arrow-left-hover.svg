@@ -14,8 +14,8 @@
    opacity="0.75"
    version="1.1"
    id="svg4"
-   sodipodi:docname="calendar-arrow-left.svg"
-   inkscape:version="0.92.1 r">
+   sodipodi:docname="calendar-arrow-left-hover.svg"
+   inkscape:version="0.92+devel unknown">
   <metadata
      id="metadata10">
     <rdf:RDF>
@@ -48,10 +48,11 @@
      inkscape:window-x="1438"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="svg4"
+     inkscape:document-rotation="0" />
   <g
      id="g5088"
-     transform="matrix(-0.26340143,0,0,-0.26340143,9.0402808,18.099366)"
+     transform="matrix(-0.28096152,0,0,-0.28096152,9.1096328,18.772657)"
      style="fill:#73ba25;fill-opacity:1">
     <path
        style="fill:#73ba25;fill-opacity:1"

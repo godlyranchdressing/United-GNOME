@@ -39,7 +39,7 @@ $accent_color: null;
   $distro: ubuntu;
 }
 
-$launcher_background: if($transparency == "true", transparentize($primary_color, 0.1), $primary_color);
+$launcher_background: if($transparency == true, transparentize($primary_color, 0.1), $primary_color);
 
 @if $distro == "fedora" {
   // the default blue is too dark but we still need it for the launcher to look the way it should

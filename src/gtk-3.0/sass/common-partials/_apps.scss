@@ -26,6 +26,10 @@ window.nautilus-window {
     //   }
     // }
 
+    box.floating-bar {
+      // lower right box in the status bar isn't very eyecatching
+      border: 1px solid $border_color;
+    }
   }
 
   popover viewport button {

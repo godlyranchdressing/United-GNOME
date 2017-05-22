@@ -576,6 +576,7 @@ button {
     // Now that the default styling for buttons has been declared,
     // we go through the major button subtypes to apply special styling
     /// ***  ***  *** ///
+
     /// * Text Buttons * ///
 
     &:not(.image-button) label {
@@ -585,14 +586,6 @@ button {
     &.text-button {
       &:hover {
         border-color: $primary_color;
-      }
-
-      &:active {
-        @include button(active, $primary_color, white);
-      }
-
-      &.checked {
-        @include button(checked, $primary_color, white);
       }
     }
 
@@ -641,8 +634,10 @@ button {
     &.sidebar-button, &.flat.scale, &.flat.image-button {
       @include button(flat);
 
+
       &:hover {
         @include button(flat-hover);
+        background-color: transparent;
       }
 
       &:active, &:checked {
@@ -1312,12 +1307,18 @@ spinbutton {
       }
 
       &.up, &.down {
+        &:hover {
+          background-color: $hover_bg;
+        }
+
         &:active {
           color: white;
         }
 
         &:disabled {
           @include button(disabled);
+
+          background-color: $disabled_bg_color;
         }
       }
 
@@ -1417,6 +1418,8 @@ spinbutton {
 
         &:disabled {
           @include button(disabled);
+
+          background-color: $disabled_bg_color;
         }
       }
     }
@@ -1547,30 +1550,38 @@ combobox {
 toolbar, toolbar.horizontal, toolbar.vertical {
   @extend %toolbar;
 
-  &:not(.inline-toolbar) toolbutton button {
-    transition-duration: 150ms;
-
-    &.flat {
-      @include button(flat);
-
-      &:hover {
-        @include button(flat-hover);
-      }
-
-      &:active, &:checked {
-        @include button(flat-active);
-      }
-
-      &:disabled {
-        @include button(disabled-flat);
-      }
-    }
-
-    &.flat.image-button.text-button {
+  &:not(.inline-toolbar)
+  toolbutton, toolitem {
+    > button {
       padding: 4px;
+      margin: 1px;
+      transition-duration: 150ms;
 
-      &:disabled {
-        opacity: .5;
+      &, &.flat, &.flat.image-button, &.flat.toggle {
+        @include button(flat);
+
+        &:hover {
+          @include button(flat-hover);
+
+          background-color: $lighter_bg_color;
+          border-color: $border_color;
+        }
+
+        &:active, &:checked {
+          &, &:hover {
+            @include button(flat-active);
+
+            border-color: $primary_color;
+          }
+        }
+
+        &:disabled {
+          @include button(disabled-flat);
+        }
+
+        &:disabled {
+          opacity: .5;
+        }
       }
     }
   }
@@ -1686,7 +1697,7 @@ headerbar {
   border-radius: ($standard_radius + 4) ($standard_radius + 4) 0 0;
   border-top: 1px solid if($headerbar == "dark", $darker_headerbar_color, $headerbar_bg);
   box-shadow: if($variant == "light", $headerbar_shadow, none);
-  min-height: 45px;
+  min-height: if($compact == true, 0px, 45px);
   padding: 0 6px;
 
   &:disabled:not(button) > label {
@@ -2067,7 +2078,7 @@ treeview.view {
     background-color: transparent;
 
     &:selected {
-      border-bottom-color: $fill_color;
+      border-bottom-color: $hover_bg;
     }
   }
 
@@ -2275,15 +2286,15 @@ menuitem {
 
   check,
   radio {
-    min-height: 16px;
-    min-width: 16px;
+    min-height: 14px;
+    min-width: 14px;
 
     &:dir(ltr) {
-      margin-right: 7px;
+      margin: 0 3px;
     }
 
     &:dir(rtl) {
-      margin-left: 7px;
+      margin: 0 3px;
     }
   }
 }
@@ -2582,26 +2593,26 @@ notebook {
       }
 
       button {
-        min-height: 0px;
-        border-width: 0px;
-        padding: 4px 6px;
+        &, &.flat {
+          min-height: 0px;
+          border-width: 0px;
+          padding: 4px 6px;
 
-        @include button(flat);
+          @include button(flat);
 
-        color: $disabled_fg_color;
+          color: $disabled_fg_color;
 
-        // we don't want the close button to be of equal importance
+          &:hover {
+            @include button(flat-hover);
 
-        &:hover {
-          @include button(flat-hover);
+            background-color: transparent;
+          }
 
-          background-color: transparent;
-        }
+          &:active, &:checked {
+            @include button(flat-active);
 
-        &:active, &:checked {
-          @include button(flat-active);
-
-          background-color: transparent;
+            background-color: transparent;
+          }
         }
       }
 
@@ -2940,7 +2951,7 @@ switch {
 //
 @each $w, $a in ("check", "checkbox"), ("radio", "radio") {
   //standard checks and radios
-  @each $s, $as in ("", ""), (":hover", "-hover"), (":active", "-active"), (":disabled", "-insensitive"), (":indeterminate", "-mixed"), (":indeterminate:disabled", "-mixed-insensitive"), (":checked", "-checked"), (":checked:disabled", "-checked-insensitive") {
+  @each $s, $as in ("", ""), (":hover", "-hover"), (":active", "-active"), (":disabled", "-"), (":indeterminate", "-mixed"), (":indeterminate:disabled", "-mixed-"), (":checked", "-checked"), (":checked:disabled", "-checked-") {
     .#{$w}#{$s},
     #{$w}#{$s},
     treeview.#{$w}#{$s} {
@@ -3013,8 +3024,8 @@ check,
 radio {
   @include button(flat);
 
-  min-width: 16px;
-  min-height: 16px;
+  min-width: 14px;
+  min-height: 14px;
   margin: 2px 4px;
 
   &:only-child,
@@ -3086,7 +3097,7 @@ scale {
   // this is another differently styled part of the backing bit, the most relevant use case is for example
   // in media player to indicate how much video stream as been cached
   fill {
-    background-color: $fill_color;
+    background-color: $hover_bg;
 
     &:disabled {
       background-color: $disabled_bg_color;
@@ -4022,7 +4033,7 @@ infobar {
  ************/
 tooltip {
   &, &.background, decoration {
-    background-color: transparentize($lighter_bg_color, $lower_opacity);
+    background-color: transparentize($ubuntu_black, $lower_opacity);
   }
 
   //
@@ -4049,7 +4060,7 @@ tooltip {
 
     //background-color: transparentize($accent_color, $middle_opacity);
     border-radius: $standard_radius;
-    color: $fg_color;
+    color: $light_fg_color;
   }
 }
 

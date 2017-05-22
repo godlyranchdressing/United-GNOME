@@ -16,7 +16,6 @@ $subheading-size: 16px;
 $higher_opacity: 0.9;
 $middle_opacity: 0.5;
 $lower_opacity: 0.3;
-$lowest_opacity: 0.25;
 $secondary_opacity: 0.75;
 $tertiary_opacity: 0.6;
 $disabled_opacity: 0.4;
@@ -29,33 +28,28 @@ $large_size: 44px;
 $container_padding: 6px;
 $bar_size: 4px;
 $menuitem_size: 30px;
+$menu_gap: 8px;
 
 // radiuses
 $standard_radius: 6px;
 $circular_radius: 9999px;
 
 // durations
-$shorter_duration: 0.1s / 2;
-$longer_duration: 0.2s / 2;
-$ripple_duration: 0.4s / 2;
+$shorter_duration: 75ms;
+$standard_duration: 150ms;
+$longer_duration: 250ms;
 
 // timing functions
-$standard_curve: cubic-bezier(0.4, 0, 0.2, 1);
 $deceleration_curve: cubic-bezier(0, 0, 0.2, 1);
-$acceleration_curve: cubic-bezier(0.4, 0, 1, 1);
 $sharp_curve: cubic-bezier(0.4, 0, 0.6, 1);
 
 // transition shorthands
-$shorter_transition: all $shorter_duration $deceleration_curve;
+$shorter_transition: all $standard_duration $deceleration_curve;
 $longer_transition: all $longer_duration $deceleration_curve;
-$shadow_transition: box-shadow $shorter_duration $deceleration_curve;
 
 // Shadow borders
-$shadow_right: inset -2 0px 0px;
-$shadow_top: inset 0 2px 0px;
+$osd_box_shadow_length: 0 0 0 8px;
 $shadow_bottom: inset 0 -2px 0px;
 $shadow_surround: inset 0 0px 0px 1px;
 $shadow_thicker_surround: inset 0 0px 0px 2px;
-$popover_shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
-
-// for menus in light variant
+$popover_shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); // for menus in light variant
