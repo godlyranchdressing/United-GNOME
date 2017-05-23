@@ -1521,7 +1521,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   spacing: 8px;
 }
 
-.message, .notification-banner {
+.message, .notification-banner, .notification-banner:last-child > :first-child {
   transition-duration: 150ms;
   min-height: 60px;
   background-color: white;
@@ -1530,15 +1530,15 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 0 6px 6px 0;
 }
 
-.message:hover, .message:active, .notification-banner:hover, .notification-banner:active {
+.message:hover, .message:active, .notification-banner:hover, .notification-banner:last-child > :hover:first-child, .notification-banner:active, .notification-banner:last-child > :active:first-child {
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
-.message:hover, .notification-banner:hover {
+.message:hover, .notification-banner:hover, .notification-banner:last-child > :hover:first-child {
   background-color: #e1e1e1;
 }
 
-.message:active, .notification-banner:active {
+.message:active, .notification-banner:active, .notification-banner:last-child > :active:first-child {
   background-color: #dbdbdb;
 }
 
@@ -1580,11 +1580,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message-secondary-bin:hover > StIcon {
-  color: #eb6637;
+  color: #eb6637 !important;
 }
 
 .message-secondary-bin:active > StIcon {
-  color: #da4816;
+  color: #da4816 !important;
 }
 
 .message-title {
@@ -2573,6 +2573,14 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .notification-banner .notification-button:last-child {
   border-radius: 0 0 6px 0 !important;
+}
+
+.notification-banner:last-child > :first-child:hover {
+  background-color: white !important;
+}
+
+.notification-banner:last-child > :first-child:active {
+  background-color: white !important;
 }
 
 .summary-source-counter {

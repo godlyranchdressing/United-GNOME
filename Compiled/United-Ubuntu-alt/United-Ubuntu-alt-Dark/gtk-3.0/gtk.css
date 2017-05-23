@@ -2441,7 +2441,7 @@ treeview.view header button {
 }
 
 treeview.view header button:hover label, treeview.view header button:hover image, treeview.view header button:hover arrow {
-  color: #ffffff;
+  color: #b9293c;
 }
 
 treeview.view header button:active label, treeview.view header button:active image, treeview.view header button:active arrow {

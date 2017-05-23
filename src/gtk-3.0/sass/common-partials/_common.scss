@@ -2097,7 +2097,7 @@ treeview.view {
 
       &:hover {
         label, image, arrow {
-          color: $fg_color;
+          color: _hover_shade($primary_color);
         }
       }
 

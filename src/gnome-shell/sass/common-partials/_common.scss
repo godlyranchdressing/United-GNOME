@@ -483,6 +483,7 @@ StScrollBar {
 
 .prompt-dialog {
   @extend %osd-panel;
+
   //this is the width of the entire modal popup
   min-width: 500px;
   max-width: 600px;
@@ -1519,13 +1520,13 @@ StScrollBar {
 .message-secondary-bin {
   &:hover {
     > StIcon {
-      color: _hover_shade($primary_color);
+      color: _hover_shade($primary_color) !important;
     }
   }
 
   &:active {
     > StIcon {
-      color: _pressed_shade($primary_color);
+      color: _pressed_shade($primary_color) !important;
     }
   }
 }
@@ -2305,6 +2306,18 @@ StScrollBar {
       border-radius: 0 0 $standard_radius 0 !important;
     }
   }
+
+  &:last-child > :first-child {
+    @extend %message;
+
+    &:hover {
+      background-color: if($transparency == true, opacify(_hover_shade($lighter_bg_color), 0.25), $lighter_bg_color) !important;
+    }
+
+    &:active {
+      background-color: if($transparency == true, opacify(_pressed_shade($lighter_bg_color), 0.25), $lighter_bg_color) !important;
+    }
+  }
 }
 
 .summary-source-counter {
@@ -2740,8 +2753,6 @@ $legacy_icon_size: 24px;
   font-weight: 400;
   color: $disabled_fg_color;
   padding-top: 1em;
-
-
 }
 
 .login-dialog-user-list-view {
@@ -2938,6 +2949,7 @@ $legacy_icon_size: 24px;
 
 #lockDialogGroup {
   background: $primary_color url("assets/noise-texture.svg");
+
   //background: $primary_color url("assets/background.png");
   background-size: cover;
 }
