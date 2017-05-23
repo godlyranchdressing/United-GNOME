@@ -1203,7 +1203,8 @@ StScrollBar {
 
 .datemenu-today-button .date-label {
   @include font(headline);
-  font-weight: 300 !important;
+
+  font-weight: 400 !important;
   text-align: center !important;
 }
 
@@ -1211,7 +1212,7 @@ StScrollBar {
 .weather-header,
 .events-section-title {
   color: $fg_color;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .world-clocks-grid {
@@ -1228,7 +1229,7 @@ StScrollBar {
   padding: 6px 16px;
   border-radius: $standard_radius;
   color: $fg_color;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
 
   &:focus {
@@ -1304,8 +1305,18 @@ StScrollBar {
 }
 
 .calendar-change-month-back, .calendar-change-month-forward {
+  background-size: 4px 14px;
+
   &, &:hover, &:active {
     transition-duration: $standard_duration;
+  }
+
+  &:hover {
+    background-color: $semi_fill_color;
+  }
+
+  &:active {
+    background-color: $fill_color;
   }
 
   &:focus {
@@ -1316,10 +1327,8 @@ StScrollBar {
 .calendar-day-base {
   @include font(caption);
 
-  &, &:not(:selected) {
-    color: $fg_color !important;
-  }
-
+  color: $fg_color !important;
+  background-color: transparent;
   text-align: center;
   width: $menuitem_size;
   height: $menuitem_size;
@@ -1329,12 +1338,12 @@ StScrollBar {
   border-radius: $standard_radius;
 
   &:hover, &:focus {
-    background-color: $semi_fill_color;
+    background-color: $semi_fill_color !important;
     box-shadow: $shadow_surround $border_color;
 
     &:active, &:selected {
       font-weight: 400 !important;
-      background-color: $border_color;
+      background-color: $border_color !important;
       box-shadow: $shadow_surround _pressed_shade($border_color);
     }
   }
@@ -1360,6 +1369,10 @@ StScrollBar {
   //border collapse hack - see calendar.js
   color: $secondary_fg_color;
   border-width: 0;
+
+  &:focus {
+    background-color: $semi_fill_color;
+  }
 }
 
 .calendar-day-top {
@@ -1381,7 +1394,7 @@ StScrollBar {
   color: $light_fg_color;
   border: none;
 
-  &:selected {
+  &:selected, &:focus, &:active {
     background-color: $primary_color;
     box-shadow: $shadow_surround _pressed_shade($primary_color);
   }
@@ -1798,7 +1811,7 @@ StScrollBar {
 }
 
 .window-clone-border {
-  border: $osd_box_shadow_length solid $osd_box_light_shadow_color;
+  border: ($osd_box_shadow_length - 2) solid $osd_box_light_shadow_color;
   border-radius: $standard_radius;
 
   // For window decorations with round corners we can't match

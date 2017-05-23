@@ -5455,6 +5455,7 @@ window.nautilus-window scrolledwindow treeeview.view, window.nautilus-window .na
 
 window.nautilus-window scrolledwindow treeeview.view box.floating-bar, window.nautilus-window .nautilus-list-view overlay box.floating-bar {
   border: 1px solid rgba(244, 244, 244, 0.1);
+  background-color: #252525;
 }
 
 window.nautilus-window popover viewport button {
