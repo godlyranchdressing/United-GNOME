@@ -19,7 +19,7 @@ $accent_color: null;
   $accent_color: #E59728;
 }
 @else if $distro == "manjaro" {
-  $primary_color: #35BF5C;
+  $primary_color: #1ABC9C;
   $accent_color: #E96D19;
 }
 @else if $distro == "opensuse" {

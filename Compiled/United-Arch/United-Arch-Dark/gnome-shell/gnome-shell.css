@@ -556,6 +556,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .prompt-dialog-main-layout {
   spacing: 24px;
   padding: 10px;
+  color: #ffffff;
 }
 
 .prompt-dialog-message-layout {

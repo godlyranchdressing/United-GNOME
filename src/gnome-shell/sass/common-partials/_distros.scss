@@ -7,12 +7,10 @@ $accent_color: null;
   $accent_color: $ubuntu_light_purple;
   $suggested_color: $dark_green;
 }
-
 @else if $distro == "ubuntu-alt" {
   $primary_color: $ubuntu_maroon;
   $accent_color: $ubuntu_orange;
 }
-
 @else if $distro == "arch" {
   $primary_color: #1793D1;
   $accent_color: #4D4D4D;
@@ -22,7 +20,7 @@ $accent_color: null;
   $accent_color: #E59728;
 }
 @else if $distro == "manjaro" {
-  $primary_color: #35BF5C;
+  $primary_color: #1ABC9C;
   $accent_color: #E96D19;
 }
 @else if $distro == "opensuse" {
@@ -41,19 +39,19 @@ $accent_color: null;
 
 $launcher_background: if($transparency == true, transparentize($primary_color, 0.1), $primary_color);
 
+// make the launcher background color different for a couple distros so the logo looks correct
 @if $distro == "fedora" {
-  // the default blue is too dark but we still need it for the launcher to look the way it should
   $launcher_background: #294172;
 }
 @else if $distro == "solus" {
-  // the default blue is too dark but we still need it for the launcher to look the way it should
   $launcher_background: #4c5263;
 }
 @else if $distro == "ubuntu-alt" {
-  // launcher color should be orange
   $launcher_background: $ubuntu_orange;
 }
-
-@else{
+@else if $distro == "manjaro" {
+  $launcher_background: #35BF5C;
+}
+@else {
   $launcher_background: $launcher_background;
 }
