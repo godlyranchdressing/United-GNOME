@@ -249,13 +249,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 /* Slider */
 .slider {
   height: 2px;
-  color: #00A489;
+  color: transparent;
   -slider-height: 2px;
   -slider-background-color: rgba(96, 96, 96, 0.75);
   -slider-border-color: transparent;
-  -slider-active-background-color: #00caa9;
+  -slider-active-background-color: #00A489;
   -slider-active-border-color: transparent;
-  -slider-border-width: 3px;
+  -slider-border-width: 0px;
   -slider-handle-radius: 100%;
 }
 
@@ -858,7 +858,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .osd-window .level-bar {
   color: rgba(96, 96, 96, 0.16);
-  background-color: #00caa9;
+  background-color: #00A489;
   border-radius: 0px;
 }
 

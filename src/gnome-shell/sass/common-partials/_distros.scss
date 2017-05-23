@@ -13,7 +13,7 @@ $accent_color: null;
 }
 @else if $distro == "arch" {
   $primary_color: #1793D1;
-  $accent_color: #4D4D4D;
+  $accent_color: #FF9010;
 }
 @else if $distro == "fedora" {
   $primary_color: #3C6EB4;

@@ -161,7 +161,7 @@ StScrollBar {
 
 .slider {
   height: 2px;
-  color: $accent_color;
+  color: transparent;
   -slider-height: 2px;
   -slider-background-color: $secondary_fg_color;
 
@@ -169,13 +169,13 @@ StScrollBar {
   -slider-border-color: transparent;
 
   //trough border color
-  -slider-active-background-color: if($distro != "opensuse", lighten($accent_color, 20%), lighten($accent_color, 7.5%));
+  -slider-active-background-color: $accent_color;
 
   //active trough fill
   -slider-active-border-color: transparent;
 
   //active trough border
-  -slider-border-width: 3px;
+  -slider-border-width: 0px;
   -slider-handle-radius: 100%;
 }
 
@@ -820,7 +820,7 @@ StScrollBar {
 
   .level-bar {
     color: $disabled_fill_color;
-    background-color: if($distro != "opensuse", lighten($accent_color, 20%), lighten($accent_color, 7.5%));
+    background-color: $accent_color;
     border-radius: 0px;
   }
 }

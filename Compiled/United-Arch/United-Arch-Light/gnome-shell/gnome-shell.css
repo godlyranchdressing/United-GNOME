@@ -249,13 +249,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 /* Slider */
 .slider {
   height: 2px;
-  color: #4D4D4D;
+  color: transparent;
   -slider-height: 2px;
   -slider-background-color: rgba(96, 96, 96, 0.75);
   -slider-border-color: transparent;
-  -slider-active-background-color: gray;
+  -slider-active-background-color: #FF9010;
   -slider-active-border-color: transparent;
-  -slider-border-width: 3px;
+  -slider-border-width: 0px;
   -slider-handle-radius: 100%;
 }
 
@@ -319,17 +319,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 /* links */
 .shell-link {
   border-radius: 6px;
-  color: #676767;
+  color: #ffa843;
 }
 
 .shell-link:hover {
-  color: #676767;
-  background-color: rgba(103, 103, 103, 0.15);
+  color: #ffa843;
+  background-color: rgba(255, 168, 67, 0.15);
 }
 
 .shell-link:active {
-  color: #676767;
-  background-color: rgba(103, 103, 103, 0.3);
+  color: #ffa843;
+  background-color: rgba(255, 168, 67, 0.3);
 }
 
 /* Modal Dialogs */
@@ -858,7 +858,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .osd-window .level-bar {
   color: rgba(96, 96, 96, 0.16);
-  background-color: gray;
+  background-color: #FF9010;
   border-radius: 0px;
 }
 
@@ -2435,7 +2435,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .workspace-thumbnail-indicator {
-  border: 0 solid #4D4D4D;
+  border: 0 solid #FF9010;
   border-left-width: 2px;
   padding: 6px;
   border-radius: 0;
@@ -2461,7 +2461,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* NOTIFICATIONS & MESSAGE TRAY */
 .url-highlighter {
-  link-color: #676767;
+  link-color: #ffa843;
 }
 
 .notification-banner {
@@ -3349,11 +3349,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .lg-dialog .shell-link {
-  color: #676767;
+  color: #ffa843;
 }
 
 .lg-dialog .shell-link:hover {
-  color: #676767;
+  color: #ffa843;
 }
 
 .lg-completions-text {

@@ -14,8 +14,8 @@
    viewBox="0 0 132.66667 18.000012"
    version="1.1"
    id="svg435"
-   sodipodi:docname="ubuntu-assets.svg"
-   inkscape:version="0.92.1 r">
+   sodipodi:docname="fedora-assets.svg"
+   inkscape:version="0.92+devel unknown">
   <defs
      id="defs846">
     <linearGradient
@@ -313,12 +313,12 @@
   <sodipodi:namedview
      showgrid="true"
      id="namedview4"
-     inkscape:zoom="3.0117216"
-     inkscape:cx="87.598674"
-     inkscape:cy="-57.80429"
+     inkscape:zoom="8.5184352"
+     inkscape:cx="94.595353"
+     inkscape:cy="-7.472958"
      inkscape:window-width="1848"
-     inkscape:window-height="1137"
-     inkscape:window-x="1438"
+     inkscape:window-height="1138"
+     inkscape:window-x="72"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:current-layer="titlebutton-close-active"
@@ -326,7 +326,8 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     showguides="false">
+     showguides="false"
+     inkscape:document-rotation="0">
     <inkscape:grid
        empspacing="4"
        id="grid2"
@@ -683,7 +684,7 @@
     </g>
     <rect
        y="-198.48033"
-       x="469.93326"
+       x="469.93332"
        height="18"
        width="18"
        id="rect17883-02"
@@ -692,11 +693,11 @@
        style="display:inline;opacity:0.25"
        id="darken-layer-close"
        inkscape:label="#g6332"
-       transform="matrix(1.0546874,0,0,1.0546874,-26.191694,10.362194)">
+       transform="matrix(1.0546874,0,0,1.0546874,-22.386735,15.999562)">
       <g
          id="g4927-8-7-5-5"
          style="display:inline;opacity:1"
-         transform="translate(-940.8,-461.48034)">
+         transform="matrix(1.0385396,0,0,1.0385396,-999.1235,-477.30817)">
         <g
            transform="translate(-109.86667)"
            style="display:inline;opacity:1"
@@ -763,13 +764,6 @@
              style="fill:#ffffff;fill-opacity:1" />
         </g>
       </g>
-      <rect
-         y="-198.01367"
-         x="470.39999"
-         height="17.066668"
-         width="17.066668"
-         id="rect17883-02-4-5"
-         style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1.06666672;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0" />
     </g>
   </g>
   <g
