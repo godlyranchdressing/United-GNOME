@@ -20,7 +20,7 @@
  * Base States *
  ***************/
 .background, paned, .gedit-view text {
-  background-color: #252525;
+  background-color: #181818;
   color: #ffffff;
 }
 
@@ -32,17 +32,17 @@
 */
 .gtkstyle-fallback {
   color: #ffffff;
-  background-color: #252525;
+  background-color: #181818;
 }
 
 .gtkstyle-fallback:hover {
   color: #ffffff;
-  background-color: #3f3f3f;
+  background-color: #323232;
 }
 
 .gtkstyle-fallback:active {
   color: #ffffff;
-  background-color: #0c0c0c;
+  background-color: black;
 }
 
 .gtkstyle-fallback:disabled {
@@ -82,7 +82,7 @@ textview text:selected {
 }
 
 textview border {
-  background-color: #1e1e1e;
+  background-color: #171717;
 }
 
 .rubberband,
@@ -118,6 +118,7 @@ label.separator {
 }
 
 label selection {
+  background-color: #E95420;
   color: #ffffff;
 }
 
@@ -152,7 +153,7 @@ assistant .sidebar .sidebar label.highlight {
   border: none;
   border-radius: 0px;
   background-color: #252525;
-  box-shadow: inset 0 -2px 0px #E95420;
+  box-shadow: inset 0px -2px 0px #E95420;
   background-clip: padding-box;
   -gtk-icon-shadow: none;
 }
@@ -331,7 +332,7 @@ entry image:active {
 
 spinbutton:not(.vertical) image:backdrop,
 entry image:backdrop {
-  color: rgba(190, 190, 190, 0.44);
+  color: rgba(188, 188, 188, 0.44);
 }
 
 spinbutton:drop(active):focus:not(.vertical), spinbutton:drop(active):not(.vertical),
@@ -590,7 +591,7 @@ button:checked:disabled * {
 
 
 button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
@@ -600,7 +601,7 @@ button:disabled label,
 button:disabled image,
 button:disabled arrow,
 button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 
@@ -673,6 +674,7 @@ button.flat:disabled {
 
 
 button.sidebar-button,
+button.nautilus-circular-button,
 button.flat.scale,
 button.flat.image-button {
   color: #ffffff;
@@ -683,6 +685,7 @@ button.flat.image-button {
 
 
 button.sidebar-button:hover,
+button.nautilus-circular-button:hover,
 button.flat.scale:hover,
 button.flat.image-button:hover {
   color: #eb6637;
@@ -696,6 +699,8 @@ button.flat.image-button:hover {
 
 button.sidebar-button:active,
 button.sidebar-button:checked,
+button.nautilus-circular-button:active,
+button.nautilus-circular-button:checked,
 button.flat.scale:active,
 button.flat.scale:checked,
 button.flat.image-button:active,
@@ -744,7 +749,7 @@ button.link.flat:disabled {
 
 
 button.link:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
@@ -754,7 +759,7 @@ button.link:disabled label,
 button.link:disabled image,
 button.link:disabled arrow,
 button.link:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 combobox:drop(active) button.combo,
@@ -812,7 +817,7 @@ button.osd:checked {
 
 
 button.osd:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
   border: none;
 }
@@ -823,7 +828,7 @@ button.osd:disabled label,
 button.osd:disabled image,
 button.osd:disabled arrow,
 button.osd:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 .csd popover.background.touch-selection button, .csd popover.background.magnifier button, popover.background.touch-selection button, popover.background.magnifier button,
@@ -888,7 +893,7 @@ button:checked:disabled * {
 popover.background.touch-selection button:disabled, popover.background.magnifier button:disabled,
 .osd
 button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
@@ -903,7 +908,7 @@ button:disabled image,
 button:disabled arrow,
 .osd
 button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 popover.background.touch-selection button.flat, popover.background.magnifier button.flat, popover.background.touch-selection button.flat.image-button.scale, popover.background.magnifier button.flat.image-button.scale, popover.background.touch-selection button.toggle:not(.text-button), popover.background.magnifier button.toggle:not(.text-button),
@@ -940,7 +945,7 @@ button.flat:disabled,
 button.flat.image-button.scale:disabled,
 .osd
 button.toggle:not(.text-button):disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
@@ -975,7 +980,7 @@ button.toggle:not(.text-button):disabled image,
 button.toggle:not(.text-button):disabled arrow,
 .osd
 button.toggle:not(.text-button):disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 popover.background.touch-selection button.flat:active, popover.background.magnifier button.flat:active, popover.background.touch-selection button.flat:checked, popover.background.magnifier button.flat:checked, popover.background.touch-selection button.flat.image-button.scale:active, popover.background.magnifier button.flat.image-button.scale:active, popover.background.touch-selection button.flat.image-button.scale:checked, popover.background.magnifier button.flat.image-button.scale:checked, popover.background.touch-selection button.toggle:not(.text-button):active, popover.background.magnifier button.toggle:not(.text-button):active, popover.background.touch-selection button.toggle:not(.text-button):checked, popover.background.magnifier button.toggle:not(.text-button):checked,
@@ -1066,7 +1071,7 @@ button.suggested-action.flat:disabled {
 
 
 button.suggested-action:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
@@ -1076,7 +1081,7 @@ button.suggested-action:disabled label,
 button.suggested-action:disabled image,
 button.suggested-action:disabled arrow,
 button.suggested-action:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 .osd
@@ -1106,7 +1111,7 @@ button.suggested-action:checked {
 
 .osd
 button.suggested-action:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
@@ -1116,7 +1121,7 @@ button.suggested-action:disabled label, .osd
 button.suggested-action:disabled image, .osd
 button.suggested-action:disabled arrow, .osd
 button.suggested-action:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 
@@ -1187,7 +1192,7 @@ button.destructive-action.flat:disabled {
 
 
 button.destructive-action:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
@@ -1197,7 +1202,7 @@ button.destructive-action:disabled label,
 button.destructive-action:disabled image,
 button.destructive-action:disabled arrow,
 button.destructive-action:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 .osd
@@ -1227,7 +1232,7 @@ button.destructive-action:checked {
 
 .osd
 button.destructive-action:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
@@ -1237,7 +1242,7 @@ button.destructive-action:disabled label, .osd
 button.destructive-action:disabled image, .osd
 button.destructive-action:disabled arrow, .osd
 button.destructive-action:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 .stack-switcher >
@@ -1267,7 +1272,7 @@ button.text-button {
 
 .stack-switcher >
 button.default {
-  box-shadow: inset 0 0px 0px 1px #E95420;
+  box-shadow: inset 0px 0px 0px 1px #E95420;
 }
 
 .stack-switcher >
@@ -1430,12 +1435,12 @@ toolbar.horizontal toolbutton button:checked:disabled, toolbar.horizontal toolbu
 }
 
 toolbar.horizontal toolbutton button:disabled, toolbar.horizontal.inline-toolbar toolbutton button:disabled, toolbar.vertical toolbutton button:disabled, toolbar.vertical.inline-toolbar toolbutton button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
 toolbar.horizontal toolbutton button:disabled, toolbar.horizontal toolbutton button:disabled label, toolbar.horizontal toolbutton button:disabled image, toolbar.horizontal toolbutton button:disabled arrow, toolbar.horizontal toolbutton button:disabled cellview, toolbar.horizontal.inline-toolbar toolbutton button:disabled, toolbar.horizontal.inline-toolbar toolbutton button:disabled label, toolbar.horizontal.inline-toolbar toolbutton button:disabled image, toolbar.horizontal.inline-toolbar toolbutton button:disabled arrow, toolbar.horizontal.inline-toolbar toolbutton button:disabled cellview, toolbar.vertical toolbutton button:disabled, toolbar.vertical toolbutton button:disabled label, toolbar.vertical toolbutton button:disabled image, toolbar.vertical toolbutton button:disabled arrow, toolbar.vertical toolbutton button:disabled cellview, toolbar.vertical.inline-toolbar toolbutton button:disabled, toolbar.vertical.inline-toolbar toolbutton button:disabled label, toolbar.vertical.inline-toolbar toolbutton button:disabled image, toolbar.vertical.inline-toolbar toolbutton button:disabled arrow, toolbar.vertical.inline-toolbar toolbutton button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 toolbar.inline-toolbar toolbutton {
@@ -1714,13 +1719,13 @@ spinbutton:not(.vertical) button.up:active, spinbutton:not(.vertical) button.dow
 }
 
 spinbutton:not(.vertical) button.up:disabled, spinbutton:not(.vertical) button.down:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
   background-color: rgba(23, 23, 23, 0.6);
 }
 
 spinbutton:not(.vertical) button.up:disabled, spinbutton:not(.vertical) button.up:disabled label, spinbutton:not(.vertical) button.up:disabled image, spinbutton:not(.vertical) button.up:disabled arrow, spinbutton:not(.vertical) button.up:disabled cellview, spinbutton:not(.vertical) button.down:disabled, spinbutton:not(.vertical) button.down:disabled label, spinbutton:not(.vertical) button.down:disabled image, spinbutton:not(.vertical) button.down:disabled arrow, spinbutton:not(.vertical) button.down:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 spinbutton:not(.vertical) button:dir(ltr):last-child {
@@ -1803,13 +1808,13 @@ spinbutton.vertical button.up:active, spinbutton.vertical button.down:active {
 }
 
 spinbutton.vertical button.up:disabled, spinbutton.vertical button.down:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
   background-color: rgba(23, 23, 23, 0.6);
 }
 
 spinbutton.vertical button.up:disabled, spinbutton.vertical button.up:disabled label, spinbutton.vertical button.up:disabled image, spinbutton.vertical button.up:disabled arrow, spinbutton.vertical button.up:disabled cellview, spinbutton.vertical button.down:disabled, spinbutton.vertical button.down:disabled label, spinbutton.vertical button.down:disabled image, spinbutton.vertical button.down:disabled arrow, spinbutton.vertical button.down:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 spinbutton.vertical button.up {
@@ -1844,12 +1849,12 @@ spinbutton.vertical button.down {
 }
 
 .osd spinbutton.vertical button:first-child:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
 .osd spinbutton.vertical button:first-child:disabled, .osd spinbutton.vertical button:first-child:disabled label, .osd spinbutton.vertical button:first-child:disabled image, .osd spinbutton.vertical button:first-child:disabled arrow, .osd spinbutton.vertical button:first-child:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 treeview spinbutton:not(.vertical) {
@@ -1873,13 +1878,13 @@ combobox arrow {
 }
 
 combobox button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
   background-color: rgba(23, 23, 23, 0.6);
 }
 
 combobox button:disabled, combobox button:disabled label, combobox button:disabled image, combobox button:disabled arrow, combobox button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 combobox:drop(active) {
@@ -1893,7 +1898,7 @@ toolbar, toolbar.horizontal, toolbar.vertical, .inline-toolbar, searchbar,
 .location-bar {
   -GtkWidget-window-dragging: true;
   padding: 4px;
-  background-color: #252525;
+  background-color: #181818;
 }
 
 toolbar:not(.inline-toolbar) toolbutton > button, toolbar toolitem > button, toolbar.horizontal:not(.inline-toolbar) toolbutton > button, toolbar.horizontal toolitem > button, toolbar.vertical:not(.inline-toolbar) toolbutton > button, toolbar.vertical toolitem > button {
@@ -1959,7 +1964,7 @@ toolbar.osd, toolbar.horizontal.osd, toolbar.vertical.osd {
   padding: 13px;
   border: none;
   border-radius: 5px;
-  background-color: #252525;
+  background-color: #181818;
 }
 
 toolbar.osd.left, toolbar.osd.right, toolbar.osd.top, toolbar.osd.bottom, toolbar.horizontal.osd.left, toolbar.horizontal.osd.right, toolbar.horizontal.osd.top, toolbar.horizontal.osd.bottom, toolbar.vertical.osd.left, toolbar.vertical.osd.right, toolbar.vertical.osd.top, toolbar.vertical.osd.bottom {
@@ -1990,7 +1995,7 @@ searchbar,
 .location-bar {
   border-style: solid;
   border-color: rgba(244, 244, 244, 0.1);
-  background-color: rgba(42, 42, 42, 0.73);
+  background-color: rgba(29, 29, 29, 0.73);
 }
 
 /***************
@@ -2001,7 +2006,6 @@ headerbar {
   background-color: #111111;
   color: #ffffff;
   border-radius: 10px 10px 0 0;
-  border-top: 1px solid #111111;
   box-shadow: none;
   min-height: 0px;
   padding: 0 6px;
@@ -2063,8 +2067,8 @@ headerbar .titlebar separator {
 headerbar.default-decoration {
   min-height: 20px;
   padding: 6px;
-  border-radius: 6px 6px 0 0;
   box-shadow: none;
+  border-radius: 6px 6px 0 0;
 }
 
 .fullscreen .default-decoration.titlebar:not(headerbar):not(.path-bar),
@@ -2102,7 +2106,7 @@ headerbar switch {
   margin-bottom: 10px;
   background: rgba(23, 23, 23, 0.6);
   color: transparent;
-  box-shadow: inset 0 0px 0px 1px rgba(244, 244, 244, 0.1);
+  box-shadow: inset 0px 0px 0px 1px rgba(244, 244, 244, 0.1);
   border-radius: 6px;
   outline-offset: -4px;
 }
@@ -2113,22 +2117,22 @@ headerbar switch slider {
   border-radius: 6px;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   background: #252525;
-  box-shadow: inset 0 0px 0px 1px rgba(244, 244, 244, 0.08);
+  box-shadow: inset 0px 0px 0px 1px rgba(244, 244, 244, 0.08);
 }
 
 headerbar switch:hover slider {
-  box-shadow: inset 0 0px 0px 1px rgba(244, 244, 244, 0.08), inset 0 0px 0px 1px rgba(244, 244, 244, 0.08);
+  box-shadow: inset 0px 0px 0px 1px rgba(244, 244, 244, 0.08), inset 0px 0px 0px 1px rgba(244, 244, 244, 0.08);
 }
 
 headerbar switch:checked {
   color: transparent;
-  box-shadow: inset 0 0px 0px 1px #27ae60;
+  box-shadow: inset 0px 0px 0px 1px #27ae60;
   border-color: #27ae60;
   background-color: #27ae60;
 }
 
 headerbar switch:checked slider {
-  box-shadow: inset 0 0px 0px 1px #27ae60, inset 0 0px 0px 1px #27ae60;
+  box-shadow: inset 0px 0px 0px 1px #27ae60, inset 0px 0px 0px 1px #27ae60;
 }
 
 headerbar switch:disabled, headerbar switch:disabled slider {
@@ -2231,14 +2235,14 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
 #pathbarbox button:hover {
   border-color: transparent;
   background-color: #252525;
-  box-shadow: inset 0 -2px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
 }
 
 #pathbarbox button:active, #pathbarbox button:checked {
   background-color: #252525;
-  box-shadow: inset 0 -2px 0px #E95420;
+  box-shadow: inset 0px -2px 0px #E95420;
   color: #E95420;
   border-color: transparent;
 }
@@ -2249,7 +2253,7 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
 }
 
 #pathbarbox button:active:hover, #pathbarbox button:checked:hover {
-  box-shadow: inset 0 -2px 0px #da4816;
+  box-shadow: inset 0px -2px 0px #da4816;
 }
 
 #pathbarbox button:active:hover, #pathbarbox button:active:hover > *, #pathbarbox button:checked:hover, #pathbarbox button:checked:hover > * {
@@ -2257,22 +2261,22 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
 }
 
 #pathbarbox button:active:disabled, #pathbarbox button:checked:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
-  box-shadow: inset 0 -2px 0px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.4);
 }
 
 #pathbarbox button:active:disabled, #pathbarbox button:active:disabled label, #pathbarbox button:active:disabled image, #pathbarbox button:active:disabled arrow, #pathbarbox button:active:disabled cellview, #pathbarbox button:checked:disabled, #pathbarbox button:checked:disabled label, #pathbarbox button:checked:disabled image, #pathbarbox button:checked:disabled arrow, #pathbarbox button:checked:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 #pathbarbox button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
 #pathbarbox button:disabled, #pathbarbox button:disabled label, #pathbarbox button:disabled image, #pathbarbox button:disabled arrow, #pathbarbox button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 #pathbarbox button.slider-button {
@@ -2300,12 +2304,12 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
 }
 
 #pathbarbox button.slider-button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
 #pathbarbox button.slider-button:disabled, #pathbarbox button.slider-button:disabled label, #pathbarbox button.slider-button:disabled image, #pathbarbox button.slider-button:disabled arrow, #pathbarbox button.slider-button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 #pathbarbox button.slider-button, #pathbarbox button.slider-button:disabled {
@@ -2318,7 +2322,7 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
 treeview.view {
   background-color: #252525;
   border-left-color: #8b8b8b;
-  border-top-color: #252525;
+  border-top-color: #181818;
 }
 
 * {
@@ -2362,7 +2366,7 @@ treeview.view:disabled:selected label {
 
 treeview.view.separator {
   min-height: 2px;
-  color: #252525;
+  color: #181818;
 }
 
 treeview.view:drop(active) {
@@ -2490,9 +2494,10 @@ treeview check, treeview radio {
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
-  background-color: #111111;
-  box-shadow: inset 0 -1px rgba(244, 244, 244, 0.1);
   padding: 0px;
+  background-color: #111111;
+  box-shadow: inset 0 -1px #383838;
+  color: #ffffff;
 }
 
 menubar > menuitem,
@@ -2926,7 +2931,7 @@ notebook > header tab button:active, notebook > header tab button:checked, noteb
 
 notebook > header tab:hover.reorderable-page {
   border-color: rgba(244, 244, 244, 0.1);
-  background-color: #1e1e1e;
+  background-color: #171717;
 }
 
 notebook > header tab:disabled {
@@ -3192,7 +3197,7 @@ terminal-screen-container scrollbar.dragging slider {
 switch {
   background: rgba(23, 23, 23, 0.6);
   color: transparent;
-  box-shadow: inset 0 0px 0px 1px rgba(244, 244, 244, 0.1);
+  box-shadow: inset 0px 0px 0px 1px rgba(244, 244, 244, 0.1);
   border-radius: 6px;
   outline-offset: -4px;
 }
@@ -3203,22 +3208,22 @@ switch slider {
   border-radius: 6px;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   background: #252525;
-  box-shadow: inset 0 0px 0px 1px rgba(244, 244, 244, 0.08);
+  box-shadow: inset 0px 0px 0px 1px rgba(244, 244, 244, 0.08);
 }
 
 switch:hover slider {
-  box-shadow: inset 0 0px 0px 1px rgba(244, 244, 244, 0.08), inset 0 0px 0px 1px rgba(244, 244, 244, 0.08);
+  box-shadow: inset 0px 0px 0px 1px rgba(244, 244, 244, 0.08), inset 0px 0px 0px 1px rgba(244, 244, 244, 0.08);
 }
 
 switch:checked {
   color: transparent;
-  box-shadow: inset 0 0px 0px 1px #27ae60;
+  box-shadow: inset 0px 0px 0px 1px #27ae60;
   border-color: #27ae60;
   background-color: #27ae60;
 }
 
 switch:checked slider {
-  box-shadow: inset 0 0px 0px 1px #27ae60, inset 0 0px 0px 1px #27ae60;
+  box-shadow: inset 0px 0px 0px 1px #27ae60, inset 0px 0px 0px 1px #27ae60;
 }
 
 switch:disabled, switch:disabled slider {
@@ -4134,7 +4139,7 @@ list button.image-button:active, list button.image-button:checked {
   border-radius: 0;
   background-color: #252525;
   border: 1px solid rgba(244, 244, 244, 0.1);
-  box-shadow: inset 2 0px 0px #E95420;
+  box-shadow: inset 2px 0px 0px #E95420;
   background-clip: padding-box;
 }
 
@@ -4146,16 +4151,30 @@ list button.image-button:active, list button.image-button:checked {
   outline-color: rgba(255, 255, 255, 0.3);
 }
 
-.app-notification button.flat, .app-notification button.flat:hover,
-.app-notification.frame button.flat,
-.app-notification.frame button.flat:hover {
+.app-notification button.flat,
+.app-notification.frame button.flat {
+  color: #ffffff;
+  background-color: transparent;
   border-color: transparent;
+  background-image: none;
 }
 
-.app-notification button.flat:active, .app-notification button.flat:hover:active,
-.app-notification.frame button.flat:active,
-.app-notification.frame button.flat:hover:active {
+.app-notification button.flat:hover,
+.app-notification.frame button.flat:hover {
+  color: #eb6637;
+  background-color: #191919;
+  border-color: transparent;
+  background-image: none;
+  -gtk-icon-effect: highlight;
+}
+
+.app-notification button.flat:active,
+.app-notification.frame button.flat:active {
   color: #da4816;
+  background-color: #0c0c0c;
+  border-color: transparent;
+  background-image: none;
+  -gtk-icon-effect: highlight;
 }
 
 .app-notification button:hover,
@@ -4243,7 +4262,7 @@ calendar:indeterminate {
 messagedialog .titlebar {
   min-height: 16px;
   background-image: none;
-  background-color: #252525;
+  background-color: #181818;
   border-style: none;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
@@ -4282,7 +4301,7 @@ filechooser .dialog-action-box {
 }
 
 filechooser #pathbarbox {
-  border-bottom: 1px solid #252525;
+  border-bottom: 1px solid #181818;
 }
 
 filechooserbutton:drop(active) {
@@ -4299,7 +4318,7 @@ filechooserbutton:drop(active) {
 }
 
 .sidebar treeview.view, .tweak-categories treeview.view {
-  background-color: #252525;
+  background-color: #181818;
 }
 
 stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, stacksidebar.sidebar:dir(ltr) list, .sidebar:dir(ltr), .sidebar.left, .sidebar.left:dir(rtl), .tweak-categories:dir(ltr), .tweak-categories.left, .tweak-categories.left:dir(rtl) {
@@ -4414,7 +4433,7 @@ paned > separator {
 paned > separator.wide {
   min-width: 5px;
   min-height: 5px;
-  background-color: #252525;
+  background-color: #181818;
   background-image: image(rgba(244, 244, 244, 0.1)), image(rgba(244, 244, 244, 0.1));
   background-size: 1px 1px, 1px 1px;
 }
@@ -4486,6 +4505,10 @@ infobar.info button:hover, infobar.info button.text-button:hover, infobar.questi
   outline-color: rgba(255, 255, 255, 0.3);
 }
 
+infobar.info button:hover label, infobar.info button.text-button:hover label, infobar.question button:hover label, infobar.question button.text-button:hover label, infobar.warning button:hover label, infobar.warning button.text-button:hover label, infobar.error button:hover label, infobar.error button.text-button:hover label {
+  color: #27ae60;
+}
+
 infobar.info button:active, infobar.info button.text-button:active, infobar.question button:active, infobar.question button.text-button:active, infobar.warning button:active, infobar.warning button.text-button:active, infobar.error button:active, infobar.error button.text-button:active {
   background-color: white;
   color: #229955;
@@ -4493,13 +4516,17 @@ infobar.info button:active, infobar.info button.text-button:active, infobar.ques
   outline-color: rgba(255, 255, 255, 0.3);
 }
 
+infobar.info button:active label, infobar.info button.text-button:active label, infobar.question button:active label, infobar.question button.text-button:active label, infobar.warning button:active label, infobar.warning button.text-button:active label, infobar.error button:active label, infobar.error button.text-button:active label {
+  color: #229955;
+}
+
 infobar.info button:disabled, infobar.info button.text-button:disabled, infobar.question button:disabled, infobar.question button.text-button:disabled, infobar.warning button:disabled, infobar.warning button.text-button:disabled, infobar.error button:disabled, infobar.error button.text-button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
 infobar.info button:disabled, infobar.info button:disabled label, infobar.info button:disabled image, infobar.info button:disabled arrow, infobar.info button:disabled cellview, infobar.info button.text-button:disabled, infobar.info button.text-button:disabled label, infobar.info button.text-button:disabled image, infobar.info button.text-button:disabled arrow, infobar.info button.text-button:disabled cellview, infobar.question button:disabled, infobar.question button:disabled label, infobar.question button:disabled image, infobar.question button:disabled arrow, infobar.question button:disabled cellview, infobar.question button.text-button:disabled, infobar.question button.text-button:disabled label, infobar.question button.text-button:disabled image, infobar.question button.text-button:disabled arrow, infobar.question button.text-button:disabled cellview, infobar.warning button:disabled, infobar.warning button:disabled label, infobar.warning button:disabled image, infobar.warning button:disabled arrow, infobar.warning button:disabled cellview, infobar.warning button.text-button:disabled, infobar.warning button.text-button:disabled label, infobar.warning button.text-button:disabled image, infobar.warning button.text-button:disabled arrow, infobar.warning button.text-button:disabled cellview, infobar.error button:disabled, infobar.error button:disabled label, infobar.error button:disabled image, infobar.error button:disabled arrow, infobar.error button:disabled cellview, infobar.error button.text-button:disabled, infobar.error button.text-button:disabled label, infobar.error button.text-button:disabled image, infobar.error button.text-button:disabled arrow, infobar.error button.text-button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 infobar.info selection, infobar.question selection, infobar.warning selection, infobar.error selection {
@@ -4517,7 +4544,7 @@ tooltip {
 }
 
 tooltip, tooltip.background, tooltip decoration {
-  background-color: rgba(17, 17, 17, 0.7);
+  background-color: #111111;
 }
 
 tooltip.background {
@@ -4654,7 +4681,7 @@ colorchooser .popover.osd {
  * Misc *
  ********/
 .content-view {
-  background-color: #141414;
+  background-color: #060606;
 }
 
 .osd .scale-popup button.flat {
@@ -4795,73 +4822,61 @@ headerbar button.titlebutton.close image, headerbar button.titlebutton.maximize 
 headerbar button.titlebutton.close,
 .titlebar button.titlebutton.close {
   background-image: -gtk-scaled(url("assets/titlebutton-close-dark.png"), url("assets/titlebutton-close-dark@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.close:backdrop,
 .titlebar button.titlebutton.close:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-close-backdrop-dark.png"), url("assets/titlebutton-close-backdrop-dark@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.close:hover,
 .titlebar button.titlebutton.close:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-close-hover.png"), url("assets/titlebutton-close-hover@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.close:active,
 .titlebar button.titlebutton.close:active {
   background-image: -gtk-scaled(url("assets/titlebutton-close-active.png"), url("assets/titlebutton-close-active@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.maximize,
 .titlebar button.titlebutton.maximize {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-dark.png"), url("assets/titlebutton-maximize-dark@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.maximize:backdrop,
 .titlebar button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-backdrop-dark.png"), url("assets/titlebutton-maximize-backdrop-dark@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.maximize:hover,
 .titlebar button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover.png"), url("assets/titlebutton-maximize-hover@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.maximize:active,
 .titlebar button.titlebutton.maximize:active {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-active.png"), url("assets/titlebutton-maximize-active@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-dark.png"), url("assets/titlebutton-minimize-dark@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.minimize:backdrop,
 .titlebar button.titlebutton.minimize:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-backdrop-dark.png"), url("assets/titlebutton-minimize-backdrop-dark@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.minimize:hover,
 .titlebar button.titlebutton.minimize:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover.png"), url("assets/titlebutton-minimize-hover@2.png"));
-  box-shadow: none;
 }
 
 headerbar button.titlebutton.minimize:active,
 .titlebar button.titlebutton.minimize:active {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-active.png"), url("assets/titlebutton-minimize-active@2.png"));
-  box-shadow: none;
 }
 
 .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, .view text:selected:focus, iconview text:selected:focus,
@@ -4980,7 +4995,7 @@ text color for entries, views and content in general */
 @define-color theme_text_color #ffffff;
 /*
 widget base background color */
-@define-color theme_bg_color #252525;
+@define-color theme_bg_color #181818;
 /*
 text widgets and the like base background color */
 @define-color theme_base_color #161616;
@@ -5039,15 +5054,15 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_unfocused_title rgba(255, 255, 255, 0.4);
 @define-color wm_highlight rgba(255, 255, 255, 0.1);
 @define-color wm_borders_edge rgba(244, 244, 244, 0.1);
-@define-color wm_bg_a shade(#252525, 1.2);
-@define-color wm_bg_b #252525;
+@define-color wm_bg_a shade(#181818, 1.2);
+@define-color wm_bg_b #181818;
 @define-color wm_shadow alpha(black, 0.35);
 @define-color wm_border alpha(black, 0.18);
-@define-color wm_button_hover_color_a shade(#252525, 1.3);
-@define-color wm_button_hover_color_b #252525;
-@define-color wm_button_active_color_a shade(#252525, 0.85);
-@define-color wm_button_active_color_b shade(#252525, 0.89);
-@define-color wm_button_active_color_c shade(#252525, 0.9);
+@define-color wm_button_hover_color_a shade(#181818, 1.3);
+@define-color wm_button_hover_color_b #181818;
+@define-color wm_button_active_color_a shade(#181818, 0.85);
+@define-color wm_button_active_color_b shade(#181818, 0.89);
+@define-color wm_button_active_color_c shade(#181818, 0.9);
 @define-color content_view_bg #161616;
 headerbar entry, headerbar.titlebar entry {
   color: #ffffff;
@@ -5097,12 +5112,12 @@ headerbar button, headerbar.titlebar button {
 }
 
 headerbar button:disabled, headerbar.titlebar button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
 headerbar button:disabled, headerbar button:disabled label, headerbar button:disabled image, headerbar button:disabled arrow, headerbar button:disabled cellview, headerbar.titlebar button:disabled, headerbar.titlebar button:disabled label, headerbar.titlebar button:disabled image, headerbar.titlebar button:disabled arrow, headerbar.titlebar button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 headerbar button.text-button:hover, headerbar button.text-button.toggle:hover, headerbar.titlebar button.text-button:hover, headerbar.titlebar button.text-button.toggle:hover {
@@ -5167,7 +5182,7 @@ headerbar button.text-button.suggested-action:disabled, headerbar.titlebar butto
 }
 
 headerbar button.text-button.suggested-action:disabled, headerbar button.text-button.suggested-action:disabled label, headerbar button.text-button.suggested-action:disabled image, headerbar button.text-button.suggested-action:disabled arrow, headerbar button.text-button.suggested-action:disabled cellview, headerbar.titlebar button.text-button.suggested-action:disabled, headerbar.titlebar button.text-button.suggested-action:disabled label, headerbar.titlebar button.text-button.suggested-action:disabled image, headerbar.titlebar button.text-button.suggested-action:disabled arrow, headerbar.titlebar button.text-button.suggested-action:disabled cellview {
-  color: #a7a7a7;
+  color: #7b7b7b;
 }
 
 headerbar button.image-button:not(.text-button), headerbar button.toggle:not(.image-button):not(.text-button), headerbar.titlebar button.image-button:not(.text-button), headerbar.titlebar button.toggle:not(.image-button):not(.text-button) {
@@ -5207,14 +5222,14 @@ headerbar stackswitcher.horizontal.linked.stack-switcher button, headerbar stack
 headerbar stackswitcher.horizontal.linked.stack-switcher button:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:hover {
   border-color: transparent;
   background-color: #252525;
-  box-shadow: inset 0 -2px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:active, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked {
   background-color: #252525;
-  box-shadow: inset 0 -2px 0px #E95420;
+  box-shadow: inset 0px -2px 0px #E95420;
   color: #E95420;
   border-color: transparent;
 }
@@ -5225,7 +5240,7 @@ headerbar stackswitcher.horizontal.linked.stack-switcher button:active label, he
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover {
-  box-shadow: inset 0 -2px 0px #da4816;
+  box-shadow: inset 0px -2px 0px #da4816;
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover > *, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:hover > *, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover > *, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover > * {
@@ -5233,22 +5248,22 @@ headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover, he
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
-  box-shadow: inset 0 -2px 0px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.4);
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:first-child, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:first-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:first-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:first-child {
@@ -5274,14 +5289,14 @@ headerbar .path-bar button.text-button.toggle, headerbar.titlebar .path-bar butt
 headerbar .path-bar button.text-button.toggle:hover, headerbar.titlebar .path-bar button.text-button.toggle:hover {
   border-color: transparent;
   background-color: #252525;
-  box-shadow: inset 0 -2px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
 }
 
 headerbar .path-bar button.text-button.toggle:active, headerbar .path-bar button.text-button.toggle:checked, headerbar.titlebar .path-bar button.text-button.toggle:active, headerbar.titlebar .path-bar button.text-button.toggle:checked {
   background-color: #252525;
-  box-shadow: inset 0 -2px 0px #E95420;
+  box-shadow: inset 0px -2px 0px #E95420;
   color: #E95420;
   border-color: transparent;
 }
@@ -5292,7 +5307,7 @@ headerbar .path-bar button.text-button.toggle:active label, headerbar .path-bar 
 }
 
 headerbar .path-bar button.text-button.toggle:active:hover, headerbar .path-bar button.text-button.toggle:checked:hover, headerbar.titlebar .path-bar button.text-button.toggle:active:hover, headerbar.titlebar .path-bar button.text-button.toggle:checked:hover {
-  box-shadow: inset 0 -2px 0px #da4816;
+  box-shadow: inset 0px -2px 0px #da4816;
 }
 
 headerbar .path-bar button.text-button.toggle:active:hover, headerbar .path-bar button.text-button.toggle:active:hover > *, headerbar .path-bar button.text-button.toggle:checked:hover, headerbar .path-bar button.text-button.toggle:checked:hover > *, headerbar.titlebar .path-bar button.text-button.toggle:active:hover, headerbar.titlebar .path-bar button.text-button.toggle:active:hover > *, headerbar.titlebar .path-bar button.text-button.toggle:checked:hover, headerbar.titlebar .path-bar button.text-button.toggle:checked:hover > * {
@@ -5300,22 +5315,22 @@ headerbar .path-bar button.text-button.toggle:active:hover, headerbar .path-bar 
 }
 
 headerbar .path-bar button.text-button.toggle:active:disabled, headerbar .path-bar button.text-button.toggle:checked:disabled, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
-  box-shadow: inset 0 -2px 0px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.4);
 }
 
 headerbar .path-bar button.text-button.toggle:active:disabled, headerbar .path-bar button.text-button.toggle:active:disabled label, headerbar .path-bar button.text-button.toggle:active:disabled image, headerbar .path-bar button.text-button.toggle:active:disabled arrow, headerbar .path-bar button.text-button.toggle:active:disabled cellview, headerbar .path-bar button.text-button.toggle:checked:disabled, headerbar .path-bar button.text-button.toggle:checked:disabled label, headerbar .path-bar button.text-button.toggle:checked:disabled image, headerbar .path-bar button.text-button.toggle:checked:disabled arrow, headerbar .path-bar button.text-button.toggle:checked:disabled cellview, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled label, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled image, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled arrow, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled cellview, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled label, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled image, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled arrow, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 headerbar .path-bar button.text-button.toggle:disabled, headerbar.titlebar .path-bar button.text-button.toggle:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
 headerbar .path-bar button.text-button.toggle:disabled, headerbar .path-bar button.text-button.toggle:disabled label, headerbar .path-bar button.text-button.toggle:disabled image, headerbar .path-bar button.text-button.toggle:disabled arrow, headerbar .path-bar button.text-button.toggle:disabled cellview, headerbar.titlebar .path-bar button.text-button.toggle:disabled, headerbar.titlebar .path-bar button.text-button.toggle:disabled label, headerbar.titlebar .path-bar button.text-button.toggle:disabled image, headerbar.titlebar .path-bar button.text-button.toggle:disabled arrow, headerbar.titlebar .path-bar button.text-button.toggle:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 headerbar .path-bar button.slider-button, headerbar.titlebar .path-bar button.slider-button {
@@ -5327,12 +5342,12 @@ headerbar .path-bar button.slider-button, headerbar.titlebar .path-bar button.sl
 }
 
 headerbar .path-bar button.slider-button:disabled, headerbar.titlebar .path-bar button.slider-button:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
 headerbar .path-bar button.slider-button:disabled, headerbar .path-bar button.slider-button:disabled label, headerbar .path-bar button.slider-button:disabled image, headerbar .path-bar button.slider-button:disabled arrow, headerbar .path-bar button.slider-button:disabled cellview, headerbar.titlebar .path-bar button.slider-button:disabled, headerbar.titlebar .path-bar button.slider-button:disabled label, headerbar.titlebar .path-bar button.slider-button:disabled image, headerbar.titlebar .path-bar button.slider-button:disabled arrow, headerbar.titlebar .path-bar button.slider-button:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 headerbar .path-bar button.slider-button, headerbar .path-bar button.slider-button:disabled, headerbar.titlebar .path-bar button.slider-button, headerbar.titlebar .path-bar button.slider-button:disabled {
@@ -5372,7 +5387,7 @@ stackswitcher button:not(:last-child):not(:first-child) {
 }
 
 scale:disabled contents {
-  background-color: #191919;
+  background-color: #0b0b0b;
 }
 
 dialog {
@@ -5383,9 +5398,10 @@ dialog, messagedialog {
   border-radius: 0 0 6px 6px;
 }
 
-dialog decoration, messagedialog decoration {
-  border: 8px solid rgba(17, 17, 17, 0.4);
-  border-radius: 12px;
+dialog decoration, dialog decoration:backdrop, messagedialog decoration, messagedialog decoration:backdrop {
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.2), 0 8px 8px rgba(0, 0, 0, 0.16);
+  background-color: transparent;
 }
 
 dialog headerbar, messagedialog headerbar {
@@ -5432,7 +5448,7 @@ messagedialog button:active {
 
 messagedialog.background.csd box.horizontal.titlebar {
   min-height: 24px;
-  background-image: image(#252525);
+  background-image: image(#181818);
   padding: 0px;
 }
 
@@ -5440,22 +5456,22 @@ messagedialog.background.csd box.horizontal.titlebar {
  * Nautilus *
  ************/
 window.nautilus-window popover grid stack button:not(.image-button) {
-  background-color: #1e1e1e;
+  background-color: #171717;
   border: 1px solid rgba(244, 244, 244, 0.1);
   color: #ffffff;
 }
 
 window.nautilus-window popover grid stack button:not(.image-button):hover, window.nautilus-window popover grid stack button:not(.image-button):active, window.nautilus-window popover grid stack button:not(.image-button):checked {
-  background-color: #1e1e1e;
+  background-color: #171717;
+}
+
+window.nautilus-window paned box.floating-bar {
+  border: 1px solid rgba(244, 244, 244, 0.1);
+  background-color: #252525;
 }
 
 window.nautilus-window scrolledwindow treeeview.view, window.nautilus-window .nautilus-list-view overlay {
-  background-color: #252525;
-}
-
-window.nautilus-window scrolledwindow treeeview.view box.floating-bar, window.nautilus-window .nautilus-list-view overlay box.floating-bar {
-  border: 1px solid rgba(244, 244, 244, 0.1);
-  background-color: #252525;
+  background-color: #181818;
 }
 
 window.nautilus-window popover viewport button {
@@ -5523,6 +5539,14 @@ viewport.frame list.tweak-categories {
 
 .tweak-group-startup row > button:hover {
   box-shadow: none;
+}
+
+headerbar.tweak-titlebar-left {
+  box-shadow: inset 1px 1px #383838, inset -0px -0px #383838, inset 1px 1px #383838, inset -0px -0px #383838;
+}
+
+headerbar.tweak-titlebar-right {
+  box-shadow: inset 0px 1px #383838, inset -1px -0px #383838, inset 0px 1px #383838, inset -1px -0px #383838;
 }
 
 /************
@@ -5608,14 +5632,14 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:hover {
   border-color: transparent;
   background-color: #252525;
-  box-shadow: inset 0 -2px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
 }
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active {
   background-color: #252525;
-  box-shadow: inset 0 -2px 0px #E95420;
+  box-shadow: inset 0px -2px 0px #E95420;
   color: #E95420;
   border-color: transparent;
 }
@@ -5626,7 +5650,7 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
 }
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked:hover, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active:hover {
-  box-shadow: inset 0 -2px 0px #da4816;
+  box-shadow: inset 0px -2px 0px #da4816;
 }
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked:hover, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked:hover > *, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active:hover, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active:hover > * {
@@ -5634,13 +5658,13 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
 }
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked:disabled, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active:disabled {
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: #232323;
   border-color: rgba(244, 244, 244, 0.1);
-  box-shadow: inset 0 -2px 0px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.75);
 }
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked:disabled, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked:disabled label, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked:disabled image, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked:disabled arrow, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked:disabled cellview, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active:disabled, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active:disabled label, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active:disabled image, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active:disabled arrow, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active:disabled cellview {
-  color: rgba(255, 255, 255, 0.4);
+  color: #7b7b7b;
 }
 
 /************

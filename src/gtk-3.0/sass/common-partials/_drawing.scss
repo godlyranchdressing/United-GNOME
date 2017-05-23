@@ -190,7 +190,7 @@
     }
     @else {
       $_bg: if($bg != $bg_color, mix($lighter_bg_color, $base_color, 85%), $disabled_bg_color);
-      $_fg: if($bg != $bg_color, mix($fg, $_bg, 60%), $disabled_fg_color);
+      $_fg: if($bg != $bg_color, mix($fg, $_bg, 40%), $disabled_fg_color);
     }
 
     background-color: $_bg;

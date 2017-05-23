@@ -64,14 +64,14 @@ stage {
   @include button(flat);
 
   &:first-child {
-    border-radius: 0px;
+    border-radius: 0 0 0 $standard_radius !important;
     border-right: 1px solid $border_color;
     border-left: 0px solid $border_color;
   }
 
   &:last-child {
     border-right-width: 0px;
-    border-radius: 0px;
+    border-radius: 0 0 $standard_radius 0 !important;
   }
 }
 
@@ -130,11 +130,11 @@ StScrollBar {
     margin: 4px;
 
     &:hover {
-      background-color: mix($secondary_fg_color, $primary_color);
+      background-color: transparentize($primary_color, $middle_opacity);
     }
 
     &:active {
-      background-color: $primary_color;
+      background-color: transparentize($primary_color, $disabled_opacity);
     }
   }
 }
@@ -148,11 +148,11 @@ StScrollBar {
     background-color: $tertiary_fg_color;
 
     &:hover {
-      background-color: $secondary_fg_color;
+      background-color: transparentize($primary_color, $middle_opacity);
     }
 
     &:active {
-      background-color: $fg_color;
+      background-color: transparentize($primary_color, $disabled_opacity);
     }
   }
 }
@@ -161,7 +161,7 @@ StScrollBar {
 
 .slider {
   height: 2px;
-  color: transparent;
+  color: $accent_color;
   -slider-height: 2px;
   -slider-background-color: $secondary_fg_color;
 
@@ -169,14 +169,14 @@ StScrollBar {
   -slider-border-color: transparent;
 
   //trough border color
-  -slider-active-background-color: $accent_color;
+  -slider-active-background-color: if($distro != "opensuse", lighten($accent_color, 20%), lighten($accent_color, 7.5%));
 
   //active trough fill
   -slider-active-border-color: transparent;
 
   //active trough border
-  -slider-border-width: 0;
-  -slider-handle-radius: 0px;
+  -slider-border-width: 3px;
+  -slider-handle-radius: 100%;
 }
 
 /* Check Boxes */
@@ -483,17 +483,15 @@ StScrollBar {
 
 .prompt-dialog {
   @extend %osd-panel;
-
   //this is the width of the entire modal popup
   min-width: 500px;
   max-width: 600px;
-
-  //  border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 }
 
 .prompt-dialog-main-layout {
   spacing: 24px;
   padding: 10px;
+  color: $fg_color;
 }
 
 .prompt-dialog-message-layout {
@@ -673,24 +671,27 @@ StScrollBar {
 
 .popup-menu {
   min-width: 200px;
+  border: 1px solid $border_color !important;
+
+  // inherits  from something
+  border-radius: $standard_radius !important;
 
   .popup-menu-arrow {}
 
   //defined globally in the TOP BAR
   .popup-sub-menu {
-    background-color: $bg_color;
-    box-shadow: none;
-    border-bottom: 0px;
+    background-color: $alt_bg_color;
+    box-shadow: inset 0 -1px $border_color;
   }
 
   .popup-menu-content {
-    padding: 8px 0;
+    padding: 12px 0;
   }
 
   .popup-menu-item {
     // min-height: $menuitem_size - 4px * 2;
     transition-duration: $shorter_duration;
-    spacing: 8px;
+    spacing: 4px;
     box-shadow: none;
 
     &:ltr {
@@ -819,7 +820,7 @@ StScrollBar {
 
   .level-bar {
     color: $disabled_fill_color;
-    background-color: $accent_color;
+    background-color: if($distro != "opensuse", lighten($accent_color, 20%), lighten($accent_color, 7.5%));
     border-radius: 0px;
   }
 }
@@ -945,22 +946,21 @@ StScrollBar {
 %osd-panel {
   color: $fg_color;
   background-color: if($variant == "light", $bg_color, $base_color);
-  border: 1px solid $border_color;
-
-  // padding: 12px;
-  //border-radius: $standard_radius;
+  border: 1px solid $dark_border_color !important;
+  box-shadow: 0 0 0 $osd_border_length $osd_border !important;
   border-radius: $standard_radius * 2;
-  box-shadow: $osd_box_shadow_length px $osd_box_shadow_color;
 
   // @if $variant == "light" {
   // box-shadow: $popover_shadow;
   // }
+  // padding: 12px;
+  //border-radius: $standard_radius;
 }
 
 /* Tiled window previews */
 .tile-preview {
-  background-color: scale-alpha($primary_color, $lower_opacity);
-  border: 1px solid $primary_color;
+  background-color: scale-alpha($ubuntu_white, $quarternary_opacity);
+  border: 1px solid $ubuntu_white;
 }
 
 .tile-preview-left.on-primary {
@@ -978,7 +978,7 @@ StScrollBar {
 /* TOP BAR */
 
 #panel {
-  background-color: $base_color;
+  background-color: if($transparency == true, transparentize($ubuntu_black, 0.65), $base_color);
   box-shadow: if($variant == "light", $popover_shadow, none);
   font-size: 9.5pt;
   height: 30px;
@@ -1183,6 +1183,7 @@ StScrollBar {
 .world-clocks-button,
 .weather-button,
 .events-section-title, .message-list-section-title {
+  border-radius: $standard_radius;
   color: $fg_color;
 
   &:hover, &:focus {
@@ -1305,8 +1306,6 @@ StScrollBar {
 }
 
 .calendar-change-month-back, .calendar-change-month-forward {
-  background-size: 4px 14px;
-
   &, &:hover, &:active {
     transition-duration: $standard_duration;
   }
@@ -1386,7 +1385,7 @@ StScrollBar {
 .calendar-work-day {}
 
 .calendar-nonwork-day {
-  color: $secondary_fg_color;
+  color: $disabled_tertiary_fg_color;
 }
 
 .calendar-today {
@@ -1408,8 +1407,7 @@ StScrollBar {
 }
 
 .calendar-other-month-day {
-  color: $disabled_fg_color;
-  opacity: 0.5;
+  color: $disabled_secondary_fg_color !important;
 }
 
 .calendar-week-number {
@@ -1432,18 +1430,18 @@ StScrollBar {
 
 .message-list-clear-button.button {
   background-color: lighten($base_color, 7.5%);
+  color: $secondary_fg_color;
   box-shadow: $shadow_surround $border_color;
-
-  @if $variant == "light" {
-    color: $ubuntu_fg;
-  }
+  border-radius: $standard_radius;
 
   &:hover {
     background-color: $semi_fill_color;
+    color: $fg_color;
   }
 
   &:active {
     background-color: $fill_color;
+    color: $fg_color;
   }
 
   margin: 8px 8px 0;
@@ -1516,6 +1514,20 @@ StScrollBar {
 
 .message-secondary-bin > StIcon {
   icon-size: 16px;
+}
+
+.message-secondary-bin {
+  &:hover {
+    > StIcon {
+      color: _hover_shade($primary_color);
+    }
+  }
+
+  &:active {
+    > StIcon {
+      color: _pressed_shade($primary_color);
+    }
+  }
 }
 
 .message-title {
@@ -1811,13 +1823,9 @@ StScrollBar {
 }
 
 .window-clone-border {
-  border: ($osd_box_shadow_length - 2) solid $osd_box_light_shadow_color;
-  border-radius: $standard_radius;
-
-  // For window decorations with round corners we can't match
-  // the exact shape when the window is scaled. So apply a shadow
-  // to fix that case
-  box-shadow: inset 0 0 0 1px $inverse_fill_color;
+  border: $osd_border_length solid $osd_light_border;
+  box-shadow: inset 0 0 0 $osd_box_shadow_length $osd_light_border;
+  border-radius: $standard_radius * 2;
 }
 
 .window-caption {
@@ -1847,15 +1855,14 @@ StScrollBar {
   }
 
   .search-entry-icon {
-    color: transparent;
-    icon-size: 1px;
+    color: transparentize($fg_color, $middle_opacity);
+    icon-size: 16px;
     padding: 0 0;
   }
 
   &:focus {
     .search-entry-icon {
-      color: transparent;
-      icon-size: 1px;
+      color: $secondary_fg_color;
     }
   }
 }
@@ -1934,7 +1941,13 @@ StScrollBar {
   border-left-width: 0px;
   border-radius: 0 $standard_radius $standard_radius 0;
 
-  @include dash_bg;
+  @if $transparency != true or $variant == "light" {
+    // the dash should never be white
+    background-color: $ubuntu_dark_grey !important;
+  }
+  @else {
+    background-color: transparentize($ubuntu_black, $quarternary_opacity) !important;
+  }
 
   &:rtl {
     border-radius: $standard_radius 0 $standard_radius 0;
@@ -1996,7 +2009,7 @@ StScrollBar {
 
 .app-view-controls {
   width: 320px;
-  background-color: $lighter_bg_color;
+  background-color: if($transparency == true, transparentize(lighten($ubuntu_black, 7%), $quarternary_opacity), lighten($ubuntu_black, 7%));
   margin-bottom: 50px;
   padding: 0;
   border-radius: $standard_radius $standard_radius 0 0;
@@ -2008,27 +2021,29 @@ StScrollBar {
   padding: 0 32px;
   font-weight: 400;
   color: $secondary_light_fg_color;
-  box-shadow: $shadow_bottom $disabled_fg_color;
+  box-shadow: $shadow_bottom transparentize($light_fg_color, $disabled_opacity);
   border-radius: $standard_radius $standard_radius 0 0;
 
   &, .button {
     border-radius: $standard_radius $standard_radius 0 0;
+    opacity: $secondary_opacity;
     color: $secondary_fg_color;
-    box-shadow: $shadow_bottom transparent;
 
     &, &:hover, &:active {
       background-color: rgba(0, 0, 0, 0.1) !important;
+      box-shadow: $shadow_bottom $secondary_light_fg_color;
     }
 
     &:hover {
-      color: $fg_color !important;
-      box-shadow: $shadow_bottom $secondary_fg_color;
+      color: $light_fg_color !important;
+      box-shadow: $light_fg_color !important;
     }
 
     &:active, &:checked {
       color: $primary_color !important;
       font-weight: bold !important;
       box-shadow: $shadow_bottom $primary_color;
+      opacity: 1;
     }
   }
 }
@@ -2037,6 +2052,10 @@ StScrollBar {
 .search-provider-icon,
 .list-search-result {
   @extend %icon_tile;
+
+  &:focus, &:selected, &:hover, &:active, &:checked {
+    box-shadow: $shadow_surround $border_color;
+  }
 
   &:focus, &:selected, &:hover {
     background-color: $inverse_semi_fill_color;
@@ -2060,6 +2079,7 @@ StScrollBar {
   &:focus .overview-icon,
   &:selected .overview-icon {
     background-color: $inverse_semi_fill_color;
+    box-shadow: $shadow_surround $border_color;
     transition-duration: 0s;
     border-image: none;
     background-image: none;
@@ -2068,16 +2088,17 @@ StScrollBar {
   &:active .overview-icon,
   &:checked .overview-icon {
     background-color: $inverse_fill_color;
+    box-shadow: $shadow_surround $border_color;
     transition-duration: $longer_duration;
   }
 }
 
 .app-well-app-running-dot {
   //running apps indicator
-  width: 30px;
+  width: 24px;
   height: 2px;
   background-color: $primary_color;
-  margin-bottom: 0;
+  margin-bottom: 1px;
 }
 
 %icon_tile {
@@ -2090,12 +2111,10 @@ StScrollBar {
 
   &:hover {
     background-color: $inverse_semi_fill_color !important;
-    border: 1px solid $border_color;
   }
 
   &:active {
     background-color: $inverse_fill_color !important;
-    border: 1px solid $border_color;
   }
 }
 
@@ -2217,9 +2236,8 @@ StScrollBar {
 .notification-banner {
   @extend %message;
 
-  background-color: if($transparency == true, opacify($base_color, 0.25), $base_color);
+  background-color: if($transparency == true, opacify(_hover_shade($base_color), 0.3), $lighter_bg_color) !important;
   font-size: 1em;
-  border-radius: 0;
   width: 34em;
   margin: $menu_gap - 2;
 
@@ -2245,36 +2263,46 @@ StScrollBar {
   }
 
   .notification-actions {
-    background-color: $bg_color;
-    padding-top: 0;
-    border-top: 1px solid $border_color;
-    spacing: 1px;
+    @include button(normal);
+
+    background-color: transparent !important;
+    min-height: $small_size;
+    border-radius: 0 0 $standard_radius $standard_radius;
+
+    &:hover {
+      background-color: if($transparency == true, opacify(_hover_shade($lighter_bg_color), 0.25), $lighter_bg_color) !important;
+    }
+
+    &:active {
+      background-color: if($transparency == true, opacify(_pressed_shade($lighter_bg_color), 0.25), $lighter_bg_color) !important;
+    }
   }
 
   .notification-button {
-    background-color: $bg_color;
-    min-height: 40px;
-    padding: 0 16px;
-    background-color: transparent;
+    background-color: transparent !important;
+    min-height: $small_size;
+    padding: 6px 0;
     color: $secondary_fg_color;
     font-weight: 500;
+    border-top: 1px solid $border_color;
+    border-radius: 0 0 $standard_radius $standard_radius;
 
-    &:first-child {
-      border-radius: 0 0 0 2px;
-    }
-
-    &:last-child {
-      border-radius: 0 0 $standard_radius 0;
-    }
-
-    &:hover, &focus {
+    &:hover {
       background-color: $semi_fill_color !important;
       color: $fg_color;
     }
 
     &:active {
-      background-color: $fill_color !important;
-      color: $fg_color;
+      // not working even with a background image?
+      background-image: image($fill_color) !important;
+    }
+
+    &:first-child {
+      border-radius: 0 0 0 $standard_radius !important;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $standard_radius 0 !important;
     }
   }
 }
@@ -2644,13 +2672,11 @@ $legacy_icon_size: 24px;
   background-color: transparent;
 
   StEntry {
-    color: $ubuntu_fg;
-    selection-background-color: $primary_color;
-    selected-color: $white;
+    @include entry;
   }
 
   StIcon {
-    color: white;
+    color: $fg_color;
   }
 
   .modal-dialog-button-box {
@@ -2660,41 +2686,17 @@ $legacy_icon_size: 24px;
   .modal-dialog-button {
     padding: 0 16px;
 
-    @include button(normal, $lighter_bg_color, $fg_color);
+    @include button(normal);
 
     color: $fg_color !important;
     font-weight: 400;
 
-    &:hover {
-      transition-duration: 250ms;
-      background-color: $lighter_bg_color !important;
-      color: $primary_color !important;
-      box-shadow: $shadow_bottom $primary_color !important;
-      font-weight: 400;
+    &:first-child {
+      border-radius: 0 0 0 $standard_radius !important;
     }
 
-    &:default {
-      background-color: $accent_color !important;
-      color: white !important;
-
-      &:hover {
-        background-color: lighten($accent_color, 5%) !important;
-        transition-duration: 250ms;
-        color: white !important;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24) !important;
-      }
-
-      &:focus, &:active {
-        background-color: darken($accent_color, 2.5%) !important;
-        transition-duration: 250ms;
-        color: white !important;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24) !important;
-      }
-
-      &:insensitive {
-        background-color: $disabled_bg_color !important;
-        color: $disabled_fg_color !important;
-      }
+    &:last-child {
+      border-radius: 0 0 $standard_radius 0 !important;
     }
   }
 }
@@ -2736,12 +2738,10 @@ $legacy_icon_size: 24px;
 .login-dialog-not-listed-label {
   font-size: 1em;
   font-weight: 400;
-  color: transparentize(white, $disabled_opacity) !important;
+  color: $disabled_fg_color;
   padding-top: 1em;
 
-  &:hover, &:focus {
-    color: $primary_color !important;
-  }
+
 }
 
 .login-dialog-user-list-view {
@@ -2938,7 +2938,6 @@ $legacy_icon_size: 24px;
 
 #lockDialogGroup {
   background: $primary_color url("assets/noise-texture.svg");
-
   //background: $primary_color url("assets/background.png");
   background-size: cover;
 }

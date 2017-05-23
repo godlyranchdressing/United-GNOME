@@ -13,6 +13,12 @@ window.nautilus-window {
     }
   }
 
+  paned box.floating-bar {
+    // lower right box in the status bar isn't very eyecatching
+    border: 1px solid $border_color;
+    background-color: $lighter_bg_color;
+  }
+
   scrolledwindow treeeview.view, .nautilus-list-view overlay {
     background-color: $bg_color;
 
@@ -26,11 +32,6 @@ window.nautilus-window {
     //   }
     // }
 
-    box.floating-bar {
-      // lower right box in the status bar isn't very eyecatching
-      border: 1px solid $border_color;
-      background-color: $lighter_bg_color;
-    }
   }
 
   popover viewport button {
@@ -101,6 +102,20 @@ viewport.frame list.tweak-categories {
 
   > button:hover {
     box-shadow: none;
+  }
+}
+
+@if $variant != "light" or $headerbar == "dark" {
+  headerbar.tweak-titlebar-left {
+    $_dark_headerbar_border: _shadow_border(1, 0, 0, 1, $darker_border_color), _shadow_border(1, 0, 0, 1, $darker_border_color);
+    
+    box-shadow: $_dark_headerbar_border;
+  }
+
+  headerbar.tweak-titlebar-right {
+    $_dark_headerbar_border: _shadow_border(1, 1, 0, 0, $darker_border_color), _shadow_border(1, 1, 0, 0, $darker_border_color);
+
+    box-shadow: $_dark_headerbar_border;
   }
 }
 

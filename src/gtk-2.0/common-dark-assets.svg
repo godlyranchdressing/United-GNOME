@@ -15,7 +15,7 @@
    height="416"
    id="svg9892"
    version="1.1"
-   inkscape:version="0.92.1 r"
+   inkscape:version="0.92+devel unknown"
    sodipodi:docname="common-dark-assets.svg">
   <defs
      id="defs9894">
@@ -652,16 +652,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.656854"
-     inkscape:cx="333.16333"
-     inkscape:cy="363.19265"
+     inkscape:zoom="7.9999996"
+     inkscape:cx="471.00465"
+     inkscape:cy="266.68498"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      showborder="false"
      inkscape:window-width="1848"
-     inkscape:window-height="1137"
-     inkscape:window-x="1438"
+     inkscape:window-height="1138"
+     inkscape:window-x="72"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:snap-nodes="true"
@@ -677,7 +677,8 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:snap-bbox-edge-midpoints="true">
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:document-rotation="0">
     <inkscape:grid
        type="xygrid"
        id="grid10919"

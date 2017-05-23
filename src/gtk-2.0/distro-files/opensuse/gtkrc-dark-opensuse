@@ -1,10 +1,10 @@
 gtk-color-scheme = "base_color: #252525"
 gtk-color-scheme = "text_color: #ffffff"
-gtk-color-scheme = "bg_color: #161616"
+gtk-color-scheme = "bg_color: #181818"
 gtk-color-scheme = "fg_color: #ffffff"
-gtk-color-scheme = "tooltip_bg_color: #161616"
+gtk-color-scheme = "tooltip_bg_color: #111111"
 gtk-color-scheme = "tooltip_fg_color: #ffffff"
-gtk-color-scheme = "selected_bg_color: #35bf5c"
+gtk-color-scheme = "selected_bg_color: #73BA25"
 gtk-color-scheme = "selected_fg_color: #ffffff"
 gtk-color-scheme = "insensitive_bg_color: #252525"
 gtk-color-scheme = "insensitive_fg_color: #7B7B7A"
@@ -19,4 +19,3 @@ gtk-auto-mnemonics = 1
 gtk-primary-button-warps-slider = 1
 
 include "main.rc"
-

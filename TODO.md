@@ -1,19 +1,14 @@
 # Assets
-
 - Window buttons?
 
 # Login theme
-
-- The Shell login styling is still using the old style. I have no idea how to test it though
+- The styling for the login dialog is untested but I need to find a way to actually test it. I'm not sure how, but on UG 17.04, the styling actually worked for the logged in user's lock screen but I can't seem to get that behavior working again.
 
 # Shell
-
-- A bug report might need to be submitted for this. : The last keyboard key touched when using the on-screen keyboard is left in the hover state but that just makes the key look like it's stuck.
+- A bug report might need to be submitted for this : The last keyboard key touched when using the on-screen keyboard is left in the "hover" state but that just makes the key look like it's stuck. The on-screen keyboard doesn't seem to go into the active state when a key is touched from a touchscreen.
 
 # Compact GTK3 Variant
-
-- Make a compact version. Going super thin a la Unity 8 didn't look as good as I hoped
+- Make a compact version.
 
 # Epiphany Incognito Mode
-
 - Right now it follows Adwaita's styling, but customizing it doesn't _seem_ to be possible.

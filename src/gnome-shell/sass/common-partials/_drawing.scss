@@ -143,7 +143,7 @@
   }
 }
 
-@mixin button($type, $_bg_color: $base_color, $_fg_color: $fg_color) {
+@mixin button($type, $_bg_color: if($variant == "light", $lighter_bg_color, $base_color), $_fg_color: $fg_color) {
   transition-duration: 250ms;
 
   @if $type == normal {
@@ -156,14 +156,14 @@
 
     &:focus {
       color: $_fg_color;
-      background-color: transparent;
+      background-color: $semi_fill_color !important;
       text-shadow: none;
       icon-shadow: none;
       box-shadow: none;
     }
 
     &:hover {
-      color: $_fg_color;
+      color: if($variant == "light", _hover_shade($primary_color), $_fg_color);
       background-color: $semi_fill_color !important;
       border-color: transparent;
       box-shadow: none;
@@ -171,8 +171,8 @@
       icon-shadow: none;
     }
 
-    &:active {
-      color: $_fg_color;
+    &:active, &:checked {
+      color: if($variant == "light", _pressed_shade($primary_color), $_fg_color);
       background-color: $fill_color !important;
       border-color: transparent;
       box-shadow: none;

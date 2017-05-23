@@ -1134,9 +1134,8 @@ style "notebook_entry" {
 }
 
 style "notebook_tab_label" {
-
-
-
+    fg[NORMAL] = @fg_color
+    fg[ACTIVE] = @insensitive_fg_color
 }
 
 style "combobox_entry"

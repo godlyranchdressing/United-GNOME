@@ -225,8 +225,14 @@ dialog, messagedialog {
   border-radius: 0 0 $standard_radius $standard_radius;
 
   decoration {
-    border: 8px solid $osd_box_shadow_color;
-    border-radius: $standard_radius * 2;
+    &, &:backdrop {
+      // border: $osd_border_length solid $osd_border;
+      // border-radius: $standard_radius * 2;
+      // box-shadow: 0 0 0 1px $border_color;
+      transition: $button_transition;
+      box-shadow: $shadow_3, 0 8px 8px rgba(0, 0, 0, 0.16);
+      background-color: transparent;
+    }
   }
 
   headerbar {

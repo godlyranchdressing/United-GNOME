@@ -12,7 +12,7 @@
       background-color: transparent;
       box-shadow: none;
     }
-    
+
     .app-well-app-running-dot {
       background-color: none;
       width: 28px;
@@ -76,26 +76,32 @@
         // running items look like this
         background-color: transparentize($primary_color, $secondary_opacity);
 
-        &:active, &.focused, &:hover {
-          background-color: transparentize($primary_color, $middle_opacity);
+        &:hover {
+          background-color: transparentize(_hover_shade($primary_color), $secondary_opacity);
+        }
+
+        &:active {
+          background-color: transparentize(_pressed_shade($primary_color), $middle_opacity);
+        }
+
+        &.focused {
+          background-color: transparentize($primary_color, $lower_opacity);
         }
       }
     }
 
     .app-well-app {
-      &:hover, &:active {
+      &:hover {
         // hovering over an unopened item looks like this (should mirror the running item look from above imo)
         background-color: transparentize($primary_color, $secondary_opacity);
       }
+
+      &:active {
+        // clicking on an unopened item looks like this
+        background-color: transparentize(_pressed_shade($primary_color), $secondary_opacity);
+      }
     }
   }
-}
-
-@mixin dash_bg {
-  // the dash should never be white
-  $_dash_color: if($transparency == true, transparentize($ubuntu_black, $middle_opacity), $ubuntu_dark_grey);
-
-  background: if($variant == "light" or $panel == "light", $ubuntu_dark_grey, $_dash_color);
 }
 
 @mixin ubuntu_launcher {

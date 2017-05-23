@@ -176,8 +176,7 @@ label {
   }
 
   selection {
-    //background-color: $primary_color;
-
+    background-color: $primary_color;
     color: $highlighted_fg_color;
   }
 
@@ -631,12 +630,12 @@ button {
       }
     }
 
-    &.sidebar-button, &.flat.scale, &.flat.image-button {
+    &.sidebar-button, &.nautilus-circular-button, &.flat.scale, &.flat.image-button {
       @include button(flat);
-
 
       &:hover {
         @include button(flat-hover);
+
         background-color: transparent;
       }
 
@@ -1690,13 +1689,13 @@ searchbar,
 /***************
  * Header bars *
  ***************/
+
 %titlebar,
 headerbar {
   background-color: $headerbar_bg;
   color: if($headerbar == "dark", $light_fg_color, $headerbar_fg_color);
   border-radius: ($standard_radius + 4) ($standard_radius + 4) 0 0;
-  border-top: 1px solid if($headerbar == "dark", $darker_headerbar_color, $headerbar_bg);
-  box-shadow: if($variant == "light", $headerbar_shadow, none);
+  box-shadow: if($headerbar == "dark" or $variant == "dark", none, $headerbar_shadow);
   min-height: if($compact == true, 0px, 45px);
   padding: 0 6px;
 
@@ -1763,8 +1762,8 @@ headerbar {
   &.default-decoration {
     min-height: $small_size;
     padding: $container_padding;
-    border-radius: $standard_radius $standard_radius 0 0;
     box-shadow: none;
+    border-radius: $standard_radius $standard_radius 0 0;
 
     .fullscreen &,
     .maximized &,
@@ -2159,14 +2158,16 @@ treeview {
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
-  background-color: $headerbar_bg;
-  box-shadow: inset 0 -1px $border_color;
   padding: 0px;
 
-  @if $headerbar == "dark" {
+  @if headerbar == "dark" or $variant == "dark" {
     background-color: $darker_headerbar_color;
     box-shadow: inset 0 -1px $darker_border_color;
     color: $light_fg_color;
+  }
+  @else {
+    background-color: $headerbar_bg;
+    box-shadow: inset 0 -1px $border_color;
   }
 
   > menuitem {
@@ -3087,7 +3088,7 @@ scale {
 
   // the colored part of the backing bit
   highlight {
-    background-color: lighten($accent_color, 20%);
+    background-color: if($distro != "opensuse", lighten($accent_color, 20%), lighten($accent_color, 7.5%));
 
     &:disabled {
       background-color: $disabled_bg_color;
@@ -3595,12 +3596,14 @@ list {
     @include button(normal);
 
     &.flat {
-      &, &:hover {
-        border-color: transparent;
+      @include button(flat);
 
-        &:active {
-          color: _pressed_shade($primary_color);
-        }
+      &:hover {
+        @include button(flat-hover);
+      }
+
+      &:active {
+        @include button(flat-active);
       }
     }
 
@@ -4007,10 +4010,18 @@ infobar {
 
       &:hover {
         @include button(hover, white, white);
+
+        label {
+          color: $suggested_color;
+        }
       }
 
       &:active {
         @include button(active, white, white);
+
+        label {
+          color: _pressed_shade($suggested_color);
+        }
       }
 
       &:disabled {
@@ -4033,7 +4044,10 @@ infobar {
  ************/
 tooltip {
   &, &.background, decoration {
-    background-color: transparentize($ubuntu_black, $lower_opacity);
+    background-color: $ubuntu_black;
+
+    // firefox overrides any alpha value that isn't 255 so these are solid
+
   }
 
   //
@@ -4273,7 +4287,7 @@ decoration, .default-decoration {
 
 decoration {
   transition: $button_transition;
-  box-shadow: $shadow_3, 0 8px 8px rgba(0, 0, 0, 0.16);
+  box-shadow: $decoration_shadow;
   background-color: transparent;
 
   // FIXME rationalize shadows
@@ -4383,6 +4397,7 @@ headerbar,
       }
 
       image {
+        //color: $fg_color;
         color: transparent;
       }
     }
@@ -4392,14 +4407,12 @@ headerbar,
       @each $l, $m in ("", ""), (":backdrop", "-backdrop") {
         &.#{$k}#{$l} {
           background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}#{$window_button_suffix}.png"), url("assets/titlebutton-#{$k}#{$m}#{$window_button_suffix}@2.png"));
-          box-shadow: none;
         }
       }
 
       @each $l, $m in (":hover", "-hover"), (":active", "-active") {
         &.#{$k}#{$l} {
           background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}.png"), url("assets/titlebutton-#{$k}#{$m}@2.png"));
-          box-shadow: none;
         }
       }
     }

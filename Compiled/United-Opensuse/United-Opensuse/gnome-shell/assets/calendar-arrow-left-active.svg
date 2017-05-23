@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="5.0791979"
+   width="16"
    height="16"
-   viewBox="0 0 5.0791979 16"
+   viewBox="0 0 16 16"
    fill="#FFFFFF"
    opacity="0.75"
    version="1.1"
@@ -38,21 +38,21 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1366"
-     inkscape:window-height="735"
+     inkscape:window-width="1848"
+     inkscape:window-height="1137"
      id="namedview6"
      showgrid="false"
-     inkscape:zoom="7.375"
-     inkscape:cx="-24.996347"
-     inkscape:cy="19.771325"
-     inkscape:window-x="0"
-     inkscape:window-y="432"
+     inkscape:zoom="29.5"
+     inkscape:cx="-1.220339"
+     inkscape:cy="4.3769022"
+     inkscape:window-x="1438"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4"
      inkscape:document-rotation="0" />
   <g
      id="g5088"
-     transform="matrix(-0.28096152,0,0,-0.28096152,3.6492317,18.772657)"
+     transform="matrix(-0.28096152,0,0,-0.28096152,9.1096328,18.772657)"
      style="fill:#73ba25;fill-opacity:1">
     <path
        style="fill:#73ba25;fill-opacity:1"
@@ -62,7 +62,7 @@
   </g>
   <g
      id="g5088-3"
-     transform="matrix(-0.28096152,0,0,-0.28096152,3.6492317,18.772657)"
+     transform="matrix(-0.28096152,0,0,-0.28096152,9.1096328,18.772657)"
      style="opacity:0.25;fill:#000000;fill-opacity:1">
     <path
        style="fill:#000000;fill-opacity:1"
