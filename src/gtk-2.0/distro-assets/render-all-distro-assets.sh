@@ -7,8 +7,10 @@ INDEX="assets.txt"
 
 for distro in `cat $DISTROS`; do
   for i in `cat $INDEX`; do
-    SRC_FILE="source-files/${distro}-assets.svg"
-    ASSETS_DIR="${distro}-assets"
+    SRC_FILE="${distro}/${distro}-light-assets.svg"
+    ASSETS_DIR="${distro}/{$distro}-light-assets"
+    DARK_SRC_FILE="${distro}/{$distro}-dark-assets.svg"
+    DARK_ASSETS_DIR="${distro}/{$distro}-dark-assets"
     if [ -f $ASSETS_DIR/$i.png ]; then
       echo $ASSETS_DIR/$i.png exists.
     else

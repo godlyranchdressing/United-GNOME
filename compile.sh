@@ -2,6 +2,12 @@
 DISTROS="distros.txt"
 COMPILED_FOLDER="sass/compiled-css"
 OUTPUT="Compiled"
+
+# GTK2 #
+DISTRO_FOLDER="src/gtk-2.0/distro-gtk-files"
+ASSETS_FOLDER="src/gtk-2.0/distro-assets"
+COMMON_ASSETS_FOLDER="src/gtk-2.0/common-assets"
+COMMON_FOLDER="src/gtk-2.0/common-files"
 ###
 
 echo "Compiling and copying..."
@@ -51,5 +57,28 @@ for distro in `cat $DISTROS`; do
     cp src/gnome-shell/common-assets/* $OUTPUT/United-${distro^}/United-${distro^}${variant^}/gnome-shell/assets/ -R
     cp src/gnome-shell/common-assets-light/* $OUTPUT/United-${distro^}/United-${distro^}${variant^}/gnome-shell/assets/ -R
     cp src/gnome-shell/distro-assets/$distro-assets/* $OUTPUT/United-${distro^}/United-${distro^}${variant^}/gnome-shell/assets/ -R
+  done
+
+  for variant in 'dark'; do
+    for file_name in 'Dark'; do
+      cp ${DISTRO_FOLDER}/${distro}/gtkrc-${variant}-${distro} Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/gtkrc
+      cp ${COMMON_FOLDER}/main.rc Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/main.rc
+      cp ${COMMON_ASSETS_FOLDER}-${variant}/* Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/
+      cp ${ASSETS_FOLDER}/${distro}/${distro}-${variant}-assets/* Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/
+    done
+  done
+  for variant in 'darker'; do
+    for file_name in 'Darker'; do
+      cp ${DISTRO_FOLDER}/${distro}/gtkrc-${variant}-${distro} Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/gtkrc
+      cp ${COMMON_FOLDER}/main.rc Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/main.rc
+      cp src/gtk-2.0/common-assets-light/* Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/
+      cp ${ASSETS_FOLDER}/${distro}/${distro}-light-assets/* Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/
+    done
+  done
+  for variant in 'light'; do
+    cp ${DISTRO_FOLDER}/${distro}/gtkrc-${distro} Compiled/United-${distro^}/United-${distro^}/gtk-2.0/gtkrc
+    cp ${COMMON_FOLDER}/main.rc Compiled/United-${distro^}/United-${distro^}/gtk-2.0/main.rc
+    cp ${COMMON_ASSETS_FOLDER}-${variant}/* Compiled/United-${distro^}/United-${distro^}/gtk-2.0/assets/
+    cp ${ASSETS_FOLDER}/${distro}/${distro}-${variant}-assets/* Compiled/United-${distro^}/United-${distro^}/gtk-2.0/assets/
   done
 done
