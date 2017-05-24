@@ -720,7 +720,7 @@ StScrollBar {
         color: $fg_color;
         border-top: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
         border-bottom: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
-        background-color: $fill_color;
+        background-color: if($variant == "light", $semi_fill_color, $fill_color);
         font-weight: 400;
       }
     }
@@ -1327,7 +1327,7 @@ StScrollBar {
 .calendar-day-base {
   @include font(caption);
 
-  color: $fg_color !important;
+  color: $fg_color;
   background-color: transparent;
   text-align: center;
   width: $menuitem_size;
@@ -1390,12 +1390,12 @@ StScrollBar {
 }
 
 .calendar-today {
-  font-weight: 400 !important;
-  color: $light_fg_color;
+  font-weight: bold !important;
   border: none;
 
   &:selected, &:focus, &:active {
     background-color: $primary_color;
+    color: $light_fg_color;
     box-shadow: $shadow_surround _pressed_shade($primary_color);
   }
 }
@@ -1430,7 +1430,7 @@ StScrollBar {
 }
 
 .message-list-clear-button.button {
-  background-color: lighten($base_color, 7.5%);
+  background-color: $lighter_bg_color;
   color: $secondary_fg_color;
   box-shadow: $shadow_surround $border_color;
   border-radius: $standard_radius;

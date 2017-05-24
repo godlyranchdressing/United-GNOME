@@ -1696,7 +1696,7 @@ headerbar {
   color: if($headerbar == "dark", $light_fg_color, $headerbar_fg_color);
   border-radius: ($standard_radius + 4) ($standard_radius + 4) 0 0;
   box-shadow: if($headerbar == "dark" or $variant == "dark", none, $headerbar_shadow);
-  min-height: if($compact == true, 0px, 45px);
+  min-height: 45px;
   padding: 0 6px;
 
   &:disabled:not(button) > label {
@@ -2097,13 +2097,13 @@ treeview.view {
 
       &:hover {
         label, image, arrow {
-          color: _hover_shade($primary_color);
+          color: $fg_color;
         }
       }
 
       &:active {
         label, image, arrow {
-          color: _pressed_shade($primary_color);
+          color: _pressed_shade($fg_color);
         }
       }
 
@@ -2160,11 +2160,12 @@ menubar,
   -GtkWidget-window-dragging: true;
   padding: 0px;
 
-  @if headerbar == "dark" or $variant == "dark" {
+  @if $headerbar == "dark" or $variant == "dark" {
     background-color: $darker_headerbar_color;
     box-shadow: inset 0 -1px $darker_border_color;
     color: $light_fg_color;
   }
+
   @else {
     background-color: $headerbar_bg;
     box-shadow: inset 0 -1px $border_color;
@@ -3127,7 +3128,10 @@ scale {
     }
 
     &:disabled {
-      background-color: opacify($disabled_bg_color, 1);
+      // we're using these fixed value because the disabled colors are just transparentized
+      // versions of the normal bg/fg colors this is visible on sliders as its spread across two
+      // different backgrounds (trough and base)
+      background-color: if($variant == "light", #bfbfbf, #2b2b2b);
     }
 
     // Selected list-row and infobar sliders

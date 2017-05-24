@@ -12,9 +12,7 @@
 // Foreground colors
 $dark_fg_color: #606060;
 $light_fg_color: #ffffff;
-$fg_color: if($variant == "light", $dark_fg_color, $light_fg_color);
-
-// for shorthand's sake
+$fg_color: if($variant == "light", $dark_fg_color, $light_fg_color);  // for shorthand's sake
 $secondary_fg_color: scale-alpha($fg_color, $secondary_opacity);
 $tertiary_fg_color: scale-alpha($fg_color, $tertiary_opacity);
 
@@ -32,7 +30,9 @@ $disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
 
 // Background colors
 $base_color: if($variant == "light", $ubuntu_white, $ubuntu_black);
-$bg_color: if($variant == "light", $ubuntu_bg, #181818); // lighten($ubuntu_black, 6%) new value taken from Unity 8
+$bg_color: if($variant == "light", $ubuntu_bg, #181818);
+
+// lighten($ubuntu_black, 6%) new value taken from Unity 8
 $alt_base_color: if($variant == "light", darken($ubuntu_white, 2.5%), mix($base_color, $bg_color, 50%));
 $alt_bg_color: if($variant == "light", $ubuntu_pane_bg, lighten($ubuntu_black, 7.5%));
 $lighter_bg_color: if($variant == "light", lighten($ubuntu_white, 5%), lighten($ubuntu_black, 7%));
@@ -52,9 +52,9 @@ $lighter_bg_color: if($variant == "light", lighten($ubuntu_white, 5%), lighten($
   $lighter_bg_color: $lighter_bg_color;
 }
 
-$semi_fill_color: if($variant == "light", darken($base_color, 7.5%), transparentize($fg_color, 0.85));
-$dark_semi_fill_color: transparentize($dark_fg_color, 0.85);
-$fill_color: if($variant == "light", darken($base_color, 10%), transparentize($fg_color, 0.9));
+$semi_fill_color: if($variant == "light", lighten($bg_color, 5%), transparentize($fg_color, 0.85));
+$dark_semi_fill_color: transparentize($dark_fg_color, 0.95);
+$fill_color: if($variant == "light", darken($bg_color, 5%), transparentize($fg_color, 0.9));
 $disabled_fill_color: scale-alpha($disabled_fg_color, $disabled_opacity);
 
 $inverse_semi_fill_color: transparentize(if($variant == "light", $light_fg_color, $dark_fg_color), 0.8);

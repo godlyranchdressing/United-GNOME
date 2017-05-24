@@ -221,14 +221,8 @@ dialog {
 }
 
 dialog, messagedialog {
-  // make dialog boxes match Shell OSD elements
-  border-radius: 0 0 $standard_radius $standard_radius;
-
   decoration {
     &, &:backdrop {
-      // border: $osd_border_length solid $osd_border;
-      // border-radius: $standard_radius * 2;
-      // box-shadow: 0 0 0 1px $border_color;
       transition: $button_transition;
       box-shadow: $shadow_3, 0 8px 8px rgba(0, 0, 0, 0.16);
       background-color: transparent;
@@ -242,7 +236,6 @@ dialog, messagedialog {
 
 messagedialog {
   // Flat dialog boxes
-  border-radius: 0px;
   border-width: 0px 1px 1px 1px;
 
   box.dialog-vbox {
