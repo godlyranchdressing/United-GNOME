@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   fill="#FF4081"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="checkbox-hover.svg"
+   inkscape:version="0.92+devel unknown">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8">
+    <linearGradient
+       id="dark_fg_color-9"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop7036" />
+    </linearGradient>
+    <linearGradient
+       id="primary_color-3"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#e95420;stop-opacity:1;"
+         offset="0"
+         id="stop5679" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4132">
+      <stop
+         id="stop4134"
+         offset="0"
+         style="stop-color:#f5f5f5;stop-opacity:1;" />
+      <stop
+         id="stop4136"
+         offset="1"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1138"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="28.383819"
+     inkscape:cx="-1.8305102"
+     inkscape:cy="16.54274"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4"
+     inkscape:document-rotation="0" />
+  <g
+     transform="matrix(1.375,0,0,1.3738992,-751.125,-204.20858)"
+     id="checkbox-hover">
+    <path
+       style="fill:none;fill-opacity:1;stroke:none"
+       d="m 555,149.36218 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
+       id="path4140-9"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path4142-4"
+       d="m 555,149.375 c -8,0 -8,0.88888 -8,8 0,7.11111 0,8 8,8 8,0 8,-0.88889 8,-8 0,-7.11112 0,-8 -8,-8 z m 0,1 c 1.98144,0 3.45949,0.0756 4.46875,0.25 1.00926,0.17444 1.48125,0.41667 1.78125,0.75 0.3,0.33333 0.51118,0.88855 0.625,1.875 0.11382,0.98645 0.125,2.34722 0.125,4.125 0,1.77778 -0.0112,3.13855 -0.125,4.125 -0.11382,0.98645 -0.325,1.54167 -0.625,1.875 -0.3,0.33333 -0.77199,0.57556 -1.78125,0.75 -1.00926,0.17444 -2.48731,0.25 -4.46875,0.25 -1.98144,0 -3.45949,-0.0756 -4.46875,-0.25 -1.00926,-0.17444 -1.48125,-0.41667 -1.78125,-0.75 -0.3,-0.33333 -0.51118,-0.88855 -0.625,-1.875 -0.11382,-0.98645 -0.125,-2.34722 -0.125,-4.125 0,-1.77778 0.0112,-3.13855 0.125,-4.125 0.11382,-0.98645 0.325,-1.54167 0.625,-1.875 0.3,-0.33333 0.77199,-0.57556 1.78125,-0.75 1.00926,-0.17444 2.48731,-0.25 4.46875,-0.25 z"
+       style="fill:#41a050;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
