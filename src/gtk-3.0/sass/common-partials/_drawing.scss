@@ -390,12 +390,12 @@
 
   &:checked {
     color: transparent;
-    box-shadow: $shadow_surround $suggested_color;
-    border-color: $suggested_color;
+    box-shadow: $shadow_surround _pressed_shade($suggested_color);
+    border-color: _pressed_shade($suggested_color);
     background-color: $suggested_color;
 
     slider {
-      box-shadow: $shadow_surround $suggested_color, $shadow_surround $suggested_color;
+      box-shadow: $shadow_surround _pressed_shade($suggested_color), $shadow_surround _pressed_shade($suggested_color);
     }
   }
 
@@ -409,7 +409,7 @@
 ///************///
 /// * Overshoot * ///
 /// ************///
-@mixin overshoot($p, $type: normal, $bg: $primary_color) {
+@mixin overshoot($p, $type: normal, $bg: mix($ubuntu_white, $primary_color, 50%)) {
   $_small_gradient_length: 3%;
   $_big_gradient_length: 50%;
 
@@ -451,8 +451,8 @@
   // $p: position
   // possible values: top, bottom, right, left
 
-  $_undershoot_color_dark: $primary_color;
-  $_undershoot_color_light: $primary_color;
+  $_undershoot_color_dark: mix($ubuntu_white, $primary_color, 50%);
+  $_undershoot_color_light: $_undershoot_color_dark;
 
   $_gradient_dir: left;
   $_dash_bg_size: 10px 0;

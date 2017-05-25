@@ -238,6 +238,7 @@ spinner {
   -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
 
   &:checked {
+    color: $accent_color;
     opacity: 1;
     animation: spin 1s linear infinite;
 
@@ -269,6 +270,8 @@ entry {
     }
 
     image, arrow, label {
+      transition: $button_transition;
+
       // icons inside the entry
 
       &.left {
@@ -646,21 +649,21 @@ button {
 
     &.link {
       &.flat {
-        @include button(flat, $accent_color);
+        @include button(flat, $link_color);
       }
 
       &:hover {
-        @include button(flat-hover, $accent_color);
+        @include button(flat-hover, $link_color);
       }
 
       &:active {
-        @include button(flat-active, $accent_color);
+        @include button(flat-active, $link_color);
       }
 
       &.flat:disabled {
         @include button(flat);
 
-        color: transparentize($accent_color, 0.2);
+        color: transparentize($link_color, 0.2);
       }
 
       &:disabled {
@@ -969,9 +972,13 @@ button {
 
 stackswitcher.stack-switcher {
   button {
-    &:checked, &:not(:checked):hover {
+    &:checked {
       background: $primary_color;
       color: white;
+    }
+
+    &:checked:hover, &:active {
+      background-color: _pressed_shade($primary_color);
     }
   }
 }
@@ -1190,29 +1197,29 @@ button.color {
 %link,
 *:link {
   label {
-    color: $accent_color;
+    color: $link_color;
   }
 
   &:hover {
     label {
-      color: _hover_shade($accent_color, 1.5);
+      color: _hover_shade($link_color, 1.5);
     }
   }
 
   &:active {
     label {
-      color: _pressed_shade($accent_color);
+      color: _pressed_shade($link_color);
     }
   }
 
   &:visited {
     label {
-      color: transparentize($accent_color, $disabled_opacity);
+      color: transparentize($link_color, $disabled_opacity);
     }
 
     *:selected & {
       label {
-        color: mix($highlighted_fg_color, $accent_color, 60%);
+        color: mix($highlighted_fg_color, $link_color, 60%);
       }
     }
   }
@@ -1220,19 +1227,19 @@ button.color {
   &:hover {
     *:selected & {
       label {
-        color: mix($highlighted_fg_color, $accent_color, 90%);
+        color: mix($highlighted_fg_color, $link_color, 90%);
       }
     }
   }
 
   &:active {
     label {
-      color: _pressed_shade($accent_color);
+      color: _pressed_shade($link_color);
     }
 
     *:selected & {
       label {
-        color: mix($highlighted_fg_color, $accent_color, 80%);
+        color: mix($highlighted_fg_color, $link_color, 80%);
       }
     }
   }
@@ -1241,7 +1248,7 @@ button.color {
   &:selected,
   *:selected & {
     label {
-      color: mix($highlighted_fg_color, $accent_color, 80%);
+      color: mix($highlighted_fg_color, $link_color, 80%);
     }
   }
 }
@@ -2077,7 +2084,7 @@ treeview.view {
     background-color: transparent;
 
     &:selected {
-      border-bottom-color: $hover_bg;
+      border-bottom-color: scale-alpha($accent_color, $middle_opacity);
     }
   }
 
@@ -2165,7 +2172,6 @@ menubar,
     box-shadow: inset 0 -1px $darker_border_color;
     color: $light_fg_color;
   }
-
   @else {
     background-color: $headerbar_bg;
     box-shadow: inset 0 -1px $border_color;
@@ -2174,6 +2180,12 @@ menubar,
   > menuitem {
     min-height: 16px;
     padding: 4px 8px;
+    
+    check, radio{
+      min-width: 16px;
+      min-height: 16px;
+      transition: none;
+    }
 
     &:hover {
       //Seems like it :hover even with keyboard focus
@@ -2632,6 +2644,10 @@ notebook {
       &:checked {
         color: $fg_color;
 
+        label {
+          font-weight: bold;
+        }
+
         &:disabled {
           color: $disabled_fg_color;
         }
@@ -2952,36 +2968,37 @@ switch {
 // Check and Radio items
 //
 @each $w, $a in ("check", "checkbox"), ("radio", "radio") {
-  //standard checks and radios
-  @each $s, $as in ("", ""), (":hover", "-hover"), (":active", "-active"), (":disabled", "-"), (":indeterminate", "-mixed"), (":indeterminate:disabled", "-mixed-"), (":checked", "-checked"), (":checked:disabled", "-checked-") {
+  @each $s, $as in ("", ""), (":hover", "-hover"), (":active", "-active"), (":disabled", "-disabled"), (":indeterminate", "-mixed"), (":indeterminate:hover", "-mixed-hover"), (":indeterminate:disabled", "-mixed-disabled"), (":checked", "-checked"), (":checked:disabled", "-checked-disabled"), (":checked:hover", "-checked-hover"), (":checked:active", "-checked-active") {
     .#{$w}#{$s},
     #{$w}#{$s},
     treeview.#{$w}#{$s} {
-      @if $s == ":hover" or $s == ":checked" {
-        transition: $button_transition;
-      }
-      @else {
-        transition: none;
-      }
+      transition: $button_transition;
 
-      @if $s == ":active" {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}.png"), url("assets/#{$a}#{$as}@2.png"));
+      @if $s == "" or $s == ":disabled" or $s == ":hover" {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"), url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
       }
       @else {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"), url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}.png"), url("assets/#{$a}#{$as}@2.png"));
       }
     }
 
     .osd,
     %osd_check_radio {
       #{$w}#{$s} {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-dark.png"), url("assets/#{$a}#{$as}-dark@2.png"));
+        transition: $button_transition;
+
+        @if $s == "" or $s == ":disabled" {
+          -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"), url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
+        }
+        @else {
+          -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}.png"), url("assets/#{$a}#{$as}@2.png"));
+        }
       }
     }
+  }
 
-    // the borders of checks and radios are
-    // too similar in luminosity to the selected background color, hence
-    // we need special casing.
+  @each $s, $as in ("", ""), (":disabled", "-disabled"), (":indeterminate", "-mixed"), (":indeterminate:disabled", "-mixed-disabled"), (":checked", "-checked"), (":checked:disabled", "-checked-disabled") {
+    //for selected checks and radios
     menuitem #{$w}#{$s}:hover,
     .view #{$w}#{$s}:selected,
     treeview.#{$w}#{$s}:selected,
@@ -2997,7 +3014,15 @@ switch {
 // Selectionmode
 @each $s, $as in ("", "-selectionmode"), (":checked", "-checked-selectionmode") {
   .view.content-view.check#{$s}:not(list) {
-    -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"), url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
+    transition: $button_transition;
+
+    @if $s == "" {
+      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"), url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
+    }
+    @else {
+      -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}.png"), url("assets/checkbox#{$as}@2.png"));
+    }
+
     background-color: transparent;
   }
 }
@@ -3026,8 +3051,8 @@ check,
 radio {
   @include button(flat);
 
-  min-width: 14px;
-  min-height: 14px;
+  min-width: 18px;
+  min-height: 18px;
   margin: 2px 4px;
 
   &:only-child,
@@ -3089,7 +3114,7 @@ scale {
 
   // the colored part of the backing bit
   highlight {
-    background-color: if($distro != "opensuse", lighten($accent_color, 20%), lighten($accent_color, 7.5%));
+    background-color: if($distro != "opensuse", lighten($accent_color, 10%), lighten($accent_color, 7.5%));
 
     &:disabled {
       background-color: $disabled_bg_color;
@@ -3129,8 +3154,8 @@ scale {
 
     &:disabled {
       // we're using these fixed value because the disabled colors are just transparentized
-      // versions of the normal bg/fg colors this is visible on sliders as its spread across two
-      // different backgrounds (trough and base)
+      // versions of the normal bg/fg colors -> this fact is visible on sliders as the element is spread across two
+      // different backgrounds (the trough and the base)
       background-color: if($variant == "light", #bfbfbf, #2b2b2b);
     }
 
@@ -4309,7 +4334,7 @@ decoration {
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: $shadow_1, 0 8px 8px transparent;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05), 0 0 4px 4px rgba(0, 0, 0, 0.05), 0 0 6px 6px rgba(0, 0, 0, 0), 0 0 8px 8px rgba(0, 0, 0, 0);
   }
 
   .popup & {
@@ -4319,19 +4344,19 @@ decoration {
 
   // server-side decorations as used by mutter
   .ssd & {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
+    box-shadow: $decoration_shadow;
   }
 
   // just doing borders, wm draws actual shadows
 
   .csd.popup & {
     border-radius: $standard_radius $standard_radius 0 0;
-    box-shadow: $shadow_3;
+    box-shadow: $decoration_shadow;
   }
 
   tooltip.csd & {
     border-radius: $standard_radius;
-    box-shadow: $shadow_3;
+    box-shadow: $decoration_shadow;
   }
 
   messagedialog.csd & {
@@ -4344,12 +4369,8 @@ decoration {
 
   .solid-csd & {
     margin: 0;
-
-    // padding: 4px;
     border-radius: $standard_radius;
     box-shadow: none;
-
-    // box-shadow: inset 0 0 0 4px $titlebar_bg_color;
     background-color: $headerbar_bg;
   }
 }
@@ -4361,9 +4382,6 @@ headerbar,
 
   &.default-decoration {
     border-radius: $standard_radius $standard_radius 0 0;
-
-    //border: 1px solid if($headerbar == "dark", $darker_border_color, $border_color);
-    //border-width: 1px 1px 0 1px;
     background-color: if($headerbar == "dark", $darker_headerbar_color, $headerbar_bg);
   }
 

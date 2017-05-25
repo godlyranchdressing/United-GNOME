@@ -6,7 +6,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="24"
@@ -16,7 +15,7 @@
    version="1.1"
    id="svg4"
    sodipodi:docname="checkbox-active.svg"
-   inkscape:version="0.92.1 r">
+   inkscape:version="0.92+devel unknown">
   <metadata
      id="metadata10">
     <rdf:RDF>
@@ -47,24 +46,6 @@
          offset="0"
          id="stop5679" />
     </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#dark_fg_color-9"
-       id="linearGradient5755"
-       gradientUnits="userSpaceOnUse"
-       x1="8"
-       y1="1034.3622"
-       x2="13"
-       y2="1034.3622" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#dark_fg_color-9"
-       id="linearGradient5757"
-       gradientUnits="userSpaceOnUse"
-       x1="11"
-       y1="1031.3622"
-       x2="13"
-       y2="1031.3622" />
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -75,122 +56,35 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1848"
-     inkscape:window-height="1137"
+     inkscape:window-width="1920"
+     inkscape:window-height="1138"
      id="namedview6"
      showgrid="false"
-     inkscape:zoom="13.906433"
+     inkscape:zoom="13.985089"
      inkscape:cx="-9.0958779"
-     inkscape:cy="18.569675"
-     inkscape:window-x="1438"
+     inkscape:cy="27.150242"
+     inkscape:window-x="0"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="svg4"
+     inkscape:document-rotation="0" />
   <g
-     transform="matrix(1.375,0,0,1.375,-48.5,0.5019989)"
-     style="display:inline;opacity:1"
-     id="checkbox-checked-dark"
-     inkscape:label="#g10758">
-    <g
-       inkscape:label="#g22047"
-       id="checkbox-5-59"
-       style="display:inline"
-       transform="translate(19)">
-      <g
-         id="sdsd-7-54"
-         inkscape:label="#g21853">
-        <g
-           transform="translate(0,-30)"
-           inkscape:label="#g14325"
-           id="scdsdcd-5-8">
-          <g
-             transform="matrix(0.92951982,0,0,0.92914368,-156.75069,-212.9618)"
-             id="g15812-6-6-1-5-4"
-             style="display:inline">
-            <g
-               style="display:inline"
-               id="g5489-2-9-6-8-8-53-5"
-               transform="matrix(0.5089163,0,0,0.51739823,161.7932,197.56426)">
-              <g
-                 id="g5428-8-1-4-0-0-4-2" />
-            </g>
-          </g>
-          <rect
-             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
-             id="rect13523-7-11"
-             width="16"
-             height="16"
-             x="17"
-             y="30.362183" />
-        </g>
-      </g>
-    </g>
-    <g
-       inkscape:label="Ebene 1"
-       id="checkbox-checked-dark-7-37"
-       transform="translate(36,-1036)"
-       style="display:inline">
-      <g
-         id="g3981-6-4-97"
-         transform="rotate(45,-3.2604448,1033.6624)"
-         style="opacity:0.85;fill:#1a1a1a;fill-opacity:1" />
-      <g
-         id="g4049-2-5"
-         transform="rotate(45,7.4999938,1026.3622)">
-        <g
-           id="g4056-7-6"
-           transform="translate(12.374375,11.531233)">
-          <g
-             id="g3981-0-8"
-             transform="translate(-3,-4.9999826)"
-             style="fill:#3b3c3e;fill-opacity:1">
-            <rect
-               ry="0.66666085"
-               rx="0.66666085"
-               y="1033.3622"
-               x="8"
-               height="1.9999826"
-               width="5"
-               id="rect3977-39-90"
-               style="fill:url(#linearGradient5755);fill-opacity:1;stroke:none" />
-            <rect
-               ry="0"
-               y="1027.3622"
-               x="11"
-               height="7.9999828"
-               width="2"
-               id="rect3979-7-60"
-               style="fill:url(#linearGradient5757);fill-opacity:1;stroke:none" />
-          </g>
-          <rect
-             style="fill:#eeeeee;fill-opacity:0;stroke:none"
-             id="rect4047-81-5"
-             width="3"
-             height="1"
-             x="5"
-             y="-8"
-             transform="translate(0,1036.3622)" />
-        </g>
-      </g>
-    </g>
-  </g>
-  <g
-     style="display:inline"
-     id="checkbox-checked"
-     transform="matrix(1.1008833,0,0,1.1012433,-37.625682,31.845185)">
+     transform="matrix(1.375,0,0,1.3738992,-751.125,-327.87712)"
+     id="checkbox-checked-active">
     <path
-       inkscape:connector-curvature="0"
-       id="path8913-6-7-1-5-1-9-12"
-       d="m 50.859308,-23.342974 -6.5,6.39453 -2.9375,-2.9375 -2.125,2.125 5.0625,5.0625 6.5,-6.60547 z"
-       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.99191427;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+       style="fill:#41a050;fill-opacity:1;stroke:none"
+       d="m 555,239.38782 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
+       id="path5363-4-4"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path5365-9-0"
+       d="m 555,239.375 c -8,0 -8,0.88888 -8,8 0,7.11111 0,8 8,8 8,0 8,-0.88889 8,-8 0,-7.11112 0,-8 -8,-8 z m 0,1 c 1.98144,0 3.45949,0.0756 4.46875,0.25 1.00926,0.17444 1.48125,0.41667 1.78125,0.75 0.3,0.33333 0.51118,0.88855 0.625,1.875 0.11382,0.98645 0.125,2.34722 0.125,4.125 0,1.77778 -0.0112,3.13855 -0.125,4.125 -0.11382,0.98645 -0.325,1.54167 -0.625,1.875 -0.3,0.33333 -0.77199,0.57556 -1.78125,0.75 -1.00926,0.17444 -2.48731,0.25 -4.46875,0.25 -1.98144,0 -3.45949,-0.0756 -4.46875,-0.25 -1.00926,-0.17444 -1.48125,-0.41667 -1.78125,-0.75 -0.3,-0.33333 -0.51118,-0.88855 -0.625,-1.875 -0.11382,-0.98645 -0.125,-2.34722 -0.125,-4.125 0,-1.77778 0.0112,-3.13855 0.125,-4.125 0.11382,-0.98645 0.325,-1.54167 0.625,-1.875 0.3,-0.33333 0.77199,-0.57556 1.78125,-0.75 1.00926,-0.17444 2.48731,-0.25 4.46875,-0.25 z"
+       style="fill:#41a050;fill-opacity:1;stroke:none"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#48b259;fill-opacity:1;stroke:none"
+       d="m 549,247.36218 1.84615,-2 2.76923,3 6.46154,-6 H 561 v 1 l -7.38462,9 z"
+       id="path5369-4-3"
+       inkscape:connector-curvature="0" />
   </g>
-  <rect
-     ry="3.0860829"
-     style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#27ae60;fill-opacity:1;stroke:#0e9547;stroke-width:1.48643541;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
-     id="checkbox-active"
-     width="16.513565"
-     height="16.513565"
-     x="3.7432175"
-     y="3.7432175"
-     rx="3.0447505" />
 </svg>

@@ -23,10 +23,10 @@ $headerbar_fg_color: if($headerbar == "dark", $highlighted_fg_color, $fg_color);
 $secondary_headerbar_fg_color: if($headerbar == "dark", $secondary_inverse_fg_color, $secondary_fg_color);
 
 // background colors
-$bg_color: if($variant == "light", $ubuntu_bg, #181818); // originally lighten($ubuntu_black, 8%), this new value matches the dark Shell and Unity 8
+$bg_color: if($variant == "light", $ubuntu_bg, $ubuntu_jet);
 $base_color: if($variant == "light", lighten($ubuntu_white, 2.5%), lighten($ubuntu_black, 2%));
 $alt_base_color: if($variant == "light", darken($ubuntu_white, 2.5%), mix($base_color, $bg_color, 50%));
-$alt_bg_color: if($variant == "light", $ubuntu_pane_bg, lighten($ubuntu_black, 7.5%));
+$alt_bg_color: if($variant == "light", $ubuntu_alt_bg, lighten($ubuntu_black, 7.5%));
 $lighter_bg_color: if($variant == "light", lighten($ubuntu_white, 5%), lighten($ubuntu_black, 8%));
 $osd_border: transparentize(if($variant == "light", $ubuntu_white, $ubuntu_black), 0.6);
 
@@ -40,8 +40,8 @@ $headerbar_bg: if($variant == "light", if($headerbar == "dark", $dark_headerbar_
 // Info colours
 $warning_color: $orange;
 $error_color: $dark_orange;
-$suggested_color: $dark_green;
-$success_color: $dark_green;
+$suggested_color: $green;
+$success_color: $green;
 $link_color: lighten($accent_color, 5);
 $visited_link_color: darken($accent_color, 5);
 $destructive_color: $dark_red;

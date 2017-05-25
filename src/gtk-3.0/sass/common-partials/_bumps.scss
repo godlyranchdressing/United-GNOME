@@ -243,7 +243,6 @@ messagedialog {
   }
 
   &.background.csd, box.dialog-vbox.horizontal, buttonbox.dialog-action-area.horizontal.linked, box.horizontal.titlebar {
-    border-radius: 0px;
     border-style: solid;
     border-color: if($variant != "dark", #E6E6E6, #2D2D2D);
   }
@@ -253,7 +252,7 @@ messagedialog {
   }
 
   &.background.csd {
-    &, box.horizontal:last-child, decoration {
+    &, box.horizontal:last-child{
       box-shadow: none;
     }
   }

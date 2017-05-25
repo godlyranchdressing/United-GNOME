@@ -81,7 +81,7 @@ StEntry {
   padding: 0 8px;
   border-radius: 0;
   border-width: 0;
-  color: $ubuntu_fg;
+  color: $ubuntu_graphite;
   selection-background-color: $primary_color;
   selected-color: $ubuntu_white;
 
@@ -1073,6 +1073,14 @@ StScrollBar {
 
   @include uniform_panel_spacing;
 
+  .clock-display {
+    // style the notification dot
+
+    StBoxLayout:last-child > StLabel:last-child {
+      color: $primary_color;
+    }
+  }
+
   .popup-menu-arrow {
     // make sure uniform spacing rules don't apply to the popup-menu-arrows
     min-width: 0px !important;
@@ -1944,7 +1952,7 @@ StScrollBar {
 
   @if $transparency != true or $variant == "light" {
     // the dash should never be white
-    background-color: $ubuntu_dark_grey !important;
+    background-color: $ubuntu_inkstone !important;
   }
   @else {
     background-color: transparentize($ubuntu_black, $quarternary_opacity) !important;
@@ -2694,6 +2702,7 @@ $legacy_icon_size: 24px;
 
   .modal-dialog-button-box {
     spacing: 3px;
+    border-radius: 0 0 $standard_radius $standard_radius;
   }
 
   .modal-dialog-button {
@@ -2999,6 +3008,7 @@ $legacy_icon_size: 24px;
     }
 
     &:selected {
+      font-weight: bold;
       border-bottom-width: 0;
       border-color: transparent;
       text-shadow: none;

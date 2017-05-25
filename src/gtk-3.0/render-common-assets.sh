@@ -7,7 +7,7 @@ SRC_FILE="common-assets.svg"
 ASSETS_DIR="common-assets"
 INDEX="common-assets.txt"
 
-
+#rm common-assets/*
 for i in `cat $INDEX`
 do
 if [ -f $ASSETS_DIR/$i.png ]; then

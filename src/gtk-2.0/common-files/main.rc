@@ -162,7 +162,7 @@ style "default" {
       recolorable = TRUE
       state = PRELIGHT
       shadow = IN
-      overlay_file = "assets/checkbox-checked.png"
+      overlay_file = "assets/checkbox-checked-hover.png"
       overlay_stretch = FALSE
     }
 
@@ -171,7 +171,7 @@ style "default" {
       recolorable = TRUE
       state = ACTIVE
       shadow = IN
-      overlay_file = "assets/checkbox-checked.png"
+      overlay_file = "assets/checkbox-checked-active.png"
       overlay_stretch = FALSE
     }
 
@@ -247,7 +247,7 @@ style "default" {
       function = OPTION
       state = PRELIGHT
       shadow = IN
-      overlay_file = "assets/radio-checked.png"
+      overlay_file = "assets/radio-checked-hover.png"
       overlay_stretch = FALSE
     }
 
@@ -255,7 +255,7 @@ style "default" {
       function = OPTION
       state = ACTIVE
       shadow = IN
-      overlay_file = "assets/radio-checked.png"
+      overlay_file = "assets/radio-checked-active.png"
       overlay_stretch = FALSE
     }
 
@@ -776,7 +776,7 @@ style "menu_item"
       recolorable = TRUE
       state = PRELIGHT
       shadow = OUT
-      overlay_file = "assets/menu-checkbox-hover.png"
+      overlay_file = "assets/menu-checkbox-selected.png"
       overlay_stretch = FALSE
     }
 
@@ -785,7 +785,7 @@ style "menu_item"
       recolorable = TRUE
       state = ACTIVE
       shadow = OUT
-      overlay_file = "assets/menu-checkbox-active.png"
+      overlay_file = "assets/menu-checkbox-selected.png"
       overlay_stretch = FALSE
     }
 
@@ -821,7 +821,7 @@ style "menu_item"
       recolorable = TRUE
       state = ACTIVE
       shadow = IN
-      overlay_file = "assets/menu-checkbox-active.png"
+      overlay_file = "assets/menu-checkbox-selected.png"
       overlay_stretch = FALSE
     }
 
@@ -848,7 +848,7 @@ style "menu_item"
       function = OPTION
       state = PRELIGHT
       shadow = OUT
-      overlay_file = "assets/menu-radio-hover.png"
+      overlay_file = "assets/menu-radio-selected.png"
       overlay_stretch = FALSE
     }
 
@@ -2023,8 +2023,8 @@ style "separator_menu_item" {
 
     image {
       function = BOX
-      file = "assets/null.png"
-      border = { 0, 0, 1, 0 }
+      file = "assets/line-h.png"
+      border = { 1, 1, 1, 1 }
       stretch = TRUE
     }
   }

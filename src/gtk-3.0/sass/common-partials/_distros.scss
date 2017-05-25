@@ -4,7 +4,7 @@ $accent_color: null;
 
 @if $distro == "ubuntu" {
   $primary_color: $ubuntu_orange;
-  $accent_color: $ubuntu_light_purple;
+  $accent_color: $ubuntu_aubergine;
 }
 @else if $distro == "ubuntu-alt" {
   $primary_color: $ubuntu_maroon;
@@ -32,5 +32,5 @@ $accent_color: null;
 }
 @else {
   $primary_color: $ubuntu_orange;
-  $accent_color: lighten($ubuntu_purple, 10);
+  $accent_color: $ubuntu_aubergine;
 }

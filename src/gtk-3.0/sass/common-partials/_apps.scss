@@ -105,18 +105,8 @@ viewport.frame list.tweak-categories {
   }
 }
 
-@if $variant != "light" or $headerbar == "dark" {
-  headerbar.tweak-titlebar-left {
-    $_dark_headerbar_border: _shadow_border(1, 0, 0, 1, $darker_border_color), _shadow_border(1, 0, 0, 1, $darker_border_color);
-    
-    box-shadow: $_dark_headerbar_border;
-  }
-
-  headerbar.tweak-titlebar-right {
-    $_dark_headerbar_border: _shadow_border(1, 1, 0, 0, $darker_border_color), _shadow_border(1, 1, 0, 0, $darker_border_color);
-
-    box-shadow: $_dark_headerbar_border;
-  }
+#DarkThemeSwitcher label:last-child {
+  color: $secondary_fg_color;
 }
 
 /************
