@@ -171,7 +171,7 @@ style "default" {
       recolorable = TRUE
       state = ACTIVE
       shadow = IN
-      overlay_file = "assets/checkbox-checked-active.png"
+      overlay_file = "assets/checkbox-checked.png"
       overlay_stretch = FALSE
     }
 
@@ -250,12 +250,12 @@ style "default" {
       overlay_file = "assets/radio-checked-hover.png"
       overlay_stretch = FALSE
     }
-
+    
     image {
       function = OPTION
       state = ACTIVE
       shadow = IN
-      overlay_file = "assets/radio-checked-active.png"
+      overlay_file = "assets/radio-checked.png"
       overlay_stretch = FALSE
     }
 

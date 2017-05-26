@@ -109,6 +109,27 @@ viewport.frame list.tweak-categories {
   color: $secondary_fg_color;
 }
 
+// #ShellExtensionTweakGroup button {
+// the remove button is a little strange to be in green, should it be changed to red?
+//   &.text-button {
+//     &.suggested-action {
+//       @include button(normal, $destructive_color, white);
+//
+//       &:hover {
+//         @include button(hover, $destructive_color, white);
+//       }
+//
+//       &:active {
+//         @include button(active, $destructive_color, white);
+//       }
+//
+//       &:disabled {
+//         @include button(disabled, $destructive_color);
+//       }
+//     }
+//   }
+// }
+
 /************
  * Calculator *
  ************/

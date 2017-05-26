@@ -581,11 +581,11 @@ button {
 
     /// * Text Buttons * ///
 
-    &:not(.image-button) label {
-      padding: 0 4px;
-    }
-
     &.text-button {
+      label {
+        padding: 0 4px;
+      }
+
       &:hover {
         border-color: $primary_color;
       }
@@ -2181,7 +2181,7 @@ menubar,
     min-height: 16px;
     padding: 4px 8px;
 
-    check, radio{
+    check, radio {
       min-width: 16px;
       min-height: 16px;
       transition: none;

@@ -9,6 +9,7 @@ everything and copying it to /usr/share/gnome-shell. I'm not sure how, but on UG
 worked for the logged in user's lock screen but I can't seem to get that behavior again.
 
 # Shell
+- Make app icon blend in more if not using a dash extension -> drop it completely?
 - A bug report might need to be submitted for this : The last keyboard key touched when using the on-screen
 keyboard is left in the "hover" state but that just makes the key look like it's stuck. The on-screen keyboard
 doesn't seem to go into the active state when a key is touched.

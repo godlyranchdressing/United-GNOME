@@ -64,8 +64,7 @@ stage {
   @include button;
 
   & {
-    // some anti-aliasing thingie with the rounded corners
-    box-shadow: inset 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color);
+    box-shadow: inset 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color), 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color) !important; // some anti-aliasing thingie with the rounded corners
 
     &:hover, &:focus {
       box-shadow: inset 0 0 1px $semi_fill_color;
@@ -685,10 +684,9 @@ StScrollBar {
 
 .popup-menu {
   min-width: 200px;
-  border: 1px solid $border_color !important;
-
-  // inherits  from something
   border-radius: $standard_radius !important;
+  border: 1px solid $border_color;
+  box-shadow: inset 0 0 1px $base_color, 0 0 1px $base_color !important; // some anti-aliasing thingie with the rounded corners
 
   .popup-menu-arrow {}
 
@@ -960,8 +958,8 @@ StScrollBar {
 %osd-panel {
   color: $fg_color;
   background-color: if($variant == "light", $bg_color, $base_color);
-  box-shadow: 0 0 0 $osd_border_length $osd_border !important;
-  border-width: 1px solid $dark_border_color;
+  box-shadow: 0 0 0 $osd_border_length $osd_border_color !important;
+  border-width: 1px solid $dark_border_color !important;
   border-radius: ($standard_radius * 2) !important;
 }
 
@@ -1675,12 +1673,12 @@ StScrollBar {
 
   &:hover {
     background-color: $semi_fill_color;
-    color: _hover_shade($primary_color);
+    color: _hover_shade(if($variant == "light", $primary_color, $fg_color));
   }
 
   &:active {
     background-color: $fill_color;
-    color: _pressed_shade($primary_color);
+    color: _pressed_shade(if($variant == "light", $primary_color, $fg_color));
   }
 }
 
@@ -1839,8 +1837,8 @@ StScrollBar {
 }
 
 .window-clone-border {
-  border: $osd_border_length solid $osd_light_border;
-  box-shadow: inset 0 0 0 $osd_box_shadow_length $osd_light_border;
+  border: $osd_border_length solid $osd_light_border_color;
+  box-shadow: inset 0 0 0 $osd_box_shadow_length $osd_light_border_color;
   border-radius: $standard_radius * 2;
 }
 
@@ -2017,42 +2015,55 @@ StScrollBar {
 }
 
 .app-view-controls {
+  // the backing behind the buttons
+  // this is going to have the background color and border radius
+  // the buttons themselves will render everything else
   width: 320px;
-  background-color: if($transparency == true, transparentize(lighten($ubuntu_black, 7%), $quarternary_opacity), lighten($ubuntu_black, 7%));
   margin-bottom: 50px;
-  padding: 0;
+  background-color: $base_color;
   border-radius: $standard_radius $standard_radius 0 0;
+  padding: 0;
 }
 
 .app-view-control {
-  background-color: rgba(0, 0, 0, 0.1) !important;
-  transition-duration: $standard_duration;
   padding: 0 32px;
   font-weight: 400;
-  color: $secondary_light_fg_color;
-  box-shadow: $shadow_bottom transparentize($light_fg_color, $disabled_opacity);
-  border-radius: $standard_radius $standard_radius 0 0;
 
-  &, .button {
-    border-radius: $standard_radius $standard_radius 0 0;
-    opacity: $secondary_opacity;
-    color: $secondary_fg_color;
+  .button {
+    border: 1px solid $border_color;
 
-    &, &:hover, &:active {
-      background-color: rgba(0, 0, 0, 0.1) !important;
-      box-shadow: $shadow_bottom $secondary_light_fg_color;
+    // give the buttons some border radius to match the container's
+    &:first-child {
+      border-right-style: none;
+      border-radius: $standard_radius 0 0 $standard_radius;
     }
 
-    &:hover {
-      color: $light_fg_color !important;
-      box-shadow: $light_fg_color !important;
+    &:last-child {
+      border-left-style: none;
+      border-radius: 0 $standard_radius $standard_radius 0;
+    }
+  }
+
+  &, &:hover, &:focus, &:active, &:checked {
+    // give a background color to make the box shadow render
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    transition-duration: 250ms;
+  }
+
+  & {
+    color: $tertiary_fg_color;
+    box-shadow: $shadow_bottom $tertiary_fg_color;
+
+    &:hover, &:focus {
+      color: $fg_color;
+      box-shadow: $fg_color;
+      box-shadow: $shadow_bottom $fg_color;
     }
 
     &:active, &:checked {
-      color: $primary_color !important;
-      font-weight: bold !important;
+      color: $primary_color;
       box-shadow: $shadow_bottom $primary_color;
-      opacity: 1;
+      font-weight: bold;
     }
   }
 }

@@ -26,11 +26,9 @@ radio-hover
 radio-active
 checkbox-checked
 checkbox-checked-hover
-checkbox-checked-active
 checkbox-checked-insensitive
 radio-checked
 radio-checked-hover
-radio-checked-active
 radio-checked-insensitive
 
 entry-bg
