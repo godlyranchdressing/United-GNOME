@@ -60,7 +60,7 @@
 iconview text,
 textview text {
   color: #ffffff;
-  background-color: #252525;
+  background-color: #1E1E1E;
 }
 
 .view:disabled, iconview:disabled,
@@ -152,7 +152,7 @@ assistant .sidebar .sidebar label.highlight {
   color: #ffffff;
   border: none;
   border-radius: 0px;
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: inset 0px -2px 0px #E95420;
   background-clip: padding-box;
   -gtk-icon-shadow: none;
@@ -196,7 +196,7 @@ entry {
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
-  background-color: #252525;
+  background-color: #1E1E1E;
 }
 
 spinbutton.search:not(.vertical) :last-child,
@@ -354,7 +354,7 @@ entry:drop(active) {
 entry {
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
-  background-color: #252525;
+  background-color: #1E1E1E;
 }
 
 .osd spinbutton:focus:not(.vertical), .osd
@@ -549,7 +549,7 @@ button {
   border: 1px solid rgba(244, 244, 244, 0.1);
   border-radius: 6px;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -557,7 +557,7 @@ button {
 
 
 button:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #E95420;
   border-color: rgba(255, 255, 255, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -789,7 +789,7 @@ button.osd {
   min-height: 32px;
   color: #ffffff;
   border-radius: 5px;
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -804,7 +804,7 @@ button.osd.image-button {
 
 
 button.osd:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #E95420;
   border-color: rgba(255, 255, 255, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -842,7 +842,7 @@ button.osd:disabled cellview {
 .csd popover.background.touch-selection button, .csd popover.background.magnifier button, popover.background.touch-selection button, popover.background.magnifier button,
 .osd
 button {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -1406,14 +1406,14 @@ button.needs-attention > image:dir(rtl), stacksidebar row.needs-attention > labe
 }
 
 toolbar.horizontal toolbutton button, toolbar.horizontal.inline-toolbar toolbutton button, toolbar.vertical toolbutton button, toolbar.vertical.inline-toolbar toolbutton button {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
 }
 
 toolbar.horizontal toolbutton button:hover, toolbar.horizontal.inline-toolbar toolbutton button:hover, toolbar.vertical toolbutton button:hover, toolbar.vertical.inline-toolbar toolbutton button:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #E95420;
   border-color: rgba(255, 255, 255, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -1840,14 +1840,14 @@ spinbutton.vertical button.down {
 }
 
 .osd spinbutton.vertical button:first-child {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
 }
 
 .osd spinbutton.vertical button:first-child:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #E95420;
   border-color: rgba(255, 255, 255, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -1932,7 +1932,7 @@ toolbar:not(.inline-toolbar) toolbutton > button:hover, toolbar:not(.inline-tool
   border-color: transparent;
   background-image: none;
   -gtk-icon-effect: highlight;
-  background-color: #252525;
+  background-color: #1E1E1E;
   border-color: rgba(244, 244, 244, 0.1);
 }
 
@@ -1959,7 +1959,7 @@ toolbar:not(.inline-toolbar) toolbutton button.text-button, toolbar.horizontal:n
 }
 
 toolbar:not(.inline-toolbar) toolbutton button.text-button:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton button.text-button:hover, toolbar.vertical:not(.inline-toolbar) toolbutton button.text-button:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
   border: 1px solid rgba(244, 244, 244, 0.1);
 }
 
@@ -2128,7 +2128,7 @@ headerbar switch slider {
   min-width: 20px;
   border-radius: 6px;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  background: #252525;
+  background: #1E1E1E;
   box-shadow: inset 0px 0px 0px 1px rgba(244, 244, 244, 0.08);
 }
 
@@ -2188,7 +2188,7 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
 .path-bar button {
   border-color: transparent;
   color: rgba(255, 255, 255, 0.75);
-  background-color: #252525;
+  background-color: #1E1E1E;
   border-color: transparent;
   transition: all 250ms ease;
   padding-left: 4px;
@@ -2233,27 +2233,27 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
 }
 
 #pathbarbox button {
-  background-color: #252525;
+  background-color: #1E1E1E;
   border-width: 0px;
   padding-left: 4px;
   padding-right: 4px;
   border-color: transparent;
   color: rgba(255, 255, 255, 0.75);
-  background-color: #252525;
+  background-color: #1E1E1E;
   border-color: transparent;
   transition: all 250ms ease;
 }
 
 #pathbarbox button:hover {
   border-color: transparent;
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
 }
 
 #pathbarbox button:active, #pathbarbox button:checked {
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: inset 0px -2px 0px #E95420;
   color: #E95420;
   border-color: transparent;
@@ -2325,14 +2325,14 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
 }
 
 #pathbarbox button.slider-button, #pathbarbox button.slider-button:disabled {
-  background-color: #252525;
+  background-color: #1E1E1E;
 }
 
 /**************
  * Tree Views *
  **************/
 treeview.view {
-  background-color: #252525;
+  background-color: #1E1E1E;
   border-left-color: #8b8b8b;
   border-top-color: #181818;
 }
@@ -2469,7 +2469,7 @@ treeview.view header button:last-child {
 }
 
 treeview.view header button {
-  background-color: #252525;
+  background-color: #1E1E1E;
 }
 
 treeview.view button.dnd,
@@ -2534,7 +2534,7 @@ menu, menu#PagePopup,
 .menu,
 .context-menu {
   margin: 0 4px 0 0;
-  background-color: #252525;
+  background-color: #1E1E1E;
   border: 1px solid rgba(244, 244, 244, 0.1);
 }
 
@@ -2665,7 +2665,7 @@ menuitem radio:dir(rtl) {
  ***************/
 popover.background {
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
   padding: 0px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -3223,7 +3223,7 @@ switch slider {
   min-width: 20px;
   border-radius: 6px;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  background: #252525;
+  background: #1E1E1E;
   box-shadow: inset 0px 0px 0px 1px rgba(244, 244, 244, 0.08);
 }
 
@@ -4153,7 +4153,7 @@ list button.image-button:active, list button.image-button:checked {
 .app-notification.frame {
   padding: 10px;
   border-radius: 0;
-  background-color: #252525;
+  background-color: #1E1E1E;
   border: 1px solid rgba(244, 244, 244, 0.1);
   box-shadow: inset 2px 0px 0px #E95420;
   background-clip: padding-box;
@@ -4161,7 +4161,7 @@ list button.image-button:active, list button.image-button:checked {
 
 .app-notification button,
 .app-notification.frame button {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -4195,7 +4195,7 @@ list button.image-button:active, list button.image-button:checked {
 
 .app-notification button:hover,
 .app-notification.frame button:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #E95420;
   border-color: rgba(255, 255, 255, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -4655,14 +4655,14 @@ colorswatch#add-color-button:only-child {
 }
 
 colorswatch#add-color-button overlay {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
 }
 
 colorswatch#add-color-button overlay:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #E95420;
   border-color: rgba(255, 255, 255, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -5083,7 +5083,7 @@ read if you used those and something break with a version upgrade you're on your
 headerbar entry, headerbar.titlebar entry {
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
-  background-color: #252525;
+  background-color: #1E1E1E;
 }
 
 headerbar entry:focus, headerbar.titlebar entry:focus {
@@ -5137,7 +5137,7 @@ headerbar button:disabled, headerbar button:disabled label, headerbar button:dis
 }
 
 headerbar button.text-button:hover, headerbar button.text-button.toggle:hover, headerbar.titlebar button.text-button:hover, headerbar.titlebar button.text-button.toggle:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #E95420;
   border-color: rgba(255, 255, 255, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -5230,21 +5230,21 @@ headerbar stackswitcher.horizontal.linked.stack-switcher button, headerbar stack
   border-radius: 0px;
   border-color: transparent;
   color: rgba(255, 255, 255, 0.75);
-  background-color: #252525;
+  background-color: #1E1E1E;
   border-color: transparent;
   transition: all 250ms ease;
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:hover {
   border-color: transparent;
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
 }
 
 headerbar stackswitcher.horizontal.linked.stack-switcher button:active, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked {
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: inset 0px -2px 0px #E95420;
   color: #E95420;
   border-color: transparent;
@@ -5297,21 +5297,21 @@ headerbar .path-bar button, headerbar.titlebar .path-bar button {
 headerbar .path-bar button.text-button.toggle, headerbar.titlebar .path-bar button.text-button.toggle {
   border-color: transparent;
   color: rgba(255, 255, 255, 0.75);
-  background-color: #252525;
+  background-color: #1E1E1E;
   border-color: transparent;
   transition: all 250ms ease;
 }
 
 headerbar .path-bar button.text-button.toggle:hover, headerbar.titlebar .path-bar button.text-button.toggle:hover {
   border-color: transparent;
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
 }
 
 headerbar .path-bar button.text-button.toggle:active, headerbar .path-bar button.text-button.toggle:checked, headerbar.titlebar .path-bar button.text-button.toggle:active, headerbar.titlebar .path-bar button.text-button.toggle:checked {
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: inset 0px -2px 0px #E95420;
   color: #E95420;
   border-color: transparent;
@@ -5367,7 +5367,7 @@ headerbar .path-bar button.slider-button:disabled, headerbar .path-bar button.sl
 }
 
 headerbar .path-bar button.slider-button, headerbar .path-bar button.slider-button:disabled, headerbar.titlebar .path-bar button.slider-button, headerbar.titlebar .path-bar button.slider-button:disabled {
-  background-color: #252525;
+  background-color: #1E1E1E;
 }
 
 .nautilus-window notebook header tabs tab {
@@ -5478,7 +5478,7 @@ window.nautilus-window popover grid stack button:not(.image-button):hover, windo
 
 window.nautilus-window paned box.floating-bar {
   border: 1px solid rgba(244, 244, 244, 0.1);
-  background-color: #252525;
+  background-color: #1E1E1E;
 }
 
 window.nautilus-window scrolledwindow treeeview.view, window.nautilus-window .nautilus-list-view overlay {
@@ -5513,7 +5513,7 @@ window.nautilus-window header tabs tab {
 }
 
 window.nautilus-window notebook > header.top tabs tab.reorderable-page:checked, window.nautilus-window notebook > header.top tabs tab.reorderable-page:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
 }
 
 window.nautilus-window paned > separator {
@@ -5545,7 +5545,7 @@ viewport.frame list.tweak-categories {
 }
 
 .tweak-group-startup row:hover {
-  background-image: image(#252525);
+  background-image: image(#1E1E1E);
 }
 
 .tweak-group-startup row > button:hover {
@@ -5571,7 +5571,7 @@ headerbar.titlebar button.title {
 }
 
 headerbar.titlebar button.title:hover {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #E95420;
   border-color: rgba(255, 255, 255, 0.1);
   outline-color: rgba(233, 84, 32, 0.3);
@@ -5627,7 +5627,7 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
   border-width: 0px;
   border-color: transparent;
   color: rgba(255, 255, 255, 0.75);
-  background-color: #252525;
+  background-color: #1E1E1E;
   border-color: transparent;
   transition: all 250ms ease;
 }
@@ -5642,14 +5642,14 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:hover {
   border-color: transparent;
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: inset 0px -2px 0px rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
   border-color: transparent;
 }
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:checked, headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:active {
-  background-color: #252525;
+  background-color: #1E1E1E;
   box-shadow: inset 0px -2px 0px #E95420;
   color: #E95420;
   border-color: transparent;
@@ -5748,7 +5748,7 @@ window.workbench popover list row label {
 }
 
 window.workbench popover button.model {
-  background-color: #252525;
+  background-color: #1E1E1E;
   color: #ffffff;
   border-color: rgba(244, 244, 244, 0.1);
   outline-color: rgba(255, 255, 255, 0.3);
@@ -5935,7 +5935,7 @@ UnityPanelWidget:backdrop,
 }
 
 .lightdm-combo .menu {
-  background-color: #252525;
+  background-color: #1E1E1E;
   border-radius: 0px;
   padding: 0px;
   color: white;

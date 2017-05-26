@@ -30,7 +30,7 @@ for distro in `cat $DISTROS`; do
   for variant in '-Dark'; do
     sassc -t expanded src/gtk-3.0/sass/$distro/gtk-$distro-dark.scss $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/gtk.css
     rm $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/* -R
-    cp src/gtk-3.0/common-assets/*dark* $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/ -R
+    cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/ -R
     for buttons in '-minimize' '-maximize' '-close'; do
       cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
       cp src/gtk-3.0/common-assets/titlebutton${buttons}-backdrop-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/

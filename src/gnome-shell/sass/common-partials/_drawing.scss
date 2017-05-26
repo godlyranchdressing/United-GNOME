@@ -143,94 +143,37 @@
   }
 }
 
-@mixin button($type, $_bg_color: if($variant == "light", $lighter_bg_color, $base_color), $_fg_color: $fg_color) {
+@mixin button {
   transition-duration: 250ms;
+  color: $fg_color;
+  background-color: if($variant == "light" or $transparency == false, $lighter_bg_color, transparent);
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+  icon-shadow: none;
 
-  @if $type == normal {
-    color: if($_fg_color == $fg_color, $secondary_fg_color, $_fg_color) !important;
-    background-color: $_bg_color !important;
-    border-color: transparent;
+  &:hover, &:focus {
+    color: if($variant == "light", _hover_shade($primary_color), $fg_color);
+    background-color: $semi_fill_color;
     box-shadow: none;
     text-shadow: none;
     icon-shadow: none;
-
-    &:focus {
-      color: $_fg_color;
-      background-color: $semi_fill_color !important;
-      text-shadow: none;
-      icon-shadow: none;
-      box-shadow: none;
-    }
-
-    &:hover {
-      color: if($variant == "light", _hover_shade($primary_color), $_fg_color);
-      background-color: $semi_fill_color !important;
-      border-color: transparent;
-      box-shadow: none;
-      text-shadow: none;
-      icon-shadow: none;
-    }
-
-    &:active, &:checked {
-      color: if($variant == "light", _pressed_shade($primary_color), $_fg_color);
-      background-color: $fill_color !important;
-      border-color: transparent;
-      box-shadow: none;
-      text-shadow: none;
-      icon-shadow: none;
-    }
-
-    &:insensitive {
-      color: $disabled_fg_color;
-      background-color: if($_bg_color == $base_color, $disabled_fill_color, $_bg_color);
-      border-color: transparent;
-      box-shadow: none;
-      text-shadow: none;
-      icon-shadow: none;
-    }
   }
 
-  @if $type == flat {
-    color: if($variant == "light", $dark_fg_color, $light_fg_color);
+  &:active, &:checked {
+    color: if($variant == "light", _pressed_shade($primary_color), $fg_color);
+    background-color: $fill_color;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  &:insensitive {
+    color: $disabled_fg_color;
     background-color: transparent;
     border-color: transparent;
     box-shadow: none;
     text-shadow: none;
     icon-shadow: none;
-
-    &:focus {
-      color: if($variant == "light", $dark_fg_color, $light_fg_color);
-      background-color: $fill_color !important;
-      text-shadow: none;
-      icon-shadow: none;
-      box-shadow: none;
-    }
-
-    &:hover {
-      color: if($variant == "light", $dark_fg_color, $light_fg_color);
-      background-color: $semi_fill_color !important;
-      border-color: transparent;
-      box-shadow: none;
-      text-shadow: none;
-      icon-shadow: none;
-    }
-
-    &:active {
-      color: if($variant == "light", $dark_fg_color, $light_fg_color);
-      background-color: $fill_color !important;
-      border-color: transparent;
-      box-shadow: none;
-      text-shadow: none;
-      icon-shadow: none;
-    }
-
-    &:insensitive {
-      color: $disabled_fg_color;
-      background-color: transparent;
-      border-color: transparent;
-      box-shadow: none;
-      text-shadow: none;
-      icon-shadow: none;
-    }
   }
 }

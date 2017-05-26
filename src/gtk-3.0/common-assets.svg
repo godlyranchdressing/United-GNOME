@@ -8467,7 +8467,7 @@
       <linearGradient
          id="color-bg-dark">
         <stop
-           stop-color="#252525"
+           stop-color="#1E1E1E"
            id="stop92" />
       </linearGradient>
       <linearGradient
@@ -11267,7 +11267,7 @@
        inkscape:connector-curvature="0"
        id="path2357-9"
        d="m 555,239.38782 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
-       style="fill:#252525;fill-opacity:1;stroke:none" />
+       style="fill:#1E1E1E;fill-opacity:1;stroke:none" />
     <path
        inkscape:connector-curvature="0"
        style="fill:#2d2d2d;fill-opacity:1;stroke:none"
@@ -11305,7 +11305,7 @@
        cx="-247.36218"
        transform="matrix(0,-1,-1,0,0,0)"
        id="path7283-2-7-4-9-7-0"
-       style="fill:#252525;fill-opacity:1;stroke:none;stroke-width:1"
+       style="fill:#1E1E1E;fill-opacity:1;stroke:none;stroke-width:1"
        r="8" />
     <path
        id="path7285-2-19-8"
@@ -11572,7 +11572,7 @@
        inkscape:connector-curvature="0"
        id="path2357-9-9"
        d="m 555,149.375 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
-       style="fill:#252525;fill-opacity:1;stroke:none;stroke-width:1" />
+       style="fill:#1E1E1E;fill-opacity:1;stroke:none;stroke-width:1" />
     <path
        id="path4142-3-6"
        d="m 555,149.375 c -8,0 -8,0.88888 -8,8 0,7.11111 0,8 8,8 8,0 8,-0.88889 8,-8 0,-7.11112 0,-8 -8,-8 z m 0,1 c 1.98144,0 3.45949,0.0756 4.46875,0.25 1.00926,0.17444 1.48125,0.41667 1.78125,0.75 0.3,0.33333 0.51118,0.88855 0.625,1.875 0.11382,0.98645 0.125,2.34722 0.125,4.125 0,1.77778 -0.0112,3.13855 -0.125,4.125 -0.11382,0.98645 -0.325,1.54167 -0.625,1.875 -0.3,0.33333 -0.77199,0.57556 -1.78125,0.75 -1.00926,0.17444 -2.48731,0.25 -4.46875,0.25 -1.98144,0 -3.45949,-0.0756 -4.46875,-0.25 -1.00926,-0.17444 -1.48125,-0.41667 -1.78125,-0.75 -0.3,-0.33333 -0.51118,-0.88855 -0.625,-1.875 -0.11382,-0.98645 -0.125,-2.34722 -0.125,-4.125 0,-1.77778 0.0112,-3.13855 0.125,-4.125 0.11382,-0.98645 0.325,-1.54167 0.625,-1.875 0.3,-0.33333 0.77199,-0.57556 1.78125,-0.75 1.00926,-0.17444 2.48731,-0.25 4.46875,-0.25 z"
@@ -11594,7 +11594,7 @@
        cx="-247.36218"
        transform="matrix(0,-1,-1,0,0,0)"
        id="path7283-2-7-4-9-7-0-7"
-       style="fill:#252525;fill-opacity:0.94117647;stroke:none;stroke-width:1"
+       style="fill:#1E1E1E;fill-opacity:0.94117647;stroke:none;stroke-width:1"
        r="8" />
     <path
        id="path7285-17-1"

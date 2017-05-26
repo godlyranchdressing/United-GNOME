@@ -228,10 +228,6 @@ dialog, messagedialog {
       background-color: transparent;
     }
   }
-
-  headerbar {
-    border-radius: $standard_radius $standard_radius 0 0;
-  }
 }
 
 messagedialog {
@@ -252,7 +248,7 @@ messagedialog {
   }
 
   &.background.csd {
-    &, box.horizontal:last-child{
+    &, box.horizontal:last-child {
       box-shadow: none;
     }
   }

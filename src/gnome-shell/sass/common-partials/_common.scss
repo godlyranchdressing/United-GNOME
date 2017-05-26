@@ -43,7 +43,7 @@ stage {
 
   @include font(button);
 
-  @include button(flat);
+  @include button;
 
   &:hover {
     background-color: $semi_fill_color !important;
@@ -61,17 +61,34 @@ stage {
 
   @include font(button);
 
-  @include button(flat);
+  @include button;
+
+  & {
+    // some anti-aliasing thingie with the rounded corners
+    box-shadow: inset 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color);
+
+    &:hover, &:focus {
+      box-shadow: inset 0 0 1px $semi_fill_color;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 1px $fill_color;
+    }
+  }
 
   &:first-child {
-    border-radius: 0 0 0 $standard_radius !important;
+    border-radius: 0 0 0 ($standard_radius * 2) !important;
     border-right: 1px solid $border_color;
     border-left: 0px solid $border_color;
   }
 
   &:last-child {
     border-right-width: 0px;
-    border-radius: 0 0 $standard_radius 0 !important;
+    border-radius: 0 0 ($standard_radius * 2) 0 !important;
+  }
+
+  &:first-child:last-child {
+    border-radius: 0 0 ($standard_radius * 2) ($standard_radius * 2) !important;
   }
 }
 
@@ -268,11 +285,7 @@ StScrollBar {
 .modal-dialog {
   @extend %osd-panel;
 
-  border-radius: 0px;
   color: $fg_color;
-  background-color: $base_color;
-
-  //  border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 
   .modal-dialog-content-box {
     padding: 24px;
@@ -313,6 +326,7 @@ StScrollBar {
   @extend %osd-panel;
 
   spacing: 42px;
+  background-color: red;
 
   // border: 1px solid if($variant == "light", transparentize($fg_color, $middle_opacity), $border_color);
 }
@@ -484,7 +498,6 @@ StScrollBar {
 .prompt-dialog {
   @extend %osd-panel;
 
-  //this is the width of the entire modal popup
   min-width: 500px;
   max-width: 600px;
 }
@@ -947,15 +960,9 @@ StScrollBar {
 %osd-panel {
   color: $fg_color;
   background-color: if($variant == "light", $bg_color, $base_color);
-  border: 1px solid $dark_border_color !important;
   box-shadow: 0 0 0 $osd_border_length $osd_border !important;
-  border-radius: $standard_radius * 2;
-
-  // @if $variant == "light" {
-  // box-shadow: $popover_shadow;
-  // }
-  // padding: 12px;
-  //border-radius: $standard_radius;
+  border-width: 1px solid $dark_border_color;
+  border-radius: ($standard_radius * 2) !important;
 }
 
 /* Tiled window previews */
@@ -1727,9 +1734,9 @@ StScrollBar {
 .nm-dialog {
   @extend %osd-panel;
 
-  max-height: 500px;
   min-height: 450px;
   min-width: 470px;
+  max-height: 500px;
 }
 
 .nm-dialog-content {
@@ -1945,18 +1952,11 @@ StScrollBar {
 #dash {
   font-size: 1em;
   color: $fg_color;
+  background-color: if($transparency != true or $variant == "light", $ubuntu_black !important, transparentize($ubuntu_black, $quarternary_opacity) !important);
   padding: 0;
   border: 1px solid $border_color;
   border-left-width: 0px;
   border-radius: 0 $standard_radius $standard_radius 0;
-
-  @if $transparency != true or $variant == "light" {
-    // the dash should never be white
-    background-color: $ubuntu_inkstone !important;
-  }
-  @else {
-    background-color: transparentize($ubuntu_black, $quarternary_opacity) !important;
-  }
 
   &:rtl {
     border-radius: $standard_radius 0 $standard_radius 0;
@@ -2272,7 +2272,7 @@ StScrollBar {
   }
 
   .notification-actions {
-    @include button(normal);
+    @include button;
 
     background-color: transparent !important;
     min-height: $small_size;
@@ -2288,6 +2288,9 @@ StScrollBar {
   }
 
   .notification-button {
+    margin-left: 2px;
+
+    // don't overlap the color stripe
     background-color: transparent !important;
     min-height: $small_size;
     padding: 6px 0;
@@ -2302,20 +2305,23 @@ StScrollBar {
     }
 
     &:active {
-      // not working even with a background image?
-      background-image: image($fill_color) !important;
+      // not working
+      // background-image: image($fill_color) !important;
+
     }
 
     &:first-child {
-      border-radius: 0 0 0 $standard_radius !important;
+      border-radius: 0 0 0 $standard_radius;
     }
 
     &:last-child {
-      border-radius: 0 0 $standard_radius 0 !important;
+      border-radius: 0 0 $standard_radius 0;
     }
   }
 
   &:last-child > :first-child {
+    // target the actual button
+    // this class seems to only be the actual dropdown and doesn't include the button itself
     @extend %message;
 
     &:hover {
@@ -2339,8 +2345,6 @@ StScrollBar {
   color: $fg_color;
   border: 2px solid $fg_color;
   border-radius: 0.9em;
-
-  // should be 0.8 but whatever; wish I could do 50%;
 }
 
 .secondary-icon {
@@ -2542,7 +2546,7 @@ $legacy_icon_size: 24px;
   border: none;
   color: inherit;
 
-  @include button(normal);
+  @include button;
 
   &:grayed {
     //FIXME
@@ -2559,8 +2563,10 @@ $legacy_icon_size: 24px;
     background-color: $fill_color;
   }
 
-  // TODO: the last pressed key looks stuck, seems possible to avoid as the last place you touch when using a touchscreen always seems to have the "cursor" over it
-  // should probably submit a bug report
+  // TODO: if you're using a touchscreen, the styling for the last pressed key is misleading
+  // it makes it look stuck but this might be impossible to avoid
+  // as the last place you touch when using a touchscreen always seems to have the "cursor" over it
+  // should probably submit a bug report?
 }
 
 .keyboard-subkeys {
@@ -2688,10 +2694,6 @@ $legacy_icon_size: 24px;
 .login-dialog {
   @extend %osd-panel;
 
-  //reset
-  border: none;
-  background-color: transparent;
-
   StEntry {
     @include entry;
   }
@@ -2702,16 +2704,27 @@ $legacy_icon_size: 24px;
 
   .modal-dialog-button-box {
     spacing: 3px;
-    border-radius: 0 0 $standard_radius $standard_radius;
   }
 
   .modal-dialog-button {
     padding: 0 16px;
 
-    @include button(normal);
+    @include button;
 
-    color: $fg_color !important;
+    color: $fg_color;
     font-weight: 400;
+
+    & {
+      box-shadow: inset 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color);
+
+      &:hover, &:focus {
+        box-shadow: inset 0 0 1px $semi_fill_color;
+      }
+
+      &:active {
+        box-shadow: inset 0 0 1px $fill_color;
+      }
+    }
 
     &:first-child {
       border-radius: 0 0 0 $standard_radius !important;
@@ -2719,6 +2732,10 @@ $legacy_icon_size: 24px;
 
     &:last-child {
       border-radius: 0 0 $standard_radius 0 !important;
+    }
+
+    &:first-child:last-child {
+      border-radius: 0 0 $standard_radius $standard_radius;
     }
   }
 }
@@ -3064,7 +3081,7 @@ $legacy_icon_size: 24px;
 
   @include font(button);
 
-  @include button(flat);
+  @include button;
 
   &:hover {
     border: none;

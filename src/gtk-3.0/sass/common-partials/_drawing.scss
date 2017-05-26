@@ -373,11 +373,18 @@
   border-radius: $standard_radius;
   outline-offset: -4px;
 
+  &, slider {
+    transition: $button_transition;
+  }
+
+  &:hover {
+    box-shadow: $shadow_surround $slider_border, $shadow_surround $slider_border;
+  }
+
   slider {
     min-height: 23px;
     min-width: 20px;
     border-radius: $standard_radius;
-    transition: $button_transition;
     background: $slider_bg;
     box-shadow: $shadow_surround $slider_border;
   }
@@ -393,6 +400,10 @@
     box-shadow: $shadow_surround _pressed_shade($suggested_color);
     border-color: _pressed_shade($suggested_color);
     background-color: $suggested_color;
+
+    &:hover {
+      background-color: _pressed_shade($suggested_color);
+    }
 
     slider {
       box-shadow: $shadow_surround _pressed_shade($suggested_color), $shadow_surround _pressed_shade($suggested_color);
