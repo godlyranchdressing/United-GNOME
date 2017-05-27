@@ -36,11 +36,11 @@ $alt_bg_color: if($variant == "light", $ubuntu_alt_bg, lighten($base_color, 7.5%
 $lighter_bg_color: if($variant == "light", lighten($base_color, 5%), lighten($base_color, 7%));
 
 @if $transparency == true {
-  $base_color: transparentize($base_color, $quarternary_opacity);
-  $bg_color: transparentize($bg_color, $quarternary_opacity);
-  $alt_base_color: transparentize($alt_base_color, $quarternary_opacity);
-  $alt_bg_color: transparentize($alt_bg_color, $quarternary_opacity);
-  $lighter_bg_color: transparentize($lighter_bg_color, $quarternary_opacity);
+  $base_color: transparentize($base_color, $shell_transparency);
+  $bg_color: transparentize($bg_color, $shell_transparency);
+  $alt_base_color: transparentize($alt_base_color, $shell_transparency);
+  $alt_bg_color: transparentize($alt_bg_color, $shell_transparency);
+  $lighter_bg_color: transparentize($lighter_bg_color, $shell_transparency);
 }
 @else {
   $base_color: $base_color;
@@ -78,7 +78,7 @@ $warning_bg_color: lighten($orange, 5);
 $error_bg_color: darken($red, 5);
 
 // Border and highlight colours
-$osd_border_color: transparentize(if($variant == "light", $ubuntu_white, $ubuntu_black), 0.6);
-$osd_light_border_color: transparentize($ubuntu_white, 0.6);
+$osd_border_color: transparentize(if($variant == "light", $ubuntu_white, $ubuntu_black), 0.5);
+$osd_light_border_color: transparentize($ubuntu_white, 0.5);
 $border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($ubuntu_white, 0.1));
 $dark_border_color: scale-alpha($ubuntu_white, 0.1);
