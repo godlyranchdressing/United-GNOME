@@ -59,46 +59,33 @@
           border-width: 0px;
           box-shadow: $_dock_border;
         }
-
-        @for $i from 1 through 4 {
-          // inject the external indicators
-          .running#{$i} .app-well-app-running-dot {
-            background-image: url("assets/dash/running#{$i}-indicator.svg");
-          }
-        }
       }
     }
   }
 
-  #dashtodockContainer #dash {/*
-    // crashes GNOME Shell when styled?
-    .app-well-app.running, .running {
-      background-color: transparentize($primary_color, $secondary_opacity);
-
-      &:hover {
-        background-color: transparentize(_hover_shade($primary_color), $secondary_opacity);
-      }
-
-      &:active {
-        background-color: transparentize(_pressed_shade($primary_color), $middle_opacity);
-      }
-
-      &.focused {
-        &, &:hover {
-          background-color: transparentize($primary_color, $lower_opacity);
-        }
-      }
-    }*/
-
+  #dashtodockContainer #dash {
     .app-well-app {
       &:hover {
-        // hovering over an unopened item looks like this (should mirror the running item look from above imo)
-        background-color: transparentize($primary_color, $secondary_opacity);
+        .overview-icon {
+          // hovering over an unopened item looks like this (should mirror the running item look from above imo)
+          background-color: transparentize($primary_color, $secondary_opacity);
+        }
       }
-
+      
       &:active {
-        // clicking on an unopened item looks like this
-        background-color: transparentize(_pressed_shade($primary_color), $secondary_opacity);
+        .overview-icon {
+          // clicking on an unopened item looks like this
+          background-color: transparentize(_pressed_shade($primary_color), $secondary_opacity);
+        }
+      }
+    }
+
+    @for $i from 1 through 4 {
+      // inject the external indicators
+      .running#{$i} {
+        .app-well-app-running-dot {
+          background-image: url("assets/dash/running#{$i}-indicator.svg");
+        }
       }
     }
   }

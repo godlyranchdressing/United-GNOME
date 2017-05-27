@@ -67,8 +67,6 @@ stage {
     // some anti-aliasing thingie with the rounded corners
     box-shadow: inset 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color), 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color) !important;
 
-
-
     &:hover, &:focus {
       box-shadow: inset 0 0 1px $semi_fill_color;
     }
@@ -692,7 +690,9 @@ StScrollBar {
   min-width: 200px;
   border-radius: $standard_radius !important;
   border: 1px solid $border_color;
-  box-shadow: inset 0 0 1px $base_color, 0 0 1px $base_color !important; // some anti-aliasing thingie with the rounded corners
+  box-shadow: inset 0 0 1px $base_color, 0 0 1px $base_color !important;
+
+  // some anti-aliasing thingie with the rounded corners
 
   .popup-menu-arrow {}
 
@@ -796,7 +796,7 @@ StScrollBar {
 .popup-separator-menu-item {
   //-margin-horizontal: 24px;
   height: 1px;
-
+  // TODO: make this resemble the search separator
   //not really the whole box
   margin: 0px (64px - 24px);
   background-color: transparent;
@@ -990,7 +990,7 @@ StScrollBar {
 /* TOP BAR */
 
 #panel {
-  background-color: if($transparency == true, transparentize($ubuntu_black, 0.65), $base_color);
+  background-color: if($transparency == true, transparentize($ubuntu_black, 0.6), $base_color);
   box-shadow: if($variant == "light", $popover_shadow, none);
   font-size: 9.5pt;
   height: 30px;
@@ -1449,22 +1449,14 @@ StScrollBar {
 }
 
 .message-list-clear-button.button {
-  background-color: $lighter_bg_color;
-  color: $secondary_fg_color;
-  box-shadow: $shadow_surround $border_color;
+  @include button;
+  border: 1px solid transparent;
   border-radius: $standard_radius;
-
-  &:hover {
-    background-color: $semi_fill_color;
-    color: $fg_color;
-  }
-
-  &:active {
-    background-color: $fill_color;
-    color: $fg_color;
-  }
-
   margin: 8px 8px 0;
+
+  &:hover, &:active, &:focus{
+    border-color: $border_color;
+  }
 }
 
 .message-list-sections {
@@ -1526,10 +1518,6 @@ StScrollBar {
   padding-top: 2px 0;
   color: $tertiary_fg_color;
   font-size: 1em;
-
-  /* HACK: the label should be baseline-aligned with a 1em label,
-           fake this with some bottom padding */
-  // padding-bottom: 0px;  leads to popping on hover on 3.22 TODO: see if this affects 3.24 in any negative way
 }
 
 .message-secondary-bin > StIcon {
@@ -1956,7 +1944,7 @@ StScrollBar {
 #dash {
   font-size: 1em;
   color: $fg_color;
-  background-color: if($transparency != true or $variant == "light", $ubuntu_black !important, transparentize($ubuntu_black, $quarternary_opacity) !important);
+  background-color: if($transparency != true or $variant == "light", $ubuntu_black !important, transparentize($ubuntu_black, $middle_opacity) !important);
   padding: 0;
   border: 1px solid $border_color;
   border-left-width: 0px;

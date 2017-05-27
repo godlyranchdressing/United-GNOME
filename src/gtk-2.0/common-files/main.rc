@@ -250,7 +250,7 @@ style "default" {
       overlay_file = "assets/radio-checked-hover.png"
       overlay_stretch = FALSE
     }
-    
+
     image {
       function = OPTION
       state = ACTIVE

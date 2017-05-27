@@ -41,9 +41,9 @@ $backdrop_transition: $button_transition;
 
   outline-color: gtkalpha(currentColor, 0.3);
   outline-style: dashed;
-  outline-offset: -6px;
+  outline-offset: -3px;
   outline-width: 1px;
-  -gtk-outline-radius: 0px;
+  -gtk-outline-radius: ($standard_radius / 2);
   -gtk-secondary-caret-color: $primary_color;
 }
 
@@ -558,7 +558,7 @@ button {
     transition: $button_transition;
 
     @include button(normal);
-
+    
     &:hover {
       @include button(hover);
     }
@@ -1702,7 +1702,7 @@ headerbar {
   background-color: $headerbar_bg;
   color: if($headerbar == "dark", $light_fg_color, $headerbar_fg_color);
   border-radius: ($standard_radius + 4) ($standard_radius + 4) 0 0;
-  box-shadow: if($headerbar == "dark" or $variant == "dark", none, $headerbar_shadow);
+  box-shadow: $headerbar_shadow; // TODO:
   min-height: 45px;
   padding: 0 6px;
 
@@ -2596,7 +2596,7 @@ notebook {
       min-height: 18px;
       min-width: 48px;
       padding: 4px 8px;
-      outline-offset: -6px;
+      outline-offset: -3px;
       border-width: 0;
       font-weight: 500;
 
@@ -3100,7 +3100,7 @@ scale {
 
   Scale
   trough {
-    outline-offset: 2px;
+    outline-style: none;
     background-color: $trough_background_color;
   }
 
