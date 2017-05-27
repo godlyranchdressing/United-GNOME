@@ -21,17 +21,6 @@ window.nautilus-window {
 
   scrolledwindow treeeview.view, .nautilus-list-view overlay {
     background-color: $bg_color;
-
-    // treeview:not(header) {
-    // weirdness where the selected background color in treeview doesn't work for multiple selected items
-    // seems to be working now but I'll keep the rule just in case
-    //   &, &:backdrop {
-    //     :selected {
-    //       background: $primary_color;
-    //     }
-    //   }
-    // }
-
   }
 
   popover viewport button {
@@ -109,26 +98,28 @@ viewport.frame list.tweak-categories {
   color: $secondary_fg_color;
 }
 
-// #ShellExtensionTweakGroup button {
-// the remove button is a little strange to be in green, should it be changed to red?
-//   &.text-button {
-//     &.suggested-action {
-//       @include button(normal, $destructive_color, white);
-//
-//       &:hover {
-//         @include button(hover, $destructive_color, white);
-//       }
-//
-//       &:active {
-//         @include button(active, $destructive_color, white);
-//       }
-//
-//       &:disabled {
-//         @include button(disabled, $destructive_color);
-//       }
-//     }
-//   }
-// }
+/*
+#ShellExtensionTweakGroup button {
+the remove button is a little strange to be in green, should it be changed to red?
+  &.text-button {
+    &.suggested-action {
+      @include button(normal, $destructive_color, white);
+
+      &:hover {
+        @include button(hover, $destructive_color, white);
+      }
+
+      &:active {
+        @include button(active, $destructive_color, white);
+      }
+
+      &:disabled {
+        @include button(disabled, $destructive_color);
+      }
+    }
+  }
+ }
+  */
 
 /************
  * Calculator *

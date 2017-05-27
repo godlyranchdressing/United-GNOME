@@ -64,7 +64,10 @@ stage {
   @include button;
 
   & {
-    box-shadow: inset 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color), 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color) !important; // some anti-aliasing thingie with the rounded corners
+    // some anti-aliasing thingie with the rounded corners
+    box-shadow: inset 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color), 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color) !important;
+
+
 
     &:hover, &:focus {
       box-shadow: inset 0 0 1px $semi_fill_color;
@@ -142,7 +145,10 @@ StScrollBar {
     border-radius: 100px;
     background-color: $tertiary_fg_color;
 
-    //border: 4px solid transparent; //would be nice to margin or at least to transparent
+    /*
+     //would be nice to margin or at least to transparent
+    border: 4px solid transparent;
+    */
     margin: 4px;
 
     &:hover {

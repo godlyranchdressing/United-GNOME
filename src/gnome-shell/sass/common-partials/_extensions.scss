@@ -70,25 +70,25 @@
     }
   }
 
-  #dashtodockContainer #dash {
-    @for $i from 1 through 4 {
-      StWidget.running#{$i} {
-        // running items look like this
-        background-color: transparentize($primary_color, $secondary_opacity);
+  #dashtodockContainer #dash {/*
+    // crashes GNOME Shell when styled?
+    .app-well-app.running, .running {
+      background-color: transparentize($primary_color, $secondary_opacity);
 
-        &:hover {
-          background-color: transparentize(_hover_shade($primary_color), $secondary_opacity);
-        }
+      &:hover {
+        background-color: transparentize(_hover_shade($primary_color), $secondary_opacity);
+      }
 
-        &:active {
-          background-color: transparentize(_pressed_shade($primary_color), $middle_opacity);
-        }
+      &:active {
+        background-color: transparentize(_pressed_shade($primary_color), $middle_opacity);
+      }
 
-        &.focused {
+      &.focused {
+        &, &:hover {
           background-color: transparentize($primary_color, $lower_opacity);
         }
       }
-    }
+    }*/
 
     .app-well-app {
       &:hover {
