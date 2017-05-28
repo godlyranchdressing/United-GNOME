@@ -39,7 +39,8 @@ function install {
     echo "Asking sudo rights to move original theme as back up.";
     echo "mv $res $res.bak";
 
-    sudo mv $res $res.bak 
+    sudo mv $res $res.bak
+    checkStatus
 
     echo "Checking does $variation folder exist in current directory.";
     exists "`pwd`/$variation";
@@ -61,6 +62,7 @@ function install {
     checkStatus
 
     rm -f gnome-shell-theme.gresource;
+    checkStatus
 
     echo "Completed!";
 }
@@ -71,7 +73,10 @@ function uninstall {
     echo "Uninstalling current theme and restoring previous theme...";
     echo "Asking sudo rights to restore.";
     sudo rm -f $gnomeShell/gnome-shell-theme.gresource;
+    checkStatus
+    
     sudo mv $res.bak $res
+    checkStatus
 
     echo "Completed!";
 }
