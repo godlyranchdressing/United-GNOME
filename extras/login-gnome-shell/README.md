@@ -6,6 +6,10 @@
 * Run the gnome-shell-installer.sh with command **./united-login-theme-installer.sh -i** or **./united-login-theme-installer.sh -i variant** Variant stands for variation of login themese. Currently working for ubuntu and fedora.
 * After installer wizard is completed it will ask you to reboot your system. Reason behind this is 
 that for login shell theme all the changes are taken effect only after the reboot is done. 
+* **Reboot Alternative:** if you want to save the reboot roundtrip, simply logout from your Gnome Session and switch to one of the text consoles (for example **CTRL+ALT+F2**), login in there and invoke the following command to respawn *gnome-shell*:
+```
+sudo killall -3 gnome-shell && exit
+```
 
 ## Uninstalling
 
