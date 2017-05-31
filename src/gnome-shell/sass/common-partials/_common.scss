@@ -1458,7 +1458,7 @@ StScrollBar {
 
 .message-list-clear-button.button {
   @include button;
-  background-color: $lighter_bg_color !important;
+  background-color: if($transparency == true, $base_color, $lighter_bg_color) !important;
   border: 1px solid $border_color;
   border-radius: $standard_radius;
   margin: 8px 8px 0;

@@ -104,6 +104,9 @@
 
   #dashtodockContainer, .dashtopanelMainPanel {
     // the non-panel mode dock
+    #dash {
+      border-width: 0px;
+    }
 
     .show-apps {
       .overview-icon {
