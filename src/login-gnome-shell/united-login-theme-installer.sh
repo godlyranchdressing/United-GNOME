@@ -6,8 +6,6 @@
 gnomeShell=/usr/share/gnome-shell
 res=$gnomeShell/gnome-shell-theme.gresource
 
-path="";
-
 function showHelp {
     echo "Usage. united-login-installer [ -iu ] [ variant ]. E.g. united-login-installer -i
 Used to install UNITED Gnome login theme. Can be also used to uninstall login themes.
@@ -23,7 +21,7 @@ function exists {
 
 function checkStatus {
     status=$?;
-    if [ "$status" -gt 0 ]; then echo "Failure in execution! Exiting with code: $status" && exit $status; fi
+    if [ "$status" -gt 0 ]; then echo "Failure in execution, exiting with status $status" && exit $status; fi;
 }
 
 function install {
@@ -39,8 +37,7 @@ function install {
     echo "Asking sudo rights to move original theme as back up.";
     echo "mv $res $res.bak";
 
-    sudo mv $res $res.bak
-    checkStatus
+    sudo mv $res $res.bak 
 
     echo "Checking does $variation folder exist in current directory.";
     exists "`pwd`/$variation";
@@ -54,29 +51,29 @@ function install {
     cd "`pwd`/$variation";
     
     echo "Compiling gnome-shell-theme.gresource.xml...";
+    echo "$? fooooooooooooooooooooooooooooooooo"
     $compile gnome-shell-theme.gresource.xml
-    checkStatus
+    echo "$? fooooooooooooooooooooooooooooooooo"
+    checkStatus;
 
     echo "Copying compiled gnome shell theme to $gnomeShell";
     sudo cp gnome-shell-theme.gresource $gnomeShell;
-    checkStatus
+    
+    echo "$? fooooooooooooooooooooooooooooooooo"
+    if [ "$status" -gt 0 ]; then echo "Failure in execution, exiting with status $status" && exit $status; fi;
 
     rm -f gnome-shell-theme.gresource;
-    checkStatus
 
     echo "Completed!";
 }
 
 function uninstall {
-    test ! -f $gnomeShell/gnome-shell-theme.gresource.bak && echo "Back up file does not exists, cannot proceed unistall, exiting" && exit 1;
+    test ! -f $res.bak && echo "Back up file does not exists, cannot proceed unistall, exiting" && exit 1;
 
     echo "Uninstalling current theme and restoring previous theme...";
     echo "Asking sudo rights to restore.";
-    sudo rm -f $gnomeShell/gnome-shell-theme.gresource;
-    checkStatus
-    
+    sudo rm -f $res;
     sudo mv $res.bak $res
-    checkStatus
 
     echo "Completed!";
 }
@@ -95,9 +92,6 @@ function reboot {
 
     echo "Press alt + F2 and then type r to restart gnome shell. This makes login theme party available.";
 }
-
-path=`echo $0 | rev | cut -d \/ -f 2- | rev`;
-if [ "$path" != "." ]; then cd $path; fi;
 
 test ${#1} -eq 0 && showHelp && exit 1;
 
@@ -122,13 +116,13 @@ case $mode in
             done;
         fi;
         install $variant;
-        checkStatus
+        checkStatus;
         reboot;
 		;;
 	u)
 		echo "Uninstalling...";
         uninstall;
-        checkStatus
+        checkStatus;
         reboot;
 		break
 		;;
