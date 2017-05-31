@@ -24,9 +24,6 @@ style "vim_notebook" {
 # we need to handle that
 widget "vim-main-window*GtkNotebook.GtkEventBox" style "vim_notebook"
 
-# (he)xchat input box
-class "SexySpellEntry" style:highest "normal_entry"
-
 # Chromium uses base as the fill colour of its own entries
 # This would be fine but Gtk+ uses it to fill the surrounding space, so its set to bg
 # That results in Chromium using it for the fill, so we need to handle that

@@ -1,15 +1,16 @@
-In order of priority.
+Semi in order of priority.
 
 # Shell and GTK3
 - Use ems instead of px
 
+# Shell
+- Make the show apps icon blend in more if not using a dash extension. Possibly drop completely if this isn't viable.
+
+# GTK2/3
+- Make the dark theme follow Unity 8's?
+
 # Assets
 - Window buttons?
-- See just how much of Unity 8/Suru can be imported and used
-- Replicate Unity 7/8's OSD elements by using new border image assets as opposed to relying on box shadows which don't really stand out much
-
-# Shell
-- Make the show apps icon blend in more if not using a dash extension -> maybe drop completely if DtD isn't enabled
 
 # Compact GTK3 Variant
 - Make a compact version.

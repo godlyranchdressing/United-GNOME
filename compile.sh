@@ -30,6 +30,7 @@ for distro in `cat $DISTROS`; do
   for variant in '-Dark'; do
     sassc -t expanded src/gtk-3.0/sass/$distro/gtk-$distro-dark.scss $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/gtk.css
     rm $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/* -R
+    cp src/gnome-shell/common-assets-dark/* $OUTPUT/United-${distro^}/United-${distro^}${variant^}/gnome-shell/assets/ -R
     cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/ -R
     for buttons in '-minimize' '-maximize' '-close'; do
       cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
@@ -63,6 +64,8 @@ for distro in `cat $DISTROS`; do
     for file_name in 'Dark'; do
       cp ${DISTRO_FOLDER}/${distro}/gtkrc-${variant}-${distro} Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/gtkrc
       cp ${COMMON_FOLDER}/main.rc Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/main.rc
+      cp ${COMMON_FOLDER}/hacks-dark.rc Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/hacks.rc
+      rm Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/*
       cp ${COMMON_ASSETS_FOLDER}-${variant}/* Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/
       cp ${ASSETS_FOLDER}/${distro}/${distro}-${variant}-assets/* Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/
     done
@@ -71,6 +74,8 @@ for distro in `cat $DISTROS`; do
     for file_name in 'Darker'; do
       cp ${DISTRO_FOLDER}/${distro}/gtkrc-${variant}-${distro} Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/gtkrc
       cp ${COMMON_FOLDER}/main.rc Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/main.rc
+      cp ${COMMON_FOLDER}/hacks.rc Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/hacks.rc
+      rm Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/*
       cp src/gtk-2.0/common-assets-light/* Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/
       cp ${ASSETS_FOLDER}/${distro}/${distro}-light-assets/* Compiled/United-${distro^}/United-${distro^}-$file_name/gtk-2.0/assets/
     done
@@ -78,6 +83,8 @@ for distro in `cat $DISTROS`; do
   for variant in 'light'; do
     cp ${DISTRO_FOLDER}/${distro}/gtkrc-${distro} Compiled/United-${distro^}/United-${distro^}/gtk-2.0/gtkrc
     cp ${COMMON_FOLDER}/main.rc Compiled/United-${distro^}/United-${distro^}/gtk-2.0/main.rc
+    cp ${COMMON_FOLDER}/hacks.rc Compiled/United-${distro^}/United-${distro^}/gtk-2.0/hacks.rc
+    rm Compiled/United-${distro^}/United-${distro^}/gtk-2.0/assets/*
     cp ${COMMON_ASSETS_FOLDER}-${variant}/* Compiled/United-${distro^}/United-${distro^}/gtk-2.0/assets/
     cp ${ASSETS_FOLDER}/${distro}/${distro}-${variant}-assets/* Compiled/United-${distro^}/United-${distro^}/gtk-2.0/assets/
   done

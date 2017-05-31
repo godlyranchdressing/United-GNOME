@@ -29,7 +29,7 @@
 }
 
 @function entry_focus_shadow($fc: $primary_color) {
-  @return inset 0 0 0 1px $fc;
+  @return inset 0 -1px $fc;
 }
 
 @mixin entry($type, $fc: $primary_color, $in_headerbar: false) {
@@ -74,103 +74,92 @@
 ///************///
 /// * Buttons * ///
 /// ************///
-@mixin button($type: normal, $bg: $lighter_bg_color, $fg: $fg_color, $in_headerbar: false) {
-  // $in_header is there to determine if the white text color should be used if the headerbar is dark
-  // It also determines if a button background is supposed to be transparent, all headerbar buttons are supposed
-  // to be flat, unless they're a "friendly" button, i.e suggested actions
+@mixin reset_style {
+  // shorthand to reset style for flat buttons
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  background-image: none;
+}
+
+@mixin button($type: normal, $bg: $lighter_bg_color, $fg: $fg_color, $in_headerbar: false, $toolbutton: false) {
+  // $in_header is there to determine if the button background is supposed to be transparent,
+  // all headerbar buttons are supposed to be flat, unless they're something special
+  // like a suggested action or destructive action
   //
   // these are the local variables to be used for some fancy if/else statements
   $_bg: $bg;
   $_fg: $fg;
   $_bc: $border_color;
+  $_shadow: $button_highlight $button_highlight_color;
 
   @if $type == normal {
     /// * Default state * ///
 
-    @if $bg == white and $fg == white {
-      // info bar buttons
+    @if $in_headerbar == true {
       $_bg: transparent;
-      $_fg: white;
-      $_bc: white;
+      $_fg: $headerbar_fg_color;
+      $_bc: transparent;
+      $_shadow: none;
     }
     @else {
       $_bg: $bg;
-      $_fg: if($bg == $lighter_bg_color or $bg == white, $fg, white);
+      $_fg: if($bg == $lighter_bg_color, $fg, white);
       $_bc: if($bg == $lighter_bg_color, $border_color, $bg);
-    }
-
-    @if $in_headerbar == true {
-      $_bg: transparent;
-      $_fg: $fg_color;
-      $_bc: transparent;
-    }
-
-    @if $in_headerbar == true and $headerbar == "dark" {
-      $_fg: $light_fg_color;
-      $_bc: transparent;
     }
 
     background-color: $_bg;
     color: $_fg;
     border-color: $_bc;
+    box-shadow: $_shadow;
     outline-color: transparentize($fg, 0.7);
   }
   @else if $type == hover {
     /// * Hover state * ///
-
-    @if $in_headerbar == true and $headerbar == "dark" {
-      $_bg: $darker_lighter_bg_color;
-      $_fg: $darker_secondary_fg_color;
-    }
-    @else if $bg == white and $fg == white {
-      // info bar buttons
-      $_bg: white;
-      $_fg: $suggested_color;
-      $_bc: $suggested_color;
+    @if $in_headerbar == true {
+      $_fg: white;
+      $_bg: _hover_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
     }
     @else if $bg != $lighter_bg_color {
       $_bg: _hover_shade($bg);
       $_fg: white;
     }
     @else {
-      $_bg: $lighter_bg_color;
-      $_fg: $primary_color;
+      $_bg: $semi_fill_color;
+      $_fg: $fg_color;
+      $_shadow: $button_highlight $button_highlight_color;
     }
 
     background-color: $_bg;
     color: $_fg;
-    border-color: _hover_shade(if($bg == $lighter_bg_color, $border_color, $bg));
+    box-shadow: $_shadow;
+    border-color: if($bg == $lighter_bg_color, $border_color, _hover_shade($bg));
     outline-color: transparentize($fg, 0.7);
+    -gtk-icon-effect: highlight;
   }
   @else if $type == active {
     /// * Pressed state * ///
-    @if $bg == white and $fg == white {
-      // info bar buttons
-      $_bg: white;
-      $_fg: _pressed_shade($suggested_color);
-      $_bc: _pressed_shade($suggested_color);
-    }
-    @else {
-      $_bg: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
-      $_fg: white;
-      $_bc: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
-    }
+
+    $_bg: if($bg == $lighter_bg_color, $fill_color, _pressed_shade($bg));
+    $_fg: if($bg == $lighter_bg_color, $fg_color, white);
+    $_bc: if($bg == $lighter_bg_color, $border_color, _pressed_shade($bg));
 
     background-color: $_bg;
     color: $_fg;
     border-color: $_bc;
+    box-shadow: $_shadow;
     outline-color: transparentize($fg, 0.7);
   }
   @else if $type == checked {
     /// * Checked/toggled state * ///
-    background-color: if($bg == $lighter_bg_color, $primary_color, $bg);
     color: white;
+    background-color: if($bg == $lighter_bg_color, $primary_color, $bg);
     border-color: _pressed_shade(if($bg == $lighter_bg_color, $primary_color, $bg));
     outline-color: transparentize($fg, 0.7);
 
     &:active,
     &:hover {
-      background-color: _pressed_shade($primary_color);
+      background-color: _pressed_shade($bg);
     }
 
     &:disabled {
@@ -185,12 +174,12 @@
   @else if $type == disabled {
     /// * Disabled state * ///
     @if $in_headerbar == true and $headerbar == "dark" {
-      $_bg: if($bg != $bg_color, mix($darker_lighter_bg_color, $darker_base_color, 85%), $darker_disabled_bg_color);
-      $_fg: if($bg != $bg_color, mix($dark_fg_color, $_bg, 60%), $darker_disabled_fg_color);
+      $_bg: if($bg != $lighter_bg_color, mix($darker_lighter_bg_color, $darker_base_color, 85%), $darker_disabled_bg_color);
+      $_fg: if($bg != $lighter_bg_color, mix($dark_fg_color, $_bg, 60%), $darker_disabled_fg_color);
     }
     @else {
-      $_bg: if($bg != $bg_color, mix($lighter_bg_color, $base_color, 85%), $disabled_bg_color);
-      $_fg: if($bg != $bg_color, mix($fg, $_bg, 40%), $disabled_fg_color);
+      $_bg: if($bg != $lighter_bg_color, mix($lighter_bg_color, $base_color, 85%), $disabled_bg_color);
+      $_fg: if($bg != $lighter_bg_color, mix($fg, $_bg, 40%), $disabled_fg_color);
     }
 
     background-color: $_bg;
@@ -202,25 +191,16 @@
   }
   @else if $type == flat {
     /// * Flat buttons default state * ///
-    // From here on out, flat buttons all use the background color that's passed to them as their foreground color
-    // All flat buttons have no background, and they're all the default text color in their default state so
-    // it makes no sense passing two values every time when only one's going to be used so we just take the
-    // First color passed and work with that
-    // An @include button(flat-hover, $fg: $primary_color) *should* work... I think, but that makes the
-    // hover and press shade functions throw an error
-
     @if $in_headerbar == true and $headerbar == "dark" {
       $_fg: $light_fg_color;
     }
-
-    @if $fg != $fg_color {
-      $_fg: $fg_color;
+    @else {
+      $_fg: $fg;
     }
 
     color: $_fg;
-    background-color: transparent;
-    border-color: transparent;
-    background-image: none;
+
+    @include reset_style;
   }
   @else if $type == flat-hover {
     /// * Flat buttons hover state * ///
@@ -232,17 +212,19 @@
       $_bg: $bg;
     }
 
-    @if $in_headerbar == true {
+    @if $in_headerbar == true or $toolbutton == false{
       $_fg: transparent;
+      $_bc: transparent;
     }
     @else {
-      $_fg: $hover_bg;
+      $_fg: $semi_fill_color;
+      $_bc: $border-color;
     }
 
     color: _hover_shade($_bg);
     background-color: $_fg;
-    border-color: transparent;
-    background-image: none;
+    border-color: $_bc;
+    box-shadow: none;
     -gtk-icon-effect: highlight;
   }
   @else if $type == flat-active {
@@ -255,24 +237,49 @@
       $_bg: $bg;
     }
 
-    @if $in_headerbar == true {
+    @if $in_headerbar == true or $toolbutton == false {
       $_fg: transparent;
+      $_bc: transparent;
     }
     @else {
-      $_fg: _pressed_shade($hover_bg);
+      $_fg: $fill_color;
+      $_bc: $border-color;
     }
 
     color: _pressed_shade($_bg);
     background-color: $_fg;
-    border-color: transparent;
-    background-image: none;
+    box-shadow: none;
+    border-color: $_bc;
     -gtk-icon-effect: highlight;
+  }
+  @else if $type == flat-checked {
+    /// * Flat buttons pressed state * ///
+    // Flat buttons use the same styling for active and toggled/enabled states
+    @if $in_headerbar == true or $toolbutton == false {
+      $_fg: transparent;
+      $_bc: transparent;
+    }
+    @else {
+      $_fg: $fill_color;
+      $_bc: $border-color;
+    }
+
+    color: _pressed_shade($_bg);
+    background-color: $_fg;
+    box-shadow: none;
+    border-color: $_bc;
+    -gtk-icon-effect: highlight;
+
+    &:hover {
+      color: _pressed_shade($_bg);
+    }
   }
   @else if $type == flat-disable {
     /// * Flat disabled state * ///
     color: $disabled_fg_color;
-    background-color: transparent;
-    background-image: none;
+
+    @include reset_style;
+
     opacity: .5;
   }
   @else if $type == toggle {
@@ -292,6 +299,7 @@
 
     color: $_fg;
     background-color: $_bg;
+    box-shadow: inset 0 0 transparent;
     border-color: transparent;
     transition: all 250ms ease;
   }
@@ -382,7 +390,7 @@
   }
 
   slider {
-    min-height: 23px;
+    min-height: 25px;
     min-width: 20px;
     border-radius: $standard_radius;
     background: $slider_bg;

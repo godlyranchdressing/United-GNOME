@@ -22,33 +22,32 @@
 
   @each $g in left right top bottom {
     // loop through each position and apply styling
-    $_indicator_height: 5;
-    $_shadow: null;
+    $_border_radius: null;
     $_dock_border: null;
 
     @if $g == "left" {
       // if the dock is pinned to the left ☜(ﾟ∀ﾟ☜)
-      //$_shadow: inset #{$_indicator_height}px 0;
-      $_shadow: inset 0px -#{$_indicator_height}px;
+      $_border_radius: 0 $standard_radius $standard_radius 0;
       $_dock_border: inset -1px 0 $border_color;
     }
 
     @if $g == "right" {
       // to the right (☞ﾟ∀ﾟ)☞
-      //$_shadow: inset -#{$_indicator_height}px 0;
-      $_shadow: inset 0px -#{$_indicator_height}px;
+      $_border_radius: $standard_radius 0 0 $standard_radius;
       $_dock_border: inset 1px 0 $border_color;
     }
 
     @if $g == "bottom" {
       // now down ☟(˚▽˚)☟
-      $_shadow: inset 0px -#{$_indicator_height}px;
+      $_border_radius: 0px;
+
+      // leaves a shadow on the dash for some reason
       $_dock_border: inset 0px 1 $border_color;
     }
 
     @if $g == "top" {
       // and up ☝(˚▽˚)☝
-      $_shadow: inset 0px #{$_indicator_height}px;
+      $_border_radius: 0px;
       $_dock_border: inset 0px -1 $border_color;
     }
 
@@ -56,7 +55,7 @@
       &.#{$g} {
         #dash {
           // apply glass effect and get rid of default dash's border
-          border-width: 0px;
+          border-radius: $_border_radius;
           box-shadow: $_dock_border;
         }
       }
@@ -66,17 +65,11 @@
   #dashtodockContainer #dash {
     .app-well-app {
       &:hover {
-        .overview-icon {
-          // hovering over an unopened item looks like this (should mirror the running item look from above imo)
-          background-color: transparentize($primary_color, $secondary_opacity);
-        }
+        background-color: transparentize($primary_color, $secondary_opacity);
       }
-      
+
       &:active {
-        .overview-icon {
-          // clicking on an unopened item looks like this
-          background-color: transparentize(_pressed_shade($primary_color), $secondary_opacity);
-        }
+        background-color: transparentize(_pressed_shade($primary_color), $secondary_opacity);
       }
     }
 
@@ -111,6 +104,7 @@
 
   #dashtodockContainer, .dashtopanelMainPanel {
     // the non-panel mode dock
+
     .show-apps {
       .overview-icon {
         // circular icon for Dash to Panel and for Dash to Dock's non-extended mode
@@ -118,15 +112,11 @@
       }
 
       &:hover {
-        .overview-icon {
-          background-color: red;
-        }
+        .overview-icon {}
       }
 
       &:checked, &:active {
-        .overview-icon {
-          background-color: blue;
-        }
+        .overview-icon {}
       }
     }
   }

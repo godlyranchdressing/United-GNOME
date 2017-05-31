@@ -1,0 +1,25 @@
+// crashes GNOME Shell when styled?
+@for $i from 1 through 4 {
+  .running#{$i} {
+    background-color: transparentize($primary_color, $secondary_opacity);
+
+    &:hover {
+      .overview-icon {
+        background-color: transparentize(_hover_shade($primary_color), $secondary_opacity);
+      }
+    }
+
+    &:active {
+      .overview-icon {
+        background-color: transparentize(_pressed_shade($primary_color), $middle_opacity);
+      }
+
+      &.focused {
+        &, &:hover
+        .overview-icon {
+          background-color: transparentize($primary_color, $lower_opacity);
+        }
+      }
+    }
+  }
+}

@@ -765,7 +765,7 @@ StScrollBar {
 
     @if $variant == "light" {
       border-width: 0px;
-      box-shadow: $popover_shadow;
+      box-shadow: $popover_shadow !important;
     }
   }
 }
@@ -796,6 +796,7 @@ StScrollBar {
 .popup-separator-menu-item {
   //-margin-horizontal: 24px;
   height: 1px;
+
   // TODO: make this resemble the search separator
   //not really the whole box
   margin: 0px (64px - 24px);
@@ -963,10 +964,13 @@ StScrollBar {
 
 %osd-panel {
   color: $fg_color;
-  background-color: if($variant == "light", $bg_color, $base_color);
-  box-shadow: 0 0 0 $osd_border_length $osd_border_color !important;
-  border-width: 1px solid $dark_border_color !important;
-  border-radius: ($standard_radius * 2) !important;
+
+  // background-color: if($variant == "light", $bg_color, $base_color);
+  // box-shadow: 0 0 0 $osd_border_length $osd_border_color !important;
+  // border-width: 1px solid $dark_border_color !important;
+  // border-radius: ($standard_radius * 2) !important;
+  border-image: url("assets/osd_background.svg") 40 40 40 40;
+  border-width: 26px;
 }
 
 /* Tiled window previews */
@@ -1208,10 +1212,12 @@ StScrollBar {
 
   &:hover, &:focus {
     color: $fg_color;
+    box-shadow: $shadow_surround $border_color;
     background-color: $semi_fill_color;
   }
 
   &:active {
+    box-shadow: $shadow_surround $border_color;
     background-color: $fill_color;
   }
 }
@@ -1409,13 +1415,15 @@ StScrollBar {
 }
 
 .calendar-today {
-  font-weight: bold !important;
   border: none;
 
-  &:selected, &:focus, &:active {
+  &, &:hover, &:focus {
+    box-shadow: $shadow_surround $border_color;
+  }
+
+  &:selected {
     background-color: $primary_color;
-    color: $light_fg_color;
-    box-shadow: $shadow_surround _pressed_shade($primary_color);
+    color: $light_fg_color !important;
   }
 }
 
@@ -1450,12 +1458,13 @@ StScrollBar {
 
 .message-list-clear-button.button {
   @include button;
-  border: 1px solid transparent;
+  background-color: $lighter_bg_color !important;
+  border: 1px solid $border_color;
   border-radius: $standard_radius;
   margin: 8px 8px 0;
 
-  &:hover, &:active, &:focus{
-    border-color: $border_color;
+  &, &:hover, &:focus, &:active{
+    box-shadow: inset 0 0 1px $lighter_bg_color, 0 0 1px $lighter_bg_color !important;
   }
 }
 
@@ -1832,7 +1841,7 @@ StScrollBar {
 
 .window-clone-border {
   border: $osd_border_length solid $osd_light_border_color;
-  box-shadow: inset 0 0 0 $osd_box_shadow_length $osd_light_border_color;
+  box-shadow: inset $osd_box_shadow_length $osd_light_border_color;
   border-radius: $standard_radius * 2;
 }
 
@@ -2087,6 +2096,8 @@ StScrollBar {
 .grid-search-result {
   & .overview-icon {
     @extend %icon_tile;
+
+    box-shadow: $shadow_surround $border_color;
   }
 
   &:hover .overview-icon,
@@ -2138,13 +2149,15 @@ StScrollBar {
 .app-folder-popup {
   //expanded collection
   -arrow-border-radius: $standard_radius;
-  -arrow-background-color: $fill_color;
-  -arrow-base: 24px;
+  -arrow-background-color: $inverse_fill_color;
+  -arrow-base: 0px;
   -arrow-rise: 12px;
 }
 
 .app-folder-popup-bin {
   padding: 5px;
+  border: 1px solid $border_color;
+  border-radius: $standard_radius;
 }
 
 .app-folder-icon {
@@ -2250,17 +2263,17 @@ StScrollBar {
 .notification-banner {
   @extend %message;
 
-  background-color: if($transparency == true, opacify(_hover_shade($base_color), 0.3), $lighter_bg_color) !important;
+  background-color: if($transparency == true, $base_color, $lighter_bg_color) !important;
   font-size: 1em;
   width: 34em;
   margin: $menu_gap - 2;
 
   &:hover {
-    background-color: if($transparency == true, opacify(_hover_shade($lighter_bg_color), 0.25), $lighter_bg_color) !important;
+    background-color: _hover_shade(if($transparency == true, $base_color, $lighter_bg_color)) !important;
   }
 
   &:active {
-    background-color: if($transparency == true, opacify(_pressed_shade($lighter_bg_color), 0.25), $lighter_bg_color) !important;
+    background-color: _pressed_shade(if($transparency == true, $base_color, $lighter_bg_color)) !important;
   }
 
   .notification-icon {

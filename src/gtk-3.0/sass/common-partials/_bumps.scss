@@ -43,8 +43,6 @@ headerbar, headerbar.titlebar {
     &.text-button, &.text-button.toggle {
       &:hover {
         @include button(hover, $in_headerbar: true);
-
-        border-color: $primary_color;
       }
 
       &:active {
@@ -154,8 +152,17 @@ headerbar, headerbar.titlebar {
 
     &.slider-button {
       border-width: 0px;
+      box-shadow: 0 -1px 0 $border_color;
 
       @include button(flat, $in_headerbar: true);
+
+      &:first-child {
+        border-radius: $standard_radius 0 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 $standard_radius 0 0;
+      }
 
       &:disabled {
         @include button(disabled);
@@ -167,10 +174,6 @@ headerbar, headerbar.titlebar {
       }
     }
   }
-}
-
-.nautilus-window notebook header tabs tab {
-  min-height: 32px;
 }
 
 button {
@@ -215,9 +218,7 @@ scale:disabled contents {
 }
 
 dialog {
-  @if $headerbar != "dark" {
-    background-image: image($headerbar_bg);
-  }
+  background-image: image($headerbar_bg_color);
 }
 
 dialog, messagedialog {
@@ -242,7 +243,7 @@ messagedialog {
     border-style: solid;
     border-color: if($variant != "dark", #E6E6E6, #2D2D2D);
   }
-
+  
   .titlebar {
     border-width: 1px 1px 0 1px;
   }
@@ -250,22 +251,6 @@ messagedialog {
   &.background.csd {
     &, box.horizontal:last-child {
       box-shadow: none;
-    }
-  }
-
-  button {
-    // doesn't seem to inherit default button padding
-    min-height: 30px;
-
-    &:hover {
-      color: white;
-      background-color: $primary_color;
-    }
-
-    &:active {
-      color: white;
-      border-color: _pressed_shade($primary_color);
-      background-color: _pressed_shade($primary_color);
     }
   }
 

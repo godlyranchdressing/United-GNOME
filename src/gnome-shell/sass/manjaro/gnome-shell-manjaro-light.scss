@@ -1,6 +1,5 @@
 $variant: "light"; // light or dark
 $panel: "dark"; // light or dark
-; // true or false
 $transparency: false; // true or false
 @if $transparency == true and $variant == "light" {$transparency: false}
 $distro: "manjaro"; // arch, fedora, manjaro, opensuse, solus and ubuntu

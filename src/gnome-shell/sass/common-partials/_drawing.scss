@@ -157,7 +157,7 @@
   @else {
     background-color: transparent;
   }
-  
+
   background-image: none;
   box-shadow: none;
   text-shadow: none;
@@ -170,7 +170,7 @@
     text-shadow: none;
     icon-shadow: none;
   }
-
+  
   &:active, &:checked {
     color: if($variant == "light", _pressed_shade($primary_color), $fg_color);
     background-color: $fill_color !important;

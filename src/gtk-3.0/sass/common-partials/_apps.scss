@@ -41,7 +41,8 @@ window.nautilus-window {
   }
 
   header tabs tab {
-    padding: 0px 8px;
+    min-height: 24px;
+    padding: 4px 8px;
   }
 
   notebook {
@@ -62,6 +63,17 @@ window.nautilus-window {
 
   placessidebar {
     box-shadow: inset -10px 0 10px 0px rgba(0, 0, 0, 0.055);
+  }
+}
+
+nautilus-desktop-window {
+  .searchbar-container searchbar {
+    background: transparent;
+  }
+
+  .nautilus-desktop.view {
+    color: $light_fg_color;
+    text-shadow: 0 -2px 1px $border_color;
   }
 }
 
@@ -98,9 +110,8 @@ viewport.frame list.tweak-categories {
   color: $secondary_fg_color;
 }
 
-/*
 #ShellExtensionTweakGroup button {
-the remove button is a little strange to be in green, should it be changed to red?
+  // style the suggested actions them as destructive buttons
   &.text-button {
     &.suggested-action {
       @include button(normal, $destructive_color, white);
@@ -118,8 +129,7 @@ the remove button is a little strange to be in green, should it be changed to re
       }
     }
   }
- }
-  */
+}
 
 /************
  * Calculator *
@@ -346,4 +356,88 @@ button.ecalendar.flat {
 #PagePopup separator {
   background-image: image($border_color);
   background-color: $border_color;
+}
+
+/************
+ * GNOME Terminal *
+ ************/
+terminal-window {
+  .terminal-screen {
+    background: $terminal_bg;
+    color: $terminal_fg;
+  }
+
+  notebook.terminal-notebook {
+    header {
+      background: $terminal_bg;
+      border-bottom: 2px solid $terminal_border_color;
+      color: $terminal_fg;
+    }
+
+    button {
+      color: transparentize($light_fg_color, $secondary_opacity);
+      padding: 4px;
+    }
+
+    tab.reorderable-page {
+      background-color: transparent;
+      padding: 4px 12px;
+      color: #fff;
+
+      &:checked, &:hover {
+        background: $terminal_selected_bg;
+
+        label {
+          color: #fff;
+        }
+
+        button.flat {
+          color: transparentize($light_fg_color, $secondary_opacity);
+
+          &:hover, &:active {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  scrollbar {
+    background-color: transparent;
+
+    slider {
+      transition: $shorter_transition;
+      min-width: 8px;
+      min-height: 8px;
+      border: 4px solid transparent;
+      border-radius: $circular_radius;
+      background-clip: padding-box;
+      background-color: transparentize($light_fg_color, $secondary_opacity);
+
+      &:hover {
+        background-color: $light_fg_color;
+      }
+
+      &:active {
+        background-color: $fg_color;
+      }
+
+      &:disabled {
+        background-color: $disabled_secondary_fg_color;
+      }
+    }
+
+    &.dragging,
+    &:hover {
+      background-color: $border_color;
+    }
+
+    &:hover slider {
+      background-color: transparentize($light_fg_color, $middle_opacity);
+    }
+
+    &.dragging slider {
+      background-color: transparentize($light_fg_color, $disabled_opacity);
+    }
+  }
 }

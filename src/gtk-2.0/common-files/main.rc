@@ -79,13 +79,13 @@ style "default" {
   bg[INSENSITIVE] = @insensitive_bg_color
   bg[ACTIVE] = @selected_bg_color
 
-  fg[NORMAL] = @text_color
-  fg[PRELIGHT] = @selected_bg_color
+  fg[NORMAL] = @fg_color
+  fg[PRELIGHT] = @fg_color
   fg[SELECTED] = @selected_fg_color
   fg[INSENSITIVE] = @insensitive_fg_color
   fg[ACTIVE] = @fg_color
 
-  text[NORMAL] = @fg_color
+  text[NORMAL] = @text_color
   text[PRELIGHT] = @selected_bg_color
   text[SELECTED] = @selected_fg_color
   text[INSENSITIVE] = @insensitive_fg_color
@@ -288,7 +288,7 @@ style "default" {
     image {
       function = ARROW
       state = PRELIGHT
-      overlay_file = "assets/arrow-up-colored.png"
+      overlay_file = "assets/arrow-up.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = UP
@@ -297,7 +297,7 @@ style "default" {
     image {
       function = ARROW
       state = ACTIVE
-      overlay_file = "assets/arrow-up-hover.png"
+      overlay_file = "assets/arrow-up.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = UP
@@ -324,7 +324,7 @@ style "default" {
     image {
       function = ARROW
       state = PRELIGHT
-      overlay_file = "assets/arrow-down-colored.png"
+      overlay_file = "assets/arrow-down.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = DOWN
@@ -333,7 +333,7 @@ style "default" {
     image {
       function = ARROW
       state = ACTIVE
-      overlay_file = "assets/arrow-down-hover.png"
+      overlay_file = "assets/arrow-down.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = DOWN
@@ -359,7 +359,7 @@ style "default" {
     image {
       function = ARROW
       state= PRELIGHT
-      overlay_file = "assets/arrow-left-hover.png"
+      overlay_file = "assets/arrow-left.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = LEFT
@@ -368,7 +368,7 @@ style "default" {
     image {
       function = ARROW
       state = ACTIVE
-      overlay_file = "assets/arrow-left-hover.png"
+      overlay_file = "assets/arrow-left.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = LEFT
@@ -394,7 +394,7 @@ style "default" {
     image {
       function = ARROW
       state = PRELIGHT
-      overlay_file = "assets/arrow-right-hover.png"
+      overlay_file = "assets/arrow-right.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = RIGHT
@@ -403,7 +403,7 @@ style "default" {
     image {
       function = ARROW
       state = ACTIVE
-      overlay_file = "assets/arrow-right-hover.png"
+      overlay_file = "assets/arrow-right.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = RIGHT
@@ -438,7 +438,7 @@ style "default" {
     image {
       function = TAB
       state = PRELIGHT
-      overlay_file = "assets/arrow-down-colored.png"
+      overlay_file = "assets/arrow-down.png"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
     }
@@ -856,7 +856,7 @@ style "menu_item"
       function = OPTION
       state = ACTIVE
       shadow = OUT
-      overlay_file = "assets/menu-radio-active.png"
+      overlay_file = "assets/menu-radio-selected.png"
       overlay_stretch = FALSE
     }
 
@@ -971,8 +971,10 @@ style "button" {
 }
 
 style "button_label" {
-  fg[PRELIGHT]    = @selected_bg_color
-  fg[ACTIVE] = @selected_bg_color
+  fg[NORMAL] = @fg_color
+  fg[PRELIGHT]    = @fg_color
+  fg[SELECTED] = @fg_color
+  fg[ACTIVE] = @fg_color
 }
 
 style "checkbutton_label" {
@@ -994,7 +996,7 @@ style "tool_button" {
     image {
       function = BOX
       state    = NORMAL
-      file     = "assets/flat-button.png"
+      file     = "assets/button.png"
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
@@ -1003,7 +1005,7 @@ style "tool_button" {
       function = BOX
       state    = PRELIGHT
       shadow   = OUT
-      file     = "assets/button.png"
+      file     = "assets/button-hover.png"
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
@@ -1021,7 +1023,7 @@ style "tool_button" {
     image {
       function = BOX
       state    = ACTIVE
-      file     = "assets/button-hover.png"
+      file     = "assets/button-active.png"
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
@@ -1030,7 +1032,7 @@ style "tool_button" {
       function = BOX
       state    = INSENSITIVE
       shadow   = OUT
-      file     = "assets/entry-disabled-bg.png"
+      file     = "assets/button-insensitive.png"
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
@@ -1108,7 +1110,7 @@ style "notebook_entry" {
       function = SHADOW
       state = NORMAL
       detail = "entry"
-      file = "assets/entry-notebook.png"
+      file = "assets/entry-bg.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -1117,7 +1119,7 @@ style "notebook_entry" {
       function = SHADOW
       state = ACTIVE
       detail = "entry"
-      file = "assets/entry-active-notebook.png"
+      file = "assets/entry-active-bg.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -1126,7 +1128,7 @@ style "notebook_entry" {
       function = SHADOW
       state = INSENSITIVE
       detail = "entry"
-      file = "assets/entry-disabled-notebook.png"
+      file = "assets/entry-disabled-bg.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -1226,7 +1228,7 @@ style "notebook_combobox_entry" {
       detail = "entry"
       state = NORMAL
       shadow = IN
-      file = "assets/combo-entry-notebook.png"
+      file = "assets/combo-entry.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = LTR
@@ -1237,7 +1239,7 @@ style "notebook_combobox_entry" {
       detail = "entry"
       state = INSENSITIVE
       shadow = IN
-      file = "assets/combo-entry-insensitive-notebook.png"
+      file = "assets/combo-entry-insensitive.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = LTR
@@ -1247,7 +1249,7 @@ style "notebook_combobox_entry" {
       function = SHADOW
       detail = "entry"
       state = ACTIVE
-      file = "assets/combo-entry-focus-notebook.png"
+      file = "assets/combo-entry-focus.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = LTR
@@ -1260,7 +1262,7 @@ style "notebook_combobox_entry" {
       detail = "entry"
       state = NORMAL
       shadow = IN
-      file = "assets/combo-entry-notebook-rtl.png"
+      file = "assets/combo-entry-rtl.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = RTL
@@ -1271,7 +1273,7 @@ style "notebook_combobox_entry" {
       detail = "entry"
       state = INSENSITIVE
       shadow = IN
-      file = "assets/combo-entry-insensitive-notebook-rtl.png"
+      file = "assets/combo-entry-insensitive-rtl.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = RTL
@@ -1281,7 +1283,7 @@ style "notebook_combobox_entry" {
       function = SHADOW
       detail = "entry"
       state = ACTIVE
-      file = "assets/combo-entry-focus-notebook-rtl.png"
+      file = "assets/combo-entry-focus-rtl.png"
       border = { 4, 4, 5, 4 }
       stretch = TRUE
       direction = RTL
@@ -1405,10 +1407,10 @@ style "spinbutton" {
       function = BOX
       state = PRELIGHT
       detail = "spinbutton_up"
-      file = "assets/up-background.png"
+      file = "assets/up-background-hover.png"
       border = { 1, 4, 5, 0 }
       stretch = TRUE
-      overlay_file = "assets/arrow-up-small-colored.png"
+      overlay_file = "assets/arrow-up-small.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1454,10 +1456,10 @@ style "spinbutton" {
       function = BOX
       state = PRELIGHT
       detail = "spinbutton_up"
-      file = "assets/up-background-rtl.png"
+      file = "assets/up-background-hover-rtl.png"
       border = { 4, 1, 5, 0 }
       stretch = TRUE
-      overlay_file = "assets/arrow-up-small-colored.png"
+      overlay_file = "assets/arrow-up-small.png"
       overlay_stretch = FALSE
       direction = RTL
     }
@@ -1504,10 +1506,10 @@ style "spinbutton" {
       function = BOX
       state = PRELIGHT
       detail = "spinbutton_down"
-      file = "assets/down-background.png"
+      file = "assets/down-background-hover.png"
       border = { 1, 4, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-colored.png"
+      overlay_file = "assets/arrow-down-small.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1554,10 +1556,10 @@ style "spinbutton" {
       function = BOX
       state = PRELIGHT
       detail = "spinbutton_down"
-      file = "assets/down-background-rtl.png"
+      file = "assets/down-background-hover-rtl.png"
       border = { 4, 1, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-colored.png"
+      overlay_file = "assets/arrow-down-small.png"
       overlay_stretch = FALSE
       direction = RTL
     }
@@ -1618,7 +1620,7 @@ style "gimp_spin_scale" {
       function = BOX
       state = PRELIGHT
       detail = "spinbutton_up"
-      overlay_file = "assets/arrow-up-small-hover.png"
+      overlay_file = "assets/arrow-up-small.png"
       overlay_stretch = FALSE
     }
 
@@ -1626,7 +1628,7 @@ style "gimp_spin_scale" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_up"
-      overlay_file = "assets/arrow-up-small-hover.png"
+      overlay_file = "assets/arrow-up-small.png"
       overlay_stretch = FALSE
     }
 
@@ -1650,7 +1652,7 @@ style "gimp_spin_scale" {
       function = BOX
       state = PRELIGHT
       detail = "spinbutton_down"
-      overlay_file = "assets/arrow-down-small-hover.png"
+      overlay_file = "assets/arrow-down-small.png"
       overlay_stretch = FALSE
     }
 
@@ -1658,7 +1660,7 @@ style "gimp_spin_scale" {
       function = BOX
       state = ACTIVE
       detail = "spinbutton_down"
-      overlay_file = "assets/arrow-down-small-hover.png"
+      overlay_file = "assets/arrow-down-small.png"
       overlay_stretch = FALSE
     }
 
@@ -1908,6 +1910,17 @@ style "range" {
       border = { 0, 0, 0, 0 }
       stretch = TRUE
       overlay_file = "assets/slider-hover.png"
+      overlay_stretch = FALSE
+      orientation = HORIZONTAL
+    }
+
+    image {
+      function = SLIDER
+      state = ACTIVE
+      file = "assets/null.png"
+      border = { 0, 0, 0, 0 }
+      stretch = TRUE
+      overlay_file = "assets/slider-active.png"
       overlay_stretch = FALSE
       orientation = HORIZONTAL
     }
@@ -2420,7 +2433,7 @@ style "toolbar_entry" {
       function = SHADOW
       state = NORMAL
       detail = "entry"
-      file = "assets/entry-toolbar.png"
+      file = "assets/entry-bg.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -2429,7 +2442,7 @@ style "toolbar_entry" {
       function = SHADOW
       state = ACTIVE
       detail = "entry"
-      file = "assets/entry-active-toolbar.png"
+      file = "assets/entry-active-bg.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -2438,7 +2451,7 @@ style "toolbar_entry" {
       function = SHADOW
       state = INSENSITIVE
       detail = "entry"
-      file = "assets/entry-disabled-toolbar.png"
+      file = "assets/entry-disabled-bg.png"
       border = {6, 6, 6, 6}
       stretch = TRUE
     }
@@ -2581,6 +2594,7 @@ widget_class "*<GtkNotebook>*<GtkCellLayout>"                       style "text"
 
 # Imported
 widget_class "*<GtkButton>*<GtkLabel>"                             style "button_label"
+widget_class "*<GtkComboBox>*<GtkLabel>"                                       style "button_label"
 widget_class "*<GtkCheckButton>.<GtkLabel>"                        style "checkbutton_label"
 widget_class "*<GtkRadioButton>.<GtkLabel>"                        style "checkbutton_label"
 widget_class "*<GtkToolButton>*<GtkButton>"                        style "tool_button"
