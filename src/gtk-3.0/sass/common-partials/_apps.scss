@@ -114,6 +114,12 @@ viewport.frame list.tweak-categories {
   }
 }
 
+list#AutostartListBoxTweakGroup.tweak-group-startup row.activatable.tweak-startup {
+  // has a light background that it's stubbornly inheriting from someplace that the inspector is refusing to give up
+  // so here's a background image to stop it
+  background-image: image($bg_color);
+}
+
 /************
  * Calculator *
  ************/

@@ -1841,7 +1841,7 @@ StScrollBar {
 
 .window-clone-border {
   border: $osd_border_length solid $osd_light_border_color;
-  box-shadow: inset $osd_box_shadow_length $osd_light_border_color;
+  box-shadow: inset 0 0 0 1px $osd_light_border_color; // get around the possibility of there being one pixel of empty space between the border and the window preview
   border-radius: $standard_radius * 2;
 }
 

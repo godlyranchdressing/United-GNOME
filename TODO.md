@@ -5,6 +5,9 @@ Semi in order of priority.
 
 # GTK2/3
 - Make the dark theme follow Unity 8's?
+- Make infobar disabled state proper mix colors
+- White seprator in nautilus
+- Tab line
 
 # Assets
 - Window buttons?

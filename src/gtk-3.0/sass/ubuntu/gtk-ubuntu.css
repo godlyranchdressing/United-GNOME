@@ -153,7 +153,6 @@ assistant .sidebar .sidebar label.highlight {
   border: none;
   border-radius: 0px;
   background-color: white;
-  box-shadow: inset 0px -2px 0px #E95420;
   background-clip: padding-box;
   -gtk-icon-shadow: none;
 }
@@ -1765,7 +1764,8 @@ button:active:visited label {
   color: #edddeb;
 }
 
-infobar.info *:link label, infobar.info button:link label, infobar.info
+infobar *:link label, infobar button:link label, infobar
+button:visited label, infobar.info *:link label, infobar.info button:link label, infobar.info
 button:visited label, infobar.question *:link label, infobar.question button:link label, infobar.question
 button:visited label, infobar.warning *:link label, infobar.warning button:link label, infobar.warning
 button:visited label, infobar.error *:link label, infobar.error button:link label, infobar.error
@@ -2355,6 +2355,10 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
   padding-right: 4px;
 }
 
+.path-bar button:disabled {
+  box-shadow: inset 0px -2px 0px rgba(94, 94, 94, 0.4);
+}
+
 .path-bar button.text-button.image-button label {
   padding-left: 0;
   padding-right: 0;
@@ -2403,6 +2407,10 @@ window.csd > .titlebar:not(headerbar):not(.path-bar) {
   box-shadow: inset 0 0 transparent;
   border-color: transparent;
   transition: all 250ms ease;
+}
+
+#pathbarbox button:disabled {
+  box-shadow: inset 0px -2px 0px rgba(94, 94, 94, 0.4);
 }
 
 #pathbarbox button:hover {
@@ -3805,8 +3813,8 @@ radio {
   border-color: transparent;
   box-shadow: none;
   background-image: none;
-  min-width: 18px;
-  min-height: 18px;
+  min-width: 16px;
+  min-height: 16px;
   margin: 2px 4px;
 }
 
@@ -3868,7 +3876,7 @@ scale fill:disabled {
   background-color: rgba(225, 225, 225, 0.6);
 }
 
-scale slider {
+scale slider, .osd scale slider {
   margin: -8.5px;
   transition: all 75ms cubic-bezier(0.25, 0.25, 0.75, 0.75);
   background-color: white;
@@ -3878,7 +3886,7 @@ scale slider {
   min-height: 0px;
 }
 
-scale slider:active, scale slider:hover {
+scale slider:active, scale slider:hover, .osd scale slider:active, .osd scale slider:hover, .osd scale slider:active {
   transition: all 75ms cubic-bezier(0.25, 0.25, 0.75, 0.75);
   margin: -8.5px;
   background-clip: border-box;
@@ -3886,18 +3894,22 @@ scale slider:active, scale slider:hover {
   border-color: #a3569b;
 }
 
-scale slider:active:active, scale slider:hover:active {
+scale slider:active:active, scale slider:hover:active, .osd scale slider:active, .osd scale slider:active {
   background-color: #81447b;
   border-color: #81447b;
 }
 
-scale slider:disabled {
+scale slider:disabled, .osd scale slider:disabled {
   background-color: #bfbfbf;
   box-shadow: none;
 }
 
 menuitem:hover scale slider,
 row:selected scale slider,
+infobar scale slider, menuitem:hover .osd scale slider, .osd menuitem:hover scale slider,
+row:selected .osd scale slider, .osd
+row:selected scale slider,
+infobar .osd scale slider, .osd
 infobar scale slider {
   background-clip: border-box;
   background-color: #ffffff;
@@ -3906,13 +3918,25 @@ infobar scale slider {
 
 menuitem:hover scale slider:hover,
 row:selected scale slider:hover,
-infobar scale slider:hover {
+infobar scale slider:hover, menuitem:hover .osd scale slider:hover, .osd menuitem:hover scale slider:hover, menuitem:hover .osd scale slider:active, .osd menuitem:hover scale slider:active,
+row:selected .osd scale slider:hover, .osd
+row:selected scale slider:hover,
+row:selected .osd scale slider:active, .osd
+row:selected scale slider:active,
+infobar .osd scale slider:hover, .osd
+infobar scale slider:hover,
+infobar .osd scale slider:active, .osd
+infobar scale slider:active {
   background-color: #fce5de;
   border-color: #fce5de;
 }
 
 menuitem:hover scale slider:active,
 row:selected scale slider:active,
+infobar scale slider:active, menuitem:hover .osd scale slider:active, .osd menuitem:hover scale slider:active,
+row:selected .osd scale slider:active, .osd
+row:selected scale slider:active,
+infobar .osd scale slider:active, .osd
 infobar scale slider:active {
   background-color: #f4aa90;
   border-color: #f4aa90;
@@ -3920,29 +3944,17 @@ infobar scale slider:active {
 
 menuitem:hover scale slider:disabled,
 row:selected scale slider:disabled,
+infobar scale slider:disabled, menuitem:hover .osd scale slider:disabled, .osd menuitem:hover scale slider:disabled,
+row:selected .osd scale slider:disabled, .osd
+row:selected scale slider:disabled,
+infobar .osd scale slider:disabled, .osd
 infobar scale slider:disabled {
   background-color: #f5b29b;
   border-color: #f5b29b;
 }
 
-.osd scale slider {
+.osd scale slider, .osd scale slider {
   background-clip: border-box;
-  background-color: #ffffff;
-  box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
-}
-
-.osd scale slider:hover {
-  background-color: #a3569b;
-  border-color: #a3569b;
-}
-
-.osd scale slider:active {
-  background-color: #81447b;
-  border-color: #81447b;
-}
-
-.osd scale slider:disabled {
-  background-color: rgba(225, 225, 225, 0.6);
 }
 
 scale.fine-tune slider, scale.fine-tune slider:active, scale.fine-tune slider:hover {
@@ -4706,20 +4718,24 @@ infobar {
   border-style: none;
 }
 
-infobar.info:backdrop, infobar.info, infobar.question:backdrop, infobar.question, infobar.warning:backdrop, infobar.warning, infobar.error:backdrop, infobar.error {
+infobar:backdrop, infobar, infobar.info:backdrop, infobar.info, infobar.question:backdrop, infobar.question, infobar.warning:backdrop, infobar.warning, infobar.error:backdrop, infobar.error {
   background-color: #30B4E9;
-  border-color: #169bd0;
+  border-color: #19ace7;
 }
 
-infobar.info:backdrop label, infobar.info:backdrop, infobar.info label, infobar.info, infobar.question:backdrop label, infobar.question:backdrop, infobar.question label, infobar.question, infobar.warning:backdrop label, infobar.warning:backdrop, infobar.warning label, infobar.warning, infobar.error:backdrop label, infobar.error:backdrop, infobar.error label, infobar.error {
+infobar:backdrop label, infobar:backdrop, infobar label, infobar, infobar.info:backdrop label, infobar.info:backdrop, infobar.info label, infobar.info, infobar.question:backdrop label, infobar.question:backdrop, infobar.question label, infobar.question, infobar.warning:backdrop label, infobar.warning:backdrop, infobar.warning label, infobar.warning, infobar.error:backdrop label, infobar.error:backdrop, infobar.error label, infobar.error {
   color: #ffffff;
 }
 
-infobar.info button label, infobar.info button.text-button label, infobar.question button label, infobar.question button.text-button label, infobar.warning button label, infobar.warning button.text-button label, infobar.error button label, infobar.error button.text-button label {
+infobar button label, infobar button.text-button label, infobar.info button label, infobar.info button.text-button label, infobar.question button label, infobar.question button.text-button label, infobar.warning button label, infobar.warning button.text-button label, infobar.error button label, infobar.error button.text-button label {
   color: #30B4E9;
 }
 
-infobar.info selection, infobar.question selection, infobar.warning selection, infobar.error selection {
+infobar button:disabled label, infobar button.text-button:disabled label, infobar.info button:disabled label, infobar.info button.text-button:disabled label, infobar.question button:disabled label, infobar.question button.text-button:disabled label, infobar.warning button:disabled label, infobar.warning button.text-button:disabled label, infobar.error button:disabled label, infobar.error button.text-button:disabled label {
+  color: rgba(94, 94, 94, 0.4);
+}
+
+infobar selection, infobar.info selection, infobar.question selection, infobar.warning selection, infobar.error selection {
   background-color: #c34113;
 }
 
@@ -5280,30 +5296,6 @@ headerbar entry:disabled, headerbar.titlebar entry:disabled {
   background-color: rgba(225, 225, 225, 0.6);
 }
 
-headerbar box.horizontal.linked button.popup.text-button.toggle, headerbar.titlebar box.horizontal.linked button.popup.text-button.toggle {
-  color: #5e5e5e;
-  background-color: transparent;
-  border-color: transparent;
-  box-shadow: none;
-  background-image: none;
-}
-
-headerbar box.horizontal.linked button.popup.text-button.toggle:hover, headerbar.titlebar box.horizontal.linked button.popup.text-button.toggle:hover {
-  color: #eb6637;
-  background-color: transparent;
-  border-color: transparent;
-  box-shadow: none;
-  -gtk-icon-effect: highlight;
-}
-
-headerbar box.horizontal.linked button.popup.text-button.toggle:active, headerbar.titlebar box.horizontal.linked button.popup.text-button.toggle:active {
-  color: #da4816;
-  background-color: transparent;
-  box-shadow: none;
-  border-color: transparent;
-  -gtk-icon-effect: highlight;
-}
-
 headerbar button, headerbar.titlebar button {
   background-color: transparent;
   color: #5e5e5e;
@@ -5417,7 +5409,7 @@ headerbar button.image-button:not(.text-button):active, headerbar button.image-b
   -gtk-icon-effect: highlight;
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button {
+headerbar stackswitcher.horizontal.linked.stack-switcher button, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button, headerbar .stack-switcher button, headerbar .stack-switcher button.text-button, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button, headerbar.titlebar .stack-switcher button, headerbar.titlebar .stack-switcher button.text-button {
   min-width: 115px;
   border-width: 0px;
   border-radius: 0px;
@@ -5429,7 +5421,11 @@ headerbar stackswitcher.horizontal.linked.stack-switcher button, headerbar stack
   transition: all 250ms ease;
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:hover {
+headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar .stack-switcher button:disabled, headerbar .stack-switcher button.text-button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar.titlebar .stack-switcher button:disabled, headerbar.titlebar .stack-switcher button.text-button:disabled {
+  box-shadow: inset 0px -2px 0px rgba(94, 94, 94, 0.4);
+}
+
+headerbar stackswitcher.horizontal.linked.stack-switcher button:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:hover, headerbar .stack-switcher button:hover, headerbar .stack-switcher button.text-button:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:hover, headerbar.titlebar .stack-switcher button:hover, headerbar.titlebar .stack-switcher button.text-button:hover {
   border-color: transparent;
   background-color: white;
   box-shadow: inset 0px -2px 0px rgba(94, 94, 94, 0.75);
@@ -5437,50 +5433,49 @@ headerbar stackswitcher.horizontal.linked.stack-switcher button:hover, headerbar
   border-color: transparent;
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button:active, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked {
+headerbar stackswitcher.horizontal.linked.stack-switcher button:active, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked, headerbar .stack-switcher button:active, headerbar .stack-switcher button:checked, headerbar .stack-switcher button.text-button:active, headerbar .stack-switcher button.text-button:checked, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked, headerbar.titlebar .stack-switcher button:active, headerbar.titlebar .stack-switcher button:checked, headerbar.titlebar .stack-switcher button.text-button:active, headerbar.titlebar .stack-switcher button.text-button:checked {
   background-color: white;
   box-shadow: inset 0px -2px 0px #E95420;
   color: #E95420;
   border-color: transparent;
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button:active label, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked label {
+headerbar stackswitcher.horizontal.linked.stack-switcher button:active label, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked label, headerbar .stack-switcher button:active label, headerbar .stack-switcher button:checked label, headerbar .stack-switcher button.text-button:active label, headerbar .stack-switcher button.text-button:checked label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked label, headerbar.titlebar .stack-switcher button:active label, headerbar.titlebar .stack-switcher button:checked label, headerbar.titlebar .stack-switcher button.text-button:active label, headerbar.titlebar .stack-switcher button.text-button:checked label {
   transition: font-weight 0s;
   font-weight: bold;
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover {
+headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar .stack-switcher button:active:hover, headerbar .stack-switcher button:checked:hover, headerbar .stack-switcher button.text-button:active:hover, headerbar .stack-switcher button.text-button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar.titlebar .stack-switcher button:active:hover, headerbar.titlebar .stack-switcher button:checked:hover, headerbar.titlebar .stack-switcher button.text-button:active:hover, headerbar.titlebar .stack-switcher button.text-button:checked:hover {
   box-shadow: inset 0px -2px 0px #da4816;
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover > *, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:hover > *, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover > *, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover > * {
+headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:hover > *, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:hover > *, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover > *, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover > *, headerbar .stack-switcher button:active:hover, headerbar .stack-switcher button:active:hover > *, headerbar .stack-switcher button:checked:hover, headerbar .stack-switcher button:checked:hover > *, headerbar .stack-switcher button.text-button:active:hover, headerbar .stack-switcher button.text-button:active:hover > *, headerbar .stack-switcher button.text-button:checked:hover, headerbar .stack-switcher button.text-button:checked:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:hover > *, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:hover > *, headerbar.titlebar .stack-switcher button:active:hover, headerbar.titlebar .stack-switcher button:active:hover > *, headerbar.titlebar .stack-switcher button:checked:hover, headerbar.titlebar .stack-switcher button:checked:hover > *, headerbar.titlebar .stack-switcher button.text-button:active:hover, headerbar.titlebar .stack-switcher button.text-button:active:hover > *, headerbar.titlebar .stack-switcher button.text-button:checked:hover, headerbar.titlebar .stack-switcher button.text-button:checked:hover > * {
   color: #da4816;
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled {
-  background-color: rgba(225, 225, 225, 0.6);
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0px -2px 0px rgba(94, 94, 94, 0.4);
-}
-
-headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled cellview {
-  color: rgba(94, 94, 94, 0.4);
-}
-
-headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled {
+headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar .stack-switcher button:active:disabled, headerbar .stack-switcher button:checked:disabled, headerbar .stack-switcher button.text-button:active:disabled, headerbar .stack-switcher button.text-button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar.titlebar .stack-switcher button:active:disabled, headerbar.titlebar .stack-switcher button:checked:disabled, headerbar.titlebar .stack-switcher button.text-button:active:disabled, headerbar.titlebar .stack-switcher button.text-button:checked:disabled {
   background-color: rgba(225, 225, 225, 0.6);
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled cellview {
+headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button:active:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled cellview, headerbar .stack-switcher button:active:disabled, headerbar .stack-switcher button:active:disabled label, headerbar .stack-switcher button:active:disabled image, headerbar .stack-switcher button:active:disabled arrow, headerbar .stack-switcher button:active:disabled cellview, headerbar .stack-switcher button:checked:disabled, headerbar .stack-switcher button:checked:disabled label, headerbar .stack-switcher button:checked:disabled image, headerbar .stack-switcher button:checked:disabled arrow, headerbar .stack-switcher button:checked:disabled cellview, headerbar .stack-switcher button.text-button:active:disabled, headerbar .stack-switcher button.text-button:active:disabled label, headerbar .stack-switcher button.text-button:active:disabled image, headerbar .stack-switcher button.text-button:active:disabled arrow, headerbar .stack-switcher button.text-button:active:disabled cellview, headerbar .stack-switcher button.text-button:checked:disabled, headerbar .stack-switcher button.text-button:checked:disabled label, headerbar .stack-switcher button.text-button:checked:disabled image, headerbar .stack-switcher button.text-button:checked:disabled arrow, headerbar .stack-switcher button.text-button:checked:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:active:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:checked:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:active:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:checked:disabled cellview, headerbar.titlebar .stack-switcher button:active:disabled, headerbar.titlebar .stack-switcher button:active:disabled label, headerbar.titlebar .stack-switcher button:active:disabled image, headerbar.titlebar .stack-switcher button:active:disabled arrow, headerbar.titlebar .stack-switcher button:active:disabled cellview, headerbar.titlebar .stack-switcher button:checked:disabled, headerbar.titlebar .stack-switcher button:checked:disabled label, headerbar.titlebar .stack-switcher button:checked:disabled image, headerbar.titlebar .stack-switcher button:checked:disabled arrow, headerbar.titlebar .stack-switcher button:checked:disabled cellview, headerbar.titlebar .stack-switcher button.text-button:active:disabled, headerbar.titlebar .stack-switcher button.text-button:active:disabled label, headerbar.titlebar .stack-switcher button.text-button:active:disabled image, headerbar.titlebar .stack-switcher button.text-button:active:disabled arrow, headerbar.titlebar .stack-switcher button.text-button:active:disabled cellview, headerbar.titlebar .stack-switcher button.text-button:checked:disabled, headerbar.titlebar .stack-switcher button.text-button:checked:disabled label, headerbar.titlebar .stack-switcher button.text-button:checked:disabled image, headerbar.titlebar .stack-switcher button.text-button:checked:disabled arrow, headerbar.titlebar .stack-switcher button.text-button:checked:disabled cellview {
   color: rgba(94, 94, 94, 0.4);
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button:first-child, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:first-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:first-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:first-child {
+headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar .stack-switcher button:disabled, headerbar .stack-switcher button.text-button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar.titlebar .stack-switcher button:disabled, headerbar.titlebar .stack-switcher button.text-button:disabled {
+  background-color: rgba(225, 225, 225, 0.6);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button:disabled cellview, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled label, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled image, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled arrow, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled cellview, headerbar .stack-switcher button:disabled, headerbar .stack-switcher button:disabled label, headerbar .stack-switcher button:disabled image, headerbar .stack-switcher button:disabled arrow, headerbar .stack-switcher button:disabled cellview, headerbar .stack-switcher button.text-button:disabled, headerbar .stack-switcher button.text-button:disabled label, headerbar .stack-switcher button.text-button:disabled image, headerbar .stack-switcher button.text-button:disabled arrow, headerbar .stack-switcher button.text-button:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:disabled cellview, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled label, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled image, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled arrow, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:disabled cellview, headerbar.titlebar .stack-switcher button:disabled, headerbar.titlebar .stack-switcher button:disabled label, headerbar.titlebar .stack-switcher button:disabled image, headerbar.titlebar .stack-switcher button:disabled arrow, headerbar.titlebar .stack-switcher button:disabled cellview, headerbar.titlebar .stack-switcher button.text-button:disabled, headerbar.titlebar .stack-switcher button.text-button:disabled label, headerbar.titlebar .stack-switcher button.text-button:disabled image, headerbar.titlebar .stack-switcher button.text-button:disabled arrow, headerbar.titlebar .stack-switcher button.text-button:disabled cellview {
+  color: rgba(94, 94, 94, 0.4);
+}
+
+headerbar stackswitcher.horizontal.linked.stack-switcher button:first-child, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:first-child, headerbar .stack-switcher button:first-child, headerbar .stack-switcher button.text-button:first-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:first-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:first-child, headerbar.titlebar .stack-switcher button:first-child, headerbar.titlebar .stack-switcher button.text-button:first-child {
   border-top-left-radius: 6px;
 }
 
-headerbar stackswitcher.horizontal.linked.stack-switcher button:last-child, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:last-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:last-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:last-child {
+headerbar stackswitcher.horizontal.linked.stack-switcher button:last-child, headerbar stackswitcher.horizontal.linked.stack-switcher button.text-button:last-child, headerbar .stack-switcher button:last-child, headerbar .stack-switcher button.text-button:last-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button:last-child, headerbar.titlebar stackswitcher.horizontal.linked.stack-switcher button.text-button:last-child, headerbar.titlebar .stack-switcher button:last-child, headerbar.titlebar .stack-switcher button.text-button:last-child {
   border-top-right-radius: 6px;
 }
 
@@ -5495,6 +5490,10 @@ headerbar .path-bar button.text-button.toggle, headerbar.titlebar .path-bar butt
   box-shadow: inset 0 0 transparent;
   border-color: transparent;
   transition: all 250ms ease;
+}
+
+headerbar .path-bar button.text-button.toggle:disabled, headerbar.titlebar .path-bar button.text-button.toggle:disabled {
+  box-shadow: inset 0px -2px 0px rgba(94, 94, 94, 0.4);
 }
 
 headerbar .path-bar button.text-button.toggle:hover, headerbar.titlebar .path-bar button.text-button.toggle:hover {
@@ -5528,7 +5527,6 @@ headerbar .path-bar button.text-button.toggle:active:hover, headerbar .path-bar 
 headerbar .path-bar button.text-button.toggle:active:disabled, headerbar .path-bar button.text-button.toggle:checked:disabled, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled {
   background-color: rgba(225, 225, 225, 0.6);
   border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0px -2px 0px rgba(94, 94, 94, 0.4);
 }
 
 headerbar .path-bar button.text-button.toggle:active:disabled, headerbar .path-bar button.text-button.toggle:active:disabled label, headerbar .path-bar button.text-button.toggle:active:disabled image, headerbar .path-bar button.text-button.toggle:active:disabled arrow, headerbar .path-bar button.text-button.toggle:active:disabled cellview, headerbar .path-bar button.text-button.toggle:checked:disabled, headerbar .path-bar button.text-button.toggle:checked:disabled label, headerbar .path-bar button.text-button.toggle:checked:disabled image, headerbar .path-bar button.text-button.toggle:checked:disabled arrow, headerbar .path-bar button.text-button.toggle:checked:disabled cellview, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled label, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled image, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled arrow, headerbar.titlebar .path-bar button.text-button.toggle:active:disabled cellview, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled label, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled image, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled arrow, headerbar.titlebar .path-bar button.text-button.toggle:checked:disabled cellview {
@@ -5575,17 +5573,6 @@ headerbar .path-bar button.slider-button, headerbar .path-bar button.slider-butt
   background-color: white;
 }
 
-button .text-button.toggle:checked:disabled {
-  background-image: image(rgba(225, 225, 225, 0.6));
-  color: rgba(94, 94, 94, 0.4);
-  border-color: rgba(233, 84, 32, 0.6);
-}
-
-button .image-button:not(.text-button):disabled {
-  background-image: none;
-  background-color: transparent;
-}
-
 stackswitcher button {
   border-color: rgba(0, 0, 0, 0.15);
   border-style: solid;
@@ -5609,6 +5596,7 @@ scale:disabled contents {
 
 dialog {
   background-image: image(#F4F4F4);
+  color: #5e5e5e;
 }
 
 dialog decoration, dialog decoration:backdrop, messagedialog decoration, messagedialog decoration:backdrop {
@@ -5861,6 +5849,10 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:last-child {
   border-top-right-radius: 6px;
+}
+
+headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:disabled {
+  box-shadow: inset 0px -2px 0px rgba(94, 94, 94, 0.4);
 }
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software:hover {

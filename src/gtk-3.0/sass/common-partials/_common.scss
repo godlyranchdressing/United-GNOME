@@ -216,6 +216,7 @@ assistant {
   border: none;
   border-radius: 0px;
   background-color: $lighter_bg_color;
+
   // box-shadow: $shadow_bottom $primary_color;
   background-clip: padding-box;
   -gtk-icon-shadow: none;
@@ -3113,21 +3114,19 @@ scale {
     // OSD sliders
     .osd & {
       background-clip: border-box;
-      background-color: $light_fg_color;
-      box-shadow: $shadow_surround $border_color;
 
-      &:hover {
-        background-color: _hover_shade($accent_color);
-        border-color: _hover_shade($accent_color);
+      @extend %slider;
+
+      &:hover, &:active {
+        @extend %slider:hover;
       }
 
       &:active {
-        background-color: _pressed_shade($accent_color);
-        border-color: _pressed_shade($accent_color);
+        @extend %slider:active;
       }
 
       &:disabled {
-        background-color: $disabled_bg_color;
+        @extend %slider:disabled;
       }
     }
   }
@@ -3465,8 +3464,8 @@ list {
 row {
   transition: all 150ms $ease-out-quad;
 
-  &:hover {
-    transition: none;
+  &:hover, &:active{
+    transition-duration: 50ms;
   }
 
   &.activatable {
@@ -3477,7 +3476,7 @@ row {
 
     &:active {
       //box-shadow: inset 0 2px 2px -2px transparentize(black, 0.8);
-
+      background-color: if(variant == light, transparentize($fg_color, 0.88), transparentize($fg_color, 0.92));
     }
 
     &:selected {
@@ -3962,6 +3961,7 @@ infobar {
       label, & {
         color: $highlighted_fg_color;
       }
+
       background-color: $info_bg_color;
       border-color: _pressed_shade($info_bg_color);
     }
@@ -3972,8 +3972,8 @@ infobar {
         color: $info_bg_color;
       }
 
-      &:disabled{
-        label{
+      &:disabled {
+        label {
           color: $disabled_fg_color;
         }
       }
