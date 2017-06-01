@@ -1533,7 +1533,7 @@ style "spinbutton" {
       file = "assets/down-background-active.png"
       border = { 1, 4, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-active.png"
+      overlay_file = "assets/arrow-down-small.png"
       overlay_stretch = FALSE
       direction = LTR
     }
@@ -1583,7 +1583,7 @@ style "spinbutton" {
       file = "assets/down-background-active-rtl.png"
       border = { 4, 1, 1, 4 }
       stretch = TRUE
-      overlay_file = "assets/arrow-down-small-active.png"
+      overlay_file = "assets/arrow-down-small.png"
       overlay_stretch = FALSE
       direction = RTL
     }
@@ -1914,16 +1914,16 @@ style "range" {
       orientation = HORIZONTAL
     }
 
-    image {
-      function = SLIDER
-      state = ACTIVE
-      file = "assets/null.png"
-      border = { 0, 0, 0, 0 }
-      stretch = TRUE
-      overlay_file = "assets/slider-active.png"
-      overlay_stretch = FALSE
-      orientation = HORIZONTAL
-    }
+    # image {
+      # function = SLIDER
+      # state = ACTIVE
+      # file = "assets/null.png"
+      # border = { 0, 0, 0, 0 }
+      # stretch = TRUE
+      # overlay_file = "assets/slider-active.png"
+      # overlay_stretch = FALSE
+      # orientation = HORIZONTAL
+    # }
 
     image {
       function = SLIDER
@@ -2045,8 +2045,7 @@ style "separator_menu_item" {
 
 style "treeview_header" {
   ythickness = 1
-
-  fg[PRELIGHT] = mix(0.70, @text_color, @base_color)
+  bg[NORMAL] = shade(1.023, @bg_color)
   font_name = "Bold"
 
   engine "pixmap" {
@@ -2063,11 +2062,10 @@ style "treeview_header" {
 # Treeview Rows
 
 style "treeview" {
+  base[NORMAL] = shade(1.023, @bg_color)
 
   xthickness = 2
   ythickness = 0
-
-
 }
 
 style "scrolled_window" {
@@ -2594,7 +2592,6 @@ widget_class "*<GtkNotebook>*<GtkCellLayout>"                       style "text"
 
 # Imported
 widget_class "*<GtkButton>*<GtkLabel>"                             style "button_label"
-widget_class "*<GtkComboBox>*<GtkLabel>"                                       style "button_label"
 widget_class "*<GtkCheckButton>.<GtkLabel>"                        style "checkbutton_label"
 widget_class "*<GtkRadioButton>.<GtkLabel>"                        style "checkbutton_label"
 widget_class "*<GtkToolButton>*<GtkButton>"                        style "tool_button"

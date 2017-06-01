@@ -20,7 +20,7 @@ window.nautilus-window {
   }
 
   scrolledwindow treeeview.view, .nautilus-list-view overlay {
-    background-color: $bg_color;
+    background-color: red;
   }
 
   popover viewport button {
@@ -35,26 +35,9 @@ window.nautilus-window {
     }
   }
 
-  grid stack box.linked button:not(.image-button) {
-    // nautilus has a not-entry button
-    @include button(text, $fg_color, $lighter_bg_color);
-  }
-
   header tabs tab {
     min-height: 24px;
     padding: 4px 8px;
-  }
-
-  notebook {
-    > header {
-      &.top {
-        tabs tab.reorderable-page {
-          &:checked, &:hover {
-            background-color: $lighter_bg_color;
-          }
-        }
-      }
-    }
   }
 
   paned > separator {

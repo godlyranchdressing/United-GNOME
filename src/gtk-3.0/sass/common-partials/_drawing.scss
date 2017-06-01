@@ -212,7 +212,7 @@
       $_bg: $bg;
     }
 
-    @if $in_headerbar == true or $toolbutton == false{
+    @if $in_headerbar == true or $toolbutton == false {
       $_fg: transparent;
       $_bc: transparent;
     }

@@ -1933,7 +1933,7 @@ headerbar {
  * Tree Views *
  **************/
 treeview.view {
-  background-color: $lighter_bg_color;
+  background-color: $base_color;
   border-bottom: 1px solid transparentize($border_color, 0.1);
 
   @at-root * {
@@ -2061,26 +2061,26 @@ treeview.view {
   header {
     button {
       @extend row.activatable;
-
+      font-weight: bold;
       color: $secondary_fg_color;
-      padding: 2px 6px;
-      background-color: $base_color;
-      border-style: none solid solid none;
+      background-image: image($base_color);
       border-width: 1px;
       border-color: $border_color;
+      border-style: none solid solid none;
       border-radius: 0;
+      padding: 2px 6px;
       background-clip: border-box;
       box-shadow: none;
 
       &:hover {
         label, image, arrow {
-          color: $fg_color;
+          color: _hover_shade($primary_color);
         }
       }
 
       &:active {
         label, image, arrow {
-          color: _pressed_shade($fg_color);
+          color: _pressed_shade($primary_color);
         }
       }
 
@@ -3714,7 +3714,7 @@ filechooserbutton:drop(active) {
   background-color: $alt_bg_color;
 
   treeview.view {
-    background-color: $bg_color;
+    background-color: $base_color; //$bg_color
   }
 
   @at-root %sidebar_left,
