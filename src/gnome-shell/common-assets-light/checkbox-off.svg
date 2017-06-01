@@ -15,7 +15,7 @@
    version="1.1"
    id="svg4"
    sodipodi:docname="checkbox-off.svg"
-   inkscape:version="0.92+devel unknown"
+   inkscape:version="0.92.1 r15371"
    fill="#FFFFFF"
    opacity="0.75">
   <metadata
@@ -69,20 +69,20 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
+     inkscape:window-width="1848"
      inkscape:window-height="1138"
      id="namedview6"
      showgrid="false"
-     inkscape:zoom="12.956867"
-     inkscape:cx="5.142137"
-     inkscape:cy="9.6188586"
-     inkscape:window-x="0"
+     inkscape:zoom="16.659606"
+     inkscape:cx="-11.423807"
+     inkscape:cy="4.4739542"
+     inkscape:window-x="1438"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4"
      inkscape:document-rotation="0" />
   <g
-     transform="matrix(1.375,0,0,1.3738992,-751.125,-204.20858)"
+     transform="matrix(1.25,0,0,1.2489993,-681.75,-184.55326)"
      id="checkbox">
     <path
        style="fill:url(#linearGradient5853);fill-opacity:1;stroke:none"

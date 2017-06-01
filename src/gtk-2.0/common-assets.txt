@@ -84,6 +84,7 @@ arrow-down-small
 
 arrow-down-small-insens
 
+slider
 plus
 minus
 handle-v

@@ -216,7 +216,7 @@ assistant {
   border: none;
   border-radius: 0px;
   background-color: $lighter_bg_color;
-  box-shadow: $shadow_bottom $primary_color;
+  // box-shadow: $shadow_bottom $primary_color;
   background-clip: padding-box;
   -gtk-icon-shadow: none;
 }
@@ -1318,7 +1318,7 @@ spinbutton {
         @include button(disabled);
 
         color: $disabled_fg_color;
-        background-color: $disabled_bg_color;
+        background-color: $solid_disabled_bg_color;
       }
 
       &:dir(rtl) {
@@ -1397,6 +1397,12 @@ spinbutton {
 
       &.down {
         @extend %bottom_button;
+      }
+
+      &.up, &.down {
+        &:disabled {
+          background-color: $solid_disabled_bg_color;
+        }
       }
     }
 
@@ -2061,6 +2067,7 @@ treeview.view {
   header {
     button {
       @extend row.activatable;
+
       font-weight: bold;
       color: $secondary_fg_color;
       background-image: image($base_color);
@@ -2969,8 +2976,8 @@ check,
 radio {
   @include button(flat);
 
-  min-width: 18px;
-  min-height: 18px;
+  min-width: 16px;
+  min-height: 16px;
   margin: 2px 4px;
 
   &:only-child,
@@ -3032,7 +3039,7 @@ scale {
 
   // the colored part of the backing bit
   highlight {
-    background-color: if($distro != "opensuse", lighten($accent_color, 10%), lighten($accent_color, 7.5%));
+    background-color: $accent_color;
 
     &:disabled {
       background-color: $disabled_bg_color;
@@ -3049,18 +3056,18 @@ scale {
     }
   }
 
-  slider {
+  slider, %slider {
     margin: -8.5px;
     transition: all 75ms cubic-bezier(0.25, 0.25, 0.75, 0.75);
-    background-color: $accent_color;
-    box-shadow: $shadow_surround $border_color;
-    border-radius: 100%;
+    background-color: $lighter_bg_color;
+    box-shadow: $shadow_surround $border_color, $shadow_surround $border_color;
+    border-radius: $standard_radius;
     min-width: 0px;
     min-height: 0px;
 
     &:active, &:hover {
-      margin: -10px;
       transition: all 75ms cubic-bezier(0.25, 0.25, 0.75, 0.75);
+      margin: -8.5px;
       background-clip: border-box;
       background-color: _hover_shade($accent_color);
       border-color: _hover_shade($accent_color);
@@ -3106,8 +3113,8 @@ scale {
     // OSD sliders
     .osd & {
       background-clip: border-box;
-      background-color: $accent_color;
-      border-color: $accent_color;
+      background-color: $light_fg_color;
+      box-shadow: $shadow_surround $border_color;
 
       &:hover {
         background-color: _hover_shade($accent_color);
@@ -3186,10 +3193,6 @@ scale {
           &, &:active, &:active:hover {
             margin: -8.5px;
           }
-
-          &:hover {
-            margin: -10px;
-          }
         }
       }
     }
@@ -3199,7 +3202,9 @@ scale {
         &.marks-after, &.marks-before {
           trough {
             slider {
-              margin: -6px;
+              &, &:hover, &:active {
+                margin: -8.5px;
+              }
             }
           }
         }
@@ -3714,7 +3719,10 @@ filechooserbutton:drop(active) {
   background-color: $alt_bg_color;
 
   treeview.view {
-    background-color: $base_color; //$bg_color
+    background-color: $base_color;
+
+    //$bg_color
+
   }
 
   @at-root %sidebar_left,
@@ -3945,6 +3953,7 @@ paned {
 infobar {
   border-style: none;
 
+  &,
   &.info,
   &.question,
   &.warning,
@@ -3953,15 +3962,20 @@ infobar {
       label, & {
         color: $highlighted_fg_color;
       }
-
       background-color: $info_bg_color;
-      border-color: darken($info_bg_color, 10%);
+      border-color: _pressed_shade($info_bg_color);
     }
 
     button, button.text-button {
       // FIXME: extend selection mode buttons
       label {
         color: $info_bg_color;
+      }
+
+      &:disabled{
+        label{
+          color: $disabled_fg_color;
+        }
       }
     }
 

@@ -3,14 +3,14 @@ Semi in order of priority.
 # Shell and GTK3
 - Use ems instead of px
 
-# Shell
-- Make the show apps icon blend in more if not using a dash extension. Possibly drop completely if this isn't viable.
-
 # GTK2/3
 - Make the dark theme follow Unity 8's?
 
 # Assets
 - Window buttons?
+
+# SCSS cleanup
+- Use extend and mixin magic to lead into making the compact variant
 
 # Compact GTK3 Variant
 - Make a compact version.

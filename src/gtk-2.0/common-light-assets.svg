@@ -826,9 +826,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="12.458384"
-     inkscape:cx="413.62762"
-     inkscape:cy="210.87278"
+     inkscape:zoom="4.6814553"
+     inkscape:cx="268.89431"
+     inkscape:cy="354.38406"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -2180,24 +2180,6 @@
        rx="2.7755599e-17"
        ry="2.7755599e-17"
        inkscape:label="#rect5008-1" />
-    <g
-       id="slider-insensitive"
-       transform="translate(1.4998169,-283.63782)"
-       inkscape:label="#g5881"
-       style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#e6e6e6;stroke-opacity:1">
-      <circle
-         r="7"
-         cy="263.5"
-         cx="262.5"
-         id="path5834-5-4"
-         style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#e6e6e6;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <circle
-         r="7"
-         cy="263.5"
-         cx="262.5"
-         id="path5834-5"
-         style="opacity:0.55;fill:#e6e6e6;fill-opacity:1;stroke:#e6e6e6;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    </g>
     <g
        style="display:inline"
        id="trough-horizontal"
@@ -3720,7 +3702,7 @@
          ry="4" />
     </g>
     <g
-       transform="matrix(1.125,0,0,1.1240993,-334.37499,-450.28579)"
+       transform="matrix(1,0,0,0.99919939,-264.99999,-430.63047)"
        id="checkbox">
       <path
          style="fill:none;fill-opacity:1;stroke:none"
@@ -3735,7 +3717,7 @@
     </g>
     <g
        id="checkbox-insensitive"
-       transform="matrix(1.125,0,0,1.1240993,-314.37499,-551.46914)">
+       transform="matrix(1,0,0,0.99919939,-244.99999,-520.57122)">
       <path
          inkscape:connector-curvature="0"
          id="path2357"
@@ -3748,7 +3730,7 @@
          id="path2359" />
     </g>
     <g
-       transform="matrix(1.125,0,0,1.1240993,-294.37499,-551.46914)"
+       transform="matrix(1,0,0,0.99919939,-224.99999,-520.57122)"
        id="checkbox-checked">
       <path
          style="fill:#48b259;fill-opacity:1;stroke:none"
@@ -3767,7 +3749,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1.125,0,0,1.1240993,-274.37499,-551.46914)"
+       transform="matrix(1,0,0,0.99919939,-204.99999,-520.57122)"
        id="checkbox-checked-insensitive"
        style="opacity:0.6">
       <path
@@ -3787,7 +3769,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1.1249998,0,0,-1.1240993,-469.37485,24.67899)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-384.99987,-6.2173243)"
        id="radio">
       <circle
          r="8"
@@ -3803,7 +3785,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1.1249998,0,0,-1.1249998,-449.37485,24.894536)"
+       transform="matrix(0.99999984,0,0,-0.99999984,-364.99987,-6.0257277)"
        id="radio-insensitive">
       <circle
          r="8"
@@ -3826,7 +3808,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1.1249998,0,0,-1.1240993,-429.37485,24.67899)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-344.99987,-6.2173243)"
        id="radio-checked">
       <circle
          r="8"
@@ -3849,7 +3831,7 @@
          transform="translate(86,140)" />
     </g>
     <g
-       transform="matrix(1.1249998,0,0,-1.1240993,-409.37485,24.67899)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-324.99987,-6.2173243)"
        id="radio-checked-insensitive"
        style="opacity:0.6">
       <circle
@@ -3873,7 +3855,7 @@
          transform="translate(86,140)" />
     </g>
     <g
-       transform="matrix(1.1249998,0,0,-1.1240993,-449.37485,44.67899)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-364.99987,13.782676)"
        id="radio-hover">
       <circle
          r="8"
@@ -3889,7 +3871,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1.125,0,0,1.1240993,-334.37499,-410.28579)"
+       transform="matrix(1,0,0,0.99919939,-264.99999,-390.63047)"
        id="checkbox-hover">
       <path
          style="fill:none;fill-opacity:1;stroke:none"
@@ -4151,7 +4133,7 @@
     </g>
     <g
        id="checkbox-active"
-       transform="matrix(1.125,0,0,1.125,-334.37499,-471.69917)">
+       transform="translate(-264.99999,-440.77569)">
       <g
          id="g5140-1">
         <path
@@ -4167,7 +4149,7 @@
       </g>
     </g>
     <g
-       transform="matrix(1.1249998,0,0,-1.1249998,-449.37485,84.894535)"
+       transform="matrix(0.99999984,0,0,-0.99999984,-364.99987,53.974271)"
        id="radio-active">
       <circle
          r="8"
@@ -4190,7 +4172,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1.125,0,0,1.1240993,-334.37499,-491.46914)"
+       transform="matrix(1,0,0,0.99919939,-264.99999,-460.57122)"
        id="checkbox-checked-hover">
       <path
          style="fill:#41a050;fill-opacity:1;stroke:none"
@@ -4210,7 +4192,7 @@
     </g>
     <g
        id="checkbox-mixed-hover"
-       transform="matrix(1.125,0,0,1.125,-314.37499,-491.69917)">
+       transform="translate(-244.99999,-460.77569)">
       <g
          id="g5140-9">
         <path
@@ -4234,7 +4216,7 @@
       </g>
     </g>
     <g
-       transform="matrix(1.1249998,0,0,-1.1240993,-429.37485,64.678989)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-344.99987,33.782675)"
        id="radio-checked-hover">
       <circle
          r="8"
@@ -4258,7 +4240,7 @@
     </g>
     <g
        id="radio-mixed-hover"
-       transform="matrix(1.125,0,0,-1.125,-409.37499,64.909005)">
+       transform="matrix(1,0,0,-1,-324.99999,33.98713)">
       <circle
          r="8"
          cy="-675"
@@ -4761,6 +4743,46 @@
          id="rect7903-7-31-6-5"
          style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:#c2c2c1;stroke-width:1.02064657;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          ry="4" />
+    </g>
+    <g
+       style="display:inline"
+       transform="matrix(0.9375,0,0,0.9375,-256.31268,-185.67607)"
+       id="slider">
+      <path
+         style="fill:none;fill-opacity:1;stroke:none"
+         d="m 555,149.36218 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
+         id="path4140-5-8-3"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5274-6-5"
+         d="m 555,149.36218 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1" />
+      <path
+         id="path4142-3-9-6"
+         d="m 555,149.36218 c -8,0 -8,0.88888 -8,8 0,7.11111 0,8 8,8 8,0 8,-0.88889 8,-8 0,-7.11112 0,-8 -8,-8 z m 0,1 c 1.98144,0 3.45949,0.0756 4.46875,0.25 1.00926,0.17444 1.48125,0.41667 1.78125,0.75 0.3,0.33333 0.51118,0.88855 0.625,1.875 0.11382,0.98645 0.125,2.34722 0.125,4.125 0,1.77778 -0.0112,3.13855 -0.125,4.125 -0.11382,0.98645 -0.325,1.54167 -0.625,1.875 -0.3,0.33333 -0.77199,0.57556 -1.78125,0.75 -1.00926,0.17444 -2.48731,0.25 -4.46875,0.25 -1.98144,0 -3.45949,-0.0756 -4.46875,-0.25 -1.00926,-0.17444 -1.48125,-0.41667 -1.78125,-0.75 -0.3,-0.33333 -0.51118,-0.88855 -0.625,-1.875 -0.11382,-0.98645 -0.125,-2.34722 -0.125,-4.125 0,-1.77778 0.0112,-3.13855 0.125,-4.125 0.11382,-0.98645 0.325,-1.54167 0.625,-1.875 0.3,-0.33333 0.77199,-0.57556 1.78125,-0.75 1.00926,-0.17444 2.48731,-0.25 4.46875,-0.25 z"
+         style="fill:#b9b9b9;fill-opacity:1;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       style="display:inline"
+       transform="matrix(0.9375,0,0,0.9375,-256.31268,-168.67607)"
+       id="slider-insensitive">
+      <path
+         style="fill:none;fill-opacity:1;stroke:none"
+         d="m 555,149.36218 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
+         id="path4140-5-8-3-9"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5274-6-5-1"
+         d="m 555,149.36218 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
+         style="display:inline;fill:#c2c2c1;fill-opacity:1;stroke:none;stroke-width:1" />
+      <path
+         id="path4142-3-9-6-2"
+         d="m 555,149.36218 c -8,0 -8,0.88888 -8,8 0,7.11111 0,8 8,8 8,0 8,-0.88889 8,-8 0,-7.11112 0,-8 -8,-8 z m 0,1 c 1.98144,0 3.45949,0.0756 4.46875,0.25 1.00926,0.17444 1.48125,0.41667 1.78125,0.75 0.3,0.33333 0.51118,0.88855 0.625,1.875 0.11382,0.98645 0.125,2.34722 0.125,4.125 0,1.77778 -0.0112,3.13855 -0.125,4.125 -0.11382,0.98645 -0.325,1.54167 -0.625,1.875 -0.3,0.33333 -0.77199,0.57556 -1.78125,0.75 -1.00926,0.17444 -2.48731,0.25 -4.46875,0.25 -1.98144,0 -3.45949,-0.0756 -4.46875,-0.25 -1.00926,-0.17444 -1.48125,-0.41667 -1.78125,-0.75 -0.3,-0.33333 -0.51118,-0.88855 -0.625,-1.875 -0.11382,-0.98645 -0.125,-2.34722 -0.125,-4.125 0,-1.77778 0.0112,-3.13855 0.125,-4.125 0.11382,-0.98645 0.325,-1.54167 0.625,-1.875 0.3,-0.33333 0.77199,-0.57556 1.78125,-0.75 1.00926,-0.17444 2.48731,-0.25 4.46875,-0.25 z"
+         style="fill:#c2c2c1;fill-opacity:1;stroke:none"
+         inkscape:connector-curvature="0" />
     </g>
   </g>
 </svg>

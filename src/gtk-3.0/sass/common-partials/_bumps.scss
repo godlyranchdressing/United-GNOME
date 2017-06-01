@@ -219,6 +219,7 @@ scale:disabled contents {
 
 dialog {
   background-image: image($headerbar_bg_color);
+  color: $headerbar_fg_color;
 }
 
 dialog, messagedialog {
@@ -231,7 +232,7 @@ dialog, messagedialog {
   }
 }
 
-messagedialog {
+messagedialog{
   // Flat dialog boxes
   border-width: 0px 1px 1px 1px;
 

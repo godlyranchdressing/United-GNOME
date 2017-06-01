@@ -5,7 +5,6 @@ combo-entry-button-active
 combo-entry-button-active-rtl
 menuitem
 highlight
-slider
 slider-horiz-hover
 slider-horiz-active
 slider-hover

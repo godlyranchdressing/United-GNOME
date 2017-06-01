@@ -71,6 +71,7 @@ $unity_highlight_color: if($headerbar == "dark", scale-alpha(white, 0.1), scale-
 
 // disabled and backdrop states
 $disabled_bg_color: transparentize(if($variant == "light", $alt_bg_color, darken($alt_bg_color, 5%)), $disabled_opacity);
+$solid_disabled_bg_color: if($variant == "light", #E9E9E9, #171717); // since the disabled bg colors use transparency any element that's over another would be "extra disabled", most notably spinbuttons so those use this value
 $disabled_base_color: transparentize(if($variant == "light", $alt_base_color, darken($alt_base_color, 5%)), $disabled_opacity);
 $disabled_fg_color: scale-alpha($fg_color, $disabled_opacity);
 
