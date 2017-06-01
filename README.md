@@ -25,8 +25,7 @@ An install script hasn't been written yet but there is a compile script that let
 
 Contributing
 ------------
-Please let me know of any bugs or quirks. Any contribution would be much appreciated.
-
+Please let me know of any bugs or quirks. Any contribution would be much appreciated. If you want to make your own tweaks, the compile.sh script compiles and transfers everything over to their appropriate folders which are all compressed in the Compiled archive file. All that's to it is extacting that folder, making your changes in the src folder and then running the script.
 
 License
 -------
