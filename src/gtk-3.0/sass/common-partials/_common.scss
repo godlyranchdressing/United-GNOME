@@ -1852,7 +1852,7 @@ headerbar.titlebar .path-bar button, .path-bar button {
       @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
 
       &:hover {
-        background-color: $lighter_bg_color;
+        background-color: if($headerbar == "dark", $darker_lighter_bg_color, $lighter_bg_color);
       }
 
       &:disabled {
