@@ -120,14 +120,14 @@
   color: $fg_color;
   border-radius: $standard_radius;
   border: 1px solid transparent;
-  box-shadow: $shadow_surround $dark_semi_fill_color;
+  box-shadow: $shadow_surround $border_color;
   selection-background-color: $primary_color;
   selected-color: $ubuntu_white;
   transition-duration: 250ms;
 
   &:hover, &:focus, &:active {
     border: 1px solid transparent;
-    box-shadow: if($variant == "light", $shadow_thicker_surround, $shadow_surround) $dark_semi_fill_color;
+    box-shadow: if($variant == "light", $shadow_thicker_surround, $shadow_surround) $border_color;
     transition-duration: 250ms;
   }
 
@@ -147,15 +147,11 @@
   transition-duration: 250ms;
   color: $fg_color;
 
-  @if $variant == "light" {
-    background-color: $lighter_bg_color !important;
-  }
-
-  @if $variant == "dark" and $transparency == false {
+  @if $transparency == true {
     background-color: $base_color;
   }
   @else {
-    background-color: transparent;
+    background-color: if($variant == "light", $lighter_bg_color, $base_color) !important;
   }
 
   background-image: none;
@@ -170,7 +166,7 @@
     text-shadow: none;
     icon-shadow: none;
   }
-  
+
   &:active, &:checked {
     color: if($variant == "light", _pressed_shade($primary_color), $fg_color);
     background-color: $fill_color !important;

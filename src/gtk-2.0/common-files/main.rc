@@ -719,7 +719,7 @@ style "menu_item"
   # highlight. The price to pay is black text on menus as well,
   # but at least it's readable.
   # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
-  bg[NORMAL] = @base_color
+  bg[NORMAL] = @notebook_bg
   bg[SELECTED] = @selected_fg_color
 
   fg[NORMAL] = @fg_color
@@ -970,12 +970,25 @@ style "button" {
   }
 }
 
+style "link_button" {
+
+  # Disable the button effect, leave just the link
+  engine "pixmap" {
+    image {
+      function = BOX
+    }
+  }
+
+}
+
 
 style "button_label" {
   fg[NORMAL] = @fg_color
   fg[PRELIGHT]    = @fg_color
   fg[SELECTED] = @fg_color
   fg[ACTIVE] = @fg_color
+  fg[INSENSITIVE] = @insensitive_fg_color
+  text[INSENSITIVE] = @insensitive_fg_color
 }
 
 style "chrome_button_label" {
@@ -2519,6 +2532,7 @@ widget_class "*CajaNavigationWindow*<GtkToolbar>*<GtkEntry>"        style "toolb
 class "GtkWidget"                                                   style "default"
 class "GtkScrollbar"                                                style "scrollbar"
 class "GtkButton"                                                   style "button"
+class "GtkLinkButton"        style "link_button"
 class "GtkEntry"                                                    style "entry"
 class "GtkOldEditable"                                              style "entry"
 class "GtkSpinButton"                                               style "spinbutton"

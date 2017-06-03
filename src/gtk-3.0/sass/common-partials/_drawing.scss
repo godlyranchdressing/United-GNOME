@@ -29,13 +29,14 @@
 }
 
 @function entry_focus_shadow($fc: $primary_color) {
-  @return inset 0 -1px $fc;
+  @return inset 0 -2px $fc;
 }
 
 @mixin entry($type, $fc: $primary_color, $in_headerbar: false) {
   $_bg: TBA;
   $_fg: TBA;
   $_bc: TBA;
+  $_bs: TBA;
   $_dbg: TBA;
   $_dfg: TBA;
 
@@ -43,6 +44,7 @@
     $_bg: $darker_lighter_bg_color;
     $_fg: $light_fg_color;
     $_bc: $darker_border_color;
+    $_bs: $button_highlight $darker_button_highlight_color;
     $_dbg: $darker_disabled_bg_color;
     $_dfg: $darker_disabled_fg_color;
   }
@@ -50,6 +52,7 @@
     $_bg: $lighter_bg_color;
     $_fg: $fg_color;
     $_bc: $border_color;
+    $_bs: $button_highlight $button_highlight_color;
     $_dbg: $disabled_bg_color;
     $_dfg: $disabled_fg_color;
   }
@@ -57,16 +60,19 @@
   @if $type == normal {
     color: $_fg;
     border-color: $_bc;
+    box-shadow: $_bs;
     background-color: $_bg;
   }
 
   @if $type == focus {
     border-color: entry_focus_border($fc);
+    box-shadow: entry_focus_shadow($fc);
   }
 
   @if $type == disabled {
     color: $_dfg;
     border-color: $_bc;
+    box-shadow: $_bs;
     background-color: $_dbg;
   }
 }

@@ -10,7 +10,7 @@
 @import "color-palette";
 
 // Foreground colors
-$dark_fg_color: #606060;
+$dark_fg_color: $slate;
 $light_fg_color: #ffffff;
 $fg_color: if($variant == "light", $dark_fg_color, $light_fg_color);  // for shorthand's sake
 $secondary_fg_color: scale-alpha($fg_color, $secondary_opacity);
@@ -30,7 +30,7 @@ $disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
 
 // Background colors
 $base_color: if($variant == "light", $ubuntu_white, $ubuntu_black);
-$bg_color: if($variant == "light", $ubuntu_bg, $ubuntu_jet);
+$bg_color: if($variant == "light", $ubuntu_bg, $jet);
 $alt_base_color: if($variant == "light", darken($base_color, 2.5%), mix($base_color, $bg_color, 50%));
 $alt_bg_color: if($variant == "light", $ubuntu_alt_bg, lighten($base_color, 7.5%));
 $lighter_bg_color: if($variant == "light", lighten($base_color, 5%), lighten($base_color, 7%));
@@ -68,17 +68,19 @@ $visited_link_color: darken($accent_color, 10);
 
 // Info colours
 $warning_color: $orange;
-$error_color: $dark_orange;
+$error_color: $red;
+$suggested_color: $green;
 $success_color: $green;
-$suggested_color: $accent_color;
-$destructive_color: $dark_red;
-$info_bg_color: $green;
-$question_bg_color: $blue;
+$link_color: lighten($accent_color, 5);
+$visited_link_color: darken($accent_color, 5);
+$destructive_color: $red;
+$info_bg_color: $accent_color; // suru's blue would be more accurate here but the blue is pretty much being replaced by the accent colors
+$question_bg_color: $accent_color;
 $warning_bg_color: lighten($orange, 5);
 $error_bg_color: darken($red, 5);
 
 // Border and highlight colours
 $osd_border_color: transparentize(if($variant == "light", $ubuntu_white, $ubuntu_black), 0.5);
 $osd_light_border_color: transparentize($ubuntu_white, 0.5);
-$border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($ubuntu_white, 0.1));
+$border_color: if($variant == "light", scale-alpha($ubuntu_black, 0.1), scale-alpha($ubuntu_white, 0.1));
 $dark_border_color: scale-alpha($ubuntu_white, 0.1);

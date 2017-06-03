@@ -98,7 +98,6 @@ StEntry {
   padding: 0 8px;
   border-radius: 0;
   border-width: 0;
-  color: $ubuntu_graphite;
   selection-background-color: $primary_color;
   selected-color: $ubuntu_white;
 
@@ -1866,9 +1865,11 @@ StScrollBar {
   padding: 0 8px;
 
   @include entry;
+  background-color: $base_color;
 
   &:focus {
     padding: 0 8px;
+    box-shadow: $shadow_thicker_surround $primary_color;
   }
 
   .search-entry-icon {
@@ -1878,6 +1879,7 @@ StScrollBar {
   }
 
   &:focus {
+
     .search-entry-icon {
       color: $secondary_fg_color;
     }
@@ -2250,7 +2252,7 @@ StScrollBar {
 %status_text {
   @include font(display-2);
 
-  color: $white;
+  color: $light_fg_color;
 }
 
 /* NOTIFICATIONS & MESSAGE TRAY */
@@ -2556,15 +2558,18 @@ $legacy_icon_size: 24px;
 }
 
 .keyboard-key {
+  @include button;
+  @if $transparency == true {
+    background-color: $base_color;
+  }
   min-height: $medium_size * 2;
   min-width: $medium_size * 2;
   font-size: 2em;
   font-weight: 500;
   border-radius: $standard_radius;
-  border: none;
+  border: 1px solid $border_color;
   color: inherit;
 
-  @include button;
 
   &:grayed {
     //FIXME
@@ -2831,7 +2836,7 @@ $legacy_icon_size: 24px;
 .login-dialog-user-list-item {
   border-radius: $standard_radius;
   padding: 4px 4px 0;
-  color: $white;
+  color: $light_fg_color;
 
   &:ltr {
     padding-right: 1em;
@@ -2864,7 +2869,7 @@ $legacy_icon_size: 24px;
 
 .login-dialog-username,
 .user-widget-label {
-  color: $white;
+  color: $light_fg_color;
 
   @include font(title);
 
@@ -2889,7 +2894,7 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog-prompt-label {
-  color: $white;
+  color: $light_fg_color;
   font-size: 1em;
   padding-top: 1em;
 }
@@ -2900,7 +2905,7 @@ $legacy_icon_size: 24px;
 }
 
 .login-dialog-session-list-button {
-  color: $white;
+  color: $light_fg_color;
 
   &:hover, &:focus {
     color: $primary_color;

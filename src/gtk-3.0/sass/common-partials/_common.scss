@@ -260,7 +260,6 @@ entry {
     padding-left: 8px;
     padding-right: 8px;
     border: 1px solid;
-    border-bottom-width: 2px;
     border-radius: $standard_radius;
     transition: all 200ms $ease-out-quad;
 
@@ -404,6 +403,7 @@ entry {
   .linked:not(.vertical) > &:focus + button,
   .linked:not(.vertical) > &:focus + combobox > box > button.combo {
     border-left-color: entry_focus_border();
+
   }
 
   .linked:not(.vertical) > &:drop(active) + &,
@@ -1287,8 +1287,6 @@ spinbutton {
 
     entry {
       min-width: 28px;
-
-      // reset all the other props since the spinbutton node is styled here
       margin: 0;
       background: none;
       background-color: transparent;
@@ -1298,9 +1296,8 @@ spinbutton {
     }
 
     button {
-      @include button(normal);
-
       margin: 0;
+      background-color: transparent;
       padding-bottom: 0;
       padding-top: 0;
       border-style: none none none solid;
@@ -1839,12 +1836,34 @@ headerbar {
 /************
  * Pathbars *
  ************/
-.path-bar button {
-  // TODO: could probably put this all into a mixin
-  @include button(toggle, $in_headerbar: true);
-
+headerbar.titlebar .path-bar button, .path-bar button {
+  border-width: 0px;
   padding-left: 4px;
   padding-right: 4px;
+
+  &.text-button.toggle {
+    @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+    &:hover {
+      @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
+    }
+
+    &:active, &:checked {
+      @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
+
+      &:hover {
+        background-color: $lighter_bg_color;
+      }
+
+      &:disabled {
+        @include button(disabled, $in_headerbar: true);
+      }
+    }
+
+    &:disabled {
+      @include button(disabled, $in_headerbar: true);
+    }
+  }
 
   &.text-button.image-button label {
     padding-left: 0;
@@ -1867,7 +1886,8 @@ headerbar {
   }
 
   &.slider-button {
-    border-color: transparent;
+    border-width: 0px;
+    box-shadow: none;
     padding-left: 0;
     padding-right: 0;
 
@@ -1879,6 +1899,25 @@ headerbar {
     &:last-child {
       border-left-style: none;
     }
+  }
+
+  @include button(flat, $in_headerbar: true);
+
+  &:first-child {
+    border-radius: $standard_radius 0 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 $standard_radius 0 0;
+  }
+
+  &:disabled {
+    @include button(disabled);
+  }
+
+  &, &:disabled {
+    // to give the appearance of the pathbar being one large box, even if the sliders are disabled
+    background-color: if($headerbar == "dark" and $variant == "light", $darker_lighter_bg_color, $lighter_bg_color);
   }
 }
 
@@ -2372,10 +2411,6 @@ popover.background {
  * Notebooks *
  *************/
 notebook {
-  searchbar {
-    border-width: 0px;
-  }
-
   > header {
     border-width: 0;
     border-color: $border_color;
@@ -3085,6 +3120,10 @@ scale {
       // different backgrounds (the trough and the base)
       background-color: if($variant == "light", #bfbfbf, #2b2b2b);
       box-shadow: none;
+
+      contents {
+        background-color: darken($bg_color, 5%);
+      }
     }
 
     // Selected list-row and infobar sliders
@@ -3364,16 +3403,20 @@ printdialog {
 /**********
  * Frames *
  **********/
-.frame,
-frame > border {
+frame,
+.frame {
+  box-shadow: none;
   margin: 0;
   padding: 0;
-  border: 1px solid $border_color;
   border-radius: 0;
-  box-shadow: none;
+  border: 1px solid $border_color;
 
-  &.flat {
+  &.flat, .flat {
     border-style: none;
+  }
+
+  &:backdrop {
+    border-color: $backdrop_border_color;
   }
 }
 
@@ -3464,7 +3507,7 @@ list {
 row {
   transition: all 150ms $ease-out-quad;
 
-  &:hover, &:active{
+  &:hover, &:active {
     transition-duration: 50ms;
   }
 
@@ -3973,9 +4016,7 @@ infobar {
       }
 
       &:disabled {
-        label {
-          color: $disabled_fg_color;
-        }
+        @include button(disabled, $info_bg_color);
       }
     }
 
@@ -4397,19 +4438,11 @@ headerbar,
   }
 
   &:hover {
-    background-color: white;
-
-    label, image {
-      color: $primary_color;
-    }
+    background-color: $semi_fill_color;
   }
 
   &:active {
-    background-color: white;
-
-    label, image {
-      color: _pressed_shade($primary_color);
-    }
+    background-color: $fill_color;
   }
 }
 

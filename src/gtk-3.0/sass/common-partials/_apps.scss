@@ -3,14 +3,15 @@
  ************/
 
 window.nautilus-window {
-  popover grid stack button:not(.image-button) {
-    background-color: $alt_base_color;
-    border: 1px solid $border_color;
-    color: $fg_color;
+  // get rid of separator gap
+  grid.horizontal paned.horizontal > separator {
+    background: transparent;
+    margin: -5px;
+  }
 
-    &:hover, &:active, &:checked {
-      background-color: $alt_base_color;
-    }
+  placessidebar {
+    // give the sunken sidebar effect like in the 18.04 design concept
+    box-shadow: inset -10px 0 10px 0px rgba(0, 0, 0, 0.055);
   }
 
   paned box.floating-bar {
@@ -19,42 +20,32 @@ window.nautilus-window {
     background-color: $lighter_bg_color;
   }
 
-  scrolledwindow treeeview.view, .nautilus-list-view overlay {
-    background-color: red;
-  }
-
-  popover viewport button {
-    @include button(flat, $primary_color);
-
-    &:hover {
-      @include button(flat-hover, $primary_color);
-    }
-
-    &:active {
-      @include button(flat-active, $primary_color);
-    }
-  }
-
   header tabs tab {
+    // regular tab dimensions aren't friendly enough
     min-height: 24px;
     padding: 4px 8px;
   }
 
-  paned > separator {
-    background: transparent;
-  }
+  notebook {
+    header {
+      // hide searchbar background and border from peeking out
+      margin-bottom: -1px;
+    }
 
-  placessidebar {
-    box-shadow: inset -10px 0 10px 0px rgba(0, 0, 0, 0.055);
+    searchbar {
+      background: $base_color;
+    }
   }
 }
 
 nautilus-desktop-window {
+  // get rid of white line on the desktop if panel transparency is on
   .searchbar-container searchbar {
     background: transparent;
   }
 
   .nautilus-desktop.view {
+    // give desktop icons white text instead of the variant dependant fg color
     color: $light_fg_color;
     text-shadow: 0 -2px 1px $border_color;
   }
@@ -65,6 +56,7 @@ nautilus-desktop-window {
  ************/
 
 .tweak-categories separator {
+  // hide the separator between items to make the sidebar flatter
   background: transparent;
 }
 
@@ -83,13 +75,10 @@ viewport.frame list.tweak-categories {
   &:hover {
     background-image: image($lighter_bg_color);
   }
-
-  > button:hover {
-    box-shadow: none;
-  }
 }
 
 #DarkThemeSwitcher label:last-child {
+  // give the caption the appearance of secondary text
   color: $secondary_fg_color;
 }
 
@@ -149,19 +138,12 @@ headerbar.titlebar button.title {
   box-shadow: none;
 }
 
-toolbar toolitem button.image-button.raised {
-  border: none;
-}
-
-toolbar.horizontal box.linked button:hover {
-  border-color: $border_color;
-}
-
 /************
  * GNOME Software *
  ************/
 
 headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-software {
+  // software uses a stackswitcher that isn't tagged as such
   border-radius: 0px;
   border-width: 0px;
 
@@ -195,6 +177,8 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
  ************/
 
 window.workbench {
+  // uses various elements that are identical to regular gtk3 widgets
+  // i'd really like to know why
   docktabstrip {
     // analogous to notebook header
     border-color: $border_color;
@@ -314,15 +298,6 @@ window.workbench {
 }
 
 /************
- * GNOME Maps *
- ************/
-headerbar.titlebar.incognito-mode {
-  button {
-    @include button(flat);
-  }
-}
-
-/************
  * Evolution *
  ************/
 
@@ -343,14 +318,22 @@ button.ecalendar.flat {
  ************/
 
 #PagePopup separator {
+  // inherits black from somewhere in the darker variant
   background-image: image($border_color);
   background-color: $border_color;
+}
+
+headerbar.titlebar.incognito-mode {
+  button {
+    @include button(flat);
+  }
 }
 
 /************
  * GNOME Terminal *
  ************/
 terminal-window {
+  // make it resemble unity 8's
   .terminal-screen {
     background: $terminal_bg;
     color: $terminal_fg;

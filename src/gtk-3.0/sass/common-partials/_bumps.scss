@@ -1,4 +1,8 @@
+// Override previously set rules for buttons and window decorations here
+// Putting it at the bottom of common is too messy
+
 headerbar, headerbar.titlebar {
+  // make headerbar elements flat and adjust for the dark headerbar variant
   entry {
     @include entry(normal, $in_headerbar: true);
 
@@ -12,7 +16,7 @@ headerbar, headerbar.titlebar {
   }
 
   button {
-    // make the styling on headerbar buttons more discreet and make accomodations for the dark headerbar
+    // make headerbar elements flat and adjust for the dark headerbar variant
     @include button(normal, $in_headerbar: true);
 
     &:disabled {
@@ -103,57 +107,10 @@ headerbar, headerbar.titlebar {
       }
     }
   }
-
-  .path-bar button {
-    border-width: 0px;
-
-    &.text-button.toggle {
-      @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
-
-      &:hover {
-        @include button(toggle-hover, $lighter_bg_color, $primary_color, $in_headerbar: true);
-      }
-
-      &:active, &:checked {
-        @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
-
-        &:disabled {
-          @include button(disabled, $in_headerbar: true);
-        }
-      }
-
-      &:disabled {
-        @include button(disabled, $in_headerbar: true);
-      }
-    }
-
-    &.slider-button {
-      border-width: 0px;
-      box-shadow: 0 -1px 0 $border_color;
-
-      @include button(flat, $in_headerbar: true);
-
-      &:first-child {
-        border-radius: $standard_radius 0 0 0;
-      }
-
-      &:last-child {
-        border-radius: 0 $standard_radius 0 0;
-      }
-
-      &:disabled {
-        @include button(disabled);
-      }
-
-      &, &:disabled {
-        // to give the appearance of the pathbar being one large box, even if the sliders are disabled
-        background-color: if($headerbar == "dark" and $variant == "light", $darker_lighter_bg_color, $lighter_bg_color);
-      }
-    }
-  }
 }
 
 stackswitcher button {
+  // stack-switcher styling
   border-color: $border_color;
   border-style: solid;
 
@@ -170,10 +127,7 @@ stackswitcher button {
   }
 }
 
-scale:disabled contents {
-  // disabled state for scale
-  background-color: darken($bg_color, 5%);
-}
+// Flatter dialog boxes
 
 dialog {
   background-image: image(if($headerbar == "dark", $light_headerbar_bg, $headerbar_bg_color));
@@ -188,10 +142,13 @@ dialog, messagedialog {
       background-color: transparent;
     }
   }
+  
+  buttonbox.dialog-action-area button {
+    margin: 0 1px;
+  }
 }
 
 messagedialog {
-  // Flat dialog boxes
   border-width: 0px 1px 1px 1px;
 
   box.dialog-vbox {

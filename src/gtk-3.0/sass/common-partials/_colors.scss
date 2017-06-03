@@ -44,8 +44,8 @@ $success_color: $green;
 $link_color: lighten($accent_color, 5);
 $visited_link_color: darken($accent_color, 5);
 $destructive_color: $red;
-$info_bg_color: $blue;
-$question_bg_color: $blue;
+$info_bg_color: $accent_color; // suru's blue would be more accurate here but the blue is pretty much being replaced by the accent colors
+$question_bg_color: $accent_color;
 $warning_bg_color: lighten($orange, 5);
 $error_bg_color: darken($red, 5);
 

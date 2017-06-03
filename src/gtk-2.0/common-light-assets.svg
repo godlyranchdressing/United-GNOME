@@ -11,8 +11,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="507"
-   height="416"
+   width="439.00012"
+   height="210"
    id="svg9892"
    version="1.1"
    inkscape:version="0.92.1 r15371"
@@ -826,16 +826,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.6814553"
-     inkscape:cx="268.89431"
-     inkscape:cy="354.38406"
+     inkscape:zoom="1.7197564"
+     inkscape:cx="161.40905"
+     inkscape:cy="46.934327"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showgrid="true"
      showborder="false"
-     inkscape:window-width="1848"
+     inkscape:window-width="1920"
      inkscape:window-height="1138"
-     inkscape:window-x="1438"
+     inkscape:window-x="1366"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:snap-nodes="true"
@@ -863,11 +863,11 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="7"
-       originy="-920" />
+       originx="7.000125"
+       originy="-1126" />
     <sodipodi:guide
        orientation="1,0"
-       position="378.875,-145.75"
+       position="378.87513,-351.75"
        id="guide8384"
        inkscape:locked="false" />
   </sodipodi:namedview>
@@ -879,7 +879,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -887,18 +887,18 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="superbackdrop"
-     style="display:inline;fill-opacity:1;fill:#f4f4f4"
-     transform="translate(7,283.63782)"
+     style="display:inline;fill:#f4f4f4;fill-opacity:1"
+     transform="translate(7.000125,283.63782)"
      sodipodi:insensitive="true">
     <rect
        ry="0"
        rx="0"
-       y="-132.36218"
+       y="73.637817"
        x="-7"
-       height="416"
-       width="507"
+       height="210"
+       width="439"
        id="rect18028"
-       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99999994;marker:none;enable-background:accumulate;fill:#f4f4f4"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#f4f4f4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.66113669;marker:none;enable-background:accumulate"
        transform="scale(1,-1)" />
   </g>
   <g
@@ -906,7 +906,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      style="display:inline"
-     transform="translate(7,283.63782)">
+     transform="translate(7.000125,283.63782)">
     <g
        inkscape:label="#g10801"
        transform="matrix(1.9947791,0,0,1.9939719,354.38167,165.09433)"
@@ -1629,7 +1629,7 @@
        transform="matrix(0,0.66352399,0.6729178,0,-461.34507,-95.035954)" />
     <g
        id="minus"
-       transform="translate(-205,-108)"
+       transform="translate(-267,-108)"
        inkscape:label="#g5704">
       <rect
          style="opacity:1;fill:#d9d9d9;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1661,7 +1661,7 @@
     </g>
     <g
        id="plus"
-       transform="translate(-205,-108)"
+       transform="translate(-267,-108)"
        inkscape:label="#g5698">
       <rect
          style="opacity:1;fill:#d9d9d9;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1704,7 +1704,7 @@
     <g
        id="handle-v"
        inkscape:label="#g6182"
-       transform="translate(11,0)">
+       transform="translate(-51)">
       <rect
          y="-189.63782"
          x="210"
@@ -1735,7 +1735,7 @@
          style="opacity:1;fill:#d9d9d9;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
-       transform="matrix(0,1,-1,0,60.362183,-388.63782)"
+       transform="rotate(90,193.5,-195.13782)"
        style="display:inline"
        id="handle-h"
        inkscape:label="#g6182-9">
@@ -1773,11 +1773,11 @@
        id="notebook"
        width="9"
        height="9"
-       x="398.50043"
+       x="336.50043"
        y="-277.13782"
        inkscape:label="#rect6042" />
     <g
-       transform="translate(416,-1300)"
+       transform="translate(354,-1300)"
        id="tab-top-active"
        inkscape:label="Ebene 1"
        clip-path="url(#clipPath6057)">
@@ -1803,7 +1803,7 @@
          rx="4" />
     </g>
     <g
-       transform="matrix(0,1,-1,0,1503.3622,-277.63782)"
+       transform="rotate(90,859.50001,581.86219)"
        id="tab-right-active"
        inkscape:label="Ebene 1"
        clip-path="url(#clipPath6057-7)">
@@ -1829,7 +1829,7 @@
          rx="4" />
     </g>
     <g
-       transform="matrix(1,0,0,-1,416,808.72438)"
+       transform="matrix(1,0,0,-1,354,808.72438)"
        id="tab-bottom-active"
        inkscape:label="Ebene 1"
        clip-path="url(#clipPath6057-4)">
@@ -1855,7 +1855,7 @@
          rx="4" />
     </g>
     <g
-       transform="matrix(0,-1,1,0,-571.3622,-213.63782)"
+       transform="rotate(-90,-423.50001,209.86219)"
        id="tab-left-active"
        inkscape:label="Ebene 1"
        clip-path="url(#clipPath6057-9)">
@@ -1882,7 +1882,7 @@
     </g>
     <g
        id="notebook-gap-horiz"
-       transform="translate(4,-283.63782)"
+       transform="translate(-58,-283.63782)"
        inkscape:label="#g6133">
       <rect
          y="19"
@@ -1900,7 +1900,7 @@
          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
-       transform="matrix(0,1,-1,0,424,-659.63782)"
+       transform="rotate(90,510.81891,-148.81891)"
        id="notebook-gap-vert"
        inkscape:label="#g6133-5">
       <rect
@@ -1919,18 +1919,18 @@
          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <rect
-       style="opacity:1;fill:#f4f4f4;fill-opacity:0.01843318;stroke:#d9d9d9;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#f4f4f4;fill-opacity:0.01843316;stroke:#d9d9d9;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="inline-toolbar"
        width="23"
        height="33"
        x="407.5"
        y="109.5"
        clip-path="url(#clipPath6162)"
-       transform="translate(4,-283.63782)"
+       transform="translate(-58,-283.63782)"
        inkscape:label="#rect6158" />
     <g
        id="toolbar"
-       transform="translate(4,-283.63782)"
+       transform="translate(-58,-283.63782)"
        inkscape:label="#g6170">
       <rect
          y="111"
@@ -1950,7 +1950,7 @@
     <g
        id="tree_header"
        inkscape:label="#g6293"
-       transform="translate(11,0)"
+       transform="translate(-51,-38)"
        style="fill:#f4f4f4;fill-opacity:1">
       <rect
          y="-87.637817"
@@ -1967,14 +1967,14 @@
          id="rect6291"
          style="opacity:1;fill:#e8e8e8;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <path
-         style="fill:#f4f4f4;stroke:#e8e8e8;stroke-width:1.027;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
+         style="fill:#f4f4f4;fill-opacity:1;stroke:#e8e8e8;stroke-width:1.02699995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 419.5,-60.13782 c -3.16561,0 -6.33228,0 -9.5,0"
          id="path5904"
          inkscape:connector-curvature="0"
          inkscape:path-effect="#path-effect5906"
          inkscape:original-d="m 419.5,-60.13782 c -3.16561,-0.001 -6.33228,-0.001 -9.5,0" />
       <path
-         style="display:inline;fill:#e8e8e8;stroke:#e8e8e8;stroke-width:1.0404253;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+         style="display:inline;fill:#e8e8e8;fill-opacity:1;stroke:#e8e8e8;stroke-width:1.0404253;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 419.75,-87.15132 c -3.24892,0 -6.49892,0 -9.75,0"
          id="path5904-6"
          inkscape:connector-curvature="0"
@@ -1986,13 +1986,13 @@
        id="null"
        width="15"
        height="14.999997"
-       x="441.00043"
-       y="-87.637817"
+       x="379.00043"
+       y="-125.63782"
        inkscape:label="#rect6297" />
     <g
        style="display:inline"
        id="menubar"
-       transform="translate(33,-283.63782)"
+       transform="translate(-29,-283.63782)"
        inkscape:label="#g6170">
       <rect
          y="111"
@@ -2011,7 +2011,7 @@
     </g>
     <rect
        transform="rotate(90)"
-       y="-287.5"
+       y="-225.5"
        x="-181.13783"
        height="4"
        width="4.0000124"
@@ -2021,7 +2021,7 @@
     <g
        style="display:inline"
        id="slider-horiz"
-       transform="translate(-14,-216.63782)"
+       transform="translate(23,-403.63782)"
        inkscape:label="#g5902-0-1">
       <rect
          ry="0"
@@ -2045,7 +2045,7 @@
     <g
        style="display:inline"
        id="slider-vert"
-       transform="matrix(0,-1,1,0,-42,292.36218)"
+       transform="rotate(-90,50.18109,55.18109)"
        inkscape:label="#g5902-0-1">
       <rect
          ry="0"
@@ -2068,7 +2068,8 @@
     </g>
     <g
        id="trough-scrollbar-vert"
-       inkscape:label="#g5091">
+       inkscape:label="#g5091"
+       transform="translate(37,-187)">
       <rect
          inkscape:label="#rect6037"
          ry="0"
@@ -2080,7 +2081,7 @@
          id="sdcdscds"
          style="opacity:0.05;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <rect
-         transform="matrix(0,-1,1,0,0,0)"
+         transform="rotate(-90)"
          y="241.00002"
          x="-107.36199"
          height="0.99999237"
@@ -2089,7 +2090,7 @@
          style="display:inline;opacity:1;fill:#d9d9d9;fill-opacity:1;stroke:#f7ef45;stroke-width:0;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
-       transform="matrix(0,1,-1,0,369.36237,-148.63783)"
+       transform="rotate(90,371.0001,35.36227)"
        style="display:inline"
        id="trough-scrollbar-horiz"
        inkscape:label="#g5091">
@@ -2104,7 +2105,7 @@
          id="sdcdscds-6"
          style="opacity:0.05;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <rect
-         transform="matrix(0,-1,1,0,0,0)"
+         transform="rotate(-90)"
          y="241.00002"
          x="-107.36199"
          height="0.99999237"
@@ -2115,7 +2116,7 @@
     <g
        style="display:inline"
        id="slider-vert-insens"
-       transform="matrix(0,-1,1,0,-3,292.36218)"
+       transform="rotate(-90,69.68109,35.68109)"
        inkscape:label="#g5902-0-1">
       <rect
          ry="0"
@@ -2139,7 +2140,7 @@
     <g
        style="display:inline"
        id="slider-horiz-insens"
-       transform="translate(-14,-177.63782)"
+       transform="translate(23,-364.63782)"
        inkscape:label="#g5902-0-1">
       <rect
          ry="0"
@@ -2183,7 +2184,7 @@
     <g
        style="display:inline"
        id="trough-horizontal"
-       transform="translate(3,-273.63782)"
+       transform="translate(40,-460.63782)"
        inkscape:label="#g5902">
       <rect
          ry="0"
@@ -2206,7 +2207,7 @@
     </g>
     <g
        style="display:inline"
-       transform="rotate(90,348.31891,157.68109)"
+       transform="rotate(90,460.31891,82.68109)"
        id="trough-vertical"
        inkscape:label="#g5902-6">
       <rect
@@ -3535,7 +3536,7 @@
     <g
        style="display:inline"
        id="line-v"
-       transform="translate(-1,9)">
+       transform="translate(-63,9)">
       <g
          id="g5537">
         <path
@@ -3553,7 +3554,7 @@
     <g
        style="display:inline"
        id="line-h"
-       transform="rotate(-90,290.75,-177.88782)">
+       transform="rotate(-90,259.75,-146.88782)">
       <g
          id="g5537-4">
         <path
@@ -3571,7 +3572,7 @@
     <g
        style="display:inline"
        id="frame-gap-end"
-       transform="matrix(1.0350749,0,0,0.5,152.48611,42.681082)">
+       transform="matrix(1.0350749,0,0,0.5,90.48611,4.681082)">
       <g
          id="g5537-0">
         <path
@@ -3589,7 +3590,7 @@
     <g
        style="display:inline"
        id="frame-gap-start"
-       transform="matrix(-1.0350749,0,0,-0.5,743.4788,-140.45673)">
+       transform="matrix(-1.0350749,0,0,-0.5,681.4788,-178.45673)">
       <g
          id="g5537-0-9">
         <path
@@ -3609,8 +3610,8 @@
        id="frame"
        width="8.9385481"
        height="8.9385471"
-       x="421.53073"
-       y="-51.107094"
+       x="359.53073"
+       y="-89.107094"
        rx="0"
        ry="0" />
     <g
@@ -3702,7 +3703,7 @@
          ry="4" />
     </g>
     <g
-       transform="matrix(1,0,0,0.99919939,-264.99999,-430.63047)"
+       transform="matrix(1,0,0,0.99919939,-326.99999,-430.63047)"
        id="checkbox">
       <path
          style="fill:none;fill-opacity:1;stroke:none"
@@ -3717,7 +3718,7 @@
     </g>
     <g
        id="checkbox-insensitive"
-       transform="matrix(1,0,0,0.99919939,-244.99999,-520.57122)">
+       transform="matrix(1,0,0,0.99919939,-306.99999,-520.57122)">
       <path
          inkscape:connector-curvature="0"
          id="path2357"
@@ -3730,7 +3731,7 @@
          id="path2359" />
     </g>
     <g
-       transform="matrix(1,0,0,0.99919939,-224.99999,-520.57122)"
+       transform="matrix(1,0,0,0.99919939,-286.99999,-520.57122)"
        id="checkbox-checked">
       <path
          style="fill:#48b259;fill-opacity:1;stroke:none"
@@ -3749,7 +3750,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1,0,0,0.99919939,-204.99999,-520.57122)"
+       transform="matrix(1,0,0,0.99919939,-266.99999,-520.57122)"
        id="checkbox-checked-insensitive"
        style="opacity:0.6">
       <path
@@ -3769,7 +3770,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(0.99999984,0,0,-0.99919939,-384.99987,-6.2173243)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-446.99987,-6.2173243)"
        id="radio">
       <circle
          r="8"
@@ -3785,7 +3786,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(0.99999984,0,0,-0.99999984,-364.99987,-6.0257277)"
+       transform="matrix(0.99999984,0,0,-0.99999984,-426.99987,-6.0257277)"
        id="radio-insensitive">
       <circle
          r="8"
@@ -3808,7 +3809,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(0.99999984,0,0,-0.99919939,-344.99987,-6.2173243)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-406.99987,-6.2173243)"
        id="radio-checked">
       <circle
          r="8"
@@ -3831,7 +3832,7 @@
          transform="translate(86,140)" />
     </g>
     <g
-       transform="matrix(0.99999984,0,0,-0.99919939,-324.99987,-6.2173243)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-386.99987,-6.2173243)"
        id="radio-checked-insensitive"
        style="opacity:0.6">
       <circle
@@ -3855,7 +3856,7 @@
          transform="translate(86,140)" />
     </g>
     <g
-       transform="matrix(0.99999984,0,0,-0.99919939,-364.99987,13.782676)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-426.99987,13.782676)"
        id="radio-hover">
       <circle
          r="8"
@@ -3871,7 +3872,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1,0,0,0.99919939,-264.99999,-390.63047)"
+       transform="matrix(1,0,0,0.99919939,-326.99999,-390.63047)"
        id="checkbox-hover">
       <path
          style="fill:none;fill-opacity:1;stroke:none"
@@ -3886,7 +3887,7 @@
     </g>
     <g
        style="display:inline"
-       transform="matrix(0.875,0,0,0.87429947,-265.62499,-410.97514)"
+       transform="matrix(0.875,0,0,0.87429947,-327.62499,-410.97514)"
        id="menu-checkbox">
       <path
          style="fill:none;fill-opacity:1;stroke:none"
@@ -3902,7 +3903,7 @@
     <g
        style="display:inline"
        id="menu-checkbox-insensitive"
-       transform="matrix(0.875,0,0,0.87429947,-250.375,-489.6733)">
+       transform="matrix(0.875,0,0,0.87429947,-312.375,-489.6733)">
       <path
          inkscape:connector-curvature="0"
          id="path2357-6"
@@ -3916,7 +3917,7 @@
     </g>
     <g
        style="display:inline"
-       transform="matrix(0.875,0,0,0.87429947,-234.12499,-489.6733)"
+       transform="matrix(0.875,0,0,0.87429947,-296.12499,-489.6733)"
        id="menu-checkbox-checked">
       <path
          style="fill:#48b259;fill-opacity:1;stroke:none"
@@ -3935,7 +3936,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(0.875,0,0,0.87429947,-218.12499,-489.6733)"
+       transform="matrix(0.875,0,0,0.87429947,-280.12499,-489.6733)"
        id="menu-checkbox-checked-insensitive"
        style="display:inline;opacity:0.6">
       <path
@@ -3956,7 +3957,7 @@
     </g>
     <g
        style="display:inline"
-       transform="matrix(0.87499986,0,0,-0.87429947,-370.62489,-41.113641)"
+       transform="matrix(0.87499986,0,0,-0.87429947,-432.62489,-41.113641)"
        id="menu-radio">
       <circle
          r="8"
@@ -3973,7 +3974,7 @@
     </g>
     <g
        style="display:inline"
-       transform="matrix(0.87499986,0,0,-0.87499986,-355.3749,-40.945994)"
+       transform="matrix(0.87499986,0,0,-0.87499986,-417.3749,-40.945994)"
        id="menu-radio-insensitive">
       <circle
          r="8"
@@ -3997,7 +3998,7 @@
     </g>
     <g
        style="display:inline"
-       transform="matrix(0.87499986,0,0,-0.87429947,-339.12489,-41.113641)"
+       transform="matrix(0.87499986,0,0,-0.87429947,-401.12489,-41.113641)"
        id="menu-radio-checked">
       <circle
          r="8"
@@ -4020,7 +4021,7 @@
          transform="translate(86,140)" />
     </g>
     <g
-       transform="matrix(0.87499986,0,0,-0.87429947,-323.12489,-41.113641)"
+       transform="matrix(0.87499986,0,0,-0.87429947,-385.12489,-41.113641)"
        id="menu-radio-checked-insensitive"
        style="display:inline;opacity:0.6">
       <circle
@@ -4045,7 +4046,7 @@
     </g>
     <g
        id="menu-checkbox-checked-selected"
-       transform="matrix(0.875,0,0,0.87429947,-234.12499,-457.6733)"
+       transform="matrix(0.875,0,0,0.87429947,-296.12499,-457.6733)"
        style="display:inline">
       <path
          inkscape:connector-curvature="0"
@@ -4065,7 +4066,7 @@
     </g>
     <g
        id="menu-radio-checked-selected"
-       transform="matrix(0.87499986,0,0,-0.87429947,-323.12489,-25.113641)"
+       transform="matrix(0.87499986,0,0,-0.87429947,-385.12489,-25.113641)"
        style="display:inline">
       <circle
          style="fill:#ffffff;fill-opacity:1;stroke:none"
@@ -4089,7 +4090,7 @@
     </g>
     <g
        style="display:inline"
-       transform="matrix(0.875,0,0,0.87429947,-265.62499,-378.97514)"
+       transform="matrix(0.875,0,0,0.87429947,-327.62499,-378.97514)"
        id="menu-checkbox-selected">
       <path
          style="fill:none;fill-opacity:1;stroke:none"
@@ -4109,7 +4110,7 @@
     </g>
     <g
        style="display:inline"
-       transform="matrix(0.87499986,0,0,-0.87429947,-355.3749,-25.113637)"
+       transform="matrix(0.87499986,0,0,-0.87429947,-417.3749,-25.113637)"
        id="menu-radio-selected">
       <circle
          r="8"
@@ -4133,7 +4134,7 @@
     </g>
     <g
        id="checkbox-active"
-       transform="translate(-264.99999,-440.77569)">
+       transform="translate(-326.99999,-440.77569)">
       <g
          id="g5140-1">
         <path
@@ -4149,7 +4150,7 @@
       </g>
     </g>
     <g
-       transform="matrix(0.99999984,0,0,-0.99999984,-364.99987,53.974271)"
+       transform="matrix(0.99999984,0,0,-0.99999984,-426.99987,53.974271)"
        id="radio-active">
       <circle
          r="8"
@@ -4172,7 +4173,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1,0,0,0.99919939,-264.99999,-460.57122)"
+       transform="matrix(1,0,0,0.99919939,-326.99999,-460.57122)"
        id="checkbox-checked-hover">
       <path
          style="fill:#41a050;fill-opacity:1;stroke:none"
@@ -4192,7 +4193,7 @@
     </g>
     <g
        id="checkbox-mixed-hover"
-       transform="translate(-244.99999,-460.77569)">
+       transform="translate(-306.99999,-460.77569)">
       <g
          id="g5140-9">
         <path
@@ -4216,7 +4217,7 @@
       </g>
     </g>
     <g
-       transform="matrix(0.99999984,0,0,-0.99919939,-344.99987,33.782675)"
+       transform="matrix(0.99999984,0,0,-0.99919939,-406.99987,33.782675)"
        id="radio-checked-hover">
       <circle
          r="8"
@@ -4240,7 +4241,7 @@
     </g>
     <g
        id="radio-mixed-hover"
-       transform="matrix(1,0,0,-1,-324.99999,33.98713)">
+       transform="matrix(1,0,0,-1,-386.99999,33.98713)">
       <circle
          r="8"
          cy="-675"
@@ -4746,7 +4747,7 @@
     </g>
     <g
        style="display:inline"
-       transform="matrix(0.9375,0,0,0.9375,-256.31268,-185.67607)"
+       transform="matrix(0.9375,0,0,0.9375,-318.31268,-305.67607)"
        id="slider">
       <path
          style="fill:none;fill-opacity:1;stroke:none"
@@ -4766,7 +4767,7 @@
     </g>
     <g
        style="display:inline"
-       transform="matrix(0.9375,0,0,0.9375,-256.31268,-168.67607)"
+       transform="matrix(0.9375,0,0,0.9375,-318.31268,-288.67607)"
        id="slider-insensitive">
       <path
          style="fill:none;fill-opacity:1;stroke:none"
