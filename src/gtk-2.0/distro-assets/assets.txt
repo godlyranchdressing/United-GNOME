@@ -11,8 +11,6 @@ slider-hover
 slider-vert-hover
 slider-vert-active
 entry-border-active-bg
-combo-entry-border-focus
-combo-entry-border-focus-rtl
 trough-horizontal-active
 trough-vertical-active
 progressbar_v

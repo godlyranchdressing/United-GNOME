@@ -17,8 +17,14 @@
   @return lighten($_bg, $_amount);
 }
 
-@function _shadow_border($top, $right, $bottom, $left, $color: $border_color) {
-  @return inset #{$left}px #{$top}px $color, inset -#{$right}px -#{$bottom}px $color;
+@function _shadow_border($top, $right, $bottom, $left, $color: $border_color, $thicker: false) {
+  // Draw borders with a box shadow
+  @if $thicker == true {
+    @return inset #{$left}px #{$top}px $color, inset -#{$right}px -#{$bottom}px $color, inset #{$left}px #{$top}px $color, inset -#{$right}px -#{$bottom}px $color;
+  }
+  @else {
+    @return inset #{$left}px #{$top}px $color, inset -#{$right}px -#{$bottom}px $color;
+  }
 }
 
 ///************///
@@ -29,7 +35,7 @@
 }
 
 @function entry_focus_shadow($fc: $primary_color) {
-  @return inset 0 -2px $fc;
+  @return inset 0 0 0 2px $fc;
 }
 
 @mixin entry($type, $fc: $primary_color, $in_headerbar: false) {

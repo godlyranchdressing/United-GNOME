@@ -259,7 +259,8 @@ entry {
     min-height: 32px;
     padding-left: 8px;
     padding-right: 8px;
-    border: 1px solid;
+    border: 1px solid $border_color;
+    box-shadow: $button_highlight $button_highlight_color;
     border-radius: $standard_radius;
     transition: all 200ms $ease-out-quad;
 
@@ -403,7 +404,6 @@ entry {
   .linked:not(.vertical) > &:focus + button,
   .linked:not(.vertical) > &:focus + combobox > box > button.combo {
     border-left-color: entry_focus_border();
-
   }
 
   .linked:not(.vertical) > &:drop(active) + &,
@@ -557,6 +557,7 @@ button {
     min-width: 16px;
     padding: 4px 8px;
     border: 1px solid $border_color;
+    box-shadow: $button_highlight $button_highlight_color;
     border-radius: $standard_radius;
     transition: $button_transition;
 
@@ -1297,11 +1298,11 @@ spinbutton {
 
     button {
       margin: 0;
-      background-color: transparent;
       padding-bottom: 0;
       padding-top: 0;
       border-style: none none none solid;
       border-radius: 0;
+      background-color: transparent;
       box-shadow: none;
 
       &:hover {
@@ -1315,8 +1316,7 @@ spinbutton {
       &:disabled {
         @include button(disabled);
 
-        color: $disabled_fg_color;
-        background-color: $solid_disabled_bg_color;
+        background-color: transparent;
       }
 
       &:dir(rtl) {

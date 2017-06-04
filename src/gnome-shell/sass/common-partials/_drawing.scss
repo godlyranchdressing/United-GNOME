@@ -127,12 +127,12 @@
 
   &:hover, &:focus, &:active {
     border: 1px solid transparent;
-    box-shadow: if($variant == "light", $shadow_thicker_surround, $shadow_surround) $border_color;
+    box-shadow: $shadow_thicker_surround $border_color;
     transition-duration: 250ms;
   }
 
   &:focus, &:active {
-    box-shadow: if($variant == "light", $shadow_thicker_surround, $shadow_surround) $primary_color;
+    box-shadow: $shadow_thicker_surround $primary_color;
     color: $fg_color;
   }
 

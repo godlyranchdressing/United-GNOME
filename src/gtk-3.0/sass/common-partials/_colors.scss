@@ -62,7 +62,7 @@ $fill_color: darken($lighter_bg_color, 10%);
 
 // Aux colors
 $border_color: if($variant == "light", scale-alpha(black, 0.15), scale-alpha($ubuntu_white, 0.1));
-$button_highlight_color: $border_color;
+$button_highlight_color: if($variant == "light", scale-alpha(black, 0.2), scale-alpha($ubuntu_white, 0.15));
 $switch_border_color: if($variant == "light", scale-alpha(black, 0.21), scale-alpha($ubuntu_white, 0.08));
 $trough_background_color: $switch_border_color;
 $button_highlight: inset 0 -1px;
