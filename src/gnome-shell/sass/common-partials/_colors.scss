@@ -10,8 +10,6 @@
 @import "color-palette";
 
 // Foreground colors
-$dark_fg_color: $slate;
-$light_fg_color: #ffffff;
 $fg_color: if($variant == "light", $dark_fg_color, $light_fg_color);  // for shorthand's sake
 $secondary_fg_color: scale-alpha($fg_color, $secondary_opacity);
 $tertiary_fg_color: scale-alpha($fg_color, $tertiary_opacity);

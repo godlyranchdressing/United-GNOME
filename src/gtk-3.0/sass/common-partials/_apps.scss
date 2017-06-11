@@ -63,7 +63,6 @@ nautilus-desktop-window {
 viewport.frame list.tweak-categories {
   border: none;
   background-image: image($alt_bg_color);
-  border-bottom-left-radius: 8px;
 }
 
 .tweak-group-startup row {
@@ -293,8 +292,17 @@ window.workbench {
  ************/
 
 #zoom-in-button, #zoom-out-button {
-  // to hide the white background
+  // to hide the seemingly persistant background color behind them
   border-radius: 0px;
+}
+
+/************
+ * GNOME Weather *
+ ************/
+
+#weather-page-content-view stackswitcher {
+  // solid black background
+  border-radius: 6px;
 }
 
 /************
@@ -312,6 +320,51 @@ button.ecalendar.flat {
     @include button(flat-active, $primary_color);
   }
 }
+
+box.sidebar > label {
+  // analogous to lists
+  padding: 6px;
+
+  &.highlight {
+    @extend %selected_items;
+  }
+}
+
+buttonbox.vertical > button {
+  // analogous to lists
+  padding: 6px;
+  border-radius: 0px;
+  transition: all 150ms $ease-out-quad;
+
+  &:hover {
+    background-color: if(variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95));
+  }
+
+  &:active {
+    background-color: if(variant == light, transparentize($fg_color, 0.88), transparentize($fg_color, 0.92));
+  }
+
+  &:checked {
+    @extend %selected_items;
+
+    &:hover {
+      color: $highlighted_fg_color;
+      background-color: _pressed_shade($primary_color);
+    }
+  }
+}
+
+// box.vertical box.vertical:not(.horizontal) infobar.horizontal.info box.horizontal buttonbox.horizontal:last-child button.toggle:last-child:not(.text-button) {
+// final boss music plays
+// toggle button loses its right border when toggled but it seems impossible to override
+//   &, &:checked {
+//     background-color: red;
+//     border: 1px solid $border_color;
+//     border-right-style: solid;
+//     border-right-width: 1px;
+//     border-radius: 0 $standard_radius $standard_radius 0;
+//   }
+// }
 
 /************
  * GNOME Web *

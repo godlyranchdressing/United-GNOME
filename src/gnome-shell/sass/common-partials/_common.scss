@@ -192,10 +192,15 @@ StScrollBar {
 
   //active trough fill
   -slider-active-border-color: transparent;
-
+  
   //active trough border
   -slider-border-width: 0px;
-  -slider-handle-radius: 100%;
+  border-radius: $standard_radius;
+
+  //  -slider-handle-radius: $standard_radius;
+  //  -slider-handle-border-width: 1px;
+  //  -slider-handle-border-color: $border_color;
+  //  -slider-border-radius: $standard_radius;
 }
 
 /* Check Boxes */
@@ -831,7 +836,7 @@ StScrollBar {
 
   .level {
     height: 0.3em;
-    border-radius: 0px;
+    border-radius: $standard_radius;
     background-color: $secondary_fg_color;
     color: $fg_color;
   }
@@ -839,7 +844,7 @@ StScrollBar {
   .level-bar {
     color: $disabled_fill_color;
     background-color: $accent_color;
-    border-radius: 0px;
+    border-radius: $standard_radius;
   }
 }
 
@@ -1457,12 +1462,13 @@ StScrollBar {
 
 .message-list-clear-button.button {
   @include button;
+
   background-color: if($transparency == true, $base_color, $lighter_bg_color) !important;
   border: 1px solid $border_color;
   border-radius: $standard_radius;
   margin: 8px 8px 0;
 
-  &, &:hover, &:focus, &:active{
+  &, &:hover, &:focus, &:active {
     box-shadow: inset 0 0 1px $lighter_bg_color, 0 0 1px $lighter_bg_color !important;
   }
 }
@@ -1840,7 +1846,9 @@ StScrollBar {
 
 .window-clone-border {
   border: $osd_border_length solid $osd_light_border_color;
-  box-shadow: inset 0 0 0 1px $osd_light_border_color; // get around the possibility of there being one pixel of empty space between the border and the window preview
+  box-shadow: inset 0 0 0 1px $osd_light_border_color;
+
+  // get around the possibility of there being one pixel of empty space between the border and the window preview
   border-radius: $standard_radius * 2;
 }
 
@@ -1865,6 +1873,7 @@ StScrollBar {
   padding: 0 8px;
 
   @include entry;
+
   background-color: $base_color;
 
   &:focus {
@@ -1879,7 +1888,6 @@ StScrollBar {
   }
 
   &:focus {
-
     .search-entry-icon {
       color: $secondary_fg_color;
     }
@@ -2559,9 +2567,11 @@ $legacy_icon_size: 24px;
 
 .keyboard-key {
   @include button;
+
   @if $transparency == true {
     background-color: $base_color;
   }
+
   min-height: $medium_size * 2;
   min-width: $medium_size * 2;
   font-size: 2em;
@@ -2569,7 +2579,6 @@ $legacy_icon_size: 24px;
   border-radius: $standard_radius;
   border: 1px solid $border_color;
   color: inherit;
-
 
   &:grayed {
     //FIXME

@@ -2,6 +2,8 @@ A roadmap/todo file for contributors and anyone curious. Also technically functi
 
 ----------
 
+# Index.theme + Metacity
+
 # SCSS cleanup
 - Use extend, loops and mixin magic to reduce the amount of semi-repeated styling. Repeated dimensions can be converted into variables that'll be affected by a new compact variable in the main SASS files that can let people with smaller displays save some screen real estate. This also leads into using **em instead of px units to better support HiDPI displays**. (I don't have one to test this out myself, unfortunately)
 

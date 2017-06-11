@@ -35,7 +35,7 @@
 }
 
 @function entry_focus_shadow($fc: $primary_color) {
-  @return inset 0 0 0 2px $fc;
+  @return inset 0 0 0 1px $fc;
 }
 
 @mixin entry($type, $fc: $primary_color, $in_headerbar: false) {
