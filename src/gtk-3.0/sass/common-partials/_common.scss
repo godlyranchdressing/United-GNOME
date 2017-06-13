@@ -2069,7 +2069,7 @@ treeview.view {
   &.progressbar {
     // progress bar in treeviews
     border-bottom: $bar_size solid $accent_color;
-    border-radius: $standard_radius;
+    border-radius: 0;
     box-shadow: none;
     background-color: transparent;
 
