@@ -2,10 +2,7 @@
   @return unquote("alpha(#{$c},#{$a})");
 }
 
-$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $asset_suffix: if($variant == "dark", "-dark", "");
-$button_transition: all 250ms $ease-out-quad;
-$backdrop_transition: $button_transition;
 
 * {
   padding: 0;
@@ -261,7 +258,7 @@ entry {
     }
 
     image, arrow, label {
-      transition: $button_transition;
+      transition: $standard_transition;
 
       // icons inside the entry
 
@@ -540,7 +537,7 @@ button {
     border: 1px solid $border_color;
     box-shadow: $button_highlight $button_highlight_color;
     border-radius: $standard_radius;
-    transition: $button_transition;
+    transition: $standard_transition;
 
     @include button(normal);
 
@@ -2107,6 +2104,11 @@ treeview.view {
       background-clip: border-box;
       box-shadow: none;
 
+      label {
+        transition: $standard_transition;
+        transition-duration: 150ms;
+      }
+
       &:hover {
         label, image, arrow {
           color: _hover_shade($primary_color);
@@ -2183,7 +2185,7 @@ menubar,
   }
 
   > menuitem {
-    transition: $button_transition;
+    transition: $standard_transition;
     min-height: 16px;
     padding: 4px 8px;
 
@@ -2324,7 +2326,7 @@ menuitem {
  ***************/
 
 popover.background {
-  transition: $button_transition;
+  transition: $standard_transition;
   background-color: $lighter_bg_color;
   box-shadow: $shadow_1;
   padding: 0px;
@@ -2922,7 +2924,7 @@ switch {
     .#{$w}#{$s},
     #{$w}#{$s},
     treeview.#{$w}#{$s} {
-      transition: $button_transition;
+      transition: $standard_transition;
 
       @if $s == "" or $s == ":disabled" or $s == ":hover" {
         -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"), url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
@@ -2935,7 +2937,7 @@ switch {
     .osd,
     %osd_check_radio {
       #{$w}#{$s} {
-        transition: $button_transition;
+        transition: $standard_transition;
 
         @if $s == "" or $s == ":disabled" {
           -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"), url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
@@ -2964,7 +2966,7 @@ switch {
 // Selectionmode
 @each $s, $as in ("", "-selectionmode"), (":checked", "-checked-selectionmode") {
   .view.content-view.check#{$s}:not(list) {
-    transition: $button_transition;
+    transition: $standard_transition;
 
     @if $s == "" {
       -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"), url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
@@ -4266,7 +4268,7 @@ decoration, .default-decoration {
 }
 
 decoration {
-  transition: $button_transition;
+  transition: $standard_transition;
   box-shadow: $decoration_shadow;
   background-color: transparent;
 
@@ -4284,9 +4286,7 @@ decoration {
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows.
-    // The biggest shadow should be in the same order then in the active state
-    // or the jumping will happen during the transition.
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05), 0 0 4px 4px rgba(0, 0, 0, 0.05), 0 0 6px 6px rgba(0, 0, 0, 0), 0 0 8px 8px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 2px 2px $window_shadow, 0 0 4px 4px $window_shadow, 0 0 6px 6px transparent, 0 0 8px 8px transparent;
 
     .fullscreen &,
     .maximized &,
@@ -4296,26 +4296,33 @@ decoration {
     }
   }
 
+  .popup &, .ssd &, .csd.popup &, tooltip.csd &, messagedialog.csd & {
+    box-shadow: $decoration_shadow;
+  }
+
   .popup & {
-    box-shadow: none;
     border-radius: 0px;
   }
 
-  // server-side decorations as used by mutter
   .ssd & {
-    box-shadow: $decoration_shadow;
+    // server-side decorations as used by mutter
+    // box-shadow: $decoration_shadow;
+
   }
 
-  // just doing borders, wm draws actual shadows
-
   .csd.popup & {
+    // just doing borders, wm draws actual shadows
     border-radius: $standard_radius $standard_radius 0 0;
-    box-shadow: $decoration_shadow;
+
+    // box-shadow: $decoration_shadow;
+
   }
 
   tooltip.csd & {
     border-radius: $standard_radius;
-    box-shadow: $decoration_shadow;
+
+    // box-shadow: $decoration_shadow;
+
   }
 
   messagedialog.csd & {

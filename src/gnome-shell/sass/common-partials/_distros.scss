@@ -14,6 +14,10 @@ $accent_color: null;
   $primary_color: #1793D1;
   $accent_color: #FF9010;
 }
+@else if $distro == "debian" {
+  $primary_color: #D70751;
+  $accent_color: #407C80;
+}
 @else if $distro == "fedora" {
   $primary_color: #3C6EB4;
   $accent_color: #E59728;

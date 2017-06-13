@@ -192,7 +192,7 @@ StScrollBar {
 
   //active trough fill
   -slider-active-border-color: transparent;
-  
+
   //active trough border
   -slider-border-width: 0px;
   border-radius: $standard_radius;
@@ -1963,7 +1963,7 @@ StScrollBar {
 #dash {
   font-size: 1em;
   color: $fg_color;
-  background-color: if($transparency != true or $variant == "light", $ubuntu_black !important, transparentize($ubuntu_black, $middle_opacity) !important);
+  background-color: $dash_bg;
   padding: 0;
   border: 1px solid $border_color;
   border-left-width: 0px;

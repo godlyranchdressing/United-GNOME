@@ -1,4 +1,5 @@
 arch
+debian
 fedora
 manjaro
 opensuse

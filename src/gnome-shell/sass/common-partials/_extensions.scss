@@ -10,13 +10,10 @@
     StWidget {
       // get rid of default hover effects for dash to dock
       background-color: transparent;
-      box-shadow: none;
     }
 
     .app-well-app-running-dot {
-      background-color: none;
-      width: 28px;
-      height: 4px;
+      background-color: transparent;
     }
   }
 
@@ -39,7 +36,7 @@
 
     @if $g == "bottom" {
       // now down ☟(˚▽˚)☟
-      $_border_radius: 0px;
+      $_border_radius: $standard_radius $standard_radius 0 0;
 
       // leaves a shadow on the dash for some reason
       $_dock_border: inset 0px 1 $border_color;
@@ -47,7 +44,7 @@
 
     @if $g == "top" {
       // and up ☝(˚▽˚)☝
-      $_border_radius: 0px;
+      $_border_radius: 0 0 $standard_radius $standard_radius;
       $_dock_border: inset 0px -1 $border_color;
     }
 
@@ -55,6 +52,7 @@
       &.#{$g} {
         #dash {
           // apply glass effect and get rid of default dash's border
+          background-color: $dash_bg !important;
           border-radius: $_border_radius;
           box-shadow: $_dock_border;
         }

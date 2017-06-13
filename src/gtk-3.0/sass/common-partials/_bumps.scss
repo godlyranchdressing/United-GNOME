@@ -137,8 +137,8 @@ dialog {
 dialog, messagedialog {
   decoration {
     &, &:backdrop {
-      transition: $button_transition;
-      box-shadow: $shadow_3, 0 8px 8px rgba(0, 0, 0, 0.16);
+      transition: $standard_transition;
+      box-shadow: $decoration_shadow;
       background-color: transparent;
     }
   }

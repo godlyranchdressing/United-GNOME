@@ -1,4 +1,5 @@
 $compact: true;
+$window_shadow: rgba(0, 0, 0, 0.05);
 $extra_background_clip: border-box;
 $_fg_color: #606060;
 
@@ -38,19 +39,15 @@ $acceleration_curve: cubic-bezier(0.4, 0, 1, 1);
 $sharp_curve: cubic-bezier(0.4, 0, 0.6, 1);
 
 // transition shorthands
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$standard_transition: all 250ms $ease-out-quad;
 $shorter_transition: all $shorter_duration $deceleration_curve;
-$sharper_transition: all $shorter_duration $standard_curve;
-$longer_transition: all $longer_duration $deceleration_curve;
 
 // shadows
-// based shadow values: https://material-design.storage.googleapis.com/images/layout-principles-dimensionality-shadows-08_large_mdpi.png ||| box-shadow 1px blur doesn't draw correctly, see --> https://bugzilla.gnome.org/show_bug.cgi?id=738484
 $shadow_1: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24); // regular shadow
-$shadow_2: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15); // lighter shadow
-$shadow_3: 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.20); // heavier shadow
-$background_inset_shadow: inset 0 2px 2px rgba(0, 0, 0, .16), 0 2px 2px rgba(0, 0, 0, .16);
-$decoration_shadow:  0 0 2px 2px rgba(0,0,0,.05), 0 0 4px 4px rgba(0, 0, 0, 0.05), 0 0 6px 6px rgba(0, 0, 0, 0.05), 0 0 8px 8px rgba(0, 0, 0, 0.10);
+$decoration_shadow:  0 0 2px 2px $window_shadow, 0 0 4px 4px $window_shadow, 0 0 6px 6px $window_shadow, 0 0 8px 8px $window_shadow;
 $headerbar_shadow: inset 0 -1px 0 transparentize($_fg_color, .9), 0 2px 2px transparentize($_fg_color, .8);
-
+//
 $shadow_bottom: inset 2px 0px 0px; // insert a color at the end here. lets you use a border without adding height + width
 $shadow_left: inset 2px 0px 0px;
 $shadow_right: inset -2px 0px 0px;

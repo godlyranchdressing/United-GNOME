@@ -399,7 +399,7 @@
   outline-offset: -4px;
 
   &, slider {
-    transition: $button_transition;
+    transition: $standard_transition;
   }
 
   &:hover {
