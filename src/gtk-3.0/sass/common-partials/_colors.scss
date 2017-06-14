@@ -33,7 +33,7 @@ $secondary_headerbar_fg_color: if($headerbar == "dark" or $variant == "dark", $s
 @import "distros"; // Theme colours
 
 // Info colours
-$info_color: $accent_color; // suru's blue would be more accurate here but the blue is pretty much being replaced by the accent colors
+$info_color: $accent_color; // suru's blue would be more accurate here but we're replacing the blue with the much more familiar accent color (purple)
 $question_color: $accent_color;
 $suggested_color: $green;
 $success_color: $suggested_color;

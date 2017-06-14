@@ -225,7 +225,7 @@ spinner {
   -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
 
   &:checked {
-    color: $accent_color;
+    color: $primary_color;
     opacity: 1;
     animation: spin 1s linear infinite;
 
@@ -1657,9 +1657,9 @@ searchbar,
 
 %titlebar,
 headerbar {
+  // rounding is done under window decoration section
   background-color: $headerbar_bg_color;
   color: $headerbar_fg_color;
-  border-radius: ($standard_radius + 4) ($standard_radius + 4) 0 0;
   box-shadow: if($variant == "light", $headerbar_shadow, none);
 
   // TODO:
@@ -1730,21 +1730,13 @@ headerbar {
     min-height: $small_size;
     padding: $container_padding;
     box-shadow: none;
-    border-radius: $standard_radius $standard_radius 0 0;
 
     .fullscreen &,
     .maximized &,
     .tiled & {
       box-shadow: none;
       transition-duration: 250ms;
-      border-radius: 0px;
     }
-  }
-
-  .fullscreen &,
-  .maximized &,
-  .tiled & {
-    border-radius: 0px;
   }
 
   .solid-csd & {
@@ -1791,11 +1783,7 @@ headerbar {
 }
 
 .titlebar:not(headerbar):not(.path-bar) {
-  //border: 1px solid if($headerbar == "dark", $darker_border_color, $border_color);
   border-top: 1px solid $headerbar_bg_color;
-
-  //border-width: 1px 1px 0 1px;
-  border-radius: $standard_radius $standard_radius 0 0;
 
   window.csd > & {
     // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
@@ -1803,10 +1791,6 @@ headerbar {
     background-color: transparent;
     background-image: none;
     border-style: none;
-  }
-
-  window.csd {
-    border-radius: 0 0 $standard_radius $standard_radius;
   }
 
   separator {
@@ -3700,8 +3684,8 @@ messagedialog {
     // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
-      border-bottom-left-radius: $standard_radius;
-      border-bottom-right-radius: $standard_radius;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     .dialog-action-area button {
@@ -4263,14 +4247,44 @@ colorchooser .popover.osd {
  * Window Decorations *
  **********************/
 
-decoration, .default-decoration {
-  border-radius: ($standard_radius + 4) ($standard_radius + 4) 0 0;
+headerbar, .titlebar {
+  & {
+    border-radius: $wm_radius $wm_radius 0 0;
+  }
+
+  &.default-decoration {
+    // round gtk2 windows and try to hide the black background behind the window colors
+    border-radius: $wm_radius $wm_radius 0 0;
+    box-shadow: _shadow_border(1, 1, 0, 1, $headerbar_bg_color);
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color:  $headerbar_bg_color;
+  }
+
+  &, &.default-decoration {
+    .fullscreen &,
+    .maximized &,
+    .tiled & {
+      border-radius: 0px;
+    }
+  }
+}
+
+.titlebar:not(headerbar):not(.path-bar) {
+  border-radius: $wm_radius $wm_radius 0 0;
+
+  .fullscreen &,
+  .maximized &,
+  .tiled & {
+    border-radius: 0px;
+  }
 }
 
 decoration {
   transition: $standard_transition;
   box-shadow: $decoration_shadow;
   background-color: transparent;
+  border-radius: ($wm_radius + 1) ($wm_radius + 1) 0 0;
 
   // FIXME rationalize shadows
   // this is used for the resize cursor area
@@ -4297,7 +4311,11 @@ decoration {
   }
 
   .popup &, .ssd &, .csd.popup &, tooltip.csd &, messagedialog.csd & {
-    box-shadow: $decoration_shadow;
+    // wm draws actual shadows
+    // the box shadow adds to the dimensions of gtk2 windows otherwise
+    &, &:backdrop {
+      box-shadow: none;
+    }
   }
 
   .popup & {
@@ -4306,59 +4324,31 @@ decoration {
 
   .ssd & {
     // server-side decorations as used by mutter
-    // box-shadow: $decoration_shadow;
 
   }
 
   .csd.popup & {
-    // just doing borders, wm draws actual shadows
     border-radius: $standard_radius $standard_radius 0 0;
-
-    // box-shadow: $decoration_shadow;
-
   }
 
   tooltip.csd & {
     border-radius: $standard_radius;
-
-    // box-shadow: $decoration_shadow;
-
   }
 
   messagedialog.csd & {
     border-radius: $standard_radius;
-
-    // box-shadow: $shadow_3, 0 16px 16px transparent;
-    // &:backdrop { box-shadow: $shadow_3, 0 16px 16px transparent; }
-
   }
 
   .solid-csd & {
     margin: 0;
-    border-radius: $standard_radius;
     box-shadow: none;
-    background-color: $headerbar_bg_color;
+    border-radius: $standard_radius;
   }
 }
 
 // Titlebutton //
 headerbar,
 .titlebar {
-  border-radius: $standard_radius $standard_radius 0 0;
-
-  &.default-decoration {
-    border-radius: $standard_radius $standard_radius 0 0;
-    background-color: $headerbar_bg_color;
-  }
-
-  &, &.default-decoration {
-    .fullscreen &,
-    .maximized &,
-    .tiled & {
-      border-radius: 0px;
-    }
-  }
-
   &.default-decoration button.titlebutton {
     color: transparent;
     padding: 0 4px;
