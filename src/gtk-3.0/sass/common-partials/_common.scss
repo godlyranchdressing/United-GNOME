@@ -2200,8 +2200,6 @@ menu, menu#PagePopup,
   background-color: $lighter_bg_color;
   border: 1px solid $border_color;
 
-  // adds borders in a non composited env
-
   .csd & {
     border: none;
   }
@@ -4310,12 +4308,17 @@ decoration {
     }
   }
 
-  .popup &, .ssd &, .csd.popup &, tooltip.csd &, messagedialog.csd & {
-    // wm draws actual shadows
+  .ssd &{
+    // the wm draws actual shadows
     // the box shadow adds to the dimensions of gtk2 windows otherwise
     &, &:backdrop {
       box-shadow: none;
     }
+  }
+
+  .popup &, .csd.popup &, tooltip.csd &, messagedialog.csd & {
+    // "half" the regular wm shadow
+    box-shadow: 0 0 2px 2px $window_shadow, 0 0 4px 4px $window_shadow;
   }
 
   .popup & {

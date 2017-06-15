@@ -11,9 +11,8 @@ A roadmap/todo file for contributors and anyone curious. Also technically functi
 - Make the dark theme follow Unity 8's? The dark theme is very dark and makes the Arch variant almost look like a Windows 10 theme. The current colors used in the dark theme is based more on Unity 8's dash/shell moreso than its *actual* dark theme which has a much more pleasant bluish grey color.
 
 # Assets
-- Window buttons? Unity 8's are a bit too thin and look a lot like Windows 10's. The original
-concept had an encircled close button so something resembling that would be ideal. Ambiance's might be
-worth experimenting with.
+- Window buttons? Unity 8's are a bit too thin and look a lot like Windows 10's. The original concept had an encircled close button so something resembling that would be ideal. Ambiance's might be worth experimenting with.
+- Shell OSD border tidying
 
 # Login theme
 - The styling for the login dialog is untested but how to go about testing it without doing the whole compile into a gresource file isn't clear. I'm not sure how it happened to begin with, but on UG 17.04, a theme's login styling worked for the logged in user's lock screen but I can't seem to get that behavior working again.
