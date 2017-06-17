@@ -4,13 +4,14 @@ DISTROS="distros.txt"
 echo "Compressing..."
 
 for distro in `cat $DISTROS`; do
-  for variants in '' '-Light' '-Dark' '-Darker'; do
     cd Compiled
     cd United-${distro^}
+    cp ../../src/index.theme United-${distro^}
+    cp ../../src/index.theme United-${distro^}-Dark
+    cp ../../src/index.theme United-${distro^}-Darker
     tar -czf United-${distro^}.tar.gz United-${distro^} United-${distro^}-Light United-${distro^}-Darker United-${distro^}-Dark
     mv United-${distro^}.tar.gz ../..
     cd ..
-  done
 done
 
 cd ..

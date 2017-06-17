@@ -2,13 +2,10 @@ A roadmap/todo file for contributors and anyone curious. Also technically functi
 
 ----------
 
-# Index.theme + Metacity
+# Metacity
 
 # SCSS cleanup
 - Use extend, loops and mixin magic to reduce the amount of semi-repeated styling. Repeated dimensions can be converted into variables that'll be affected by a new compact variable in the main SASS files that can let people with smaller displays save some screen real estate. This also leads into using **em instead of px units to better support HiDPI displays**. (I don't have one to test this out myself, unfortunately)
-
-# GTK2/3
-- Make the dark theme follow Unity 8's? The dark theme is very dark and makes the Arch variant almost look like a Windows 10 theme. The current colors used in the dark theme is based more on Unity 8's dash/shell moreso than its *actual* dark theme which has a much more pleasant bluish grey color.
 
 # Assets
 - Window buttons? Unity 8's are a bit too thin and look a lot like Windows 10's. The original concept had an encircled close button so something resembling that would be ideal. Ambiance's might be worth experimenting with.

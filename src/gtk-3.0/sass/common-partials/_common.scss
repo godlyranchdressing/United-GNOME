@@ -598,7 +598,7 @@ button {
 
     /// * Flat Buttons * ///
 
-    &.flat, &.flat.image-button, &.sidebar-button {
+    &.flat, &.flat.image-button, &.flat.image-button.toggle, &.sidebar-button {
       @include button(flat);
 
       &:hover {
@@ -640,10 +640,6 @@ button {
       &:disabled {
         @include button(disabled);
       }
-    }
-
-    &.text-button.image-button {
-      label {}
     }
 
     &:drop(active) {
@@ -746,7 +742,7 @@ button {
 
   // Suggested and Destructive Action buttons
 
-  @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color) {
+  @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color), ("default:not(.destructive-action):not(.suggested-action)", $primary_color) {
     &.#{$b_type} {
       @include button(normal, $b_color);
 
@@ -790,7 +786,7 @@ button {
         &:checked {
           @include button(active, $b_color);
         }
-
+        
         &:disabled {
           @include button(disabled);
         }
@@ -4256,7 +4252,7 @@ headerbar, .titlebar {
     box-shadow: _shadow_border(1, 1, 0, 1, $headerbar_bg_color);
     border-width: 1px 1px 0 1px;
     border-style: solid;
-    border-color:  $headerbar_bg_color;
+    border-color: $headerbar_bg_color;
   }
 
   &, &.default-decoration {
@@ -4308,11 +4304,11 @@ decoration {
     }
   }
 
-  .ssd &{
+  .ssd & {
     // the wm draws actual shadows
     // the box shadow adds to the dimensions of gtk2 windows otherwise
     &, &:backdrop {
-      box-shadow: none;
+      box-shadow: inset 0 2px $window_shadow;
     }
   }
 
@@ -4323,11 +4319,6 @@ decoration {
 
   .popup & {
     border-radius: 0px;
-  }
-
-  .ssd & {
-    // server-side decorations as used by mutter
-
   }
 
   .csd.popup & {
