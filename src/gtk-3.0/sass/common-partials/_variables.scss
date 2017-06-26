@@ -1,4 +1,3 @@
-$compact: true;
 $window_shadow: rgba(0, 0, 0, 0.05);
 $extra_background_clip: border-box;
 $_fg_color: #606060;
@@ -10,7 +9,6 @@ $lower_opacity: 0.3;
 $secondary_opacity: 0.75;
 $tertiary_opacity: 0.6;
 $disabled_opacity: 0.4;
-$quarternary_opacity: $disabled_opacity; // simply so people wouldn't get the wrong idea
 
 // sizes
 $small_size: 20px;
@@ -20,7 +18,8 @@ $container_padding: 6px;
 $bar_size: 4px;
 $osd_border_length: 8px;
 $menuitem_size: 32px;
-
+//
+$button_height: if($compact == true, 22px, 24px);
 // states
 $checked_border: inset 0 -2px 0px;
 

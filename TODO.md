@@ -1,6 +1,11 @@
 A roadmap/todo file for contributors and anyone curious. Also technically functions as a known issues list.
 
 ----------
+# Default button styling
+- The orange is a little loud for Ubuntu.
+
+# OSD borders for Shell
+- Needs to be tidied up a bit.
 
 # Metacity
 

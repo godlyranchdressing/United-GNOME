@@ -166,7 +166,7 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
     &:disabled {
       @include button(disabled, $in_headerbar: true);
 
-      box-shadow: $shadow_bottom if($headerbar == "dark", $darker_secondary_fg_color, $secondary_fg_color);
+      box-shadow: $shadow_bottom if($headerbar == "dark", $dark_secondary_fg_color, $secondary_fg_color);
     }
   }
 }
@@ -178,11 +178,33 @@ headerbar buttonbox.horizontal.linked button.toggle.toolbar-primary-buttons-soft
 window.workbench {
   // uses various elements that are identical to regular gtk3 widgets
   // i'd really like to know why
+
+  omnibar {
+    button {
+      margin-top: 6px;
+      margin-bottom: 6px;
+
+      @include button(normal);
+
+      &:hover {
+        @include button(hover);
+      }
+
+      &:active, &:checked {
+        @include button(active);
+      }
+
+      &:disabled {
+        @include button(disabled);
+      }
+    }
+  }
+
   docktabstrip {
     // analogous to notebook header
     border-color: $border_color;
     margin-top: $container_padding;
-    background-color: $alt_bg_color;
+    background-color: transparent;
     box-shadow: _shadow_border(0, 0, 1, 0);
 
     docktab {
@@ -201,7 +223,7 @@ window.workbench {
       font-weight: 500;
 
       &:checked, &:hover {
-        background-color: $base_color;
+        background-color: $lighter_bg_color;
 
         label {
           color: $fg_color;
@@ -210,23 +232,44 @@ window.workbench {
     }
   }
 
-  layouttab button {
-    border-width: 0px;
+  layouttabbar {
+    box-shadow: inset 0 -1px $border_color;
+  }
 
-    @include button(flat);
+  layouttab, layouttabbar {
+    button {
+      &, &.popup.toggle {
+        border-width: 0px;
 
-    &:hover {
-      @include button(flat-hover, $primary_color);
-    }
+        @include button(flat);
 
-    &:active {
-      @include button(flat-active, $primary_color);
+        &:hover {
+          @include button(flat-hover, $primary_color);
+        }
+
+        &:active, &:checked {
+          @include button(flat-active, $primary_color);
+        }
+      }
     }
   }
 
   popover {
     .popover-content-area {
       padding: $container_padding;
+    }
+
+    .popover-action-area button {
+      border-bottom-style: none;
+      box-shadow: none;
+
+      &:not(:last-child) {
+        border-left-width: 0px;
+      }
+
+      &:last-child {
+        border-right-width: 0px;
+      }
     }
 
     list row {

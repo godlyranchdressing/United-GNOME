@@ -242,9 +242,8 @@ spinner {
 %entry,
 entry {
   %entry_basic, & {
-    min-height: 32px;
-    padding-left: 8px;
-    padding-right: 8px;
+    min-height: $button_height;
+    padding: 4px 8px;
     border: 1px solid $border_color;
     box-shadow: $button_highlight $button_highlight_color;
     border-radius: $standard_radius;
@@ -368,7 +367,7 @@ entry {
     background-image: none;
     border-radius: 0;
     border-width: 0 0 2px;
-    border-color: $accent_color;
+    border-color: $progress_color;
     border-style: solid;
     box-shadow: none;
   }
@@ -531,7 +530,7 @@ $_dot_color: if($variant == "light", $primary_color, lighten($primary_color, 15%
 %button,
 button {
   @at-root %button_basic, & {
-    min-height: 24px;
+    min-height: $button_height;
     min-width: 16px;
     padding: 4px 8px;
     border: 1px solid $border_color;
@@ -577,7 +576,7 @@ button {
 
     &.image-button, &.toggle {
       // Give 1:1 dimensions
-      min-width: 24px;
+      min-width: $button_height;
       padding-left: 4px;
       padding-right: 4px;
 
@@ -742,7 +741,7 @@ button {
 
   // Suggested and Destructive Action buttons
 
-  @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color), ("default:not(.destructive-action):not(.suggested-action)", $primary_color) {
+  @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color) {
     &.#{$b_type} {
       @include button(normal, $b_color);
 
@@ -786,12 +785,16 @@ button {
         &:checked {
           @include button(active, $b_color);
         }
-        
+
         &:disabled {
           @include button(disabled);
         }
       }
     }
+  }
+
+  &.default {
+    // TODO:
   }
 
   .stack-switcher > & {
@@ -1088,7 +1091,7 @@ toolbar.inline-toolbar toolbutton {
 /* menu buttons */
 modelbutton.flat,
 .menuitem.button.flat {
-  min-height: 24px;
+  min-height: $button_height;
   padding-left: 4px;
   padding-right: 4px;
   border-radius: $standard_radius;
@@ -1359,8 +1362,8 @@ spinbutton {
 
     button {
       // same dimensions as image-button
-      min-height: 24px;
-      min-width: 24px;
+      min-height: $button_height;
+      min-width: $button_height;
       padding-left: 4px;
       padding-right: 4px;
 
@@ -1716,7 +1719,7 @@ headerbar {
 
   .titlebar {
     separator {
-      background-color: if($headerbar == "dark", $darker_border_color, $border_color);
+      background-color: if($headerbar == "dark", $dark_border_color, $border_color);
     }
   }
 
@@ -1816,7 +1819,7 @@ headerbar.titlebar .path-bar button, .path-bar button {
       @include button(toggle-active, $lighter_bg_color, $primary_color, $in_headerbar: true);
 
       &:hover {
-        background-color: if($headerbar == "dark", $darker_lighter_bg_color, $lighter_bg_color);
+        background-color: if($headerbar == "dark", $dark_lighter_bg_color, $lighter_bg_color);
       }
 
       &:disabled {
@@ -1881,7 +1884,7 @@ headerbar.titlebar .path-bar button, .path-bar button {
 
   &, &:disabled {
     // to give the appearance of the pathbar being one large box, even if the sliders are disabled
-    background-color: if($headerbar == "dark" and $variant == "light", $darker_lighter_bg_color, $lighter_bg_color);
+    background-color: if($headerbar == "dark" and $variant == "light", $dark_lighter_bg_color, $lighter_bg_color);
   }
 }
 
@@ -2048,7 +2051,7 @@ treeview.view {
 
   &.progressbar {
     // progress bar in treeviews
-    border-bottom: $bar_size solid $accent_color;
+    border-bottom: $bar_size solid $progress_color;
     border-radius: 0;
     box-shadow: none;
     background-color: transparent;
@@ -2060,12 +2063,12 @@ treeview.view {
 
   &.trough {
     // progress bar trough in treeviews
-    border-bottom: $bar_size solid scale-alpha($accent_color, $lower_opacity);
+    border-bottom: $bar_size solid scale-alpha($progress_color, $lower_opacity);
     box-shadow: none;
     background-color: transparent;
 
     &:selected {
-      border-bottom-color: scale-alpha($accent_color, $middle_opacity);
+      border-bottom-color: scale-alpha($progress_color, $middle_opacity);
     }
   }
 
@@ -2155,8 +2158,8 @@ menubar,
   padding: 0px;
 
   @if $headerbar == "dark" or $variant == "dark" {
-    background-color: $darker_headerbar_color;
-    box-shadow: inset 0 -1px $darker_border_color;
+    background-color: $dark_headerbar_bg;
+    box-shadow: inset 0 -1px $dark_border_color;
     color: $light_fg_color;
   }
   @else {
@@ -2347,14 +2350,10 @@ popover.background {
     margin: 0px;
   }
 
-  &.menu {
-    padding: 2px;
-  }
-
   &.menu, & {
     modelbutton {
       &, &.flat, &.flat.image-button {
-        min-height: 32px;
+        min-height: $menuitem_size;
         border-radius: 0px;
         padding: 0 4px;
 
@@ -3024,7 +3023,7 @@ scale {
 
   contents {
     border-radius: $standard_radius;
-    background: $trough_background_color;
+    background: $button_highlight_color;
   }
 
   slider {
@@ -3035,7 +3034,7 @@ scale {
   trough {
     border-radius: $standard_radius;
     outline-style: none;
-    background-color: $trough_background_color;
+    background-color: $button_highlight_color;
   }
 
   &.vertical trough {
@@ -3049,7 +3048,7 @@ scale {
   // the colored part of the backing bit
   highlight {
     border-radius: $standard_radius;
-    background-color: $accent_color;
+    background-color: $progress_color;
 
     &:disabled {
       background-color: $disabled_bg_color;
@@ -3199,7 +3198,7 @@ scale {
     &.marks-after, &.marks-before {
       trough {
         outline-style: none;
-        border-right: 1px solid $trough_background_color;
+        border-right: 1px solid $button_highlight_color;
 
         slider {
           &, &:active, &:active:hover {
@@ -3272,17 +3271,17 @@ progressbar {
     box-shadow: none;
 
     trough {
-      background-color: scale-alpha($accent_color, $lower_opacity);
+      background-color: scale-alpha($progress_color, $lower_opacity);
     }
 
     progress {
-      background-color: $accent_color;
+      background-color: $progress_color;
     }
   }
 
   // Moving bit
   progress {
-    background-color: $accent_color;
+    background-color: $progress_color;
 
     //border: none;
     //border-radius: 3px;
@@ -3349,7 +3348,7 @@ levelbar {
 
     &.high,
     &:not(.empty) {
-      background-color: $accent_color;
+      background-color: $progress_color;
     }
 
     &.full {
@@ -3357,8 +3356,8 @@ levelbar {
     }
 
     &.empty {
-      background-color: $trough_background_color;
-      color: $trough_background_color;
+      background-color: $button_highlight_color;
+      color: $button_highlight_color;
     }
   }
 }
@@ -3684,10 +3683,11 @@ messagedialog {
 
     .dialog-action-area button {
       border-radius: 0;
-      min-height: 30px;
       border-left-style: solid;
       border-right-style: none;
       border-bottom-style: none;
+      margin: 0;
+      min-height: 30px;
 
       &:first-child {
         border-left-style: none;
@@ -4016,23 +4016,11 @@ infobar {
  ************/
 tooltip {
   &, &.background, decoration {
-    background-color: $ubuntu_black;
-
-    // firefox overrides any alpha value that isn't 255 so these are solid
-
+    background-color: $black;
   }
 
-  //
   &.background {
-    // background-color needs to be set this way otherwise it gets drawn twice
-    // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-
     background-clip: padding-box;
-
-    // this suble border is meant to
-    // not make the tooltip melt with
-    // very dark backgrounds
-
   }
 
   padding: 2px;
@@ -4449,6 +4437,10 @@ headerbar,
 
 .context-menu {
   font: initial;
+
+  label {
+    transition: none;
+  }
 }
 
 // Decouple the font of context menus from their entry/textview

@@ -1,4 +1,4 @@
-@import "color-palette";
+// Colors are assigned here, colors are defined in the color-palette file
 
 @function gtkalpha($c, $a) {
   @return unquote("alpha(#{$c}, #{$a})");
@@ -8,22 +8,23 @@
   @return scale-color($c, $alpha: percentage(-1 + $a));
 }
 
+@import "color-palette";
+
 // primary foreground colors
 $fg_color: if($variant == "light", $dark_fg_color, $light_fg_color);
 $inverse_fg_color: if($variant == "light", $light_fg_color, $dark_fg_color);
 $highlighted_fg_color: $light_fg_color;
 
 // secondary foreground colors
-$secondary_fg_color: scale-alpha($fg_color, $secondary_opacity);
+$secondary_fg_color: if($variant == "light", $light_secondary_fg_color, $dark_secondary_fg_color);
 $secondary_inverse_fg_color: scale-alpha(if($variant == "light", $light_fg_color, $dark_fg_color), $secondary_opacity);
-$tertiary_fg_color: scale-alpha($fg_color, $tertiary_opacity);
 
 // background colors
-$bg_color: if($variant == "light", $ubuntu_white, $jet);
-$base_color: lighten($bg_color, 2.5%);
-$alt_base_color: if($variant == "light", darken($ubuntu_white, 2.5%), mix($base_color, $bg_color, 50%));
-$alt_bg_color: if($variant == "light", $ubuntu_alt_bg, lighten($ubuntu_black, 7.5%));
-$lighter_bg_color: if($variant == "light", lighten($ubuntu_white, 5%), lighten($ubuntu_black, 8%));
+$bg_color: if($variant == "light", $light_bg_color, $dark_bg_color);
+$base_color: if($variant == "light", $light_base_color, $dark_base_color);
+$alt_base_color: if($variant == "light", $light_alt_base_color, $dark_alt_base_color);
+$alt_bg_color: if($variant == "light", $light_alt_bg_color, $dark_alt_bg_color);
+$lighter_bg_color: if($variant == "light", $light_lighter_bg_color, $dark_lighter_bg_color);
 
 // headerbar colors
 $headerbar_bg_color: if($headerbar == "dark" or $variant == "dark", $dark_headerbar_bg, $light_headerbar_bg);
@@ -35,11 +36,13 @@ $secondary_headerbar_fg_color: if($headerbar == "dark" or $variant == "dark", $s
 // Info colours
 $info_color: $accent_color; // suru's blue would be more accurate here but we're replacing the blue with the much more familiar accent color (purple)
 $question_color: $accent_color;
+$progress_color: $accent_color;
 $suggested_color: $green;
 $success_color: $suggested_color;
 $link_color: lighten($accent_color, 5);
 $warning_color: lighten($orange, 5);
 $error_color: darken($red, 5);
+$default_action_color: $primary_color;
 $destructive_color: $red;
 
 // hover states
@@ -47,29 +50,14 @@ $semi_fill_color: darken($lighter_bg_color, 5%);
 $fill_color: darken($lighter_bg_color, 10%);
 
 // Aux colors
-$border_color: if($variant == "light", scale-alpha(black, 0.15), scale-alpha($ubuntu_white, 0.1));
-$button_highlight_color: if($variant == "light", scale-alpha(black, 0.2), scale-alpha($ubuntu_white, 0.15));
-$switch_border_color: if($variant == "light", scale-alpha(black, 0.21), scale-alpha($ubuntu_white, 0.08));
-$trough_background_color: $switch_border_color;
+$border_color: if($variant == "light", $light_border_color, $dark_border_color);
 $button_highlight: inset 0 -1px;
+$button_highlight_color: if($variant == "light", $light_button_highlight_color, $dark_button_highlight_color);
 $highlight_color: if($variant == "light", scale-alpha(white, 0.4), scale-alpha(white, 0.1));
 $unity_highlight_color: if($headerbar == "dark", scale-alpha(white, 0.1), scale-alpha(white, 0.2));
 
 // disabled and backdrop states
-$disabled_bg_color: transparentize(if($variant == "light", $alt_bg_color, darken($alt_bg_color, 5%)), $disabled_opacity);
-$solid_disabled_bg_color: if($variant == "light", #E9E9E9, #171717); // since the disabled bg colors use transparency any element that's over another would be "extra disabled", most notably spinbuttons so those use this value
-$disabled_base_color: transparentize(if($variant == "light", $alt_base_color, darken($alt_base_color, 5%)), $disabled_opacity);
-$disabled_fg_color: scale-alpha($fg_color, $disabled_opacity);
-$disabled_secondary_fg_color: scale-alpha($secondary_fg_color, $disabled_opacity);
-
-// Darker variant colors
-$darker_bg_color: lighten($ubuntu_black, 8%);
-$darker_base_color: lighten($ubuntu_black, 2%);
-$darker_headerbar_color: $ubuntu_black;
-$darker_lighter_bg_color: lighten($ubuntu_black, 8%);
-$darker_disabled_bg_color: #1C1C1C;
-$darker_switch_border_color: scale-alpha($ubuntu_white, 0.08);
-$darker_secondary_fg_color: scale-alpha($light_fg_color, $secondary_opacity);
-$darker_border_color: #383838;
-$darker_button_highlight_color: $darker_border_color;
-$darker_disabled_fg_color: #7B7B7B;
+$disabled_bg_color: if($variant == "light", $light_disabled_bg_color, $dark_disabled_bg_color);
+$solid_disabled_bg_color: if($variant == "light", #E9E9E9, #171717); // since the disabled bg colors use transparency, any element that's over another would look differently, most notably spinbuttons
+$disabled_fg_color: if($variant == "light", $light_disabled_fg_color, $dark_disabled_fg_color);
+$disabled_secondary_fg_color: if($variant == "light", $light_disabled_secondary_fg_color, $dark_disabled_secondary_fg_color)

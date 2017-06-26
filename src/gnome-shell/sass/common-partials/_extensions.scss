@@ -87,7 +87,7 @@
     .overview-icon {
       // give it the new launcher icon
       background-image: url("assets/#{if($distro == "ubuntu-alt", "ubuntu", $distro)}-launcher.svg") !important;
-      background-size: contain !important;
+      background-size: contain;
     }
 
     StWidget {

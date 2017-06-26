@@ -1,8 +1,9 @@
 $variant: "light";
 $headerbar: "light";
-$distro: "debian";
+$distro: "debian"; // arch, debian, fedora, manjaro, opensuse, solus and ubuntu
 $asset_suffix: if($variant=='dark', '-dark', '');
 $window_button_suffix: if($variant == "dark" or $headerbar == "dark", "-dark", "");
+$compact: false;
 
 @import "../common-partials/variables";
 @import "../common-partials/colors";

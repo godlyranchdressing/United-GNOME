@@ -3,6 +3,7 @@ $headerbar: "dark"; // Light or dark
 $distro: "manjaro"; // arch, fedora, manjaro, opensuse, solus and ubuntu
 $asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
 $window_button_suffix: if($variant == "dark" or $headerbar == "dark", "-dark", "");
+$compact: false;
 
 @import "../common-partials/variables";
 @import "../common-partials/colors";

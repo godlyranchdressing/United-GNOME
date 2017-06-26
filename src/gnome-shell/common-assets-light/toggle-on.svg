@@ -14,7 +14,7 @@
    height="22.000015"
    id="svg2857"
    version="1.1"
-   inkscape:version="0.92+devel unknown"
+   inkscape:version="0.92.1 r15371"
    sodipodi:docname="toggle-on.svg">
   <defs
      id="defs2859">
@@ -70,15 +70,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.07058824"
      inkscape:pageshadow="2"
-     inkscape:zoom="10.920615"
-     inkscape:cx="13.388559"
-     inkscape:cy="21.011805"
+     inkscape:zoom="14.35817"
+     inkscape:cx="17.120901"
+     inkscape:cy="23.708767"
      inkscape:document-units="px"
      inkscape:current-layer="g863"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1138"
-     inkscape:window-x="0"
+     inkscape:window-width="1848"
+     inkscape:window-height="1137"
+     inkscape:window-x="1438"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
      borderlayer="true"
@@ -110,7 +110,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -129,14 +129,14 @@
            transform="matrix(0.88888378,0,0,0.90907821,-38.938093,1322.1093)"
            id="g37996">
           <rect
-             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#48B259;fill-opacity:1;fill-rule:nonzero;stroke:#41a050;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#48b259;fill-opacity:1;fill-rule:nonzero;stroke:#41a050;stroke-width:1.3792094;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
              id="rect38000"
              width="98"
              height="25"
              x="644.5"
              y="483.5"
-             rx="6.4084411"
-             ry="4.0995822" />
+             rx="6"
+             ry="6" />
         </g>
         <g
            id="g38002"
@@ -153,8 +153,8 @@
                height="25"
                x="694.53046"
                y="515.5"
-               rx="6.3329992"
-               ry="4.0513215" />
+               rx="6"
+               ry="6" />
           </g>
         </g>
       </g>

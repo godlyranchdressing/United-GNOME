@@ -1,0 +1,15 @@
+$variant: 'light'; // light or dark
+$headerbar: "dark"; // Light or dark
+$distro: "ubuntu-alt"; // arch, debian, fedora, manjaro, opensuse, solus and ubuntu-alt
+$asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
+$window_button_suffix: if($variant == "dark" or $headerbar == "dark", "-dark", "");
+$compact: true;
+
+@import "../common-partials/variables";
+@import "../common-partials/colors";
+@import "../common-partials/drawing";
+@import "../common-partials/common";
+@import "../common-partials/colors-public";
+@import "../common-partials/bumps";
+@import "../common-partials/apps";
+@import "../common-partials/unity";

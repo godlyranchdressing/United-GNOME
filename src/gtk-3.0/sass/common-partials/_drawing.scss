@@ -47,12 +47,12 @@
   $_dfg: TBA;
 
   @if $in_headerbar == true and $headerbar == "dark" {
-    $_bg: $darker_lighter_bg_color;
+    $_bg: $dark_lighter_bg_color;
     $_fg: $light_fg_color;
-    $_bc: $darker_border_color;
-    $_bs: $button_highlight $darker_button_highlight_color;
-    $_dbg: $darker_disabled_bg_color;
-    $_dfg: $darker_disabled_fg_color;
+    $_bc: $dark_border_color;
+    $_bs: $button_highlight $dark_button_highlight_color;
+    $_dbg: $dark_disabled_bg_color;
+    $_dfg: $dark_disabled_fg_color;
   }
   @else {
     $_bg: $lighter_bg_color;
@@ -117,7 +117,7 @@
     @else {
       $_bg: $bg;
       $_fg: if($bg == $lighter_bg_color, $fg, white);
-      $_bc: if($bg == $lighter_bg_color, $border_color, $bg);
+      $_bc: if($bg == $lighter_bg_color, $border_color, _pressed_shade($bg));
     }
 
     background-color: $_bg;
@@ -145,7 +145,7 @@
     background-color: $_bg;
     color: $_fg;
     box-shadow: $_shadow;
-    border-color: if($bg == $lighter_bg_color, $border_color, _hover_shade($bg));
+    border-color: if($bg == $lighter_bg_color, $border_color, _pressed_shade($bg));
     outline-color: transparentize($fg, 0.7);
     -gtk-icon-effect: highlight;
   }
@@ -187,8 +187,8 @@
   @else if $type == disabled {
     /// * Disabled state * ///
     @if $in_headerbar == true and $headerbar == "dark" {
-      $_bg: if($bg != $lighter_bg_color, mix($darker_lighter_bg_color, $darker_base_color, 85%), $darker_disabled_bg_color);
-      $_fg: if($bg != $lighter_bg_color, mix($dark_fg_color, $_bg, 60%), $darker_disabled_fg_color);
+      $_bg: if($bg != $lighter_bg_color, mix($dark_lighter_bg_color, $dark_base_color, 85%), $dark_disabled_bg_color);
+      $_fg: if($bg != $lighter_bg_color, mix($dark_fg_color, $_bg, 60%), $dark_disabled_fg_color);
     }
     @else {
       $_bg: if($bg != $lighter_bg_color, mix($lighter_bg_color, $base_color, 85%), $disabled_bg_color);
@@ -302,8 +302,8 @@
     border-color: transparent;
 
     @if $in_headerbar == true and $headerbar == "dark" {
-      $_bg: $darker_lighter_bg_color;
-      $_fg: $darker_secondary_fg_color;
+      $_bg: $dark_lighter_bg_color;
+      $_fg: $dark_secondary_fg_color;
     }
     @else {
       $_bg: $lighter_bg_color;
@@ -317,7 +317,7 @@
     transition: all 250ms ease;
 
     &:disabled {
-      box-shadow: $shadow_bottom if($headerbar == "dark", $darker_disabled_fg_color, $disabled_fg_color);
+      box-shadow: $shadow_bottom if($headerbar == "dark", $dark_disabled_fg_color, $disabled_fg_color);
     }
   }
   @else if $type == toggle-hover {
@@ -325,8 +325,8 @@
     border-color: transparent;
 
     @if $in_headerbar == true and $headerbar == "dark" {
-      $_bg: $darker_lighter_bg_color;
-      $_fg: $darker_secondary_fg_color;
+      $_bg: $dark_lighter_bg_color;
+      $_fg: $dark_secondary_fg_color;
     }
     @else {
       $_bg: $lighter_bg_color;
@@ -341,7 +341,7 @@
   @else if $type == toggle-active {
     /// * Toggle buttons active state * ///
     @if $in_headerbar == true and $headerbar == "dark" {
-      $_bg: $darker_lighter_bg_color;
+      $_bg: $dark_lighter_bg_color;
       $_fg: $primary_color;
     }
     @else {
@@ -380,16 +380,16 @@
   $slider_border: TBA;
 
   @if $in_headerbar == true and $headerbar == "dark" {
-    $switch_bg: $darker_disabled_bg_color;
-    $_border_color: $darker_border_color;
-    $slider_bg: $darker_lighter_bg_color;
-    $slider_border: $darker_switch_border_color;
+    $switch_bg: $dark_disabled_bg_color;
+    $_border_color: $dark_border_color;
+    $slider_bg: $dark_lighter_bg_color;
+    $slider_border: $dark_button_highlight_color;
   }
   @else {
     $switch_bg: $disabled_bg_color;
     $_border_color: $border_color;
     $slider_bg: $lighter_bg_color;
-    $slider_border: $switch_border_color;
+    $slider_border: $button_highlight_color;
   }
 
   background: $switch_bg;
@@ -402,22 +402,12 @@
     transition: $standard_transition;
   }
 
-  &:hover {
-    box-shadow: $shadow_surround $slider_border, $shadow_surround $slider_border;
-  }
-
   slider {
     min-height: 25px;
     min-width: 20px;
     border-radius: $standard_radius;
     background: $slider_bg;
     box-shadow: $shadow_surround $slider_border;
-  }
-
-  &:hover {
-    slider {
-      box-shadow: $shadow_surround $slider_border, $shadow_surround $slider_border;
-    }
   }
 
   &:checked {
@@ -445,7 +435,7 @@
 ///************///
 /// * Overshoot * ///
 /// ************///
-@mixin overshoot($p, $type: normal, $bg: mix($ubuntu_white, $primary_color, 50%)) {
+@mixin overshoot($p, $type: normal, $bg: mix($white, $primary_color, 50%)) {
   $_small_gradient_length: 3%;
   $_big_gradient_length: 50%;
 
@@ -487,7 +477,7 @@
   // $p: position
   // possible values: top, bottom, right, left
 
-  $_undershoot_color_dark: mix($ubuntu_white, $primary_color, 50%);
+  $_undershoot_color_dark: mix($white, $primary_color, 50%);
   $_undershoot_color_light: $_undershoot_color_dark;
 
   $_gradient_dir: left;

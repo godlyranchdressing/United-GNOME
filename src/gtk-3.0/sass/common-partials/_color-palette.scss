@@ -1,9 +1,10 @@
+// Colors are defined here
+
 // Concept Palette
-$ubuntu_black: #111111;
-$ubuntu_white: #F4F4F4;
+$black: #111111;
+$white: #F4F4F4;
 $ubuntu_bg: #E8E8E7;
 $ubuntu_alt_bg: #E1E1E1;
-
 // Ubuntu brand colours
 $ubuntu_orange: #E95420;
 $ubuntu_aubergine: #924D8B;
@@ -15,7 +16,6 @@ $yellow: #F59B33;
 $orange: #E75731;
 $blue: #30B4E9;
 $green: #48B259;
-
 //
 $jet: #181818;
 $inkstone: #3E3E3E;
@@ -26,15 +26,46 @@ $silk: #CCC;
 $porcelain: #F7F7F7;
 $warm_grey: #AEA79F;
 
-// Unity 8 dark theme colors
+// Unity 8's dark theme colors
 $ubuntu_dark: #242429;
 $ubuntu_light_dark: #303037;
 
-//
+// Foreground colors
 $dark_fg_color: $slate;
 $light_fg_color: #ffffff;
-$light_headerbar_bg: $ubuntu_white;
-$dark_headerbar_bg: $ubuntu_black;
+$light_secondary_fg_color: scale-alpha($dark_fg_color, $secondary_opacity);
+$dark_secondary_fg_color: scale-alpha($light_fg_color, $secondary_opacity);
+$light_tertiary_fg_color: scale-alpha($dark_fg_color, $tertiary_opacity);
+$dark_tertiary_fg_color: scale-alpha($light_fg_color, $tertiary_opacity);
+
+// Background colors
+$light_headerbar_bg: $white;
+$dark_headerbar_bg: $black;
+$light_bg_color: $white;
+$dark_bg_color: $jet;
+$light_base_color: lighten($light_bg_color, 2.5%);
+$dark_base_color: lighten($dark_bg_color, 2.5%);
+$light_alt_base_color: darken($light_headerbar_bg, 2.5%);
+$dark_alt_base_color: mix($dark_base_color, $dark_bg_color, 50%);
+$light_alt_bg_color: $ubuntu_alt_bg;
+$dark_alt_bg_color: lighten($dark_headerbar_bg, 7.5%);
+$light_lighter_bg_color: lighten($light_headerbar_bg, 5%);
+$dark_lighter_bg_color: lighten($dark_headerbar_bg, 8%);
+
+// Border colors
+$light_border_color: scale-alpha(black, 0.15);
+$dark_border_color: scale-alpha($white, 0.1);
+$light_button_highlight_color: scale-alpha(black, 0.2);
+$dark_button_highlight_color: scale-alpha($white, 0.15);
+
+// Disabled colors
+$light_disabled_bg_color: transparentize($light_alt_bg_color, $disabled_opacity);
+$dark_disabled_bg_color: transparentize(darken($dark_alt_bg_color, 5%), $disabled_opacity);
+$light_disabled_fg_color: scale-alpha($dark_fg_color, $disabled_opacity);
+$dark_disabled_fg_color: scale-alpha($light_fg_color, $disabled_opacity);
+$light_disabled_secondary_fg_color: scale-alpha($dark_secondary_fg_color, $disabled_opacity);
+$dark_disabled_secondary_fg_color: scale-alpha($light_secondary_fg_color, $disabled_opacity);
+
 // Terminal colors
 $terminal_base_color: #12353E;
 $terminal_bg: #1F414B;
