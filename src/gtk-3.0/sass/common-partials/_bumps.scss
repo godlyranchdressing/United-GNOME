@@ -40,7 +40,7 @@ headerbar, headerbar.titlebar {
     }
 
     &.text-button {
-      @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color) {
+      @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color), (default, $default_action_color) {
         &.#{$b_type} {
           @include button(normal, $b_color, white);
 
@@ -55,22 +55,6 @@ headerbar, headerbar.titlebar {
           &:disabled {
             @include button(disabled, $b_color, $in_headerbar: true);
           }
-        }
-      }
-
-      &.default:not(.suggested-action) {
-        @include button(normal);
-
-        border: 1px solid $default_action_color;
-        box-shadow: inset 0 -1px $default_action_color;
-        color: $headerbar_fg_color;
-
-        &:hover {
-          @include button(hover, $default_action_color);
-        }
-
-        &:active {
-          @include button(active, $default_action_color);
         }
       }
     }

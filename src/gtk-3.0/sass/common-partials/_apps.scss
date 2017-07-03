@@ -352,6 +352,8 @@ window.workbench {
  * Evolution *
  ************/
 
+ #main-toolbar {-gtk-icon-style: symbolic}
+
 button.ecalendar.flat {
   @include button(flat);
 
@@ -508,4 +510,12 @@ terminal-window {
       background-color: transparentize($light_fg_color, $disabled_opacity);
     }
   }
+}
+
+/************
+ * Polari *
+ ************/
+
+headerbar .polari-user-list-button{
+  @include button(flat);
 }

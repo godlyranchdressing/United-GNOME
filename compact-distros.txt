@@ -1,0 +1,8 @@
+arch-compact
+debian-compact
+fedora-compact
+manjaro-compact
+opensuse-compact
+solus-compact
+ubuntu-compact
+ubuntu-alt-compact

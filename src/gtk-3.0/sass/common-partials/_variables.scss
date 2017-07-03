@@ -19,7 +19,7 @@ $bar_size: 4px;
 $osd_border_length: 8px;
 $menuitem_size: 32px;
 //
-$button_height: if($compact == true, 22px, 24px);
+$normal_size: if($compact == true, 22px, 24px);
 // states
 $checked_border: inset 0 -2px 0px;
 

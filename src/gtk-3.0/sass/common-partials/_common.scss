@@ -242,7 +242,7 @@ spinner {
 %entry,
 entry {
   %entry_basic, & {
-    min-height: $button_height;
+    min-height: $normal_size;
     padding: 4px 8px;
     border: 1px solid $border_color;
     box-shadow: $button_highlight $button_highlight_color;
@@ -530,7 +530,7 @@ $_dot_color: if($variant == "light", $primary_color, lighten($primary_color, 15%
 %button,
 button {
   @at-root %button_basic, & {
-    min-height: $button_height;
+    min-height: $normal_size;
     min-width: 16px;
     padding: 4px 8px;
     border: 1px solid $border_color;
@@ -576,7 +576,7 @@ button {
 
     &.image-button, &.toggle {
       // Give 1:1 dimensions
-      min-width: $button_height;
+      min-width: $normal_size;
       padding-left: 4px;
       padding-right: 4px;
 
@@ -741,24 +741,24 @@ button {
 
   // Suggested and Destructive Action buttons
 
-  @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color) {
+  @each $b_type, $b_color in (suggested-action, $suggested_color), (destructive-action, $destructive_color), (default, $default_action_color) {
     &.#{$b_type} {
-      @include button(normal, $b_color);
+      @include button(normal, $b_color, white);
 
       &.flat {
-        @include button(flat, $b_color);
+        @include button(flat, $b_color, white);
       }
 
       &:hover {
-        @include button(hover, $b_color);
+        @include button(hover, $b_color, white);
       }
 
       &:active {
-        @include button(active, $b_color);
+        @include button(active, $b_color, white);
       }
 
       &:checked {
-        @include button(checked, $b_color);
+        @include button(checked, $b_color, white);
       }
 
       &.flat:disabled {
@@ -791,10 +791,6 @@ button {
         }
       }
     }
-  }
-
-  &.default {
-    // TODO:
   }
 
   .stack-switcher > & {
@@ -1091,7 +1087,7 @@ toolbar.inline-toolbar toolbutton {
 /* menu buttons */
 modelbutton.flat,
 .menuitem.button.flat {
-  min-height: $button_height;
+  min-height: $normal_size;
   padding-left: 4px;
   padding-right: 4px;
   border-radius: $standard_radius;
@@ -1362,8 +1358,8 @@ spinbutton {
 
     button {
       // same dimensions as image-button
-      min-height: $button_height;
-      min-width: $button_height;
+      min-height: $normal_size;
+      min-width: $normal_size;
       padding-left: 4px;
       padding-right: 4px;
 
@@ -1526,44 +1522,28 @@ combobox {
 toolbar, toolbar.horizontal, toolbar.vertical {
   @extend %toolbar;
 
-  &:not(.inline-toolbar)
-  toolbutton, toolitem {
-    > button {
-      padding: 4px;
-      margin: 1px;
-      transition-duration: 150ms;
+  &:not(.inline-toolbar):not(.primary-toolbar), &#main-toolbar {
+    toolbutton, toolitem, & {
+      > button, button {
+        &, &.flat {
+          padding: 4px;
+          margin: 1px;
+          transition-duration: 150ms;
 
-      button {
-        // LibreOffice does not like
-        border-radius: 0px;
-      }
+          @include button(flat);
 
-      &.flat {
-        @include button(flat, $toolbutton: true);
+          &:hover {
+            @include button(hover);
+          }
 
-        &:hover {
-          @include button(flat-hover, $toolbutton: true);
+          &:active, &:checked {
+            @include button(active);
+          }
+
+          &:disabled {
+            opacity: .5;
+          }
         }
-
-        &:active, &:checked {
-          @include button(flat-active, $toolbutton: true);
-        }
-      }
-
-      &:hover {
-        @include button(hover);
-      }
-
-      &:active {
-        @include button(active);
-      }
-
-      &:checked {
-        @include button(checked);
-      }
-
-      &:disabled {
-        opacity: .5;
       }
     }
   }
@@ -1947,7 +1927,8 @@ headerbar.titlebar .path-bar button, .path-bar button {
  **************/
 treeview.view {
   background-color: $base_color;
-  border-bottom: 1px solid transparentize($border_color, 0.1);
+  box-shadow: inset 0 -1px transparentize($border_color, if($variant == "light", 0.1, 0.05));
+  border-color: transparentize($border_color, if($variant == "light", 0.1, 0.05));
 
   @at-root * {
     -GtkTreeView-horizontal-separator: 4;
@@ -1957,9 +1938,6 @@ treeview.view {
     -GtkTreeView-tree-line-pattern: '';
     -GtkTreeView-expander-size: 16;
   }
-
-  border-left-color: mix($fg_color, $base_color, 50%);
-  border-top-color: $bg_color;
 
   rubberband {
     @extend rubberband;
@@ -2078,16 +2056,30 @@ treeview.view {
 
       font-weight: bold;
       color: $secondary_fg_color;
+
+      & {
+        // rhythmbox playing indicator's icon gets pushed out of frame so we give minimal padding
+        padding: 1px;
+      }
+
       background-image: image($base_color);
-      border-width: 1px;
-      border-color: $border_color;
-      border-style: none solid solid none;
-      border-radius: 0;
-      padding: 2px 6px;
-      background-clip: border-box;
       box-shadow: none;
+      border: none;
+      box-shadow: _shadow_border(0, 1, 1, 0);
+      border-radius: 0;
+      background-clip: border-box;
+
+      &:last-child {
+        box-shadow: _shadow_border(0, 0, 1, 0);
+      }
 
       label {
+        & {
+          // since rhythmbox's playing indicator gets pushed out of frame we're putting the "real" padding here
+          // minus the safeguard value from above
+          padding: 1px 5px;
+        }
+
         transition: $standard_transition;
         transition-duration: 150ms;
       }
@@ -2563,7 +2555,7 @@ notebook {
     tab {
       color: $secondary_fg_color;
       transition: $shorter_transition;
-      min-height: 18px;
+      min-height: $normal_size;
       min-width: 48px;
       padding: 4px 8px;
       outline-offset: -3px;
@@ -4230,7 +4222,32 @@ colorchooser .popover.osd {
  **********************/
 
 headerbar, .titlebar {
-  & {
+  headerbar:not(:first-child):last-child {
+    border-radius: 0 $standard_radius 0 0;
+
+    & {
+      .fullscreen &,
+      .maximized &,
+      .tiled & {
+        border-radius: 0px;
+      }
+    }
+  }
+
+  headerbar:not(:last-child):first-child {
+    border-radius: $standard_radius 0 0 0;
+
+    & {
+      .fullscreen &,
+      .maximized &,
+      .tiled & {
+        border-radius: 0px;
+      }
+    }
+  }
+
+  &, &:not(:first-child):last-child {
+    // if the only headerbar
     border-radius: $wm_radius $wm_radius 0 0;
   }
 
