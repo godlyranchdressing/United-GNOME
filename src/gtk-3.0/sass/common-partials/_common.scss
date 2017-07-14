@@ -181,7 +181,7 @@ label {
 
 assistant {
   .sidebar {
-    padding: 4px 0;
+    padding: ($container_padding - 2) 0;
 
     .sidebar label {
       min-height: $medium_size;
@@ -243,7 +243,7 @@ spinner {
 entry {
   %entry_basic, & {
     min-height: $normal_size;
-    padding: 4px 8px;
+    padding: ($button_padding / 2) $button_padding;
     border: 1px solid $border_color;
     box-shadow: $button_highlight $button_highlight_color;
     border-radius: $standard_radius;
@@ -262,11 +262,11 @@ entry {
       // icons inside the entry
 
       &.left {
-        margin-right: 6px;
+        margin-right: $container_padding;
       }
 
       &.right {
-        margin-left: 6px;
+        margin-left: $container_padding;
       }
 
       &.left, &.right {
@@ -532,7 +532,7 @@ button {
   @at-root %button_basic, & {
     min-height: $normal_size;
     min-width: 16px;
-    padding: 4px 8px;
+    padding: ($button_padding / 2) $button_padding;
     border: 1px solid $border_color;
     box-shadow: $button_highlight $button_highlight_color;
     border-radius: $standard_radius;
@@ -568,7 +568,7 @@ button {
 
     &.text-button {
       label {
-        padding: 0 4px;
+        padding: 0 ($button_padding / 2);
       }
     }
 
@@ -577,8 +577,8 @@ button {
     &.image-button, &.toggle {
       // Give 1:1 dimensions
       min-width: $normal_size;
-      padding-left: 4px;
-      padding-right: 4px;
+      padding-left: $button_padding / 2;
+      padding-right: $button_padding / 2;
 
       &:not(.text-button) {
         &:hover {
@@ -663,15 +663,15 @@ button {
 
   // big standalone buttons like in Documents pager
   &.osd {
-    min-width: 24px;
-    min-height: 32px;
+    min-width: $normal_size;
+    min-height: $medium_size;
 
     &.image-button {
-      min-width: 32px;
+      min-width: $medium_size;
     }
 
     color: $fg_color;
-    border-radius: 5px;
+    border-radius: $standard_radius;
 
     @include button(normal);
 
@@ -803,35 +803,23 @@ button {
     // needs to be set or it gets overriden by GtkRadioButton outline-offset
 
     > label {
-      padding-left: 6px;
+      padding-left: $container_padding;
 
       // label padding
-      padding-right: 6px;
+      padding-right: $container_padding;
 
       //
 
     }
 
     > image {
-      padding-left: 6px;
-
-      // image padding
-      padding-right: 6px;
-
-      //
-      padding-top: 3px;
-
-      //
-      padding-bottom: 3px;
-
-      //
-
+      padding: ($container_padding / 2) $container_padding;
     }
 
     &.text-button {
       // compensate text-button paddings
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: $container_padding + 4;
+      padding-right: $container_padding + 4;
     }
 
     &.image-button {
@@ -1261,7 +1249,7 @@ spinbutton {
     padding: 0;
 
     entry {
-      min-width: 28px;
+      min-width: $normal_size - 2;
       margin: 0;
       background: none;
       background-color: transparent;
@@ -1350,8 +1338,8 @@ spinbutton {
     }
 
     entry {
-      min-height: 32px;
-      min-width: 32px;
+      min-height: $medium_size;
+      min-width: $medium_size;
       padding: 0;
       border-radius: 0;
     }
@@ -1360,8 +1348,8 @@ spinbutton {
       // same dimensions as image-button
       min-height: $normal_size;
       min-width: $normal_size;
-      padding-left: 4px;
-      padding-right: 4px;
+      padding-left: $container_padding - 2;
+      padding-right: $container_padding - 2;
 
       &.up {
         @extend %top_button;
@@ -1442,8 +1430,8 @@ spinbutton {
 combobox {
   arrow {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
-    min-height: 16px;
-    min-width: 16px;
+    min-height: $small_size - 4;
+    min-width: $small_size - 4;
   }
 
   button:disabled {
@@ -1515,29 +1503,36 @@ combobox {
  ************/
 %toolbar {
   -GtkWidget-window-dragging: true;
-  padding: 4px;
+  padding: $container_padding - 2;
   background-color: $bg_color;
 }
 
 toolbar, toolbar.horizontal, toolbar.vertical {
   @extend %toolbar;
 
-  &:not(.inline-toolbar):not(.primary-toolbar), &#main-toolbar {
+  &:not(.inline-toolbar) {
     toolbutton, toolitem, & {
       > button, button {
         &, &.flat {
-          padding: 4px;
-          margin: 1px;
+          padding: $container_padding - 2;
           transition-duration: 150ms;
 
-          @include button(flat);
+          &.flat {
+            @include button(flat);
+
+            margin: 1px;
+          }
 
           &:hover {
             @include button(hover);
           }
 
-          &:active, &:checked {
+          &:active, &:checked, &:checked:hover {
             @include button(active);
+          }
+
+          &:hover, &:active, &:checked, &:checked:hover {
+            box-shadow: none;
           }
 
           &:disabled {
@@ -1562,9 +1557,9 @@ toolbar, toolbar.horizontal, toolbar.vertical {
 
   // stand-alone OSD toolbars
   &.osd {
-    padding: 13px;
+    padding: $container_padding * 2;
     border: none;
-    border-radius: 5px;
+    border-radius: $standard_radius;
     background-color: $bg_color;
 
     &.left,
@@ -1606,7 +1601,7 @@ toolbar, toolbar.horizontal, toolbar.vertical {
 
   @extend %darkbar;
 
-  padding: 3px;
+  padding: $container_padding / 2;
   border-width: 0 1px 1px;
   border-radius: 0  0 5px 5px;
 }
@@ -1618,7 +1613,7 @@ searchbar,
   @extend %darkbar;
 
   border-width: 0 0 1px;
-  padding: 3px;
+  padding: $container_padding / 2;
 }
 
 %darkbar {
@@ -1632,6 +1627,7 @@ searchbar,
 
 /***************
  * Header bars *
+ * Header bars *
  ***************/
 
 %titlebar,
@@ -1642,8 +1638,8 @@ headerbar {
   box-shadow: if($variant == "light", $headerbar_shadow, none);
 
   // TODO:
-  min-height: 45px;
-  padding: 0 6px;
+  min-height: if($compact == true, 40px, 45px);
+  padding: 0 $container_padding;
 
   &:disabled:not(button) > label {
     color: $disabled_fg_color;
@@ -1651,14 +1647,14 @@ headerbar {
 
   .title {
     transition: $shorter_transition;
-    padding: 0 12px;
+    padding: 0 ($container_padding * 2);
     color: $headerbar_fg_color;
     font-weight: 400;
   }
 
   .subtitle {
     transition: $shorter_transition;
-    padding: 0 12px;
+    padding: 0 ($container_padding * 2);
     font-size: smaller;
 
     @extend .dim-label;
@@ -1681,8 +1677,8 @@ headerbar {
         background-image: none;
 
         //box-shadow: $shadow_1, inset 0 1px $alt_highlight_color;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: $container_padding + 4;
+        padding-right: $container_padding + 4;
 
         GtkArrow {
           -GtkArrow-arrow-scaling: 1;
@@ -1741,8 +1737,8 @@ headerbar {
   }
 
   switch {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: $container_padding + 4;
+    margin-bottom: $container_padding + 4;
 
     @include switch($in_headerbar: true);
   }
@@ -1785,8 +1781,8 @@ headerbar {
  ************/
 headerbar.titlebar .path-bar button, .path-bar button {
   border-width: 0px;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: $container_padding - 2;
+  padding-right: $container_padding - 2;
 
   &.text-button.toggle {
     @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
@@ -1819,17 +1815,17 @@ headerbar.titlebar .path-bar button, .path-bar button {
 
   &.text-button.image-button, & {
     label:last-child {
-      padding-right: 8px;
+      padding-right: $container_padding + 2;
     }
 
     label:first-child {
-      padding-left: 8px;
+      padding-left: $container_padding + 2;
     }
   }
 
   image {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: $container_padding - 2;
+    padding-right: $container_padding - 2;
   }
 
   &.slider-button {
@@ -1874,8 +1870,8 @@ headerbar.titlebar .path-bar button, .path-bar button {
   button {
     background-color: $lighter_bg_color;
     border-width: 0px;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: $container_padding - 2;
+    padding-right: $container_padding - 2;
 
     @include button(toggle, $lighter_bg_color, $primary_color);
 
@@ -2114,7 +2110,7 @@ treeview.view {
   button.dnd,
   header.button.dnd {
     // for treeview-like derive widgets
-    padding: 2px 6px;
+    padding: ($container_padding - 4) $container_padding;
     border-style: none solid solid;
     border-width: 1px;
     border-color: $border_color;
@@ -2161,13 +2157,17 @@ menubar,
 
   > menuitem {
     transition: $standard_transition;
-    min-height: 16px;
-    padding: 4px 8px;
+    min-height: $small_size - 4;
+    padding: ($container_padding - 2) ($container_padding + 2);
 
     check, radio {
-      min-width: 16px;
-      min-height: 16px;
+      min-width: $small_size - 4;
+      min-height: $small_size - 4;
       transition: none;
+
+      &:checked, &:indeterminate {
+        transition: none;
+      }
     }
 
     &:hover {
@@ -2198,8 +2198,8 @@ menu, menu#PagePopup,
   // axes borders in a composited env
 
   menuitem {
-    min-height: 30px;
-    min-width: 30px;
+    min-height: $medium_size - 2;
+    min-width: $medium_size - 2;
     padding: 2px;
 
     &:hover {
@@ -2217,8 +2217,8 @@ menu, menu#PagePopup,
 
     // submenu indicators
     arrow {
-      min-height: 16px;
-      min-width: 16px;
+      min-height: $small_size - 4;
+      min-width: $small_size - 4;
 
       &:dir(ltr) {
         -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
@@ -2244,9 +2244,9 @@ menu, menu#PagePopup,
   > arrow {
     //@include button(flat);
 
-    min-height: 16px;
-    min-width: 16px;
-    padding: 4px;
+    min-height: $small_size - 4;
+    min-width: $small_size - 4;
+    padding: $container_padding - 2;
     background-color: $base_color;
     border-radius: 0;
 
@@ -2406,7 +2406,7 @@ notebook {
 
     &.top, &.bottom {
       tabs tab label {
-        padding: 2px 4px;
+        padding: ($button_padding / 2) ($button_padding / 2 + 2);
       }
     }
 
@@ -2505,8 +2505,8 @@ notebook {
     }
 
     @at-root %notebook_vert_arrows {
-      padding-left: 4px;
-      padding-right: 4px;
+      padding-left: $button_padding / 2;
+      padding-right: $button_padding / 2;
 
       &.down {
         margin-left: -8px;
@@ -2532,8 +2532,8 @@ notebook {
     }
 
     @at-root %notebook_horz_arrows {
-      padding-top: 4px;
-      padding-bottom: 4px;
+      padding-top: $button_padding / 2;
+      padding-bottom: $button_padding / 2;
 
       &.down {
         margin-top: -8px;
@@ -2556,8 +2556,8 @@ notebook {
       color: $secondary_fg_color;
       transition: $shorter_transition;
       min-height: $normal_size;
-      min-width: 48px;
-      padding: 4px 8px;
+      min-width: $large_size + 4;
+      padding: ($button_padding / 2) $button_padding;
       outline-offset: -3px;
       border-width: 0;
       font-weight: 500;
@@ -3466,7 +3466,7 @@ list {
   border-color: $border_color;
 
   row {
-    padding: 3px;
+    padding: $container_padding / 2;
   }
 }
 
@@ -3545,7 +3545,7 @@ list {
 .app-notification.frame {
   @extend %osd;
 
-  padding: 10px;
+  padding: $container_padding + 4;
   border-radius: 0;
   background-color: $lighter_bg_color;
   border: 1px solid $border_color;
@@ -3779,11 +3779,11 @@ stacksidebar {
   }
 
   row {
-    padding: 6px;
+    padding: $container_padding;
 
     > label {
-      padding-left: 6px;
-      padding-right: 6px;
+      padding-left: $container_padding;
+      padding-right: $container_padding;
     }
 
     &.needs-attention > label {
@@ -3820,6 +3820,21 @@ placessidebar {
 
     &:selected {
       color: $highlighted_fg_color;
+
+      button {
+        &:hover, &:active {
+          box-shadow: none;
+          border-color: transparent;
+        }
+
+        &:hover {
+          background-color: $semi_fill_color;
+        }
+
+        &:active {
+          background-color: $fill_color;
+        }
+      }
     }
 
     &:disabled {
@@ -3963,6 +3978,10 @@ infobar {
   color: $highlighted_fg_color;
   border-style: none;
 
+  buttonbox button {
+    border-radius: $standard_radius;
+  }
+
   @each $type, $color in ("", $info_color), (".info", $info_color), (".question", $question_color), (".warning", $warning_color), (".error", $error_color) {
     // contextual colors for the infobar (a little lazy )
     &#{$type} {
@@ -3971,8 +3990,12 @@ infobar {
       border-bottom: 1px solid _pressed_shade($color);
 
       button, button.text-button {
-        label, & {
-          color: $color;
+        &:hover, &.default {
+          @include button(hover, $color);
+        }
+
+        &:active {
+          @include button(active, $color);
         }
       }
 

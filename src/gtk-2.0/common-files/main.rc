@@ -709,7 +709,7 @@ style "menu_framed_box" {
 style "menu_item"
 {
   xthickness = 2
-  ythickness = 5
+  ythickness = 4
 
   # HACK: Gtk doesn't actually read this value
   # while rendering the menu items, but Libreoffice
@@ -1014,7 +1014,7 @@ style "tool_button" {
     image {
       function = BOX
       state    = NORMAL
-      file     = "assets/button.png"
+      file     = "assets/flat-button.png"
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
@@ -1023,7 +1023,7 @@ style "tool_button" {
       function = BOX
       state    = PRELIGHT
       shadow   = OUT
-      file     = "assets/button-hover.png"
+      file     = "assets/flat-button-hover.png"
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
@@ -1033,7 +1033,7 @@ style "tool_button" {
       function = BOX
       state    = PRELIGHT
       shadow   = IN
-      file     = "assets/button-hover.png"
+      file     = "assets/flat-button-hover.png"
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
@@ -1041,7 +1041,7 @@ style "tool_button" {
     image {
       function = BOX
       state    = ACTIVE
-      file     = "assets/button-active.png"
+      file     = "assets/flat-button-active.png"
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
@@ -1050,7 +1050,7 @@ style "tool_button" {
       function = BOX
       state    = INSENSITIVE
       shadow   = OUT
-      file     = "assets/button-insensitive.png"
+      file     = "assets/flat-button-insensitive.png"
       border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
@@ -2410,7 +2410,7 @@ style "menubar-borderless" {
 style "menubar_item" {
 
   xthickness = 2
-  ythickness = 4
+  ythickness = 3
 
   bg[NORMAL] = @fg_color
   fg[NORMAL] = @menubar_fg

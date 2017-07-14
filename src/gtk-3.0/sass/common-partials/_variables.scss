@@ -11,15 +11,17 @@ $tertiary_opacity: 0.6;
 $disabled_opacity: 0.4;
 
 // sizes
-$small_size: 20px;
-$medium_size: 32px;
-$large_size: 44px;
-$container_padding: 6px;
+$normal_size: if($compact == true, 22px, 24px);
+$button_padding: if($compact == true, 6px, 8px);
+//
+$small_size: ($normal_size - 4);
+$medium_size: ($normal_size + 8);
+$large_size: ($normal_size + 20);
+$container_padding: if($compact == true, 4px, 6px);
 $bar_size: 4px;
 $osd_border_length: 8px;
-$menuitem_size: 32px;
+$menuitem_size: ($normal_size + 8);
 //
-$normal_size: if($compact == true, 22px, 24px);
 // states
 $checked_border: inset 0 -2px 0px;
 

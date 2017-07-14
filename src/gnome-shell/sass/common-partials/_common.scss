@@ -180,7 +180,7 @@ StScrollBar {
 
 .slider {
   height: 2px;
-  color: transparent;
+  color: $accent_color;
   -slider-height: 2px;
   -slider-background-color: $secondary_fg_color;
 
@@ -189,18 +189,16 @@ StScrollBar {
 
   //trough border color
   -slider-active-background-color: $accent_color;
+  -slider-handle-border-color: $accent_color;
 
   //active trough fill
   -slider-active-border-color: transparent;
 
   //active trough border
   -slider-border-width: 0px;
-  border-radius: $standard_radius;
-
-  //  -slider-handle-radius: $standard_radius;
-  //  -slider-handle-border-width: 1px;
-  //  -slider-handle-border-color: $border_color;
-  //  -slider-border-radius: $standard_radius;
+  -slider-handle-radius: 0px;
+  -slider-handle-border-width: 12px;
+  -slider-border-radius: 0px;
 }
 
 /* Check Boxes */
@@ -803,7 +801,7 @@ StScrollBar {
 
   // TODO: make this resemble the search separator
   //not really the whole box
-  margin: 0px (64px - 24px);
+  margin: 0px (64px - if($compact == true, 32px, 24px));
   background-color: transparent;
   border-color: $border_color;
   border-bottom-width: 1px;
@@ -1001,7 +999,7 @@ StScrollBar {
   background-color: if($transparency == true, transparentize($ubuntu_black, 0.6), $base_color);
   box-shadow: if($variant == "light", $popover_shadow, none);
   font-size: 9.5pt;
-  height: 2.4em;
+  height: if($compact == true, 2em, 2.4em);
 
   &:overview,
   &.unlock-screen,
@@ -1121,7 +1119,7 @@ StScrollBar {
 
 // calendar popover
 #calendarArea {
-  padding: 8px 16px;
+  padding: if($compact == true, 8px 16px, 4px 12px);
 }
 
 .calendar {

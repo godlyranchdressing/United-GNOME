@@ -352,7 +352,12 @@ window.workbench {
  * Evolution *
  ************/
 
- #main-toolbar {-gtk-icon-style: symbolic}
+#main-toolbar {
+  //-gtk-icon-style: symbolic;
+  #mail-archive image {
+    margin: -12px 0;
+  }
+}
 
 button.ecalendar.flat {
   @include button(flat);
@@ -516,6 +521,42 @@ terminal-window {
  * Polari *
  ************/
 
-headerbar .polari-user-list-button{
+headerbar button.polari-user-list-button {
   @include button(flat);
 }
+
+stack.polari-entry-area button.polari-nick-button {
+  &:hover {
+    @include button(hover);
+  }
+
+  &:active, &:checked {
+    @include button(active);
+  }
+}
+
+/************
+ * Libreoffice *
+ ************/
+  window > decoration ~ grid widget ~ grid {
+    background: $headerbar_bg_color;
+
+    menubar ~ button.flat.small-button {
+      color: $headerbar_fg_color;
+      border-style: none;
+      border-radius: 0px;
+
+      &:hover, &:active {
+        background-color: transparent;
+        background-image: image($headerbar_bg_color);
+      }
+
+      &:hover {
+        color: _hover_shade($destructive_color);
+      }
+
+      &:active {
+        color: _pressed_shade($destructive_color);
+      }
+    }
+  }

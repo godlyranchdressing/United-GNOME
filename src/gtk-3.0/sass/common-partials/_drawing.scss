@@ -94,7 +94,7 @@
   background-image: none;
 }
 
-@mixin button($type: normal, $bg: $lighter_bg_color, $fg: $fg_color, $in_headerbar: false, $toolbutton: false) {
+@mixin button($type: normal, $bg: $lighter_bg_color, $fg: $fg_color, $in_headerbar: false) {
   // $in_header is there to determine if the button background is supposed to be transparent,
   // all headerbar buttons are supposed to be flat, unless they're something special
   // like a suggested action or destructive action
@@ -225,7 +225,7 @@
       $_bg: $bg;
     }
 
-    @if $in_headerbar == true or $toolbutton == false {
+    @if $in_headerbar == true {
       $_fg: transparent;
       $_bc: transparent;
     }
@@ -250,7 +250,7 @@
       $_bg: $bg;
     }
 
-    @if $in_headerbar == true or $toolbutton == false {
+    @if $in_headerbar == true {
       $_fg: transparent;
       $_bc: transparent;
     }
@@ -268,7 +268,7 @@
   @else if $type == flat-checked {
     /// * Flat buttons pressed state * ///
     // Flat buttons use the same styling for active and toggled/enabled states
-    @if $in_headerbar == true or $toolbutton == false {
+    @if $in_headerbar == true {
       $_fg: transparent;
       $_bc: transparent;
     }

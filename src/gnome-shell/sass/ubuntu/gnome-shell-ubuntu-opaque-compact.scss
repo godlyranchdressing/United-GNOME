@@ -1,0 +1,12 @@
+$variant: "dark"; // light or dark
+$panel: "dark"; // light or dark
+$transparency: false; // true or false
+@if $transparency == true and $variant == "light" {$transparency: false}
+$distro: "ubuntu"; // arch, fedora, manjaro, opensuse, solus and ubuntu
+$compact: true;
+
+@import "../common-partials/variables";
+@import "../common-partials/colors";
+@import "../common-partials/drawing";
+@import "../common-partials/extensions";
+@import "../common-partials/common";
