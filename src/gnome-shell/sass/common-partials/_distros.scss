@@ -14,6 +14,10 @@ $accent_color: null;
   $primary_color: #1793D1;
   $accent_color: #FF9010;
 }
+@else if $distro == "antergos" {
+  $primary_color: #305193;
+  $accent_color: #7E5FE9;
+}
 @else if $distro == "debian" {
   $primary_color: #D70751;
   $accent_color: #407C80;
@@ -43,6 +47,9 @@ $accent_color: null;
 $launcher_background: if($transparency == true, transparentize($primary_color, 0.1), $primary_color);
 
 // make the launcher background color different for a couple distros so the logo looks correct
+@if $distro == "antergos" {
+  $launcher_background: #305193;
+}
 @if $distro == "fedora" {
   $launcher_background: #294172;
 }

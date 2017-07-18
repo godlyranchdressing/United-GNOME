@@ -65,14 +65,14 @@ stage {
 
   & {
     // some anti-aliasing thingie with the rounded corners
-    box-shadow: inset 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color), 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color) !important;
+    box-shadow: inset 0 0 2px if($transparency == "true", $base_color, $lighter_bg_color), 0 0 1px if($transparency == "true", $base_color, $lighter_bg_color) !important;
 
     &:hover, &:focus {
-      box-shadow: inset 0 0 1px $semi_fill_color;
+      box-shadow: inset 0 0 2px $semi_fill_color;
     }
 
     &:active {
-      box-shadow: inset 0 0 1px $fill_color;
+      box-shadow: inset 0 0 2px $fill_color;
     }
   }
 
@@ -289,7 +289,7 @@ StScrollBar {
 
 .modal-dialog {
   @extend %osd-panel;
-
+  padding: 2px;
   color: $fg_color;
 
   .modal-dialog-content-box {
@@ -972,7 +972,7 @@ StScrollBar {
   // border-width: 1px solid $dark_border_color !important;
   // border-radius: ($standard_radius * 2) !important;
   border-image: url("assets/osd_background.svg") 40 40 40 40;
-  border-width: 27px;
+  border-width: 24px;
 }
 
 /* Tiled window previews */

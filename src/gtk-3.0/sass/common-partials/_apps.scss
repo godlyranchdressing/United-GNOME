@@ -22,8 +22,8 @@ window.nautilus-window {
 
   header tabs tab {
     // regular tab dimensions aren't friendly enough
-    min-height: 24px;
-    padding: 4px 8px;
+    min-height: $normal_size;
+    padding: ($container_padding - 2) ($container_padding + 2);
   }
 
   notebook {
@@ -63,6 +63,10 @@ nautilus-desktop-window {
 viewport.frame list.tweak-categories {
   border: none;
   background-image: image($alt_bg_color);
+
+  row {
+    padding: if($compact == true, $container_padding / 4, $container_padding / 2);
+  }
 }
 
 .tweak-group-startup row {
@@ -135,6 +139,20 @@ headerbar.titlebar button.title {
 
 #AltToolbarSideBar {
   box-shadow: none;
+}
+
+toolbar.sidebar-toolbar toolitem button {
+  border-right-style: none;
+  border-radius: 0;
+
+  &:first-child {
+    border-radius: $standard_radius 0 0 $standard_radius;
+  }
+
+  &:last-child {
+    border-right-style: solid;
+    border-radius: 0 $standard_radius $standard_radius 0;
+  }
 }
 
 /************
@@ -214,9 +232,9 @@ window.workbench {
       border-color: $border_color;
       color: $secondary_fg_color;
       transition: $shorter_transition;
-      min-height: 18px;
+      min-height: $normal_size;
       min-width: 48px;
-      padding: 4px 8px;
+      padding: ($container_padding - 2) ($container_padding + 2);
       margin: 0 $container_padding;
       outline-offset: -6px;
       border-width: 0;
@@ -527,36 +545,44 @@ headerbar button.polari-user-list-button {
 
 stack.polari-entry-area button.polari-nick-button {
   &:hover {
-    @include button(hover);
+    @include button(hover, $primary_color);
+
+    label {
+      color: white;
+    }
   }
 
   &:active, &:checked {
-    @include button(active);
+    @include button(active, $primary_color, white);
+
+    label {
+      color: white;
+    }
   }
 }
 
 /************
  * Libreoffice *
  ************/
-  window > decoration ~ grid widget ~ grid {
-    background: $headerbar_bg_color;
+window > decoration ~ grid widget ~ grid {
+  background: $headerbar_bg_color;
 
-    menubar ~ button.flat.small-button {
-      color: $headerbar_fg_color;
-      border-style: none;
-      border-radius: 0px;
+  menubar ~ button.flat.small-button {
+    color: $headerbar_fg_color;
+    border-style: none;
+    border-radius: 0px;
 
-      &:hover, &:active {
-        background-color: transparent;
-        background-image: image($headerbar_bg_color);
-      }
+    &:hover, &:active {
+      background-color: transparent;
+      background-image: image($headerbar_bg_color);
+    }
 
-      &:hover {
-        color: _hover_shade($destructive_color);
-      }
+    &:hover {
+      color: _hover_shade($destructive_color);
+    }
 
-      &:active {
-        color: _pressed_shade($destructive_color);
-      }
+    &:active {
+      color: _pressed_shade($destructive_color);
     }
   }
+}

@@ -14,11 +14,11 @@
    inkscape:export-filename="/home/sam/dev/RESOURCES/gnome-icon-theme-symbolic/src/gnome-stencils.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"
-   height="120"
+   height="96"
    id="svg7384"
    version="1.1"
-   inkscape:version="0.92.1 r"
-   width="120">
+   inkscape:version="0.92.1 r15371"
+   width="96">
   <metadata
      id="metadata90">
     <rdf:RDF>
@@ -37,8 +37,8 @@
      bordercolor="#666666"
      borderopacity="1"
      inkscape:current-layer="layer12"
-     inkscape:cx="-55.891302"
-     inkscape:cy="12.628676"
+     inkscape:cx="56.495518"
+     inkscape:cy="-4.4461235"
      gridtolerance="10"
      inkscape:guide-bbox="true"
      guidetolerance="10"
@@ -59,12 +59,12 @@
      inkscape:snap-nodes="false"
      inkscape:snap-others="false"
      inkscape:snap-to-guides="true"
-     inkscape:window-height="736"
+     inkscape:window-height="1073"
      inkscape:window-maximized="1"
-     inkscape:window-width="1366"
-     inkscape:window-x="0"
-     inkscape:window-y="432"
-     inkscape:zoom="2"
+     inkscape:window-width="1920"
+     inkscape:window-x="1366"
+     inkscape:window-y="30"
+     inkscape:zoom="2.4500145"
      inkscape:pagecheckerboard="true">
     <inkscape:grid
        dotted="false"
@@ -98,136 +98,136 @@
      id="layer9"
      inkscape:label="status"
      style="display:inline"
-     transform="translate(-61.0004,-783)" />
+     transform="translate(-61.0004,-807)" />
   <g
      inkscape:groupmode="layer"
      id="layer10"
      inkscape:label="devices"
      style="display:inline"
-     transform="translate(-61.0004,-783)" />
+     transform="translate(-61.0004,-807)" />
   <g
      inkscape:groupmode="layer"
      id="layer11"
      inkscape:label="apps"
-     transform="translate(-61.0004,-783)" />
+     transform="translate(-61.0004,-807)" />
   <g
      inkscape:groupmode="layer"
      id="layer13"
      inkscape:label="places"
      style="display:inline"
-     transform="translate(-61.0004,-783)" />
+     transform="translate(-61.0004,-807)" />
   <g
      inkscape:groupmode="layer"
      id="layer14"
      inkscape:label="mimetypes"
-     transform="translate(-61.0004,-783)" />
+     transform="translate(-61.0004,-807)" />
   <g
      inkscape:groupmode="layer"
      id="layer15"
      inkscape:label="emblems"
      style="display:inline"
-     transform="translate(-61.0004,-783)" />
+     transform="translate(-61.0004,-807)" />
   <g
      inkscape:groupmode="layer"
      id="g71291"
      inkscape:label="emotes"
      style="display:inline"
-     transform="translate(-61.0004,-783)" />
+     transform="translate(-61.0004,-807)" />
   <g
      inkscape:groupmode="layer"
      id="g4953"
      inkscape:label="categories"
      style="display:inline"
-     transform="translate(-61.0004,-783)" />
+     transform="translate(-61.0004,-807)" />
   <g
      inkscape:groupmode="layer"
      id="layer12"
      inkscape:label="actions"
      style="display:inline"
-     transform="translate(-61.0004,-783)">
+     transform="translate(-61.0004,-807)">
     <g
        id="g842"
-       transform="matrix(8.7999996,0,0,8.7999996,-486.20132,-7032.9996)"
-       style="fill:#ffffff">
+       transform="matrix(7.1999997,0,0,7.1999997,-387.80101,-5588.9997)"
+       style="fill:#ffffff;stroke-width:1.22222221">
       <rect
          y="890"
          x="64.000198"
          width="2.0000005"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:new"
-         ry="0.1136364"
-         rx="0.1136364"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22222221;marker:none;enable-background:new"
+         ry="0.13888893"
+         rx="0.13888893"
          id="rect9843"
          height="2.0000007" />
       <rect
          y="890"
          x="68.000198"
          width="2.0000005"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:new"
-         ry="0.1136364"
-         rx="0.1136364"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22222221;marker:none;enable-background:new"
+         ry="0.13888893"
+         rx="0.13888893"
          id="rect9833"
          height="2.0000007" />
       <rect
          y="890"
          x="72.000198"
          width="2.0000005"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:new"
-         ry="0.1136364"
-         rx="0.1136364"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22222221;marker:none;enable-background:new"
+         ry="0.13888893"
+         rx="0.13888893"
          id="rect9835"
          height="2.0000007" />
       <rect
          y="894"
          x="64.000198"
          width="2.0000005"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:new"
-         ry="0.1136364"
-         rx="0.1136364"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22222221;marker:none;enable-background:new"
+         ry="0.13888893"
+         rx="0.13888893"
          id="rect9837"
          height="2.0000007" />
       <rect
          y="894"
          x="68.000198"
          width="2.0000005"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:new"
-         ry="0.1136364"
-         rx="0.1136364"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22222221;marker:none;enable-background:new"
+         ry="0.13888893"
+         rx="0.13888893"
          id="rect9839"
          height="2.0000007" />
       <rect
          y="894"
          x="72.000198"
          width="2.0000005"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:new"
-         ry="0.1136364"
-         rx="0.1136364"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22222221;marker:none;enable-background:new"
+         ry="0.13888893"
+         rx="0.13888893"
          id="rect9841"
          height="2.0000007" />
       <rect
          y="898"
          x="64.000198"
          width="2.0000005"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:new"
-         ry="0.1136364"
-         rx="0.1136364"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22222221;marker:none;enable-background:new"
+         ry="0.13888893"
+         rx="0.13888893"
          id="rect9845"
          height="2.0000007" />
       <rect
          y="898"
          x="68.000198"
          width="2.0000005"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:new"
-         ry="0.1136364"
-         rx="0.1136364"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22222221;marker:none;enable-background:new"
+         ry="0.13888893"
+         rx="0.13888893"
          id="rect9847"
          height="2.0000007" />
       <rect
          y="898"
          x="72.000198"
          width="2.0000005"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:new"
-         ry="0.1136364"
-         rx="0.1136364"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22222221;marker:none;enable-background:new"
+         ry="0.13888893"
+         rx="0.13888893"
          id="rect9849"
          height="2.0000007" />
     </g>

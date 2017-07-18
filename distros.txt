@@ -1,3 +1,4 @@
+antergos
 arch
 debian
 fedora
