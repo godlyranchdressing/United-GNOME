@@ -595,7 +595,7 @@ button {
 
     /// * Flat Buttons * ///
 
-    &.flat, &.flat.image-button, &.flat.image-button.toggle, &.sidebar-button {
+    &.flat, &.flat.image-button, &.flat.image-button.toggle, &.flat.toggle, &.flat.popup.toggle, &.sidebar-button {
       @include button(flat);
 
       &:hover {
@@ -1625,7 +1625,6 @@ searchbar,
 
 /***************
  * Header bars *
- * Header bars *
  ***************/
 
 %titlebar,
@@ -2322,11 +2321,11 @@ popover.background {
   }
 
   separator {
-    margin: 0px;
+    margin: if($compact == true, 1px, 2px) 0;
   }
 
   list separator {
-    margin: 0px;
+    margin: if($compact == true, 1px, 2px) 0;
   }
 
   &.menu, & {
@@ -2982,7 +2981,7 @@ radio {
 
 %check,
 check {
-  border-radius: $standard_radius / 2;
+  border-radius: $standard_radius / 2 + 1;
 
   &:checked {
     -gtk-icon-source: -gtk-recolor(url("assets/check-symbolic.symbolic.png"));
@@ -4359,34 +4358,28 @@ colorchooser .popover.osd {
  * Window Decorations *
  **********************/
 
-headerbar, .titlebar {
-  headerbar:not(:first-child):last-child {
+headerbar {
+  &:not(:first-child):last-child {
     border-radius: 0 $standard_radius 0 0;
-
-    & {
-      .fullscreen &,
-      .maximized &,
-      .tiled & {
-        border-radius: 0px;
-      }
-    }
   }
 
-  headerbar:not(:last-child):first-child {
+  &:not(:last-child):first-child {
     border-radius: $standard_radius 0 0 0;
-
-    & {
-      .fullscreen &,
-      .maximized &,
-      .tiled & {
-        border-radius: 0px;
-      }
-    }
   }
 
   &, &:not(:first-child):last-child {
     // if the only headerbar
     border-radius: $wm_radius $wm_radius 0 0;
+
+    &, &:not(:first-child):last-child, &:not(:last-child):first-child, &:not(:first-child):last-child {
+      & {
+        .fullscreen &,
+        .maximized &,
+        .tiled & {
+          border-radius: 0px;
+        }
+      }
+    }
   }
 
   &.default-decoration {
@@ -4499,9 +4492,9 @@ headerbar,
     box-shadow: none;
     min-width: 22px;
     min-height: 22px;
+    background-size: 16px;
 
     &.close, &.maximize, &.minimize {
-      background-size: 16px;
       background-color: transparent;
       background-position: center;
       background-repeat: no-repeat;

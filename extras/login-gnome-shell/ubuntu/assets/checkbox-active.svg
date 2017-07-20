@@ -15,7 +15,7 @@
    version="1.1"
    id="svg4"
    sodipodi:docname="checkbox-active.svg"
-   inkscape:version="0.92+devel unknown">
+   inkscape:version="0.92.1 r15371">
   <metadata
      id="metadata10">
     <rdf:RDF>
@@ -56,20 +56,20 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
+     inkscape:window-width="1848"
      inkscape:window-height="1138"
      id="namedview6"
      showgrid="false"
-     inkscape:zoom="13.985089"
-     inkscape:cx="-9.0958779"
-     inkscape:cy="27.150242"
-     inkscape:window-x="0"
+     inkscape:zoom="17.981667"
+     inkscape:cx="-7.533558"
+     inkscape:cy="19.163998"
+     inkscape:window-x="1438"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4"
      inkscape:document-rotation="0" />
   <g
-     transform="matrix(1.375,0,0,1.3738992,-751.125,-327.87712)"
+     transform="matrix(1.25,0,0,1.2489993,-681.75,-296.97921)"
      id="checkbox-checked-active">
     <path
        style="fill:#41a050;fill-opacity:1;stroke:none"

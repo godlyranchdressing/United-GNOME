@@ -22,12 +22,13 @@ $disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
 @import "distros"; // determine primary and accent colors to be used
 
 // Background colors
-$base_color: if($variant == "light", $ubuntu_white, $ubuntu_black);
-$bg_color: if($variant == "light", $ubuntu_bg, $jet);
-$alt_base_color: if($variant == "light", darken($base_color, 2.5%), mix($base_color, $bg_color, 50%));
-$alt_bg_color: if($variant == "light", $ubuntu_alt_bg, lighten($base_color, 7.5%));
-$lighter_bg_color: if($variant == "light", lighten($base_color, 5%), lighten($base_color, 7%));
-$dash_bg: if($transparency != true or $variant == "light", $ubuntu_black !important, transparentize($ubuntu_black, $middle_opacity) !important);
+$bg_color: if($variant == "light", $light_bg_color, $dark_bg_color);
+$base_color: if($variant == "light", $light_base_color, $dark_base_color);
+$alt_base_color: if($variant == "light", $light_alt_base_color, $dark_alt_base_color);
+$alt_bg_color: if($variant == "light", $light_alt_bg_color, $dark_alt_bg_color);
+$lighter_bg_color: if($variant == "light", $light_lighter_bg_color, $dark_lighter_bg_color);
+$panel_bg_color: if($variant == "light", $bg_color, $base_color);
+$dash_bg: if($transparency != true or $variant == "light", $black !important, transparentize($black, $middle_opacity) !important);
 
 @if $transparency == true {
   $base_color: transparentize($base_color, $shell_transparency);
@@ -44,9 +45,9 @@ $dash_bg: if($transparency != true or $variant == "light", $ubuntu_black !import
   $lighter_bg_color: $lighter_bg_color;
 }
 
-$semi_fill_color: if($variant == "light", lighten($bg_color, 5%), transparentize($fg_color, 0.85));
+$semi_fill_color: if($variant == "light", transparentize($fg_color, 0.95), transparentize($fg_color, 0.85));
 $dark_semi_fill_color: transparentize($dark_fg_color, 0.95);
-$fill_color: if($variant == "light", darken($bg_color, 2.5%), transparentize($fg_color, 0.9));
+$fill_color: if($variant == "light", transparentize($fg_color, 0.9), transparentize($fg_color, 0.9));
 $disabled_fill_color: scale-alpha($disabled_fg_color, $disabled_opacity);
 
 $inverse_semi_fill_color: transparentize(if($variant == "light", $light_fg_color, $dark_fg_color), 0.8);
@@ -74,7 +75,7 @@ $warning_bg_color: lighten($orange, 5);
 $error_bg_color: darken($red, 5);
 
 // Border and highlight colours
-$osd_border_color: transparentize(if($variant == "light", $ubuntu_white, $ubuntu_black), 0.5);
-$osd_light_border_color: transparentize($ubuntu_white, 0.5);
-$border_color: if($variant == "light", scale-alpha($ubuntu_black, 0.1), scale-alpha($ubuntu_white, 0.1));
-$dark_border_color: scale-alpha($ubuntu_white, 0.1);
+$osd_border_color: transparentize(if($variant == "light", $white, $black), 0.5);
+$osd_light_border_color: transparentize($white, 0.5);
+$border_color: if($variant == "light", scale-alpha($black, 0.1), scale-alpha($white, 0.1));
+$dark_border_color: scale-alpha($white, 0.1);

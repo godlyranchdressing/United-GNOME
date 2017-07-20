@@ -1,9 +1,10 @@
+// Colors are defined here
+
 // Concept Palette
-$ubuntu_black: #111111;
-$ubuntu_white: #F4F4F4;
+$black: #111111;
+$white: #F4F4F4;
 $ubuntu_bg: #E8E8E7;
 $ubuntu_alt_bg: #E1E1E1;
-
 // Ubuntu brand colours
 $ubuntu_orange: #E95420;
 $ubuntu_aubergine: #924D8B;
@@ -15,7 +16,6 @@ $yellow: #F59B33;
 $orange: #E75731;
 $blue: #30B4E9;
 $green: #48B259;
-
 //
 $jet: #181818;
 $inkstone: #3E3E3E;
@@ -30,6 +30,22 @@ $warm_grey: #AEA79F;
 $ubuntu_dark: #242429;
 $ubuntu_light_dark: #303037;
 
-//
+// Foreground colors
 $dark_fg_color: $slate;
 $light_fg_color: #ffffff;
+$light_secondary_fg_color: scale-alpha($dark_fg_color, $secondary_opacity);
+$dark_secondary_fg_color: scale-alpha($light_fg_color, $secondary_opacity);
+$light_tertiary_fg_color: scale-alpha($dark_fg_color, $tertiary_opacity);
+$dark_tertiary_fg_color: scale-alpha($light_fg_color, $tertiary_opacity);
+//
+// Background colors
+$light_bg_color: $white;
+$dark_bg_color: $jet;
+$light_base_color: lighten($light_bg_color, 2.5%);
+$dark_base_color: $black;
+$light_alt_base_color: darken($white, 2.5%);
+$dark_alt_base_color: mix($dark_base_color, $dark_bg_color, 50%);
+$light_alt_bg_color: $ubuntu_alt_bg;
+$dark_alt_bg_color: lighten($black, 7.5%);
+$light_lighter_bg_color: lighten($white, 5%);
+$dark_lighter_bg_color: lighten($dark_base_color, 8%);

@@ -122,7 +122,7 @@
   border: 1px solid transparent;
   box-shadow: $shadow_surround $border_color;
   selection-background-color: $primary_color;
-  selected-color: $ubuntu_white;
+  selected-color: $white;
   transition-duration: 250ms;
 
   &:hover, &:focus, &:active {
