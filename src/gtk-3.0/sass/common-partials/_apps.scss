@@ -138,7 +138,10 @@ headerbar.titlebar button.title {
  ************/
 
 #AltToolbarSideBar {
+  background-color: $alt_bg_color;
   box-shadow: none;
+
+  &:selected{background-color: $primary_color;}
 }
 
 toolbar.sidebar-toolbar toolitem button {

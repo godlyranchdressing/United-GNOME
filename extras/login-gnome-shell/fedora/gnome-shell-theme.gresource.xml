@@ -28,7 +28,7 @@
     <file>assets/dash/running4-indicator.svg</file>
     <file>assets/noise-texture.svg</file>
     <file>assets/osd_background.svg</file>
-    <file>assets/overview_gradient.png</file>
+    <file>assets/overview_gradient.svg</file>
     <file>f25.png</file>
     <file>gnome-shell.css</file>
   </gresource>

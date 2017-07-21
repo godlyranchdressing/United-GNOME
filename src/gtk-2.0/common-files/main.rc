@@ -1002,6 +1002,13 @@ style "checkbutton_label" {
   fg[ACTIVE] = @fg_color
 }
 
+style "tool_button_label" {
+  fg[PRELIGHT]    = lighter(@selected_bg_color)
+  fg[ACTIVE]    = darker(@selected_bg_color)
+  text[PRELIGHT]    = lighter(@selected_bg_color)
+  text[ACTIVE]    = darker(@selected_bg_color)
+}
+
 style "tool_button" {
   text[ACTIVE]      = @selected_fg_color
   fg[ACTIVE] = @selected_fg_color
@@ -2611,6 +2618,7 @@ widget_class "*<GtkNotebook>*<GtkCellLayout>"                       style "text"
 
 # Imported
 widget_class "*<GtkButton>*<GtkLabel>"                             style "button_label"
+widget_class "*<GtkToolButton>*<GtkButton>*<GtkLabel>"                        style "tool_button_label"
 widget_class "*<GtkCheckButton>.<GtkLabel>"                        style "checkbutton_label"
 widget_class "*<GtkRadioButton>.<GtkLabel>"                        style "checkbutton_label"
 widget_class "*<GtkToolButton>*<GtkButton>"                        style "tool_button"

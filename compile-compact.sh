@@ -34,7 +34,6 @@ for distro in `cat $DISTROS`; do
     cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/ -R
     for buttons in '-minimize' '-maximize' '-close'; do
       cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
-      cp src/gtk-3.0/common-assets/titlebutton${buttons}-backdrop-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/
     done
@@ -48,7 +47,6 @@ for distro in `cat $DISTROS`; do
     cp src/gtk-3.0/distro-assets/$distro-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/ -R
     for buttons in '-minimize' '-maximize' '-close'; do
       cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
-      cp src/gtk-3.0/common-assets/titlebutton${buttons}-backdrop-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
     done

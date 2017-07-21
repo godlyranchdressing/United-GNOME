@@ -4,12 +4,6 @@ checkbox-selectionmode-dark
 titlebutton-close
 titlebutton-maximize
 titlebutton-minimize
-titlebutton-close-backdrop
-titlebutton-maximize-backdrop
-titlebutton-minimize-backdrop
 titlebutton-close-dark
 titlebutton-maximize-dark
 titlebutton-minimize-dark
-titlebutton-close-backdrop-dark
-titlebutton-maximize-backdrop-dark
-titlebutton-minimize-backdrop-dark

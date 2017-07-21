@@ -675,6 +675,52 @@ button.toggle:not(.text-button):checked:disabled * {
 }
 
 
+button.toggle:not(.flat):hover {
+  background-color: #eb6637;
+  color: white;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+  border-color: #da4816;
+  outline-color: rgba(94, 94, 94, 0.3);
+  -gtk-icon-effect: highlight;
+}
+
+
+button.toggle:not(.flat):active {
+  background-color: #da4816;
+  color: white;
+  border-color: #da4816;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+  outline-color: rgba(94, 94, 94, 0.3);
+}
+
+
+button.toggle:not(.flat):checked {
+  color: white;
+  background-color: #E95420;
+  border-color: #da4816;
+  outline-color: rgba(94, 94, 94, 0.3);
+}
+
+
+button.toggle:not(.flat):checked:active,
+button.toggle:not(.flat):checked:hover {
+  color: white;
+  background-color: #da4816;
+}
+
+
+button.toggle:not(.flat):checked:disabled {
+  background-color: rgba(218, 72, 22, 0.7);
+  border-color: rgba(218, 72, 22, 0.1);
+}
+
+
+button.toggle:not(.flat):checked:disabled,
+button.toggle:not(.flat):checked:disabled * {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
 button.flat,
 button.flat.image-button,
 button.flat.image-button.toggle,
@@ -5362,13 +5408,13 @@ headerbar button.titlebutton,
   box-shadow: none;
   min-width: 22px;
   min-height: 22px;
+  background-size: 16px;
 }
 
 headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.close,
 .titlebar button.titlebutton.maximize,
 .titlebar button.titlebutton.minimize {
-  background-size: 16px;
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;

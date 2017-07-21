@@ -983,7 +983,7 @@ StScrollBar {
   // border-width: 1px solid $dark_border_color !important;
   // border-radius: ($standard_radius * 2) !important;
   border-image: url("assets/osd_background.svg") 40 40 40 40;
-  border-width: 24px;
+  border-width: if($variant == "light", 24px, 25px);
 }
 
 /* Tiled window previews */
@@ -1828,9 +1828,8 @@ StScrollBar {
 /* OVERVIEW */
 
 #overview {
-  background: url("assets/overview_gradient.png") transparentize($black, .4) !important;
-  background-repeat: top left !important;
-  background-size: cover !important;
+  background: url("assets/overview_gradient.svg") transparentize($black, .4);
+  background-size: cover;
   spacing: 24px;
 
 
@@ -3020,7 +3019,6 @@ $legacy_icon_size: 24px;
 
 #lockDialogGroup {
   background: $primary_color url("assets/noise-texture.svg");
-
   //background: $primary_color url("assets/background.png");
   background-size: cover;
 }

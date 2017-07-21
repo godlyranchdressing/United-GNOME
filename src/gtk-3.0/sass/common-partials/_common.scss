@@ -1523,10 +1523,12 @@ toolbar, toolbar.horizontal, toolbar.vertical {
 
           &:hover {
             @include button(hover);
+            color: _hover_shade($primary_color);
           }
 
           &:active, &:checked, &:checked:hover {
             @include button(active);
+            color: _pressed_shade($primary_color);
           }
 
           &:hover, &:active, &:checked, &:checked:hover {
@@ -4509,7 +4511,7 @@ headerbar,
 
     // Load png assets for each button
     @each $k in "close", "maximize", "minimize" {
-      @each $l, $m in ("", ""), (":backdrop", "-backdrop") {
+      @each $l, $m in ("", "") {
         &.#{$k}#{$l} {
           background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}#{$window_button_suffix}.png"), url("assets/titlebutton-#{$k}#{$m}#{$window_button_suffix}@2.png"));
         }
@@ -4520,6 +4522,12 @@ headerbar,
           background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}.png"), url("assets/titlebutton-#{$k}#{$m}@2.png"));
         }
       }
+    }
+  }
+
+  &:backdrop {
+    button, .title, .subtitle {
+      opacity: .5;
     }
   }
 }
@@ -4539,6 +4547,7 @@ headerbar,
 }
 
 :selected button {
+  // TODO: find out why this is here
   background-color: transparent;
 
   label, image {
