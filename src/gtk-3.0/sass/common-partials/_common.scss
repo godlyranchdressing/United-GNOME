@@ -241,7 +241,7 @@ spinner {
 entry {
   %entry_basic, & {
     min-height: $normal_size;
-    padding: ($button_padding / 2) $button_padding;
+    padding: $small_padding $normal_padding;
     border: 1px solid $border_color;
     box-shadow: $button_highlight $button_highlight_color;
     border-radius: $standard_radius;
@@ -529,8 +529,8 @@ $_dot_color: if($variant == "light", $primary_color, lighten($primary_color, 15%
 button {
   @at-root %button_basic, & {
     min-height: $normal_size;
-    min-width: 16px;
-    padding: ($button_padding / 2) $button_padding;
+    min-width: $smaller_size;
+    padding: $small_padding $normal_padding;
     border: 1px solid $border_color;
     box-shadow: $button_highlight $button_highlight_color;
     border-radius: $standard_radius;
@@ -566,7 +566,7 @@ button {
 
     &.text-button {
       label {
-        padding: 0 ($button_padding / 2);
+        padding: 0 $small_padding;
       }
     }
 
@@ -575,8 +575,8 @@ button {
     &.image-button, &.toggle {
       // Give 1:1 dimensions
       min-width: $normal_size;
-      padding-left: $button_padding / 2;
-      padding-right: $button_padding / 2;
+      padding-left: $small_padding;
+      padding-right: $small_padding;
 
       &:not(.text-button) {
         &:hover {
@@ -1074,8 +1074,8 @@ toolbar.inline-toolbar toolbutton {
 modelbutton.flat,
 .menuitem.button.flat {
   min-height: $normal_size;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: $small_padding;
+  padding-right: $small_padding;
   border-radius: $standard_radius;
   outline-offset: -2px;
 
@@ -1346,8 +1346,8 @@ spinbutton {
       // same dimensions as image-button
       min-height: $normal_size;
       min-width: $normal_size;
-      padding-left: $container_padding - 2;
-      padding-right: $container_padding - 2;
+      padding-left: $small_padding;
+      padding-right: $small_padding;
 
       &.up {
         @extend %top_button;
@@ -1512,7 +1512,7 @@ toolbar, toolbar.horizontal, toolbar.vertical {
     toolbutton, toolitem, & {
       > button, button {
         &, &.flat {
-          padding: $container_padding - 2;
+          padding: $small_padding;
           transition-duration: 150ms;
 
           &.flat {
@@ -1523,11 +1523,13 @@ toolbar, toolbar.horizontal, toolbar.vertical {
 
           &:hover {
             @include button(hover);
+
             color: _hover_shade($primary_color);
           }
 
           &:active, &:checked, &:checked:hover {
             @include button(active);
+
             color: _pressed_shade($primary_color);
           }
 
@@ -1780,8 +1782,8 @@ headerbar {
  ************/
 headerbar.titlebar .path-bar button, .path-bar button {
   border-width: 0px;
-  padding-left: $container_padding - 2;
-  padding-right: $container_padding - 2;
+  padding-left: $small_padding;
+  padding-right: $small_padding;
 
   &.text-button.toggle {
     @include button(toggle, $lighter_bg_color, $primary_color, $in_headerbar: true);
@@ -1814,17 +1816,17 @@ headerbar.titlebar .path-bar button, .path-bar button {
 
   &.text-button.image-button, & {
     label:last-child {
-      padding-right: $container_padding + 2;
+      padding-right: $normal_padding;
     }
 
     label:first-child {
-      padding-left: $container_padding + 2;
+      padding-left: $normal_padding;
     }
   }
 
   image {
-    padding-left: $container_padding - 2;
-    padding-right: $container_padding - 2;
+    padding-left: $small_padding;
+    padding-right: $small_padding;
   }
 
   &.slider-button {
@@ -1869,8 +1871,8 @@ headerbar.titlebar .path-bar button, .path-bar button {
   button {
     background-color: $lighter_bg_color;
     border-width: 0px;
-    padding-left: $container_padding - 2;
-    padding-right: $container_padding - 2;
+    padding-left: $small_padding;
+    padding-right: $small_padding;
 
     @include button(toggle, $lighter_bg_color, $primary_color);
 
@@ -2146,7 +2148,7 @@ menubar,
   > menuitem {
     transition: $standard_transition;
     min-height: $small_size - 4;
-    padding: ($container_padding - 2) ($container_padding + 2);
+    padding: $small_padding $normal_padding;
 
     check, radio {
       min-width: $small_size - 4;
@@ -2188,7 +2190,7 @@ menu, menu#PagePopup,
   menuitem {
     min-height: $normal_size;
     min-width: $normal_size;
-    padding: 2px;
+    padding: $small_padding;
 
     &:hover {
       label {
@@ -2234,7 +2236,7 @@ menu, menu#PagePopup,
 
     min-height: $small_size - 4;
     min-width: $small_size - 4;
-    padding: $container_padding - 2;
+    padding: $small_padding;
     background-color: $base_color;
     border-radius: 0;
 
@@ -2260,6 +2262,10 @@ menu, menu#PagePopup,
       border-color: transparent;
     }
   }
+
+  separator {
+    margin: $container_padding - 1;
+  }
 }
 
 menuitem {
@@ -2273,11 +2279,11 @@ menuitem {
     min-width: 14px;
 
     &:dir(ltr) {
-      margin: 0 3px;
+      margin: 0 $small_padding;
     }
 
     &:dir(rtl) {
-      margin: 0 3px;
+      margin: 0 $small_padding;
     }
   }
 }
@@ -2290,7 +2296,6 @@ popover.background {
   transition: $standard_transition;
   background-color: $lighter_bg_color;
   box-shadow: $shadow_1;
-  padding: 0px;
 
   .csd &, & {
     border: 1px solid $border_color;
@@ -2322,20 +2327,19 @@ popover.background {
     }
   }
 
-  separator {
-    margin: if($compact == true, 1px, 2px) 0;
-  }
-
-  list separator {
-    margin: if($compact == true, 1px, 2px) 0;
+  &, list {
+    separator {
+      margin: $container_padding - 1;
+    }
   }
 
   &.menu, & {
     modelbutton {
       &, &.flat, &.flat.image-button {
-        min-height: $menuitem_size;
+        min-height: $normal_size;
+        min-width: $normal_size;
+        padding: $small_padding;
         border-radius: 0px;
-        padding: 0 4px;
 
         @include button(flat);
 
@@ -2394,7 +2398,13 @@ notebook {
 
     &.top, &.bottom {
       tabs tab label {
-        padding: ($button_padding / 2) ($button_padding / 2 + 2);
+        padding: $small_padding $medium_padding;
+      }
+    }
+
+    &.left, &.right {
+      tabs tab label {
+        padding: $medium_padding $small_padding;
       }
     }
 
@@ -2493,8 +2503,8 @@ notebook {
     }
 
     @at-root %notebook_vert_arrows {
-      padding-left: $button_padding / 2;
-      padding-right: $button_padding / 2;
+      padding-left: $small_padding;
+      padding-right: $small_padding;
 
       &.down {
         margin-left: -8px;
@@ -2520,8 +2530,8 @@ notebook {
     }
 
     @at-root %notebook_horz_arrows {
-      padding-top: $button_padding / 2;
-      padding-bottom: $button_padding / 2;
+      padding-top: $small_padding;
+      padding-bottom: $small_padding;
 
       &.down {
         margin-top: -8px;
@@ -2545,7 +2555,7 @@ notebook {
       transition: $shorter_transition;
       min-height: $normal_size;
       min-width: $large_size + 4;
-      padding: ($button_padding / 2) $button_padding;
+      padding: $small_padding $normal_padding;
       outline-offset: -3px;
       border-width: 0;
       font-weight: 500;
@@ -2560,7 +2570,7 @@ notebook {
         &, &.flat {
           min-height: 0px;
           border-width: 0px;
-          padding: 4px 6px;
+          padding: $small_padding $normal_padding - 2;
 
           @include button(flat);
 
@@ -2827,8 +2837,8 @@ scrollbar {
 
   // button styling
   button {
-    min-width: 16px;
-    min-height: 16px;
+    min-width: $smaller_size;
+    min-height: $smaller_size;
     padding: 0;
     border-radius: 0;
   }
@@ -2881,8 +2891,8 @@ switch {
     -gtk-icon-shadow: none;
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}.png"), url("assets/checkbox#{$as}@2.png"));
     background-color: transparent;
-    min-width: 40px;
-    min-height: 40px;
+    min-width: ($normal_size + 16);
+    min-height: ($normal_size + 16);
     background-image: none;
     transition: none;
     box-shadow: none;
@@ -2946,6 +2956,11 @@ radio {
 
   &:checked, &:indeterminate {
     @include button(normal, $success_color);
+
+    &:hover,  &:active {
+      @include button(active, $success_color);
+      background-color: _pressed_shade($success_color);
+    }
 
     &:disabled {
       color: transparentize(white, $disabled_opacity);
@@ -3795,7 +3810,7 @@ messagedialog {
       border-right-style: none;
       border-bottom-style: none;
       margin: 0;
-      min-height: 30px;
+      min-height: $normal_size + 6;
 
       &:first-child {
         border-left-style: none;
@@ -4511,7 +4526,7 @@ headerbar,
 
     // Load png assets for each button
     @each $k in "close", "maximize", "minimize" {
-      @each $l, $m in ("", "") {
+      @each $l, $m in "", "" {
         &.#{$k}#{$l} {
           background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}#{$window_button_suffix}.png"), url("assets/titlebutton-#{$k}#{$m}#{$window_button_suffix}@2.png"));
         }
@@ -4524,10 +4539,22 @@ headerbar,
       }
     }
   }
+}
 
-  &:backdrop {
-    button, .title, .subtitle {
-      opacity: .5;
+headerbar {
+  &, &.titlebar, &.default-decoration {
+    &:backdrop {
+      > * {
+        opacity: .5;
+        transition: $standard_transition;
+      }
+    }
+
+    &:not(:backdrop) {
+      > * {
+        opacity: 1;
+        transition: $standard_transition;
+      }
     }
   }
 }

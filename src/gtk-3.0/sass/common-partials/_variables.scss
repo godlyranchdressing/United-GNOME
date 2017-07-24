@@ -12,18 +12,17 @@ $disabled_opacity: 0.4;
 
 // sizes
 $normal_size: if($compact == true, 22px, 24px);
-$button_padding: if($compact == true, 6px, 8px);
-//
+$smaller_size: ($normal_size - 8);
 $small_size: ($normal_size - 4);
 $medium_size: ($normal_size + 8);
 $large_size: ($normal_size + 20);
+//
 $container_padding: if($compact == true, 4px, 6px);
+$normal_padding: if($compact == true, 6px, 8px);
+$small_padding: ($normal_padding / 2);
+$medium_padding: ($normal_padding / 2 + 2);
 $bar_size: 4px;
 $osd_border_length: 8px;
-$menuitem_size: ($normal_size + 8);
-//
-// states
-$checked_border: inset 0 -2px 0px;
 
 // radiuses
 $standard_radius: 6px;

@@ -1,11 +1,6 @@
 @mixin fancy_dock {
   //Fancify the dash
 
-  #dash StWidget {
-    // for shadow transition (grow and fade in) effects
-    transition-duration: 250ms;
-  }
-
   #dashtodockContainer {
     StWidget {
       // get rid of default hover effects for dash to dock
