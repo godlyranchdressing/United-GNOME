@@ -2295,6 +2295,18 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 9999px;
 }
 
+.dashtopanelMainPanel .show-apps .overview-icon {
+  background-color: #E95420;
+  border-radius: 9999px;
+  padding: 0.18em;
+  margin-right: 0.18em;
+  margin-left: 0.18em;
+}
+
+.dashtopanelMainPanel .show-apps .overview-icon, .dashtopanelMainPanel .show-apps:active .overview-icon, .dashtopanelMainPanel .show-apps:checked .overview-icon {
+  background-color: #ce4414 !important;
+}
+
 #dashtodockContainer.extended .show-apps .overview-icon {
   border-radius: 0px;
   background-color: transparent !important;
