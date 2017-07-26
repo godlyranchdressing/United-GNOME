@@ -44,7 +44,7 @@ UnityDecoration {
 // Panel Style
 UnityPanelWidget,
 .unity-panel {
-  background-image: image(#2f343f);
+  background-image: image($headerbar_bg_color);
   color: lighten($headerbar_fg_color, 20%);
   box-shadow: none;
 

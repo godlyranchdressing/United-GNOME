@@ -709,7 +709,7 @@ style "menu_framed_box" {
 style "menu_item"
 {
   xthickness = 2
-  ythickness = 6
+  ythickness = 5
 
   # HACK: Gtk doesn't actually read this value
   # while rendering the menu items, but Libreoffice

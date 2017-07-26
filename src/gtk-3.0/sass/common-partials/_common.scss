@@ -1538,7 +1538,7 @@ toolbar, toolbar.horizontal, toolbar.vertical {
           }
 
           &:disabled {
-            opacity: .5;
+             -gtk-icon-effect: dim;
           }
         }
       }
@@ -2264,7 +2264,7 @@ menu, menu#PagePopup,
   }
 
   separator {
-    margin: $container_padding - 1;
+    margin: 0 $container_padding - 1;
   }
 }
 
