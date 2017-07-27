@@ -154,3 +154,12 @@ UnityPanelWidget,
     -gtk-icon-transform: rotate(1turn);
   }
 }
+
+.unity-csd {
+  // unround window corners in unity 
+  headerbar {
+    &, &:not(.titlebar), &.titlebar {
+      border-radius: 0px;
+    }
+  }
+}

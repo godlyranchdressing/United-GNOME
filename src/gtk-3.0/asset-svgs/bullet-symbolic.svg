@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="bullet-symbolic.svg"
+   inkscape:export-filename="/home/aaron/Projects/GTK3 Themes/United-GNOME/src/gtk-3.0/asset-svgs/bullet-symbolic.symbolic.png"
+   inkscape:export-xdpi="96.000008"
+   inkscape:export-ydpi="96.000008"
+   height="15.999999"
+   id="svg7384"
+   version="1.1"
+   inkscape:version="0.92.1 r15371"
+   width="15.999999">
+  <metadata
+     id="metadata90">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Gnome Symbolic Icon Theme</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:bbox-nodes="true"
+     inkscape:bbox-paths="true"
+     bordercolor="#666666"
+     borderopacity="1"
+     inkscape:current-layer="layer9"
+     inkscape:cx="-7.9271577"
+     inkscape:cy="8.2563984"
+     gridtolerance="10"
+     inkscape:guide-bbox="true"
+     guidetolerance="10"
+     id="namedview88"
+     inkscape:object-nodes="true"
+     inkscape:object-paths="false"
+     objecttolerance="10"
+     pagecolor="#3a3b39"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     showborder="true"
+     showgrid="false"
+     showguides="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-global="true"
+     inkscape:snap-grids="true"
+     inkscape:snap-nodes="false"
+     inkscape:snap-others="false"
+     inkscape:snap-to-guides="true"
+     inkscape:window-height="1137"
+     inkscape:window-maximized="1"
+     inkscape:window-width="1848"
+     inkscape:window-x="1438"
+     inkscape:window-y="30"
+     inkscape:zoom="22.534989"
+     inkscape:showpageshadow="false">
+    <inkscape:grid
+       dotted="false"
+       empspacing="2"
+       enabled="true"
+       id="grid4866"
+       originx="-158.99995"
+       originy="141"
+       snapvisiblegridlinesonly="true"
+       spacingx="1"
+       spacingy="1"
+       type="xygrid"
+       visible="true" />
+  </sodipodi:namedview>
+  <title
+     id="title9167">Gnome Symbolic Icon Theme</title>
+  <defs
+     id="defs7386">
+    <linearGradient
+       gradientTransform="matrix(-2.7365795,0.28202934,-0.18908311,-0.99988321,239.54008,-879.45557)"
+       id="linearGradient19282"
+       osb:paint="solid">
+      <stop
+         id="stop19284"
+         offset="0"
+         style="stop-color:#666666;stop-opacity:1;" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer9"
+     inkscape:label="status"
+     style="display:inline"
+     transform="translate(-400.00015,-358)">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:0;stroke:none;stroke-width:3;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0;paint-order:stroke fill markers"
+       id="rect4495"
+       width="15.999999"
+       height="15.999999"
+       x="400.00015"
+       y="358"
+       inkscape:export-xdpi="96.000008"
+       inkscape:export-ydpi="96.000008"
+       inkscape:export-filename="/home/aaron/Projects/GTK3 Themes/United-GNOME/src/gtk-3.0/check-radio-assets/bullet-symbolic.symbolic.png" />
+    <g
+       id="g4524"
+       transform="matrix(0.875,0,0,0.87570087,401.87515,359.87009)"
+       style="stroke-width:1.14239967"
+       inkscape:export-xdpi="96.000008"
+       inkscape:export-ydpi="96.000008"
+       inkscape:export-filename="/home/aaron/Projects/GTK3 Themes/United-GNOME/src/gtk-3.0/check-radio-assets/bullet-symbolic.symbolic.png">
+      <g
+         transform="translate(-381.00015,-339)"
+         style="display:inline;stroke-width:1.14239967"
+         inkscape:label="status"
+         id="layer9-9">
+        <ellipse
+           transform="scale(1,-1)"
+           id="path7289-5"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.71291339"
+           cx="388.00015"
+           cy="-346"
+           rx="4"
+           ry="3.9967983" />
+      </g>
+      <g
+         transform="translate(-381.00015,-339)"
+         style="display:inline;stroke-width:1.14239967"
+         inkscape:label="devices"
+         id="layer10-7" />
+      <g
+         transform="translate(-381.00015,-339)"
+         inkscape:label="apps"
+         id="layer11-3"
+         style="stroke-width:1.14239967" />
+      <g
+         transform="translate(-381.00015,-339)"
+         style="display:inline;stroke-width:1.14239967"
+         inkscape:label="places"
+         id="layer13-6" />
+      <g
+         transform="translate(-381.00015,-339)"
+         inkscape:label="mimetypes"
+         id="layer14-1"
+         style="stroke-width:1.14239967" />
+      <g
+         transform="translate(-381.00015,-339)"
+         style="display:inline;stroke-width:1.14239967"
+         inkscape:label="emblems"
+         id="layer15-2" />
+      <g
+         transform="translate(-381.00015,-339)"
+         style="display:inline;stroke-width:1.14239967"
+         inkscape:label="emotes"
+         id="g71291-9" />
+      <g
+         transform="translate(-381.00015,-339)"
+         style="display:inline;stroke-width:1.14239967"
+         inkscape:label="categories"
+         id="g4953-3" />
+      <g
+         transform="translate(-381.00015,-339)"
+         style="display:inline;stroke-width:1.14239967"
+         inkscape:label="actions"
+         id="layer12-1" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="devices"
+     style="display:inline"
+     transform="translate(-400.00015,-358)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer11"
+     inkscape:label="apps"
+     transform="translate(-400.00015,-358)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer13"
+     inkscape:label="places"
+     style="display:inline"
+     transform="translate(-400.00015,-358)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer14"
+     inkscape:label="mimetypes"
+     transform="translate(-400.00015,-358)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer15"
+     inkscape:label="emblems"
+     style="display:inline"
+     transform="translate(-400.00015,-358)" />
+  <g
+     inkscape:groupmode="layer"
+     id="g71291"
+     inkscape:label="emotes"
+     style="display:inline"
+     transform="translate(-400.00015,-358)" />
+  <g
+     inkscape:groupmode="layer"
+     id="g4953"
+     inkscape:label="categories"
+     style="display:inline"
+     transform="translate(-400.00015,-358)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer12"
+     inkscape:label="actions"
+     style="display:inline"
+     transform="translate(-400.00015,-358)" />
+</svg>

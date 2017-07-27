@@ -28,7 +28,7 @@ $lighter_bg_color: if($variant == "light", $light_lighter_bg_color, $dark_lighte
 
 // headerbar colors
 $headerbar_bg_color: if($headerbar == "dark" or $variant == "dark", $dark_headerbar_bg, $light_headerbar_bg);
-$headerbar_fg_color: if($headerbar == "dark" or $variant == "dark", $highlighted_fg_color, $fg_color);
+$headerbar_fg_color: if($headerbar == "dark" or $variant == "dark", $light_fg_color, $fg_color);
 $secondary_headerbar_fg_color: if($headerbar == "dark" or $variant == "dark", $secondary_inverse_fg_color, $secondary_fg_color);
 
 @import "distros"; // Theme colours

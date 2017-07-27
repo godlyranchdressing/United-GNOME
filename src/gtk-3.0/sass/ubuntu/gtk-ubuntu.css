@@ -675,52 +675,6 @@ button.toggle:not(.text-button):checked:disabled * {
 }
 
 
-button.toggle:not(.flat):hover {
-  background-color: #eb6637;
-  color: white;
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
-  border-color: #da4816;
-  outline-color: rgba(94, 94, 94, 0.3);
-  -gtk-icon-effect: highlight;
-}
-
-
-button.toggle:not(.flat):active {
-  background-color: #da4816;
-  color: white;
-  border-color: #da4816;
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
-  outline-color: rgba(94, 94, 94, 0.3);
-}
-
-
-button.toggle:not(.flat):checked {
-  color: white;
-  background-color: #E95420;
-  border-color: #da4816;
-  outline-color: rgba(94, 94, 94, 0.3);
-}
-
-
-button.toggle:not(.flat):checked:active,
-button.toggle:not(.flat):checked:hover {
-  color: white;
-  background-color: #da4816;
-}
-
-
-button.toggle:not(.flat):checked:disabled {
-  background-color: rgba(218, 72, 22, 0.7);
-  border-color: rgba(218, 72, 22, 0.1);
-}
-
-
-button.toggle:not(.flat):checked:disabled,
-button.toggle:not(.flat):checked:disabled * {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-
 button.flat,
 button.flat.image-button,
 button.flat.image-button.toggle,
@@ -2286,6 +2240,7 @@ toolbar:not(.inline-toolbar) toolbutton > button:hover, toolbar:not(.inline-tool
   border-color: rgba(0, 0, 0, 0.15);
   outline-color: rgba(94, 94, 94, 0.3);
   -gtk-icon-effect: highlight;
+  color: #eb6637;
 }
 
 toolbar:not(.inline-toolbar) toolbutton > button:active, toolbar:not(.inline-toolbar) toolbutton > button:checked, toolbar:not(.inline-toolbar) toolbutton > button:checked:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat:active, toolbar:not(.inline-toolbar) toolbutton > button.flat:checked, toolbar:not(.inline-toolbar) toolbutton > button.flat:checked:hover, toolbar:not(.inline-toolbar) toolbutton button:active, toolbar:not(.inline-toolbar) toolbutton button:checked, toolbar:not(.inline-toolbar) toolbutton button:checked:hover, toolbar:not(.inline-toolbar) toolbutton button.flat:active, toolbar:not(.inline-toolbar) toolbutton button.flat:checked, toolbar:not(.inline-toolbar) toolbutton button.flat:checked:hover, toolbar:not(.inline-toolbar) toolitem > button:active, toolbar:not(.inline-toolbar) toolitem > button:checked, toolbar:not(.inline-toolbar) toolitem > button:checked:hover, toolbar:not(.inline-toolbar) toolitem > button.flat:active, toolbar:not(.inline-toolbar) toolitem > button.flat:checked, toolbar:not(.inline-toolbar) toolitem > button.flat:checked:hover, toolbar:not(.inline-toolbar) toolitem button:active, toolbar:not(.inline-toolbar) toolitem button:checked, toolbar:not(.inline-toolbar) toolitem button:checked:hover, toolbar:not(.inline-toolbar) toolitem button.flat:active, toolbar:not(.inline-toolbar) toolitem button.flat:checked, toolbar:not(.inline-toolbar) toolitem button.flat:checked:hover, toolbar:not(.inline-toolbar) > button:active, toolbar:not(.inline-toolbar) > button:checked, toolbar:not(.inline-toolbar) > button:checked:hover, toolbar:not(.inline-toolbar) > button.flat:active, toolbar:not(.inline-toolbar) > button.flat:checked, toolbar:not(.inline-toolbar) > button.flat:checked:hover, toolbar:not(.inline-toolbar) button:active, toolbar:not(.inline-toolbar) button:checked, toolbar:not(.inline-toolbar) button:checked:hover, toolbar:not(.inline-toolbar) button.flat:active, toolbar:not(.inline-toolbar) button.flat:checked, toolbar:not(.inline-toolbar) button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:active, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton button:active, toolbar.horizontal:not(.inline-toolbar) toolbutton button:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolitem > button:active, toolbar.horizontal:not(.inline-toolbar) toolitem > button:checked, toolbar.horizontal:not(.inline-toolbar) toolitem > button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolitem > button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolitem > button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolitem > button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolitem button:active, toolbar.horizontal:not(.inline-toolbar) toolitem button:checked, toolbar.horizontal:not(.inline-toolbar) toolitem button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolitem button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolitem button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolitem button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) > button:active, toolbar.horizontal:not(.inline-toolbar) > button:checked, toolbar.horizontal:not(.inline-toolbar) > button:checked:hover, toolbar.horizontal:not(.inline-toolbar) > button.flat:active, toolbar.horizontal:not(.inline-toolbar) > button.flat:checked, toolbar.horizontal:not(.inline-toolbar) > button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) button:active, toolbar.horizontal:not(.inline-toolbar) button:checked, toolbar.horizontal:not(.inline-toolbar) button:checked:hover, toolbar.horizontal:not(.inline-toolbar) button.flat:active, toolbar.horizontal:not(.inline-toolbar) button.flat:checked, toolbar.horizontal:not(.inline-toolbar) button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button:active, toolbar.vertical:not(.inline-toolbar) toolbutton > button:checked, toolbar.vertical:not(.inline-toolbar) toolbutton > button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:active, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton button:active, toolbar.vertical:not(.inline-toolbar) toolbutton button:checked, toolbar.vertical:not(.inline-toolbar) toolbutton button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:active, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) toolitem > button:active, toolbar.vertical:not(.inline-toolbar) toolitem > button:checked, toolbar.vertical:not(.inline-toolbar) toolitem > button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolitem > button.flat:active, toolbar.vertical:not(.inline-toolbar) toolitem > button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolitem > button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) toolitem button:active, toolbar.vertical:not(.inline-toolbar) toolitem button:checked, toolbar.vertical:not(.inline-toolbar) toolitem button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolitem button.flat:active, toolbar.vertical:not(.inline-toolbar) toolitem button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolitem button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) > button:active, toolbar.vertical:not(.inline-toolbar) > button:checked, toolbar.vertical:not(.inline-toolbar) > button:checked:hover, toolbar.vertical:not(.inline-toolbar) > button.flat:active, toolbar.vertical:not(.inline-toolbar) > button.flat:checked, toolbar.vertical:not(.inline-toolbar) > button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) button:active, toolbar.vertical:not(.inline-toolbar) button:checked, toolbar.vertical:not(.inline-toolbar) button:checked:hover, toolbar.vertical:not(.inline-toolbar) button.flat:active, toolbar.vertical:not(.inline-toolbar) button.flat:checked, toolbar.vertical:not(.inline-toolbar) button.flat:checked:hover {
@@ -2294,6 +2249,7 @@ toolbar:not(.inline-toolbar) toolbutton > button:active, toolbar:not(.inline-too
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
   outline-color: rgba(94, 94, 94, 0.3);
+  color: #da4816;
 }
 
 toolbar:not(.inline-toolbar) toolbutton > button:hover, toolbar:not(.inline-toolbar) toolbutton > button:active, toolbar:not(.inline-toolbar) toolbutton > button:checked, toolbar:not(.inline-toolbar) toolbutton > button:checked:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat:hover, toolbar:not(.inline-toolbar) toolbutton > button.flat:active, toolbar:not(.inline-toolbar) toolbutton > button.flat:checked, toolbar:not(.inline-toolbar) toolbutton > button.flat:checked:hover, toolbar:not(.inline-toolbar) toolbutton button:hover, toolbar:not(.inline-toolbar) toolbutton button:active, toolbar:not(.inline-toolbar) toolbutton button:checked, toolbar:not(.inline-toolbar) toolbutton button:checked:hover, toolbar:not(.inline-toolbar) toolbutton button.flat:hover, toolbar:not(.inline-toolbar) toolbutton button.flat:active, toolbar:not(.inline-toolbar) toolbutton button.flat:checked, toolbar:not(.inline-toolbar) toolbutton button.flat:checked:hover, toolbar:not(.inline-toolbar) toolitem > button:hover, toolbar:not(.inline-toolbar) toolitem > button:active, toolbar:not(.inline-toolbar) toolitem > button:checked, toolbar:not(.inline-toolbar) toolitem > button:checked:hover, toolbar:not(.inline-toolbar) toolitem > button.flat:hover, toolbar:not(.inline-toolbar) toolitem > button.flat:active, toolbar:not(.inline-toolbar) toolitem > button.flat:checked, toolbar:not(.inline-toolbar) toolitem > button.flat:checked:hover, toolbar:not(.inline-toolbar) toolitem button:hover, toolbar:not(.inline-toolbar) toolitem button:active, toolbar:not(.inline-toolbar) toolitem button:checked, toolbar:not(.inline-toolbar) toolitem button:checked:hover, toolbar:not(.inline-toolbar) toolitem button.flat:hover, toolbar:not(.inline-toolbar) toolitem button.flat:active, toolbar:not(.inline-toolbar) toolitem button.flat:checked, toolbar:not(.inline-toolbar) toolitem button.flat:checked:hover, toolbar:not(.inline-toolbar) > button:hover, toolbar:not(.inline-toolbar) > button:active, toolbar:not(.inline-toolbar) > button:checked, toolbar:not(.inline-toolbar) > button:checked:hover, toolbar:not(.inline-toolbar) > button.flat:hover, toolbar:not(.inline-toolbar) > button.flat:active, toolbar:not(.inline-toolbar) > button.flat:checked, toolbar:not(.inline-toolbar) > button.flat:checked:hover, toolbar:not(.inline-toolbar) button:hover, toolbar:not(.inline-toolbar) button:active, toolbar:not(.inline-toolbar) button:checked, toolbar:not(.inline-toolbar) button:checked:hover, toolbar:not(.inline-toolbar) button.flat:hover, toolbar:not(.inline-toolbar) button.flat:active, toolbar:not(.inline-toolbar) button.flat:checked, toolbar:not(.inline-toolbar) button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:active, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton button:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton button:active, toolbar.horizontal:not(.inline-toolbar) toolbutton button:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:hover, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolitem > button:hover, toolbar.horizontal:not(.inline-toolbar) toolitem > button:active, toolbar.horizontal:not(.inline-toolbar) toolitem > button:checked, toolbar.horizontal:not(.inline-toolbar) toolitem > button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolitem > button.flat:hover, toolbar.horizontal:not(.inline-toolbar) toolitem > button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolitem > button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolitem > button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolitem button:hover, toolbar.horizontal:not(.inline-toolbar) toolitem button:active, toolbar.horizontal:not(.inline-toolbar) toolitem button:checked, toolbar.horizontal:not(.inline-toolbar) toolitem button:checked:hover, toolbar.horizontal:not(.inline-toolbar) toolitem button.flat:hover, toolbar.horizontal:not(.inline-toolbar) toolitem button.flat:active, toolbar.horizontal:not(.inline-toolbar) toolitem button.flat:checked, toolbar.horizontal:not(.inline-toolbar) toolitem button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) > button:hover, toolbar.horizontal:not(.inline-toolbar) > button:active, toolbar.horizontal:not(.inline-toolbar) > button:checked, toolbar.horizontal:not(.inline-toolbar) > button:checked:hover, toolbar.horizontal:not(.inline-toolbar) > button.flat:hover, toolbar.horizontal:not(.inline-toolbar) > button.flat:active, toolbar.horizontal:not(.inline-toolbar) > button.flat:checked, toolbar.horizontal:not(.inline-toolbar) > button.flat:checked:hover, toolbar.horizontal:not(.inline-toolbar) button:hover, toolbar.horizontal:not(.inline-toolbar) button:active, toolbar.horizontal:not(.inline-toolbar) button:checked, toolbar.horizontal:not(.inline-toolbar) button:checked:hover, toolbar.horizontal:not(.inline-toolbar) button.flat:hover, toolbar.horizontal:not(.inline-toolbar) button.flat:active, toolbar.horizontal:not(.inline-toolbar) button.flat:checked, toolbar.horizontal:not(.inline-toolbar) button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button:active, toolbar.vertical:not(.inline-toolbar) toolbutton > button:checked, toolbar.vertical:not(.inline-toolbar) toolbutton > button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:hover, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:active, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton button:hover, toolbar.vertical:not(.inline-toolbar) toolbutton button:active, toolbar.vertical:not(.inline-toolbar) toolbutton button:checked, toolbar.vertical:not(.inline-toolbar) toolbutton button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:hover, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:active, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) toolitem > button:hover, toolbar.vertical:not(.inline-toolbar) toolitem > button:active, toolbar.vertical:not(.inline-toolbar) toolitem > button:checked, toolbar.vertical:not(.inline-toolbar) toolitem > button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolitem > button.flat:hover, toolbar.vertical:not(.inline-toolbar) toolitem > button.flat:active, toolbar.vertical:not(.inline-toolbar) toolitem > button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolitem > button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) toolitem button:hover, toolbar.vertical:not(.inline-toolbar) toolitem button:active, toolbar.vertical:not(.inline-toolbar) toolitem button:checked, toolbar.vertical:not(.inline-toolbar) toolitem button:checked:hover, toolbar.vertical:not(.inline-toolbar) toolitem button.flat:hover, toolbar.vertical:not(.inline-toolbar) toolitem button.flat:active, toolbar.vertical:not(.inline-toolbar) toolitem button.flat:checked, toolbar.vertical:not(.inline-toolbar) toolitem button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) > button:hover, toolbar.vertical:not(.inline-toolbar) > button:active, toolbar.vertical:not(.inline-toolbar) > button:checked, toolbar.vertical:not(.inline-toolbar) > button:checked:hover, toolbar.vertical:not(.inline-toolbar) > button.flat:hover, toolbar.vertical:not(.inline-toolbar) > button.flat:active, toolbar.vertical:not(.inline-toolbar) > button.flat:checked, toolbar.vertical:not(.inline-toolbar) > button.flat:checked:hover, toolbar.vertical:not(.inline-toolbar) button:hover, toolbar.vertical:not(.inline-toolbar) button:active, toolbar.vertical:not(.inline-toolbar) button:checked, toolbar.vertical:not(.inline-toolbar) button:checked:hover, toolbar.vertical:not(.inline-toolbar) button.flat:hover, toolbar.vertical:not(.inline-toolbar) button.flat:active, toolbar.vertical:not(.inline-toolbar) button.flat:checked, toolbar.vertical:not(.inline-toolbar) button.flat:checked:hover {
@@ -2301,7 +2257,7 @@ toolbar:not(.inline-toolbar) toolbutton > button:hover, toolbar:not(.inline-tool
 }
 
 toolbar:not(.inline-toolbar) toolbutton > button:disabled, toolbar:not(.inline-toolbar) toolbutton > button.flat:disabled, toolbar:not(.inline-toolbar) toolbutton button:disabled, toolbar:not(.inline-toolbar) toolbutton button.flat:disabled, toolbar:not(.inline-toolbar) toolitem > button:disabled, toolbar:not(.inline-toolbar) toolitem > button.flat:disabled, toolbar:not(.inline-toolbar) toolitem button:disabled, toolbar:not(.inline-toolbar) toolitem button.flat:disabled, toolbar:not(.inline-toolbar) > button:disabled, toolbar:not(.inline-toolbar) > button.flat:disabled, toolbar:not(.inline-toolbar) button:disabled, toolbar:not(.inline-toolbar) button.flat:disabled, toolbar.horizontal:not(.inline-toolbar) toolbutton > button:disabled, toolbar.horizontal:not(.inline-toolbar) toolbutton > button.flat:disabled, toolbar.horizontal:not(.inline-toolbar) toolbutton button:disabled, toolbar.horizontal:not(.inline-toolbar) toolbutton button.flat:disabled, toolbar.horizontal:not(.inline-toolbar) toolitem > button:disabled, toolbar.horizontal:not(.inline-toolbar) toolitem > button.flat:disabled, toolbar.horizontal:not(.inline-toolbar) toolitem button:disabled, toolbar.horizontal:not(.inline-toolbar) toolitem button.flat:disabled, toolbar.horizontal:not(.inline-toolbar) > button:disabled, toolbar.horizontal:not(.inline-toolbar) > button.flat:disabled, toolbar.horizontal:not(.inline-toolbar) button:disabled, toolbar.horizontal:not(.inline-toolbar) button.flat:disabled, toolbar.vertical:not(.inline-toolbar) toolbutton > button:disabled, toolbar.vertical:not(.inline-toolbar) toolbutton > button.flat:disabled, toolbar.vertical:not(.inline-toolbar) toolbutton button:disabled, toolbar.vertical:not(.inline-toolbar) toolbutton button.flat:disabled, toolbar.vertical:not(.inline-toolbar) toolitem > button:disabled, toolbar.vertical:not(.inline-toolbar) toolitem > button.flat:disabled, toolbar.vertical:not(.inline-toolbar) toolitem button:disabled, toolbar.vertical:not(.inline-toolbar) toolitem button.flat:disabled, toolbar.vertical:not(.inline-toolbar) > button:disabled, toolbar.vertical:not(.inline-toolbar) > button.flat:disabled, toolbar.vertical:not(.inline-toolbar) button:disabled, toolbar.vertical:not(.inline-toolbar) button.flat:disabled {
-  opacity: .5;
+  -gtk-icon-effect: dim;
 }
 
 toolbar.primary-toolbar toolbutton button, toolbar.horizontal.primary-toolbar toolbutton button, toolbar.vertical.primary-toolbar toolbutton button {
@@ -2987,7 +2943,7 @@ menu menuitem, menu#PagePopup menuitem,
 .context-menu menuitem {
   min-height: 24px;
   min-width: 24px;
-  padding: 2px;
+  padding: 4px;
 }
 
 menu menuitem:hover, menu#PagePopup menuitem:hover,
@@ -3078,6 +3034,12 @@ menu > arrow:disabled, menu#PagePopup > arrow:disabled,
   border-color: transparent;
 }
 
+menu separator, menu#PagePopup separator,
+.menu separator,
+.context-menu separator {
+  margin: 0 5px;
+}
+
 menuitem accelerator {
   color: alpha(currentColor,0.55);
 }
@@ -3090,12 +3052,12 @@ menuitem radio {
 
 menuitem check:dir(ltr),
 menuitem radio:dir(ltr) {
-  margin: 0 3px;
+  margin: 0 4px;
 }
 
 menuitem check:dir(rtl),
 menuitem radio:dir(rtl) {
-  margin: 0 3px;
+  margin: 0 4px;
 }
 
 /***************
@@ -3105,7 +3067,6 @@ popover.background {
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   background-color: white;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
-  padding: 0px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -3125,18 +3086,15 @@ popover.background > toolbar {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-popover.background separator {
-  margin: 2px 0;
-}
-
-popover.background list separator {
-  margin: 2px 0;
+popover.background separator, popover.background list separator {
+  margin: 5px;
 }
 
 popover.background.menu modelbutton, popover.background.menu modelbutton.flat, popover.background.menu modelbutton.flat.image-button, popover.background modelbutton, popover.background modelbutton.flat, popover.background modelbutton.flat.image-button {
-  min-height: 32px;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 4px;
   border-radius: 0px;
-  padding: 0 4px;
   color: #5e5e5e;
   background-color: transparent;
   border-color: transparent;
@@ -3189,6 +3147,10 @@ notebook > header.top tabs tab:checked, notebook > header.top tabs tab:hover, no
 
 notebook > header.top tabs tab label, notebook > header.bottom tabs tab label {
   padding: 4px 6px;
+}
+
+notebook > header.left tabs tab label, notebook > header.right tabs tab label {
+  padding: 6px 4px;
 }
 
 notebook > header.top > tabs {
@@ -3807,6 +3769,19 @@ radio:indeterminate {
   border-color: #41a050;
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
   outline-color: rgba(94, 94, 94, 0.3);
+}
+
+check:checked:hover, check:checked:active, check:indeterminate:hover, check:indeterminate:active,
+radio:checked:hover,
+radio:checked:active,
+radio:indeterminate:hover,
+radio:indeterminate:active {
+  background-color: #41a050;
+  color: white;
+  border-color: #41a050;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+  outline-color: rgba(94, 94, 94, 0.3);
+  background-color: #41a050;
 }
 
 check:checked:disabled, check:indeterminate:disabled,
@@ -5409,6 +5384,15 @@ headerbar button.titlebutton,
   min-width: 22px;
   min-height: 22px;
   background-size: 16px;
+  color: #E95420;
+  color: #da4816;
+  color: rgba(94, 94, 94, 0.5);
+  color: #E95420;
+  color: #da4816;
+  color: rgba(94, 94, 94, 0.5);
+  color: #E95420;
+  color: #da4816;
+  color: rgba(94, 94, 94, 0.5);
 }
 
 headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, headerbar button.titlebutton.minimize,
@@ -5422,71 +5406,78 @@ headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, heade
   border-radius: 9999px;
 }
 
-headerbar button.titlebutton.close image, headerbar button.titlebutton.maximize image, headerbar button.titlebutton.minimize image,
-.titlebar button.titlebutton.close image,
-.titlebar button.titlebutton.maximize image,
-.titlebar button.titlebutton.minimize image {
+headerbar button.titlebutton.close,
+.titlebar button.titlebutton.close {
+  background-image: -gtk-recolor(url("assets/window-close.symbolic.png"));
+}
+
+headerbar button.titlebutton.close:hover image,
+.titlebar button.titlebutton.close:hover image {
   color: transparent;
 }
 
-headerbar button.titlebutton.close,
-.titlebar button.titlebutton.close {
-  background-image: -gtk-scaled(url("assets/titlebutton-close.png"), url("assets/titlebutton-close@2.png"));
+headerbar button.titlebutton.close:active image,
+.titlebar button.titlebutton.close:active image {
+  color: transparent;
 }
 
-headerbar button.titlebutton.close:backdrop,
-.titlebar button.titlebutton.close:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-backdrop.png"), url("assets/titlebutton-close-backdrop@2.png"));
-}
-
-headerbar button.titlebutton.close:hover,
-.titlebar button.titlebutton.close:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-hover.png"), url("assets/titlebutton-close-hover@2.png"));
-}
-
-headerbar button.titlebutton.close:active,
-.titlebar button.titlebutton.close:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-active.png"), url("assets/titlebutton-close-active@2.png"));
+headerbar button.titlebutton.close:backdrop image,
+.titlebar button.titlebutton.close:backdrop image {
+  color: transparent;
 }
 
 headerbar button.titlebutton.maximize,
 .titlebar button.titlebutton.maximize {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize.png"), url("assets/titlebutton-maximize@2.png"));
+  background-image: -gtk-recolor(url("assets/window-maximize.symbolic.png"));
 }
 
-headerbar button.titlebutton.maximize:backdrop,
-.titlebar button.titlebutton.maximize:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-backdrop.png"), url("assets/titlebutton-maximize-backdrop@2.png"));
+headerbar button.titlebutton.maximize:hover image,
+.titlebar button.titlebutton.maximize:hover image {
+  color: transparent;
 }
 
-headerbar button.titlebutton.maximize:hover,
-.titlebar button.titlebutton.maximize:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover.png"), url("assets/titlebutton-maximize-hover@2.png"));
+headerbar button.titlebutton.maximize:active image,
+.titlebar button.titlebutton.maximize:active image {
+  color: transparent;
 }
 
-headerbar button.titlebutton.maximize:active,
-.titlebar button.titlebutton.maximize:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-active.png"), url("assets/titlebutton-maximize-active@2.png"));
+headerbar button.titlebutton.maximize:backdrop image,
+.titlebar button.titlebutton.maximize:backdrop image {
+  color: transparent;
 }
 
 headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize.png"), url("assets/titlebutton-minimize@2.png"));
+  background-image: -gtk-recolor(url("assets/window-minimize.symbolic.png"));
 }
 
-headerbar button.titlebutton.minimize:backdrop,
-.titlebar button.titlebutton.minimize:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-backdrop.png"), url("assets/titlebutton-minimize-backdrop@2.png"));
+headerbar button.titlebutton.minimize:hover image,
+.titlebar button.titlebutton.minimize:hover image {
+  color: transparent;
 }
 
-headerbar button.titlebutton.minimize:hover,
-.titlebar button.titlebutton.minimize:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover.png"), url("assets/titlebutton-minimize-hover@2.png"));
+headerbar button.titlebutton.minimize:active image,
+.titlebar button.titlebutton.minimize:active image {
+  color: transparent;
 }
 
-headerbar button.titlebutton.minimize:active,
-.titlebar button.titlebutton.minimize:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-active.png"), url("assets/titlebutton-minimize-active@2.png"));
+headerbar button.titlebutton.minimize:backdrop image,
+.titlebar button.titlebutton.minimize:backdrop image {
+  color: transparent;
+}
+
+headerbar.default-decoration * {
+  opacity: 0;
+}
+
+headerbar:backdrop > *, headerbar.titlebar:backdrop > *, headerbar.default-decoration:backdrop > * {
+  opacity: .5;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+headerbar:not(:backdrop) > *, headerbar.titlebar:not(:backdrop) > *, headerbar.default-decoration:not(:backdrop) > * {
+  opacity: 1;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, .view text:selected:focus, iconview text:selected:focus,
@@ -6161,7 +6152,12 @@ headerbar.titlebar button.title:checked:disabled, headerbar.titlebar button.titl
  * Rhythmbox *
  ************/
 #AltToolbarSideBar {
+  background-color: #E1E1E1;
   box-shadow: none;
+}
+
+#AltToolbarSideBar:selected {
+  background-color: #E95420;
 }
 
 toolbar.sidebar-toolbar toolitem button {
@@ -6688,7 +6684,7 @@ UnityDecoration .top {
   padding: 1px 6px 0 6px;
   background-image: image(#f4f4f4);
   color: #5e5e5e;
-  box-shadow: inset 0 1px #fcfcfc;
+  box-shadow: none;
 }
 
 UnityDecoration .top:backdrop {
@@ -6704,8 +6700,8 @@ UnityDecoration .left:backdrop, UnityDecoration .right:backdrop, UnityDecoration
 
 UnityPanelWidget,
 .unity-panel {
-  background-image: image(#2f343f);
-  color: #919191;
+  background-image: image(#F4F4F4);
+  color: #5e5e5e;
   box-shadow: none;
 }
 
@@ -6717,9 +6713,8 @@ UnityPanelWidget:backdrop,
 .unity-panel.menubar.menuitem:hover,
 .unity-panel.menubar .menuitem *:hover {
   border-radius: 0;
-  color: #ffffff;
-  background-image: image(#E95420);
-  border-bottom: none;
+  color: #E95420;
+  border-bottom: 3px solid #E95420;
 }
 
 .lightdm.menu {

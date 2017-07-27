@@ -15,7 +15,7 @@ for distro in `cat $DISTROS`; do
       echo
       echo Rendering $ASSETS_DIR/$i.png
       $INKSCAPE --export-id=$i \
-      --export-dpi=180 \
+      --export-dpi=96 \
       --export-id-only \
       --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
       && $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png

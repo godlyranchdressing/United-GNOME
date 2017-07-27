@@ -12,6 +12,23 @@ COMMON_FOLDER="src/gtk-2.0/common-files"
 
 echo "Compiling and copying..."
 for distro in `cat $DISTROS`; do
+  if [ $distro = "ubuntu" ]; then
+    # I never said I knew what I was doing
+    cp src/unity/common/* $OUTPUT/United-${distro^}/United-${distro^}/unity
+    cp src/unity/common/* $OUTPUT/United-${distro^}/United-${distro^}-Dark/unity
+    cp src/unity/common/* $OUTPUT/United-${distro^}/United-${distro^}-Darker/unity
+    cp src/unity/dark/* $OUTPUT/United-${distro^}/United-${distro^}-Dark/unity
+    cp src/unity/dark/* $OUTPUT/United-${distro^}/United-${distro^}-Darker/unity
+  fi
+  if [ $distro = "ubuntu-alt" ]; then
+    # def will fix
+    cp src/unity-alt/common/* $OUTPUT/United-${distro^}/United-${distro^}/unity
+    cp src/unity-alt/common/* $OUTPUT/United-${distro^}/United-${distro^}-Dark/unity
+    cp src/unity-alt/common/* $OUTPUT/United-${distro^}/United-${distro^}-Darker/unity
+    cp src/unity-alt/dark/* $OUTPUT/United-${distro^}/United-${distro^}-Dark/unity
+    cp src/unity-alt/dark/* $OUTPUT/United-${distro^}/United-${distro^}-Darker/unity
+  fi
+
   for variant in '','' '-light','-Light' '-opaque','-Dark'; do IFS=","; set -- $variant;
     sassc -t expanded src/gnome-shell/sass/$distro/gnome-shell-$distro${1}.scss $OUTPUT/United-${distro^}/United-${distro^}${2}/gnome-shell/gnome-shell.css
     sassc -t expanded src/gtk-3.0/sass/$distro/gtk-$distro.scss $OUTPUT/United-${distro^}/United-${distro^}/gtk-3.0/gtk.css
@@ -19,6 +36,12 @@ for distro in `cat $DISTROS`; do
     rm $OUTPUT/United-${distro^}/United-${distro^}/gtk-3.0/assets/* -R
     cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}/United-${distro^}/gtk-3.0/assets/ -R
     cp src/gtk-3.0/distro-assets/${distro}-assets/* $OUTPUT/United-${distro^}/United-${distro^}/gtk-3.0/assets/ -R
+    cp src/metacity-1/light-assets/* $OUTPUT/United-${distro^}/United-${distro^}/metacity-1/
+    cp src/metacity-1/common-files/* $OUTPUT/United-${distro^}/United-${distro^}/metacity-1/
+    for buttons in '-minimize' '-maximize' '-close'; do
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}/United-${distro^}/metacity-1/
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}/United-${distro^}/metacity-1/
+    done
   done
 
   for variant in "" '-Dark'; do
@@ -32,10 +55,15 @@ for distro in `cat $DISTROS`; do
     rm $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/* -R
     cp src/gnome-shell/common-assets-dark/* $OUTPUT/United-${distro^}/United-${distro^}${variant^}/gnome-shell/assets/ -R
     cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/ -R
+    cp src/metacity-1/common-files/* $OUTPUT/United-${distro^}/United-${distro^}-Dark/metacity-1/
     for buttons in '-minimize' '-maximize' '-close'; do
-      cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
+      cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover*.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active*.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/gtk-3.0/assets/
+      cp src/metacity-1/dark-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/metacity-1/
+      cp src/metacity-1/dark-assets/titlebutton${buttons}-dark-backdrop.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/metacity-1/
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/metacity-1/
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}/United-${distro^}-Dark/metacity-1/
     done
   done
 
@@ -45,10 +73,15 @@ for distro in `cat $DISTROS`; do
     rm $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/* -R
     cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/ -R
     cp src/gtk-3.0/distro-assets/$distro-assets/* $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/ -R
+    cp src/metacity-1/common-files/* $OUTPUT/United-${distro^}/United-${distro^}-Darker/metacity-1/
     for buttons in '-minimize' '-maximize' '-close'; do
       cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover*.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active*.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/gtk-3.0/assets/
+      cp src/metacity-1/dark-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/metacity-1/
+      cp src/metacity-1/dark-assets/titlebutton${buttons}-dark-backdrop.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/metacity-1/
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/metacity-1/
+      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}/United-${distro^}-Darker/metacity-1/
     done
   done
 

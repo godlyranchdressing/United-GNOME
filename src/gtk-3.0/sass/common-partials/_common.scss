@@ -578,7 +578,8 @@ button {
       padding-left: $small_padding;
       padding-right: $small_padding;
 
-      &:not(.text-button) {
+      &:not(.text-button):not(.flat) {
+        // TODO: double check this
         &:hover {
           @include button(hover, $primary_color);
         }
@@ -1538,7 +1539,7 @@ toolbar, toolbar.horizontal, toolbar.vertical {
           }
 
           &:disabled {
-             -gtk-icon-effect: dim;
+            -gtk-icon-effect: dim;
           }
         }
       }
@@ -1703,7 +1704,7 @@ headerbar {
   // squared corners when the window is maximized or tiled
 
   &.default-decoration {
-    min-height: $small_size;
+    min-height: 20px;
     padding: $container_padding;
     box-shadow: none;
 
@@ -1750,10 +1751,16 @@ headerbar {
     margin-bottom: 0;
   }
 
-  separator {
-    &, &.titlebutton {
-      background-color: $headerbar_bg_color;
-      background-image: image($headerbar_bg_color);
+  // separator {
+  //   &, &.titlebutton {
+  //     background-color: $headerbar_bg_color;
+  //     background-image: image($headerbar_bg_color);
+  //   }
+  // }
+  separator{
+    &, &.titlebutton{
+      margin: ($container_padding * 2) 0;
+      background-image: image(if($headerbar == "dark" and $variant == "light", $dark_border_color, $border_color));
     }
   }
 }
@@ -2264,7 +2271,7 @@ menu, menu#PagePopup,
   }
 
   separator {
-    margin: 0 $container_padding - 1;
+    margin: 0 ($container_padding - 1);
   }
 }
 
@@ -2570,7 +2577,7 @@ notebook {
         &, &.flat {
           min-height: 0px;
           border-width: 0px;
-          padding: $small_padding $normal_padding - 2;
+          padding: $small_padding ($normal_padding - 2);
 
           @include button(flat);
 
@@ -2891,8 +2898,8 @@ switch {
     -gtk-icon-shadow: none;
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}.png"), url("assets/checkbox#{$as}@2.png"));
     background-color: transparent;
-    min-width: ($normal_size + 16);
-    min-height: ($normal_size + 16);
+    min-width: $normal_size + 16;
+    min-height: $normal_size + 16;
     background-image: none;
     transition: none;
     box-shadow: none;
@@ -2957,8 +2964,9 @@ radio {
   &:checked, &:indeterminate {
     @include button(normal, $success_color);
 
-    &:hover,  &:active {
+    &:hover, &:active {
       @include button(active, $success_color);
+
       background-color: _pressed_shade($success_color);
     }
 
@@ -4507,16 +4515,13 @@ headerbar,
   button.titlebutton {
     padding: 0;
     box-shadow: none;
-    min-width: 22px;
-    min-height: 22px;
-    background-size: 16px;
+    min-width: 20px;
+    min-height: 20px;
 
     &.close, &.maximize, &.minimize {
       background-color: transparent;
       background-position: center;
       background-repeat: no-repeat;
-      border-width: 0;
-      border-radius: 9999px;
 
       image {
         //color: $fg_color;
@@ -4526,15 +4531,13 @@ headerbar,
 
     // Load png assets for each button
     @each $k in "close", "maximize", "minimize" {
-      @each $l, $m in "", "" {
-        &.#{$k}#{$l} {
-          background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}#{$window_button_suffix}.png"), url("assets/titlebutton-#{$k}#{$m}#{$window_button_suffix}@2.png"));
-        }
-      }
+      &.#{$k} {
+        background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$window_button_suffix}.png"), url("assets/titlebutton-#{$k}#{$window_button_suffix}@2.png"));
 
-      @each $l, $m in (":hover", "-hover"), (":active", "-active") {
-        &.#{$k}#{$l} {
-          background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}.png"), url("assets/titlebutton-#{$k}#{$m}@2.png"));
+        @each $l, $m in (":hover", "-hover"), (":active", "-active") {
+          &#{$l} {
+            background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}.png"), url("assets/titlebutton-#{$k}#{$m}@2.png"));
+          }
         }
       }
     }
