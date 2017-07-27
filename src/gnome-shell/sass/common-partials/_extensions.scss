@@ -140,6 +140,28 @@
       }
     }
   }
+
+  .dashtopanelMainPanel {
+    .show-apps {
+      .overview-icon {
+        background-color: $launcher_background !important;
+        padding: 0.18em;
+        margin: auto 0.18em;
+      }
+
+      &:hover {
+        .overview-icon {
+          background-color: _hover_shade($primary_color) !important;
+        }
+      }
+
+      &:active, &:checked {
+        .overview-icon {
+          background-color: _pressed_shade($primary_color) !important;
+        }
+      }
+    }
+  }
 }
 
 @mixin global_menu_padding {

@@ -987,7 +987,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .switcher-list, .workspace-switcher-container, .nm-dialog, .login-dialog {
   color: #ffffff;
   border-image: url("assets/osd_background.svg") 40 40 40 40;
-  border-width: 24px;
+  border-width: 25px;
 }
 
 /* Tiled window previews */
@@ -1875,9 +1875,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* OVERVIEW */
 #overview {
-  background: url("assets/overview_gradient.png") rgba(17, 17, 17, 0.8) !important;
-  background-repeat: top left !important;
-  background-size: cover !important;
+  background: url("assets/overview_gradient.svg") rgba(17, 17, 17, 0.6);
+  background-size: cover;
   spacing: 24px;
 }
 
@@ -2066,10 +2065,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border: 1px solid rgba(244, 244, 244, 0.1);
   text-align: center;
   -x-offset: 8px;
-}
-
-#dash StWidget {
-  transition-duration: 250ms;
 }
 
 #dashtodockContainer StWidget {
@@ -2310,6 +2305,20 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer.extended .show-apps:checked, #dashtodockContainer.extended .show-apps:active {
   background-color: rgba(218, 72, 22, 0.9) !important;
+}
+
+.dashtopanelMainPanel .show-apps .overview-icon {
+  background-color: rgba(233, 84, 32, 0.9) !important;
+  padding: 0.18em;
+  margin: auto 0.18em;
+}
+
+.dashtopanelMainPanel .show-apps:hover .overview-icon {
+  background-color: #eb6637 !important;
+}
+
+.dashtopanelMainPanel .show-apps:active .overview-icon, .dashtopanelMainPanel .show-apps:checked .overview-icon {
+  background-color: #da4816 !important;
 }
 
 .app-folder-popup {
@@ -2964,7 +2973,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   box-shadow: inset 0 0 1px rgba(37, 37, 37, 0.75);
 }
 
-.login-dialog .modal-dialog-button:hover, .login-dialog .modal-dialog-button:focus {
+.login-dialog .modal-dialog-button.default, .login-dialog .modal-dialog-button:hover, .login-dialog .modal-dialog-button:focus {
   box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
