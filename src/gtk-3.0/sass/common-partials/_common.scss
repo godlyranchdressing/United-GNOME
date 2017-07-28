@@ -1757,8 +1757,8 @@ headerbar {
   //     background-image: image($headerbar_bg_color);
   //   }
   // }
-  separator{
-    &, &.titlebutton{
+  separator {
+    &, &.titlebutton {
       margin: ($container_padding * 2) 0;
       background-image: image(if($headerbar == "dark" and $variant == "light", $dark_border_color, $border_color));
     }
@@ -4504,19 +4504,18 @@ decoration {
 // Titlebutton //
 headerbar,
 .titlebar {
-  &.default-decoration button.titlebutton {
-    color: transparent;
-    padding: 0 4px;
-    min-width: 0;
-    min-height: 0;
-    margin: 0;
+  &, &.default-decoration {
+    button.titlebutton {
+      color: transparent;
+      min-width: 0;
+      min-height: 0;
+      margin: 0;
+    }
   }
 
   button.titlebutton {
     padding: 0;
     box-shadow: none;
-    min-width: 20px;
-    min-height: 20px;
 
     &.close, &.maximize, &.minimize {
       background-color: transparent;

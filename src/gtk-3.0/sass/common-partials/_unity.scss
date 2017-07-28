@@ -156,7 +156,7 @@ UnityPanelWidget,
 }
 
 .unity-csd {
-  // unround window corners in unity 
+  // unround window corners in unity
   headerbar {
     &, &:not(.titlebar), &.titlebar {
       border-radius: 0px;

@@ -4,9 +4,3 @@ titlebutton-minimize
 titlebutton-close-backdrop
 titlebutton-maximize-backdrop
 titlebutton-minimize-backdrop
-titlebutton-close-dark
-titlebutton-maximize-dark
-titlebutton-minimize-dark
-titlebutton-close-dark-backdrop
-titlebutton-maximize-dark-backdrop
-titlebutton-minimize-dark-backdrop

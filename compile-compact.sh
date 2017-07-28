@@ -10,24 +10,18 @@ COMMON_ASSETS_FOLDER="src/gtk-2.0/common-assets"
 COMMON_FOLDER="src/gtk-2.0/common-files-compact"
 ###
 
-echo "Compiling and copying..."
 for distro in `cat $DISTROS`; do
-  if [ $distro = "ubuntu" ]; then
-    # I never said I knew what I was doing
-    cp src/unity/common/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/unity
-    cp src/unity/common/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/unity
-    cp src/unity/common/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/unity
-    cp src/unity/dark/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/unity
-    cp src/unity/dark/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/unity
-  fi
-  if [ $distro = "ubuntu-alt" ]; then
-    # def will fix
-    cp src/unity-alt/common/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/unity
-    cp src/unity-alt/common/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/unity
-    cp src/unity-alt/common/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/unity
-    cp src/unity-alt/dark/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/unity
-    cp src/unity-alt/dark/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/unity
-  fi
+  echo "Compiling and copying for ${distro^}-Compact variant"
+  if [ "$distro" = "ubuntu" ] || [ "$distro" = "ubuntu-alt" ]; then
+    # Copy Unity files
+    for variant in '' '-Dark' '-Darker'; do
+        cp src/unity/ubuntu-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant}-Compact/unity
+        cp src/unity/common-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant}-Compact/unity
+        if [ "$variant" = "-Dark" ] || [ "$variant" = "-Darker" ]; then
+          cp src/unity/common-dark-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant}-Compact/unity
+        fi
+      done
+    fi
 
   for variant in '','' '-light','-Light' '-opaque','-Dark'; do IFS=","; set -- $variant;
     sassc -t expanded src/gnome-shell/sass/$distro/gnome-shell-$distro${1}-compact.scss $OUTPUT/United-${distro^}-Compact/United-${distro^}${2}-Compact/gnome-shell/gnome-shell.css
@@ -36,7 +30,7 @@ for distro in `cat $DISTROS`; do
     rm $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-3.0/assets/* -R
     cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-3.0/assets/ -R
     cp src/gtk-3.0/distro-assets/${distro}-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-3.0/assets/ -R
-    cp src/metacity-1/light-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/metacity-1/
+    cp src/metacity-1/common-light-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/metacity-1/
     cp src/metacity-1/common-files/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/metacity-1/
     for buttons in '-minimize' '-maximize' '-close'; do
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/metacity-1/
@@ -59,8 +53,8 @@ for distro in `cat $DISTROS`; do
       cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/
-      cp src/metacity-1/dark-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
-      cp src/metacity-1/dark-assets/titlebutton${buttons}-dark-backdrop.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
+      cp src/metacity-1/common-dark-assets/titlebutton${buttons}.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
+      cp src/metacity-1/common-dark-assets/titlebutton${buttons}-backdrop.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
     done
@@ -76,8 +70,8 @@ for distro in `cat $DISTROS`; do
       cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
-      cp src/metacity-1/dark-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
-      cp src/metacity-1/dark-assets/titlebutton${buttons}-dark-backdrop.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
+      cp src/metacity-1/common-dark-assets/titlebutton${buttons}.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
+      cp src/metacity-1/common-dark-assets/titlebutton${buttons}-backdrop.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
       cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
     done
