@@ -11,6 +11,9 @@ DARK_ASSETS_DIR="common-dark-assets"
 
 INDEX="common-assets.txt"
 
+rm $ASSETS_DIR/*
+rm $DARK_ASSETS_DIR/*
+
 for i in `cat $INDEX`
 do
 

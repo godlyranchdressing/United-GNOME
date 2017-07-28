@@ -141,23 +141,26 @@
     }
   }
 
-  .dashtopanelMainPanel {
-    .show-apps {
-      .overview-icon {
-        background-color: $launcher_background !important;
-        padding: 0.18em;
-        margin: auto 0.18em;
-      }
-
-      &:hover {
+  @if $distro == "ubuntu" or $distro == "ubuntu-alt" or $distro == "fedora" or $distro == "solus"{
+    // give a background to launcher icons that need one
+    .dashtopanelMainPanel {
+      .show-apps {
         .overview-icon {
-          background-color: _hover_shade($primary_color) !important;
+          background-color: $launcher_background !important;
+          padding: 0.18em;
+          margin: auto 0.18em;
         }
-      }
 
-      &:active, &:checked {
-        .overview-icon {
-          background-color: _pressed_shade($primary_color) !important;
+        &:hover {
+          .overview-icon {
+            background-color: _hover_shade($launcher_background) !important;
+          }
+        }
+
+        &:active, &:checked {
+          .overview-icon {
+            background-color: _pressed_shade($launcher_background) !important;
+          }
         }
       }
     }
