@@ -9,12 +9,16 @@ res=$gnomeShell/gnome-shell-theme.gresource
 path="";
 
 function showHelp {
-    echo "Usage. united-login-installer [ -iu ] [ variant ]. E.g. united-login-installer -i
-Used to install UNITED Gnome login theme. Can be also used to uninstall login themes.
+    echo "Used to install United-GNOME login themes and rollback changes.
+ Usage: ./united-login-theme-installer.sh [ -i/-u ] [ variant ].
+
  -i = Install
  -u = Uninstall
  -h | --help | ? = Help
- variant = Variation of login theme. E.g ubuntu, opensuse or fedora.";
+ variant = Variation of login theme. E.g ubuntu, opensuse or fedora.
+
+ Install example: united-login-installer -i fedora
+ Uninstall example: united-login-installer -u";
 }
 
 function exists {
@@ -23,12 +27,12 @@ function exists {
 
 function checkStatus {
     status=$?;
-    if [ "$status" -gt 0 ]; then echo "Failure in execution! Exiting with code: $status" && exit $status; fi
+    if [ "$status" -gt 0 ]; then echo "Failure in execution! Exiting with code: $status" && uninstall && exit $status; fi
 }
 
 function install {
     echo "Installing $1 login theme...";
-    # If back up resource is found uninstall old before. 
+    # If back up resource is found uninstall old before.
     if [ -f $res.bak ]; then
         uninstall;
     fi;
@@ -36,7 +40,7 @@ function install {
 
     exists "$gnomeShell";
 
-    echo "Asking sudo rights to move original theme as back up.";
+    echo "Asking for sudo rights to backup original login theme.";
     echo "mv $res $res.bak";
 
     sudo mv $res $res.bak
@@ -52,7 +56,7 @@ function install {
     echo "Compile command found: $compile...";
 
     cd "`pwd`/$variation";
-    
+
     echo "Compiling gnome-shell-theme.gresource.xml...";
     $compile gnome-shell-theme.gresource.xml
     checkStatus
@@ -74,7 +78,7 @@ function uninstall {
     echo "Asking sudo rights to restore.";
     sudo rm -f $gnomeShell/gnome-shell-theme.gresource;
     checkStatus
-    
+
     sudo mv $res.bak $res
     checkStatus
 
@@ -87,7 +91,7 @@ function reboot {
     if [ "$allowReboot" == "y" ]; then
         rebootCommand=`which reboot`;
         test ${#rebootCommand} -eq 0 && echo "Reboot command not found, exiting" && exist 1;
-        
+
         echo "Reboot command found: $rebootCommand";
 
         sudo $rebootCommand now;

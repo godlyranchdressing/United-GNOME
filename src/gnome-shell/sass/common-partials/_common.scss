@@ -738,18 +738,16 @@ StScrollBar {
       background-color: $fill_color;
     }
 
-    &:hover, &.selected, &:active{
+    &:hover, &.selected, &:active {
       color: $fg_color;
     }
 
     &:checked {
-
       border-top: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
       border-bottom: 1px solid if($variant == "light", transparentize($fg_color, 0.5), $border_color);
-
       font-weight: 400;
 
-      &, &.selected{
+      &, &.selected {
         color: if($variant == "light", $light_fg_color, $fg_color);
         background-color: if($variant == "light", $primary_color, $fill_color);
       }
@@ -1478,7 +1476,12 @@ StScrollBar {
   margin: 8px 8px 0;
 
   &, &:hover, &:focus, &:active {
-    box-shadow: inset 0 0 1px $lighter_bg_color, 0 0 1px $lighter_bg_color !important;
+    @if $variant == "light" {
+      box-shadow: inset 0 -1px scale-alpha(black, 0.2);
+    }
+    @else {
+      box-shadow: inset 0 0 1px $lighter_bg_color, 0 0 1px $lighter_bg_color !important;
+    }
   }
 }
 
@@ -1828,10 +1831,9 @@ StScrollBar {
 /* OVERVIEW */
 
 #overview {
-  background: url("assets/overview_gradient.svg") transparentize($black, .4);
+  background: url("assets/overview_gradient.svg") transparentize($black, 0.4);
   background-size: cover;
   spacing: 24px;
-
 
   //
   StScrollBar {
@@ -3019,6 +3021,7 @@ $legacy_icon_size: 24px;
 
 #lockDialogGroup {
   background: $primary_color url("assets/noise-texture.svg");
+
   //background: $primary_color url("assets/background.png");
   background-size: cover;
 }

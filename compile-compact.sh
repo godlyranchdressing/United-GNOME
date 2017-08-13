@@ -1,114 +1,101 @@
 #! /bin/bash
-DISTROS="distros.txt"
-COMPILED_FOLDER="sass/compiled-css"
-OUTPUT="Compiled-Compact"
+THEME="United"
+SIZE="-Compact"
+VARIANTS="distros.txt"
 
-# GTK2 #
-DISTRO_FOLDER="src/gtk-2.0/distro-gtk-files"
-ASSETS_FOLDER="src/gtk-2.0/distro-assets"
-COMMON_ASSETS_FOLDER="src/gtk-2.0/common-assets"
-COMMON_FOLDER="src/gtk-2.0/common-files-compact"
-###
-
-for distro in `cat $DISTROS`; do
-  echo "Compiling and copying for ${distro^}-Compact variant"
-  if [ "$distro" = "ubuntu" ] || [ "$distro" = "ubuntu-alt" ]; then
-    # Copy Unity files
+for distro in `cat $VARIANTS`; do
+  echo "Working on ${distro^}$SIZE"
+  if [[ "$distro" = "ubuntu" ]] || [[ "$distro" = "ubuntu-alt" ]]; then
+    ##### Unity #####
     for variant in '' '-Dark' '-Darker'; do
-        cp src/unity/ubuntu-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant}-Compact/unity
-        cp src/unity/common-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant}-Compact/unity
-        if [ "$variant" = "-Dark" ] || [ "$variant" = "-Darker" ]; then
-          cp src/unity/common-dark-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant}-Compact/unity
-        fi
-      done
+      INPUT=src/unity
+      OUTPUT=Compiled$SIZE/$THEME-${distro^}$SIZE/$THEME-${distro^}$variant$SIZE/
+
+      cp $INPUT/ubuntu-assets/* $OUTPUT/unity
+      cp $INPUT/common-assets/* $OUTPUT/unity
+
+      if [ "$variant" = "-Dark" ] || [ "$variant" = "-Darker" ]; then
+        cp $INPUT/common-dark-assets/* $OUTPUT/unity
+      fi
+    done
+  fi
+
+  for variant in "","" "-opaque","-Dark" "-light","-Light"; do IFS=","; set -- $variant;
+    ##### Shell #####
+    SASS=src/gnome-shell/sass/$distro
+    INPUT=src/gnome-shell
+    OUTPUT=Compiled$SIZE/$THEME-${distro^}$SIZE/$THEME-${distro^}$2$SIZE/gnome-shell
+
+    cp $INPUT/common-assets/* $OUTPUT/assets/ -R
+    cp $INPUT/distro-assets/$distro/* $OUTPUT/assets/ -R
+    sassc -t expanded $SASS/gnome-shell-$distro$1${SIZE,,}.scss $OUTPUT/gnome-shell.css
+
+    if [[ "$2" = "-Dark" ]]; then
+      cp src/gnome-shell/common-assets-dark/* $OUTPUT/assets/ -R
+    elif [[ "$2" = "-Light" ]]; then
+      cp src/gnome-shell/common-assets-light/* $OUTPUT/assets/ -R
+    fi
+  done
+
+  for variant in "","" "-dark","-Dark" "-darker","-Darker"; do IFS=","; set -- $variant;
+    ##### GTK3 #####
+    SASS=src/gtk-3.0/sass/$distro
+    INPUT=src/gtk-3.0
+    OUTPUT=Compiled$SIZE/$THEME-${distro^}$SIZE/$THEME-${distro^}$2$SIZE/gtk-3.0
+
+    rm $OUTPUT/assets/*
+    cp $INPUT/common-assets/checkboxes-common/* $OUTPUT/assets/
+    cp $INPUT/common-assets/symbolic-icons/* $OUTPUT/assets/
+    cp $INPUT/common-assets/checkboxes-dark/* $OUTPUT/assets/
+    cp $INPUT/distro-assets/$distro/* $OUTPUT/assets/
+    sassc -t expanded $SASS/gtk-$distro$1${SIZE,,}.scss $OUTPUT/gtk.css
+
+    if [[ "$2" = "" ]] || [[ "$2" = "-Darker" ]]; then
+      sassc -t expanded $SASS/gtk-$distro-dark${SIZE,,}.scss $OUTPUT/gtk-dark.css
+      cp $INPUT/common-assets/checkboxes/* $OUTPUT/assets/
     fi
 
-  for variant in '','' '-light','-Light' '-opaque','-Dark'; do IFS=","; set -- $variant;
-    sassc -t expanded src/gnome-shell/sass/$distro/gnome-shell-$distro${1}-compact.scss $OUTPUT/United-${distro^}-Compact/United-${distro^}${2}-Compact/gnome-shell/gnome-shell.css
-    sassc -t expanded src/gtk-3.0/sass/$distro/gtk-$distro-compact.scss $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-3.0/gtk.css
-    sassc -t expanded src/gtk-3.0/sass/$distro/gtk-$distro-dark-compact.scss $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-3.0/gtk-dark.css
-    rm $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-3.0/assets/* -R
-    cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-3.0/assets/ -R
-    cp src/gtk-3.0/distro-assets/${distro}-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-3.0/assets/ -R
-    cp src/metacity-1/common-light-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/metacity-1/
-    cp src/metacity-1/common-files/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/metacity-1/
-    for buttons in '-minimize' '-maximize' '-close'; do
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/metacity-1/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/metacity-1/
-    done
+    if [[ "$1" = "" ]]; then
+      cp $INPUT/common-assets/window-buttons/* $OUTPUT/assets
+    elif [[ "$2" = "-Dark" ]] || [[ "$2" = "-Darker" ]]; then
+      cp $INPUT/common-assets/window-buttons-dark/* $OUTPUT/assets
+    fi
   done
 
-  for variant in "" '-Dark'; do
-    rm $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant^}-Compact/gnome-shell/assets/* -R
-    cp src/gnome-shell/common-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant^}-Compact/gnome-shell/assets/ -R
-    cp src/gnome-shell/distro-assets/$distro-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant^}-Compact/gnome-shell/assets/ -R
+  for variant in "","" "-dark","-Dark" "-darker","-Darker"; do IFS=","; set -- $variant;
+    ##### Metacity #####
+    INPUT=src/metacity-1
+    OUTPUT=Compiled$SIZE/$THEME-${distro^}$SIZE/$THEME-${distro^}$2$SIZE/metacity-1
+    rm $OUTPUT/*
+    cp $INPUT/common-files/* $OUTPUT
+
+    if [[ "$1" = "" ]]; then
+      cp $INPUT/common-light-assets/* $OUTPUT
+    elif [[ "$2" = "-Dark" ]] || [[ "$2" = "-Darker" ]]; then
+      cp $INPUT/common-dark-assets/* $OUTPUT
+    fi
   done
 
-  for variant in '-Dark'; do
-    sassc -t expanded src/gtk-3.0/sass/$distro/gtk-$distro-dark-compact.scss $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/gtk.css
-    rm $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/* -R
-    cp src/gnome-shell/common-assets-dark/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant^}-Compact/gnome-shell/assets/ -R
-    cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/ -R
-    for buttons in '-minimize' '-maximize' '-close'; do
-      cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/gtk-3.0/assets/
-      cp src/metacity-1/common-dark-assets/titlebutton${buttons}.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
-      cp src/metacity-1/common-dark-assets/titlebutton${buttons}-backdrop.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Dark-Compact/metacity-1/
-    done
-  done
+  for variant in "","" "-dark","-Dark" "-darker","-Darker"; do IFS=","; set -- $variant;
+    ##### GTK2 #####
+    GTK=src/gtk-2.0/distro-gtk-files/$distro
+    COMMON=src/gtk-2.0/common-files${SIZE,,}
+    INPUT=src/gtk-2.0
+    OUTPUT=Compiled$SIZE/$THEME-${distro^}$SIZE/$THEME-${distro^}$2$SIZE/gtk-2.0
+    rm $OUTPUT/assets/* -R
+    cp $GTK/gtkrc-$distro$1 $OUTPUT/gtkrc
+    cp $COMMON/hacks.rc $OUTPUT/hacks.rc
+    cp $COMMON/main.rc $OUTPUT/main.rc
 
-  for variant in '-Darker'; do
-    sassc -t expanded src/gtk-3.0/sass/$distro/gtk-$distro-darker-compact.scss $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/gtk.css
-    sassc -t expanded src/gtk-3.0/sass/$distro/gtk-$distro-dark-compact.scss $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/gtk-dark.css
-    rm $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/* -R
-    cp src/gtk-3.0/common-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/ -R
-    cp src/gtk-3.0/distro-assets/$distro-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/ -R
-    for buttons in '-minimize' '-maximize' '-close'; do
-      cp src/gtk-3.0/common-assets/titlebutton${buttons}-dark.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active*.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/gtk-3.0/assets/
-      cp src/metacity-1/common-dark-assets/titlebutton${buttons}.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
-      cp src/metacity-1/common-dark-assets/titlebutton${buttons}-backdrop.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-hover.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
-      cp src/gtk-3.0/distro-assets/${distro}-assets/titlebutton${buttons}-active.png $OUTPUT/United-${distro^}-Compact/United-${distro^}-Darker-Compact/metacity-1/
-    done
-  done
-
-  for variant in '-Light'; do
-    cp src/gnome-shell/common-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant^}-Compact/gnome-shell/assets/ -R
-    cp src/gnome-shell/common-assets-light/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant^}-Compact/gnome-shell/assets/ -R
-    cp src/gnome-shell/distro-assets/$distro-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}${variant^}-Compact/gnome-shell/assets/ -R
-  done
-
-  for variant in 'dark'; do
-    for file_name in 'Dark'; do
-      cp ${DISTRO_FOLDER}/${distro}/gtkrc-${variant}-${distro} $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/gtkrc
-      cp ${COMMON_FOLDER}/main.rc $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/main.rc
-      cp ${COMMON_FOLDER}/hacks-dark.rc $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/hacks.rc
-      rm $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/assets/*
-      cp ${COMMON_ASSETS_FOLDER}-${variant}/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/assets/
-      cp ${ASSETS_FOLDER}/${distro}/${distro}-${variant}-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/assets/
-    done
-  done
-  for variant in 'darker'; do
-    for file_name in 'Darker'; do
-      cp ${DISTRO_FOLDER}/${distro}/gtkrc-${variant}-${distro} $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/gtkrc
-      cp ${COMMON_FOLDER}/main.rc $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/main.rc
-      cp ${COMMON_FOLDER}/hacks.rc $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/hacks.rc
-      rm $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/assets/*
-      cp src/gtk-2.0/common-assets-light/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/assets/
-      cp ${ASSETS_FOLDER}/${distro}/${distro}-light-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-$file_name-Compact/gtk-2.0/assets/
-    done
-  done
-  for variant in 'light'; do
-    cp ${DISTRO_FOLDER}/${distro}/gtkrc-${distro} $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-2.0/gtkrc
-    cp ${COMMON_FOLDER}/main.rc $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-2.0/main.rc
-    cp ${COMMON_FOLDER}/hacks.rc $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-2.0/hacks.rc
-    rm $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-2.0/assets/*
-    cp ${COMMON_ASSETS_FOLDER}-${variant}/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-2.0/assets/
-    cp ${ASSETS_FOLDER}/${distro}/${distro}-${variant}-assets/* $OUTPUT/United-${distro^}-Compact/United-${distro^}-Compact/gtk-2.0/assets/
+    if [[ "$2" != "-Dark" ]]; then
+      cp $INPUT/common-assets-light/* $OUTPUT/assets/ -R
+      cp $INPUT/distro-assets/$distro/$distro-light-assets/* $OUTPUT/assets/
+    else
+      cp $COMMON//hacks-dark.rc $OUTPUT
+      cp $INPUT/common-assets-dark/* $OUTPUT/assets/ -R
+      cp $INPUT/distro-assets/$distro/$distro-dark-assets/* $OUTPUT/assets/
+    fi
   done
 done
+
+echo "Done!"

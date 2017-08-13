@@ -120,6 +120,12 @@ headerbar.titlebar button.title {
   // the calculator's title is a button
   @include button(normal, $in_headerbar: true);
 
+  @if $headerbar == "dark" {
+    label, widget {
+      color: $headerbar_fg_color;
+    }
+  }
+
   &:hover {
     @include button(hover, $lighter_bg_color, $primary_color);
   }
@@ -133,6 +139,12 @@ headerbar.titlebar button.title {
   }
 }
 
+@if $headerbar == "dark" {
+  grid.math-buttons {
+    background-color: $base_color;
+  }
+}
+
 /************
  * Rhythmbox *
  ************/
@@ -141,7 +153,9 @@ headerbar.titlebar button.title {
   background-color: $alt_bg_color;
   box-shadow: none;
 
-  &:selected{background-color: $primary_color;}
+  &:selected {
+    background-color: $primary_color;
+  }
 }
 
 toolbar.sidebar-toolbar toolitem button {

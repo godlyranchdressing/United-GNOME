@@ -1,19 +1,21 @@
 #! /bin/bash
-DISTROS="distros.txt"
+DISTROS="../distros.txt"
+SIZE=""
 
-echo "Compressing..."
-
+cd Compiled$SIZE
 for distro in `cat $DISTROS`; do
-    cd Compiled
-    cd United-${distro^}
-    cp ../../src/index.theme United-${distro^}
-    cp ../../src/index.theme United-${distro^}-Dark
-    cp ../../src/index.theme United-${distro^}-Darker
-    tar -czf United-${distro^}.tar.gz United-${distro^} United-${distro^}-Light United-${distro^}-Darker United-${distro^}-Dark
-    mv United-${distro^}.tar.gz ../..
-    cd ..
+  echo "Compressing ${distro^}"
+  cd United-${distro^}$SIZE
+  cp ../../src/index.theme United-${distro^}$SIZE
+  cp ../../src/index.theme United-${distro^}-Dark$SIZE
+  cp ../../src/index.theme United-${distro^}-Darker$SIZE
+  tar -czf United-${distro^}$SIZE.tar.gz United-${distro^}$SIZE United-${distro^}-Light$SIZE United-${distro^}-Darker$SIZE United-${distro^}-Dark$SIZE
+  mv United-${distro^}$SIZE.tar.gz ../..
+  cd ..
 done
 
 cd ..
-mv United-Opensuse.tar.gz United-OpenSUSE.tar.gz
-mv United-Ubuntu.tar.gz United-Latest.tar.gz
+mv United-Opensuse$SIZE.tar.gz United-OpenSUSE$SIZE.tar.gz
+mv United-Ubuntu$SIZE.tar.gz United-Latest$SIZE.tar.gz
+
+echo "Done!"
