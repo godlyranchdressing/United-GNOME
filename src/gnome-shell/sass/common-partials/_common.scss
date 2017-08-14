@@ -1006,7 +1006,7 @@ StScrollBar {
 
 #panel {
   background-color: if($transparency == true, transparentize($panel_bg_color, 0.6), $panel_bg_color);
-  box-shadow: if($variant == "light", $popover_shadow, none);
+  box-shadow: if($variant == "light", $popover_shadow, $popover_shadow_light);
   font-size: 9.5pt;
   height: if($compact == true, 2em, 2.4em);
 
