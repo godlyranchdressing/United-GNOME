@@ -621,8 +621,8 @@ button.toggle {
 }
 
 
-button.image-button:not(.text-button):hover,
-button.toggle:not(.text-button):hover {
+button.image-button:not(.text-button):not(.flat):hover,
+button.toggle:not(.text-button):not(.flat):hover {
   background-color: #eb6637;
   color: white;
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
@@ -632,8 +632,8 @@ button.toggle:not(.text-button):hover {
 }
 
 
-button.image-button:not(.text-button):active,
-button.toggle:not(.text-button):active {
+button.image-button:not(.text-button):not(.flat):active,
+button.toggle:not(.text-button):not(.flat):active {
   background-color: #da4816;
   color: white;
   border-color: #da4816;
@@ -642,8 +642,8 @@ button.toggle:not(.text-button):active {
 }
 
 
-button.image-button:not(.text-button):checked,
-button.toggle:not(.text-button):checked {
+button.image-button:not(.text-button):not(.flat):checked,
+button.toggle:not(.text-button):not(.flat):checked {
   color: white;
   background-color: #E95420;
   border-color: #da4816;
@@ -651,26 +651,26 @@ button.toggle:not(.text-button):checked {
 }
 
 
-button.image-button:not(.text-button):checked:active,
-button.image-button:not(.text-button):checked:hover,
-button.toggle:not(.text-button):checked:active,
-button.toggle:not(.text-button):checked:hover {
+button.image-button:not(.text-button):not(.flat):checked:active,
+button.image-button:not(.text-button):not(.flat):checked:hover,
+button.toggle:not(.text-button):not(.flat):checked:active,
+button.toggle:not(.text-button):not(.flat):checked:hover {
   color: white;
   background-color: #da4816;
 }
 
 
-button.image-button:not(.text-button):checked:disabled,
-button.toggle:not(.text-button):checked:disabled {
+button.image-button:not(.text-button):not(.flat):checked:disabled,
+button.toggle:not(.text-button):not(.flat):checked:disabled {
   background-color: rgba(218, 72, 22, 0.7);
   border-color: rgba(218, 72, 22, 0.1);
 }
 
 
-button.image-button:not(.text-button):checked:disabled,
-button.image-button:not(.text-button):checked:disabled *,
-button.toggle:not(.text-button):checked:disabled,
-button.toggle:not(.text-button):checked:disabled * {
+button.image-button:not(.text-button):not(.flat):checked:disabled,
+button.image-button:not(.text-button):not(.flat):checked:disabled *,
+button.toggle:not(.text-button):not(.flat):checked:disabled,
+button.toggle:not(.text-button):not(.flat):checked:disabled * {
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -2442,8 +2442,8 @@ headerbar spinbutton button {
 }
 
 headerbar separator, headerbar separator.titlebutton {
-  background-color: #F4F4F4;
-  background-image: image(#F4F4F4);
+  margin: 12px 0;
+  background-image: image(rgba(0, 0, 0, 0.15));
 }
 
 .titlebar:not(headerbar):not(.path-bar) {
@@ -5368,10 +5368,10 @@ messagedialog.csd decoration {
   border-radius: 6px;
 }
 
-headerbar.default-decoration button.titlebutton,
+headerbar button.titlebutton, headerbar.default-decoration button.titlebutton,
+.titlebar button.titlebutton,
 .titlebar.default-decoration button.titlebutton {
   color: transparent;
-  padding: 0 4px;
   min-width: 0;
   min-height: 0;
   margin: 0;
@@ -5381,18 +5381,6 @@ headerbar button.titlebutton,
 .titlebar button.titlebutton {
   padding: 0;
   box-shadow: none;
-  min-width: 22px;
-  min-height: 22px;
-  background-size: 16px;
-  color: #E95420;
-  color: #da4816;
-  color: rgba(94, 94, 94, 0.5);
-  color: #E95420;
-  color: #da4816;
-  color: rgba(94, 94, 94, 0.5);
-  color: #E95420;
-  color: #da4816;
-  color: rgba(94, 94, 94, 0.5);
 }
 
 headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, headerbar button.titlebutton.minimize,
@@ -5402,72 +5390,58 @@ headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, heade
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
-  border-width: 0;
-  border-radius: 9999px;
+}
+
+headerbar button.titlebutton.close image, headerbar button.titlebutton.maximize image, headerbar button.titlebutton.minimize image,
+.titlebar button.titlebutton.close image,
+.titlebar button.titlebutton.maximize image,
+.titlebar button.titlebutton.minimize image {
+  color: transparent;
 }
 
 headerbar button.titlebutton.close,
 .titlebar button.titlebutton.close {
-  background-image: -gtk-recolor(url("assets/window-close.symbolic.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-close.png"), url("assets/titlebutton-close@2.png"));
 }
 
-headerbar button.titlebutton.close:hover image,
-.titlebar button.titlebutton.close:hover image {
-  color: transparent;
+headerbar button.titlebutton.close:hover,
+.titlebar button.titlebutton.close:hover {
+  background-image: -gtk-scaled(url("assets/titlebutton-close-hover.png"), url("assets/titlebutton-close-hover@2.png"));
 }
 
-headerbar button.titlebutton.close:active image,
-.titlebar button.titlebutton.close:active image {
-  color: transparent;
-}
-
-headerbar button.titlebutton.close:backdrop image,
-.titlebar button.titlebutton.close:backdrop image {
-  color: transparent;
+headerbar button.titlebutton.close:active,
+.titlebar button.titlebutton.close:active {
+  background-image: -gtk-scaled(url("assets/titlebutton-close-active.png"), url("assets/titlebutton-close-active@2.png"));
 }
 
 headerbar button.titlebutton.maximize,
 .titlebar button.titlebutton.maximize {
-  background-image: -gtk-recolor(url("assets/window-maximize.symbolic.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize.png"), url("assets/titlebutton-maximize@2.png"));
 }
 
-headerbar button.titlebutton.maximize:hover image,
-.titlebar button.titlebutton.maximize:hover image {
-  color: transparent;
+headerbar button.titlebutton.maximize:hover,
+.titlebar button.titlebutton.maximize:hover {
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover.png"), url("assets/titlebutton-maximize-hover@2.png"));
 }
 
-headerbar button.titlebutton.maximize:active image,
-.titlebar button.titlebutton.maximize:active image {
-  color: transparent;
-}
-
-headerbar button.titlebutton.maximize:backdrop image,
-.titlebar button.titlebutton.maximize:backdrop image {
-  color: transparent;
+headerbar button.titlebutton.maximize:active,
+.titlebar button.titlebutton.maximize:active {
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-active.png"), url("assets/titlebutton-maximize-active@2.png"));
 }
 
 headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
-  background-image: -gtk-recolor(url("assets/window-minimize.symbolic.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize.png"), url("assets/titlebutton-minimize@2.png"));
 }
 
-headerbar button.titlebutton.minimize:hover image,
-.titlebar button.titlebutton.minimize:hover image {
-  color: transparent;
+headerbar button.titlebutton.minimize:hover,
+.titlebar button.titlebutton.minimize:hover {
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover.png"), url("assets/titlebutton-minimize-hover@2.png"));
 }
 
-headerbar button.titlebutton.minimize:active image,
-.titlebar button.titlebutton.minimize:active image {
-  color: transparent;
-}
-
-headerbar button.titlebutton.minimize:backdrop image,
-.titlebar button.titlebutton.minimize:backdrop image {
-  color: transparent;
-}
-
-headerbar.default-decoration * {
-  opacity: 0;
+headerbar button.titlebutton.minimize:active,
+.titlebar button.titlebutton.minimize:active {
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-active.png"), url("assets/titlebutton-minimize-active@2.png"));
 }
 
 headerbar:backdrop > *, headerbar.titlebar:backdrop > *, headerbar.default-decoration:backdrop > * {
@@ -5989,6 +5963,10 @@ messagedialog.background.csd box.horizontal.titlebar {
   min-height: 24px;
   background-image: image(#F4F4F4);
   padding: 0px;
+}
+
+box buttonbox.vertical button {
+  border-radius: 6px;
 }
 
 /************
@@ -6826,4 +6804,8 @@ UnityPanelWidget:backdrop,
   to {
     -gtk-icon-transform: rotate(1turn);
   }
+}
+
+.unity-csd headerbar, .unity-csd headerbar:not(.titlebar), .unity-csd headerbar.titlebar {
+  border-radius: 0px;
 }

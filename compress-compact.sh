@@ -1,6 +1,6 @@
 #! /bin/bash
 DISTROS="../distros.txt"
-SIZE=""
+SIZE="-Compact"
 
 cd Compiled$SIZE
 for distro in `cat $DISTROS`; do

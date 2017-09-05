@@ -80,6 +80,7 @@ for distro in `cat $VARIANTS`; do
     ##### GTK2 #####
     GTK=src/gtk-2.0/distro-gtk-files/$distro
     COMMON=src/gtk-2.0/common-files${SIZE,,}
+    CR=src/gtk-2.0/checks-radios/
     INPUT=src/gtk-2.0
     OUTPUT=Compiled$SIZE/$THEME-${distro^}$SIZE/$THEME-${distro^}$2$SIZE/gtk-2.0
     rm $OUTPUT/assets/* -R
@@ -95,6 +96,8 @@ for distro in `cat $VARIANTS`; do
       cp $INPUT/common-assets-dark/* $OUTPUT/assets/ -R
       cp $INPUT/distro-assets/$distro/$distro-dark-assets/* $OUTPUT/assets/
     fi
+
+    cp $CR/* $OUTPUT/assets
   done
 done
 

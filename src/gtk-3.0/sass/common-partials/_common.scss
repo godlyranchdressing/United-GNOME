@@ -3605,7 +3605,8 @@ list {
   border-color: $border_color;
 
   row {
-    padding: if($compact == true, $container_padding / 4, $container_padding / 2);
+    padding: if($compact == true, $container_padding, $container_padding + 4);
+    // min-height: ($normal_size + 4);
   }
 }
 
@@ -3918,7 +3919,7 @@ stacksidebar {
   }
 
   row {
-    padding: if($compact == true, $container_padding / 4, $container_padding / 2);
+    padding: if($compact == true, $container_padding, $container_padding + 4) $container_padding / 2;
 
     > label {
       padding-left: $container_padding;

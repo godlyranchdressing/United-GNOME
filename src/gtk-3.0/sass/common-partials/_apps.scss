@@ -408,36 +408,36 @@ button.ecalendar.flat {
 
 box.sidebar > label {
   // analogous to lists
-  padding: 6px;
+  padding: $container_padding;
 
   &.highlight {
     @extend %selected_items;
   }
 }
 
-buttonbox.vertical > button {
-  // analogous to lists
-  padding: 6px;
-  border-radius: 0px;
-  transition: all 150ms $ease-out-quad;
-
-  &:hover {
-    background-color: if(variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95));
-  }
-
-  &:active {
-    background-color: if(variant == light, transparentize($fg_color, 0.88), transparentize($fg_color, 0.92));
-  }
-
-  &:checked {
-    @extend %selected_items;
-
-    &:hover {
-      color: $highlighted_fg_color;
-      background-color: _pressed_shade($primary_color);
-    }
-  }
-}
+// buttonbox.vertical > button {
+//   // analogous to lists
+//   padding: $container_padding;
+//   border-radius: 0px;
+//   transition: all 150ms $ease-out-quad;
+//
+//   &:hover {
+//     background-color: if(variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95));
+//   }
+//
+//   &:active {
+//     background-color: if(variant == light, transparentize($fg_color, 0.88), transparentize($fg_color, 0.92));
+//   }
+//
+//   &:checked {
+//     @extend %selected_items;
+//
+//     &:hover {
+//       color: $highlighted_fg_color;
+//       background-color: _pressed_shade($primary_color);
+//     }
+//   }
+// }
 
 // box.vertical box.vertical:not(.horizontal) infobar.horizontal.info box.horizontal buttonbox.horizontal:last-child button.toggle:last-child:not(.text-button) {
 // final boss music plays

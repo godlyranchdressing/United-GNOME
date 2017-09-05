@@ -32,7 +32,8 @@ $ubuntu_light_dark: #303037;
 
 // Foreground colors
 $dark_fg_color: $slate;
-$light_fg_color: #ffffff;
+// $light_fg_color: #ffffff;
+$light_fg_color: $silk;
 $light_secondary_fg_color: scale-alpha($dark_fg_color, $secondary_opacity);
 $dark_secondary_fg_color: scale-alpha($light_fg_color, $secondary_opacity);
 $light_tertiary_fg_color: scale-alpha($dark_fg_color, $tertiary_opacity);

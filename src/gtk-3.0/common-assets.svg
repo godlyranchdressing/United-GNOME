@@ -15,7 +15,7 @@
    version="1.1"
    id="svg435"
    sodipodi:docname="common-assets.svg"
-   inkscape:version="0.92.1 r15371">
+   inkscape:version="0.92+devel unknown">
   <defs
      id="defs846">
     <linearGradient
@@ -7995,14 +7995,14 @@
      showgrid="true"
      id="namedview4"
      inkscape:zoom="4.9361532"
-     inkscape:cx="-44.735426"
-     inkscape:cy="21.427709"
-     inkscape:window-width="1848"
-     inkscape:window-height="1119"
-     inkscape:window-x="1438"
-     inkscape:window-y="0"
+     inkscape:cx="84.30619"
+     inkscape:cy="42.391894"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="1366"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg435"
+     inkscape:current-layer="checkbox-checked-9"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -9654,7 +9654,7 @@
        id="checkbox-checked-9">
       <path
          style="fill:#48b259;fill-opacity:1;stroke:none"
-         d="m 555,239.38782 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
+         d="m 555,239.375 c 8,0 8,0.88888 8,8 0,7.11111 0,8 -8,8 -8,0 -8,-0.88889 -8,-8 0,-7.11112 0,-8 8,-8 z"
          id="path5363-7"
          inkscape:connector-curvature="0" />
       <path
@@ -9662,11 +9662,12 @@
          d="m 555,239.375 c -8,0 -8,0.88888 -8,8 0,7.11111 0,8 8,8 8,0 8,-0.88889 8,-8 0,-7.11112 0,-8 -8,-8 z m 0,1 c 1.98144,0 3.45949,0.0756 4.46875,0.25 1.00926,0.17444 1.48125,0.41667 1.78125,0.75 0.3,0.33333 0.51118,0.88855 0.625,1.875 0.11382,0.98645 0.125,2.34722 0.125,4.125 0,1.77778 -0.0112,3.13855 -0.125,4.125 -0.11382,0.98645 -0.325,1.54167 -0.625,1.875 -0.3,0.33333 -0.77199,0.57556 -1.78125,0.75 -1.00926,0.17444 -2.48731,0.25 -4.46875,0.25 -1.98144,0 -3.45949,-0.0756 -4.46875,-0.25 -1.00926,-0.17444 -1.48125,-0.41667 -1.78125,-0.75 -0.3,-0.33333 -0.51118,-0.88855 -0.625,-1.875 -0.11382,-0.98645 -0.125,-2.34722 -0.125,-4.125 0,-1.77778 0.0112,-3.13855 0.125,-4.125 0.11382,-0.98645 0.325,-1.54167 0.625,-1.875 0.3,-0.33333 0.77199,-0.57556 1.78125,-0.75 1.00926,-0.17444 2.48731,-0.25 4.46875,-0.25 z"
          style="fill:#41a050;fill-opacity:1;stroke:none"
          inkscape:connector-curvature="0" />
-      <path
-         style="fill:#ffffff;fill-opacity:1;stroke:none"
-         d="m 549,247.36218 1.84615,-2 2.76923,3 6.46154,-6 H 561 v 1 l -7.38462,9 z"
-         id="path5369-1"
-         inkscape:connector-curvature="0" />
+      <polygon
+         transform="matrix(1.4233618,0,0,1.4245023,544.95462,236.97186)"
+         fill="#FFFFFF"
+         points="6.101,10.813 2.408,8.105 3.592,6.492 5.899,8.187 10.293,3.793 11.707,5.207 "
+         id="polygon36"
+         style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:0.35128102" />
     </g>
   </g>
   <g

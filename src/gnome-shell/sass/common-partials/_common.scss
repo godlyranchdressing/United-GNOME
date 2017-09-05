@@ -3011,7 +3011,7 @@ $legacy_icon_size: 24px;
 }
 
 #panel.lock-screen {
-  background-color: $alt_bg_color;
+  background-color: $panel_bg_color;
 }
 
 .screen-shield-background {
@@ -3020,10 +3020,9 @@ $legacy_icon_size: 24px;
 }
 
 #lockDialogGroup {
-  background: $primary_color url("assets/noise-texture.svg");
-
-  //background: $primary_color url("assets/background.png");
+  background: url("assets/overview_gradient.svg") transparentize($black, 0.4);
   background-size: cover;
+  spacing: 24px;
 }
 
 #screenShieldNotifications {

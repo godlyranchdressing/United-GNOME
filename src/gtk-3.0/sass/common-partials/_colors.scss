@@ -13,7 +13,7 @@
 // primary foreground colors
 $fg_color: if($variant == "light", $dark_fg_color, $light_fg_color);
 $inverse_fg_color: if($variant == "light", $light_fg_color, $dark_fg_color);
-$highlighted_fg_color: $light_fg_color;
+$highlighted_fg_color: white;
 
 // secondary foreground colors
 $secondary_fg_color: if($variant == "light", $light_secondary_fg_color, $dark_secondary_fg_color);

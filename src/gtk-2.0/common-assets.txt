@@ -25,14 +25,8 @@ menu-checkbox
 menu-radio
 menu-checkbox-insensitive
 menu-radio-insensitive
-menu-checkbox-checked
-menu-radio-checked
-menu-checkbox-checked-insensitive
-menu-radio-checked-insensitive
 menu-checkbox-selected
 menu-radio-selected
-menu-checkbox-checked-selected
-menu-radio-checked-selected
 menu-arrow-hover
 checkbox
 checkbox-insensitive
@@ -42,13 +36,6 @@ radio
 radio-insensitive
 radio-hover
 radio-active
-checkbox-checked
-checkbox-checked-hover
-checkbox-checked-insensitive
-radio-checked
-radio-checked-hover
-radio-checked-insensitive
-
 
 up-background
 up-background-disable
