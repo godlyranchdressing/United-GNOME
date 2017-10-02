@@ -38,7 +38,7 @@ window.nautilus-window {
   }
 }
 
-nautilus-desktop-window {
+.nautilus-desktop-window {
   // get rid of white line on the desktop if panel transparency is on
   .searchbar-container searchbar {
     background: transparent;
@@ -46,7 +46,7 @@ nautilus-desktop-window {
 
   .nautilus-desktop.view {
     // give desktop icons white text instead of the variant dependant fg color
-    color: $light_fg_color;
+    color: $highlighted_fg_color;
     text-shadow: 0 -2px 1px $border_color;
   }
 }

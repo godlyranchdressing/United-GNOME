@@ -1648,10 +1648,15 @@ headerbar {
   }
 
   .title {
+    $_title_color: if($variant == "dark" or $headerbar == "dark", white, $headerbar_fg_color);
     transition: $shorter_transition;
     padding: 0 ($container_padding * 2);
-    color: $headerbar_fg_color;
+    color: $_title_color;
     font-weight: 400;
+
+    &:backdrop{
+      color: transparentize($_title_color, .5);
+    }
   }
 
   .subtitle {
@@ -3606,7 +3611,9 @@ list {
 
   row {
     padding: if($compact == true, $container_padding, $container_padding + 4);
+
     // min-height: ($normal_size + 4);
+
   }
 }
 
@@ -3919,7 +3926,7 @@ stacksidebar {
   }
 
   row {
-    padding: if($compact == true, $container_padding, $container_padding + 4) $container_padding / 2;
+    padding: if($compact == true, $container_padding, $container_padding + 4) ($container_padding / 2);
 
     > label {
       padding-left: $container_padding;
