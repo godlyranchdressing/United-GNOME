@@ -1067,6 +1067,13 @@ StScrollBar {
     color: $fg_color;
     transition-duration: $longer_duration;
 
+    &, .system-status-icon, .app-menu-icon > StIcon, .popup-menu-arrow {
+      &, &:hover, &:active {
+        text-shadow: none !important;
+        icon-shadow: none !important;
+      }
+    }
+
     .app-menu-icon {
       -st-icon-style: symbolic;
       color: $fg_color;

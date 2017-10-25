@@ -1649,13 +1649,14 @@ headerbar {
 
   .title {
     $_title_color: if($variant == "dark" or $headerbar == "dark", white, $headerbar_fg_color);
+
     transition: $shorter_transition;
     padding: 0 ($container_padding * 2);
     color: $_title_color;
     font-weight: 400;
 
-    &:backdrop{
-      color: transparentize($_title_color, .5);
+    &:backdrop {
+      color: transparentize($_title_color, 0.5);
     }
   }
 
@@ -4443,6 +4444,15 @@ headerbar {
   }
 }
 
+@each $p in "-left", "-right", "-top", "-bottom" {
+  window.tiled#{$p} {
+    headerbar, .titlebar, paned.titlebar headerbar {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
 decoration {
   transition: $standard_transition;
   box-shadow: $decoration_shadow;
@@ -4525,7 +4535,7 @@ headerbar,
     padding: 0;
     box-shadow: none;
 
-    &.close, &.maximize, &.minimize {
+    &.close, &.maximize, &.minimize, &:not(.close):not(.maximize):not(.minimize) {
       background-color: transparent;
       background-position: center;
       background-repeat: no-repeat;
@@ -4537,13 +4547,20 @@ headerbar,
     }
 
     // Load png assets for each button
-    @each $k in "close", "maximize", "minimize" {
-      &.#{$k} {
-        background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$window_button_suffix}.png"), url("assets/titlebutton-#{$k}#{$window_button_suffix}@2.png"));
+    @each $type in "close", "maximize", "minimize" {
+      $class: $type;
+      $unmaximize: ", &:not(.close):not(.maximize):not(.minimize)";
+
+      @if $type == "maximize" {
+        $class: $type + $unmaximize;
+      }
+
+      &.#{$class} {
+        background-image: -gtk-scaled(url("assets/titlebutton-#{$type}#{$window_button_suffix}.png"), url("assets/titlebutton-#{$type}#{$window_button_suffix}@2.png"));
 
         @each $l, $m in (":hover", "-hover"), (":active", "-active") {
           &#{$l} {
-            background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}.png"), url("assets/titlebutton-#{$k}#{$m}@2.png"));
+            background-image: -gtk-scaled(url("assets/titlebutton-#{$type}#{$m}.png"), url("assets/titlebutton-#{$type}#{$m}@2.png"));
           }
         }
       }
