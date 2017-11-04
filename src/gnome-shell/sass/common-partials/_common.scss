@@ -1011,6 +1011,7 @@ StScrollBar {
   box-shadow: if($variant == "light", $popover_shadow, none);
   font-size: 9.5pt;
   height: if($compact == true, 2em, 2.4em);
+  background-gradient-direction: none;
 
   @if $transparency == true {
     &.solid {
