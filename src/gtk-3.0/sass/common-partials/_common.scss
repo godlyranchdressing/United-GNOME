@@ -4391,6 +4391,18 @@ colorchooser .popover.osd {
 /**********************
  * Window Decorations *
  **********************/
+box.titlebar {
+  // 3.26 settings headerbar is stubborn
+  headerbar {
+    &:last-child {
+      border-radius: 0 $standard_radius 0 0;
+    }
+
+    &:first-child {
+      border-radius: $standard_radius 0 0 0;
+    }
+  }
+}
 
 headerbar {
   &:not(:first-child):last-child {
@@ -4441,15 +4453,6 @@ headerbar {
   .maximized &,
   .tiled & {
     border-radius: 0px;
-  }
-}
-
-@each $p in "-left", "-right", "-top", "-bottom" {
-  window.tiled#{$p} {
-    headerbar, .titlebar, paned.titlebar headerbar {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
   }
 }
 
@@ -4535,7 +4538,7 @@ headerbar,
     padding: 0;
     box-shadow: none;
 
-    &.close, &.maximize, &.minimize, &:not(.close):not(.maximize):not(.minimize) {
+    &.close, &.maximize, &.minimize {
       background-color: transparent;
       background-position: center;
       background-repeat: no-repeat;
@@ -4547,20 +4550,13 @@ headerbar,
     }
 
     // Load png assets for each button
-    @each $type in "close", "maximize", "minimize" {
-      $class: $type;
-      $unmaximize: ", &:not(.close):not(.maximize):not(.minimize)";
-
-      @if $type == "maximize" {
-        $class: $type + $unmaximize;
-      }
-
-      &.#{$class} {
-        background-image: -gtk-scaled(url("assets/titlebutton-#{$type}#{$window_button_suffix}.png"), url("assets/titlebutton-#{$type}#{$window_button_suffix}@2.png"));
+    @each $k in "close", "maximize", "minimize" {
+      &.#{$k} {
+        background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$window_button_suffix}.png"), url("assets/titlebutton-#{$k}#{$window_button_suffix}@2.png"));
 
         @each $l, $m in (":hover", "-hover"), (":active", "-active") {
           &#{$l} {
-            background-image: -gtk-scaled(url("assets/titlebutton-#{$type}#{$m}.png"), url("assets/titlebutton-#{$type}#{$m}@2.png"));
+            background-image: -gtk-scaled(url("assets/titlebutton-#{$k}#{$m}.png"), url("assets/titlebutton-#{$k}#{$m}@2.png"));
           }
         }
       }

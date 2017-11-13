@@ -1884,15 +1884,15 @@ StScrollBar {
 
 .window-caption {
   @extend %label;
-
+  font-weight: bold;
   spacing: 25px;
-  border-color: transparent !important;
-  background-color: transparent !important;
+  border-color: $border_color;
+  background-color: $inverse_semi_fill_color;
   -shell-caption-spacing: 12px;
 
   &:hover {
-    background-color: $black !important;
-    border-color: $border_color !important;
+    background-color: $inverse_fill_color;
+    border-color: $border_color;
     color: $light_fg_color;
   }
 }
