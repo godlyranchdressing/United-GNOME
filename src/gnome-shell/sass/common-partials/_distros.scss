@@ -26,6 +26,10 @@ $accent_color: null;
   $primary_color: #3C6EB4;
   $accent_color: #E59728;
 }
+@else if $distro == "gentoo" {
+  $primary_color: #615389;
+  $accent_color: #C4A972;
+}
 @else if $distro == "manjaro" {
   $primary_color: #1ABC9C;
   $accent_color: #E96D19;
@@ -52,6 +56,9 @@ $launcher_background: if($transparency == true, transparentize($primary_color, 0
 }
 @if $distro == "fedora" {
   $launcher_background: #294172;
+}
+@if $distro == "gentoo" {
+  $launcher_background: #554977;
 }
 @else if $distro == "solus" {
   $launcher_background: #4c5263;

@@ -320,6 +320,10 @@ StScrollBar {
   }
 }
 
+.message-dialog-content {
+  color: $secondary_fg_color;
+}
+
 .show-processes-dialog-subject,
 .mount-question-dialog-subject,
 .end-session-dialog-subject {

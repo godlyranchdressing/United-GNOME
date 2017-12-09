@@ -34,7 +34,7 @@ headerbar, headerbar.titlebar {
         @include button(active, $primary_color, $in_headerbar: true);
       }
 
-      &:checked {
+      &:checked, &:not(.text-button):checked:hover {
         @include button(checked, $primary_color, $in_headerbar: true);
       }
     }
@@ -66,7 +66,7 @@ headerbar, headerbar.titlebar {
         @include button(flat-hover, $primary_color, $in_headerbar: true);
       }
 
-      &:active, &:checked {
+      &:active, &:checked, &:checked:hover {
         @include button(flat-active, $primary_color, $in_headerbar: true);
       }
     }

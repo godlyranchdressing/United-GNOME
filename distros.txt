@@ -4,6 +4,7 @@ antergos
 arch
 debian
 fedora
+gentoo
 manjaro
 opensuse
 solus

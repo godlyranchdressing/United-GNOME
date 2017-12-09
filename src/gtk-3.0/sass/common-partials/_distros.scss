@@ -26,6 +26,10 @@ $accent_color: null;
   $primary_color: #3C6EB4;
   $accent_color: #E59728;
 }
+@else if $distro == "gentoo" {
+  $primary_color: #615389;
+  $accent_color: #9EB96E;
+}
 @else if $distro == "manjaro" {
   $primary_color: #1ABC9C;
   $accent_color: #E96D19;

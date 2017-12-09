@@ -57,6 +57,7 @@ for distro in `cat $VARIANTS`; do
 
     if [[ "$1" = "" ]]; then
       cp $INPUT/common-assets/window-buttons/* $OUTPUT/assets
+      cp $INPUT/common-assets/window-buttons-dark/* $OUTPUT/assets
     elif [[ "$2" = "-Dark" ]] || [[ "$2" = "-Darker" ]]; then
       cp $INPUT/common-assets/window-buttons-dark/* $OUTPUT/assets
     fi
@@ -100,5 +101,3 @@ for distro in `cat $VARIANTS`; do
     cp $CR/* $OUTPUT/assets
   done
 done
-
-echo "Done!"

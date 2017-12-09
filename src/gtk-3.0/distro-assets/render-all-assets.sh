@@ -8,7 +8,7 @@ INDEX="assets.txt"
 for distro in `cat $DISTROS`; do
   for i in `cat $INDEX`; do
     SRC_FILE="source-files/${distro}-assets.svg"
-    ASSETS_DIR="${distro}-assets"
+    ASSETS_DIR="${distro}"
     if [ -f $ASSETS_DIR/$i.png ]; then
       echo $ASSETS_DIR/$i.png exists.
     else

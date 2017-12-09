@@ -1748,7 +1748,7 @@ headerbar {
   }
 
   .titlebar {
-    separator {
+    separator, ~ separator {
       background-color: if($headerbar == "dark", $dark_border_color, $border_color);
     }
   }
