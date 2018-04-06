@@ -4,7 +4,7 @@
 
 * Download any theme variant binaries you wish to install
 * Download and install Loginized application [https://github.com/juhaku/loginized](https://github.com/juhaku/loginized)
-  * Install also __loginized-cli__ This will be asked with first login.
+  * Install also __loginized-cli__ This will be asked with first start up.
 * Extract downloaded theme files to __/usr/share/themes/__
   * __Note!__ These theme files are not compilied so you need to compile the ones you wish to use as login theme. Luckily this is simply by now.
 * Go to theme folder you wish to install as login theme __`$ cd /usr/share/themes/any_theme/gnome-shell`__
