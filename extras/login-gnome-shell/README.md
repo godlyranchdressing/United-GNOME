@@ -1,5 +1,19 @@
 # UNITED Gnome Login gnome shell theme
 
+## New way of installing / Install any variant you wish as login theme
+
+* Download any theme variant binaries you wish to install
+* Download and install Loginized application [https://github.com/juhaku/loginized](https://github.com/juhaku/loginized)
+  * Install also __loginized-cli__ This will be asked with first login.
+* Extract downloaded theme files to __/usr/share/themes/__
+  * __Note!__ These theme files are not compilied so you need to compile the ones you wish to use as login theme. Luckily this is simply by now.
+* Go to theme folder you wish to install as login theme __`$ cd /usr/share/themes/any_theme/gnome-shell`__
+* Compile this theme by running command in folder above __`$ loginized-cli compile . .`__ Note the two dots.
+  * This will process some copy warning but there is no reason for panic, just ignore the copy error.
+* After compile is completed you should be able to install the theme as login theme via __Loginized__ application. or the __loginized-cli__ if you want to use command line.
+
+__If you notice any issues with the theme, something is off place or there is a glitch you can edit the gnome-shell.css and then recompile and reinstall the theme via above mentioned notes. Also you could take a look to [must_fix_css_for_login.txt](https://github.com/godlyranchdressing/United-GNOME/blob/master/extras/login-gnome-shell/must_fix_css_for_login.txt) for already know issues that may need to be fixed before compiling!__
+
 ## Installing
 
 * Open your terminal and browse to folder where "gnome-shell-installer.sh" is located.
