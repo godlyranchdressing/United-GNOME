@@ -1,3 +1,6 @@
+# This theme is unmaintained
+It's been fun and I learned a lot but this theme needs a massive overhaul/fixing (there's been 8 whole GNOME releases since and I haven't even tried the [theme starter](https://github.com/godlyranchdressing/gnome-theme-starter) with GTK4 yet) and it's been superceded a bit by Yaru. I simply don't have the motivation to go through with updating this anymore. Thanks to everyone that's helped and contributed.
+
 United GNOME
 =========
 Based on a Ubuntu 18.04 design concept with some inspiration from Unity 8. Works with and tested on both GNOME 3.24 and 3.22 using Ubuntu GNOME 17.04 and Fedora respectively. The theme will most likely work with 3.20 as well but expect a couple small issues.
